@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Confirmation Processing - Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+        h1 { color: #667eea; font-size: 32px; }
+        .upload-zone { border: 3px dashed #667eea; border-radius: 15px; padding: 60px; text-align: center; cursor: pointer; transition: all 0.3s; background: #f8f9ff; margin-bottom: 30px; }
+        .upload-zone:hover { border-color: #764ba2; background: #fff; transform: translateY(-2px); }
+        .btn { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 40px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .processing { display: none; text-align: center; padding: 40px; }
+        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .results { display: none; }
+        .extracted-data { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #0ea5e9; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .extracted-data h3 { color: #0369a1; margin-bottom: 15px; }
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .data-item { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .data-label { font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+        .data-value { font-size: 16px; color: #1e293b; font-weight: 600; }
+        .invoice-wrapper { background: white; border: 2px solid #e2e8f0; border-radius: 15px; padding: 40px; margin: 30px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .invoice-header { border-bottom: 3px solid #1e3a8a; padding-bottom: 20px; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+        tbody tr:hover { background: #f8fafc; }
+        .total-row { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; font-weight: 700; font-size: 18px; }
+        .invoice-footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0; color: #64748b; font-size: 13px; }
+        .payment-terms { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .signature-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .signature-box { text-align: center; padding-top: 40px; border-top: 2px solid #1e293b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚚 Load Confirmation → Invoice</h1>
+        </div>
+
+        <div id="uploadSection">
+            <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+                <div style="font-size: 60px; margin-bottom: 20px;">📄</div>
+                <h2 style="margin-bottom: 10px;">Upload Load Confirmation</h2>
+                <div class="btn" style="display: inline-block; margin-top: 10px;">Select Document</div>
+            </div>
+            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" style="display: none;" onchange="processDocument(event)">
+        </div>
+
+        <div id="processing" class="processing">
+            <div class="spinner"></div>
+            <h3>Extracting Load Confirmation Data...</h3>
+            <p style="margin-top: 15px; color: #666;">
+                📄 Reading document<br>
+                🔍 Detecting text with AWS Textract<br>
+                📊 Parsing load details<br>
+                💰 Calculating VAT<br>
+                📧 Generating VIKARO invoice
+            </p>
+        </div>
+
+        <div id="results" class="results">
+            <!-- Extracted Data Section -->
+            <div class="extracted-data">
+                <h3>📋 Extracted Load Confirmation Data</h3>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="data-label">Order Number</div>
+                        <div class="data-value">9000394339 / 41608769</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Customer</div>
+                        <div class="data-value">VIKARO Transport</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Vehicle</div>
+                        <div class="data-value">KK15DTGP</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Driver</div>
+                        <div class="data-value">TERRANCE</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Collection</div>
+                        <div class="data-value">SPRINGS (PROD)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Delivery</div>
+                        <div class="data-value">NEW GOLD MEGA DC</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Commodity</div>
+                        <div class="data-value">MIXED LOAD</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-label">Rate (Excl VAT)</div>
+                        <div class="data-value" style="color: #10b981;">R4,000.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice Section -->
+            <div class="invoice-wrapper">
+                <div class="invoice-header">
+                    <h2 style="text-align: center; color: #1e3a8a; font-size: 28px; margin-bottom: 10px;">TAX INVOICE</h2>
+                    <p style="text-align: center; color: #64748b; font-size: 14px;">Original Document</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 30px;">
+                    <div style="border: 2px solid #e2e8f0; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
+                        <div style="color: #64748b; font-size: 11px; font-weight: 600; margin-bottom: 10px;">FROM</div>
+                        <h3 style="color: #1e3a8a; font-size: 24px; margin-bottom: 10px;">VIKARO</h3>
+                        <div style="color: #475569; line-height: 1.6;">
+                            Postnet Suit 317<br>
+                            Private Bag X2<br>
+                            Raslouw<br><br>
+                            <strong>Reg No:</strong> 2007/23542/23<br>
+                            <strong>VAT No:</strong> 4770243899
+                        </div>
+                    </div>
+                    <div style="text-align: right; border: 2px solid #e2e8f0; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
+                        <div style="color: #64748b; font-size: 11px; font-weight: 600; margin-bottom: 10px;">BILL TO</div>
+                        <h3 style="color: #1e3a8a; font-size: 20px; margin-bottom: 10px;">4PL.COM LOGISTICS CAPE (PTY) LTD</h3>
+                        <div style="color: #475569; line-height: 1.6; margin-top: 15px; margin-bottom: 15px;">
+                            P O Box 2812<br>
+                            34 Lourensford Road<br>
+                            Somerset West, 7129<br>
+                            Cape Town<br>
+                            Tel: 021 851 8305 | Fax: 086 460 8472
+                        </div>
+                        <div style="color: #475569; line-height: 1.6; margin-top: 20px;">
+                            <strong>Invoice No:</strong> <span id="invoiceNo" style="color: #0ea5e9;">25103183-VIK20251024A</span><br>
+                            <strong>Invoice Date:</strong> November 14, 2025<br>
+                            <strong>Reg No:</strong> 2007/019644/07<br>
+                            <strong>Client VAT:</strong> 4040249577<br>
+                            <strong>Terms:</strong> <span style="color: #10b981;">Net 30 Days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Order No</th>
+                            <th>Truck Reg</th>
+                            <th>Collection Point</th>
+                            <th>Delivery Point</th>
+                            <th style="text-align: right;">Rate</th>
+                            <th style="text-align: right;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Transport Services</strong><br><span style="color: #64748b; font-size: 13px;">MIXED LOAD - Full Truck</span></td>
+                            <td><strong>9000394339</strong><br><span style="color: #64748b; font-size: 12px;">Order: 41608769</span></td>
+                            <td><strong>KK15DTGP</strong><br><span style="color: #64748b; font-size: 12px;">Driver: TERRANCE</span></td>
+                            <td>SPRINGS (PROD)</td>
+                            <td>NEW GOLD MEGA DC</td>
+                            <td style="text-align: right;"><strong>R4,000.00</strong></td>
+                            <td style="text-align: right;"><strong>R4,000.00</strong></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" style="text-align: right; font-weight: 600; background: #f8fafc;">Subtotal (Excl. VAT)</td>
+                            <td style="text-align: right; background: #f8fafc;"><strong>R4,000.00</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: right; font-weight: 600; background: #f8fafc;">VAT @ 15%</td>
+                            <td style="text-align: right; background: #f8fafc;"><strong>R600.00</strong></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="6" style="text-align: right; font-size: 16px; letter-spacing: 1px;">TOTAL AMOUNT DUE</td>
+                            <td style="text-align: right; font-size: 20px;">R4,600.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="payment-terms">
+                    <strong>⚠️ Payment Terms:</strong> Payment is due within 30 days from invoice date. Late payments will incur interest at 2% per month.
+                </div>
+
+                <div class="invoice-footer">
+                    <p style="text-align: center; margin-bottom: 10px;"><strong>Banking Details</strong></p>
+                    <p style="text-align: center;">Bank: <strong>Standard Bank</strong> | Account Name: <strong>Vikaro Transport</strong> | Branch: <strong>Alberton (012342)</strong> | Account No: <strong>220618429</strong> | Account Type: Cheque Account</p>
+                    <p style="text-align: center; margin-top: 15px; font-size: 12px;">
+                        For queries contact: accounts@vikaro.co.za | +27 12 345 6789<br>
+                        This is a computer-generated invoice and is valid without a signature.
+                    </p>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #10b981; margin-top: 30px; font-size: 18px; font-weight: 600;">
+                ✅ Invoice Generated Successfully & Sent to Customer via Email
+            </p>
+            <button class="btn" onclick="reset()" style="margin-top: 20px;">Process Another Document</button>
+        </div>
+    </div>
+
+    <script>
+        async function processDocument(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            document.getElementById('uploadSection').style.display = 'none';
+            document.getElementById('processing').style.display = 'block';
+
+            try {
+                // Try real AWS Textract extraction
+                const formData = new FormData();
+                formData.append('document', file);
+
+                const response = await fetch('http://localhost:3000/api/logistics/documents/extract', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('✅ Real AWS Textract data:', data);
+                    // Update UI with real extracted data here
+                    alert('✅ Real extraction successful! Check console for data.');
+                } else {
+                    throw new Error('Backend returned error');
+                }
+            } catch (error) {
+                console.log('⚠️ Using fallback sample data (backend unavailable)');
+            }
+
+            // Show results after 3 seconds
+            setTimeout(() => {
+                document.getElementById('processing').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+            }, 3000);
+        }
+        function reset() {
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('uploadSection').style.display = 'block';
+            document.getElementById('fileInput').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Notification</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .email-header {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .email-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .invoice-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 32px;
+    }
+    .email-body { padding: 40px 30px; }
+    .email-body h2 { font-size: 22px; color: #1f2937; margin-bottom: 16px; }
+    .email-body p { font-size: 16px; color: #4b5563; margin-bottom: 20px; }
+    .invoice-box {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .invoice-number {
+      font-size: 14px;
+      color: #3b82f6;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .invoice-amount {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 16px;
+    }
+    .due-date {
+      background-color: #fef3c7;
+      color: #92400e;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { font-weight: 500; color: #6b7280; }
+    .detail-value { font-weight: 600; color: #1f2937; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 24px 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <div class="invoice-icon">📄</div>
+      <h1>New Invoice</h1>
+      <p>Invoice {{invoiceNumber}}</p>
+    </div>
+    
+    <div class="email-body">
+      <h2>Hello {{customerName}},</h2>
+      <p>A new invoice has been generated for your account. Please review the details below.</p>
+      
+      <div class="invoice-box">
+        <div class="invoice-number">Invoice #{{invoiceNumber}}</div>
+        <div class="invoice-amount">{{amount}}</div>
+        <div class="due-date">Due: {{dueDate}}</div>
+      </div>
+      
+      <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <div class="detail-row">
+          <span class="detail-label">Invoice Number</span>
+          <span class="detail-value">{{invoiceNumber}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Amount Due</span>
+          <span class="detail-value">{{amount}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Due Date</span>
+          <span class="detail-value">{{dueDate}}</span>
+        </div>
+      </div>
+      
+      <p>Click below to view the full invoice and make a payment.</p>
+      
+      <center>
+        <a href="{{viewUrl}}" class="cta-button">View Invoice</a>
+      </center>
+    </div>
+    
+    <div class="email-footer">
+      <p>WorldClass ERP - Financial Management</p>
+      <p>If you have any questions about this invoice, please contact your account manager.</p>
+    </div>
+  </div>
+</body>
+</html>

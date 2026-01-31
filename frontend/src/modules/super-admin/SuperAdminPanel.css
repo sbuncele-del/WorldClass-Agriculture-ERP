@@ -1,0 +1,145 @@
+/* Super Admin Panel Styles */
+
+.super-admin-panel {
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.admin-header {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Tab styling */
+.super-admin-panel .ant-tabs-nav {
+  background: white;
+  padding: 0 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.super-admin-panel .ant-tabs-tab {
+  padding: 16px 0;
+  font-weight: 500;
+}
+
+.super-admin-panel .ant-tabs-tab:hover {
+  color: #1890ff;
+}
+
+/* Card styling */
+.super-admin-panel .ant-card {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.super-admin-panel .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Stat cards */
+.super-admin-panel .ant-statistic-title {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.super-admin-panel .ant-statistic-content {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Table styling */
+.super-admin-panel .ant-table {
+  border-radius: 8px;
+}
+
+.super-admin-panel .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.super-admin-panel .ant-table-row:hover {
+  cursor: pointer;
+}
+
+/* Badge styling */
+.super-admin-panel .ant-badge-count {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Timeline */
+.super-admin-panel .ant-timeline-item-content {
+  padding-bottom: 16px;
+}
+
+/* List items */
+.super-admin-panel .ant-list-item {
+  padding: 12px 0;
+}
+
+.super-admin-panel .ant-list-item-meta-avatar {
+  margin-right: 12px;
+}
+
+/* Progress bars */
+.super-admin-panel .ant-progress-line {
+  margin-bottom: 4px;
+}
+
+/* Modal */
+.super-admin-panel .ant-modal-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.super-admin-panel .ant-modal-title {
+  color: white;
+}
+
+.super-admin-panel .ant-modal-close-x {
+  color: white;
+}
+
+/* Descriptions table */
+.super-admin-panel .ant-descriptions-bordered .ant-descriptions-item-label {
+  background: #fafafa;
+  font-weight: 500;
+}
+
+/* Tags */
+.super-admin-panel .ant-tag {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Buttons */
+.super-admin-panel .ant-btn {
+  border-radius: 6px;
+}
+
+/* Form */
+.super-admin-panel .ant-form-item-label > label {
+  font-weight: 500;
+}
+
+/* Alert attention card */
+.super-admin-panel .ant-card.attention-card {
+  border-left: 4px solid #f59e0b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 16px !important;
+  }
+  
+  .admin-header .ant-typography {
+    font-size: 20px !important;
+  }
+  
+  .super-admin-panel .ant-statistic-content {
+    font-size: 22px;
+  }
+}

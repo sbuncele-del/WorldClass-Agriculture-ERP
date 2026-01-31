@@ -1,0 +1,256 @@
+/* Practice Management Hub Styles */
+
+.practice-hub {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hub-title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.practice-logo {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.practice-logo .logo-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.hub-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Practice Status Banner */
+.practice-status-card {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+}
+
+.practice-status-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.practice-status-card .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 12px;
+}
+
+.practice-status-card .ant-statistic-content {
+  color: white;
+}
+
+.practice-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.practice-icon {
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tabs */
+.hub-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+  background: white;
+  padding: 4px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.hub-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.hub-tabs .ant-tabs-tab-active {
+  background: #fdf2f8;
+  border-radius: 8px;
+}
+
+/* Engagements Card */
+.engagements-card {
+  border-radius: 12px;
+}
+
+.engagements-card .ant-table-thead > tr > th {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.engagements-card .ant-table-tbody > tr:hover > td {
+  background: #fdf2f8;
+}
+
+/* Deadlines Card */
+.deadlines-card {
+  border-radius: 12px;
+}
+
+.deadline-item {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.deadline-item:last-child {
+  border-bottom: none;
+}
+
+.deadline-item.urgent {
+  border-left: 3px solid #ef4444;
+  padding-left: 12px !important;
+  margin-left: -12px;
+  background: #fef2f2;
+  border-radius: 0 8px 8px 0;
+}
+
+.deadline-item.warning {
+  border-left: 3px solid #f59e0b;
+  padding-left: 12px !important;
+  margin-left: -12px;
+}
+
+.deadline-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.deadline-date {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Billing Card */
+.billing-card {
+  border-radius: 12px;
+}
+
+.billing-stats {
+  padding: 8px 0;
+}
+
+.billing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.billing-item .amount {
+  font-size: 16px;
+  color: #1e293b;
+}
+
+.billing-item .amount.success {
+  color: #10b981;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.team-card:hover {
+  border-color: #ec4899;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.team-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hours-display {
+  font-size: 14px;
+}
+
+/* Progress colors */
+.practice-hub .ant-progress-text {
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .practice-hub .ant-row > .ant-col:first-child {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hub-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .practice-status-card .ant-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .practice-status-card .ant-col {
+    max-width: 100%;
+  }
+}

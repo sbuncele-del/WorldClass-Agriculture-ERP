@@ -1,0 +1,351 @@
+/**
+ * Signup Page Styles
+ */
+
+@import './Login.css';
+
+.signup-card {
+  max-width: 600px;
+}
+
+/* Progress Steps */
+.signup-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.step-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s;
+}
+
+.step.active .step-number {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border-color: #8b5cf6;
+}
+
+.step.completed .step-number {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.step.active .step-label {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.step.completed .step-label {
+  color: #10b981;
+}
+
+.step-line {
+  width: 4rem;
+  height: 2px;
+  background-color: #e5e7eb;
+  margin: 0 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.step.completed + .step-line {
+  background-color: #10b981;
+}
+
+/* Password Strength */
+.password-strength {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.strength-bar {
+  height: 0.25rem;
+  background-color: #e5e7eb;
+  border-radius: 0.125rem;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: all 0.3s;
+  border-radius: 0.125rem;
+}
+
+.strength-fill.strength-0 {
+  width: 0;
+}
+
+.strength-fill.strength-1 {
+  background-color: #ef4444;
+}
+
+.strength-fill.strength-2 {
+  background-color: #f59e0b;
+}
+
+.strength-fill.strength-3 {
+  background-color: #eab308;
+}
+
+.strength-fill.strength-4 {
+  background-color: #84cc16;
+}
+
+.strength-fill.strength-5 {
+  background-color: #10b981;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.strength-fill.strength-1 + .strength-label {
+  color: #ef4444;
+}
+
+.strength-fill.strength-2 + .strength-label {
+  color: #f59e0b;
+}
+
+.strength-fill.strength-3 + .strength-label {
+  color: #eab308;
+}
+
+.strength-fill.strength-4 + .strength-label {
+  color: #84cc16;
+}
+
+.strength-fill.strength-5 + .strength-label {
+  color: #10b981;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: -0.25rem;
+}
+
+/* Form Row (for side-by-side inputs) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Plan Selection */
+.plan-selection {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan-card {
+  position: relative;
+  padding: 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+}
+
+.plan-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.plan-card input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plan-card input[type='radio']:checked + .plan-content {
+  opacity: 1;
+}
+
+.plan-card:has(input:checked) {
+  border-color: #8b5cf6;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.plan-content {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.plan-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.plan-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.plan-price span {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plan-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.plan-feature svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Trial Notice */
+.trial-notice {
+  display: flex;
+  align-items: start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #1e40af;
+}
+
+.trial-notice svg {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+.form-actions .btn-secondary {
+  flex: 0 0 auto;
+  min-width: 100px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .signup-card {
+    max-width: 100%;
+  }
+
+  .signup-steps {
+    padding: 1rem 0;
+  }
+
+  .step-number {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+
+  .step-label {
+    font-size: 0.625rem;
+  }
+
+  .step-line {
+    width: 2rem;
+    margin: 0 0.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-form > * {
+  animation: slideIn 0.3s ease-out;
+}

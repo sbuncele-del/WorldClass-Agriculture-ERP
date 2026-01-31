@@ -1,0 +1,142 @@
+.video-call {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  background: #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.call-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.call-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-grid {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.video-tile {
+  position: relative;
+  background: #2a2a3e;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.video-tile.speaking {
+  box-shadow: 0 0 0 3px #52c41a;
+}
+
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.video-feed {
+  width: 100%;
+  height: 100%;
+}
+
+.mock-video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.participant-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 13px;
+}
+
+.call-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.control-group {
+  display: flex;
+  gap: 12px;
+}
+
+.call-drawer .ant-drawer-content {
+  background: #1a1a2e;
+}
+
+.call-drawer .ant-drawer-header {
+  background: #1a1a2e;
+  border-bottom-color: #333;
+}
+
+.call-drawer .ant-drawer-title,
+.call-drawer .ant-drawer-close {
+  color: white;
+}
+
+.call-drawer .ant-drawer-body {
+  color: white;
+}
+
+.call-drawer .ant-list-item-meta-title {
+  color: white;
+}
+
+.call-drawer .ant-list-item-meta-description {
+  color: #999;
+}
+
+.chat-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .call-controls {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .video-tile {
+    min-height: 150px;
+  }
+}

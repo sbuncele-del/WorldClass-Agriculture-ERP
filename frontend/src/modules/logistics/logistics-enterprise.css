@@ -1,0 +1,437 @@
+/**
+ * Logistics Enterprise Styling
+ * Professional, enterprise-grade CSS for logistics module
+ */
+
+/* KPI Cards */
+.kpi-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.kpi-card .ant-statistic-title {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.kpi-card .ant-statistic-content {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Gradient Background for Special Cards */
+.kpi-card-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.kpi-card-gradient .ant-statistic-title,
+.kpi-card-gradient .ant-typography {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.kpi-card-gradient .ant-statistic-content {
+  color: white !important;
+}
+
+/* Alert Cards */
+.alert-card {
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.alert-card.alert-critical {
+  border-left-color: #EF4444;
+}
+
+.alert-card.alert-warning {
+  border-left-color: #F59E0B;
+}
+
+.alert-card.alert-info {
+  border-left-color: #3B82F6;
+}
+
+.alert-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Vehicle Status Tags */
+.vehicle-status-on-time {
+  background: #D1FAE5;
+  color: #059669;
+  border-color: #10B981;
+}
+
+.vehicle-status-delayed {
+  background: #FEE2E2;
+  color: #DC2626;
+  border-color: #EF4444;
+}
+
+.vehicle-status-at-risk {
+  background: #FEF3C7;
+  color: #D97706;
+  border-color: #F59E0B;
+}
+
+.vehicle-status-idle {
+  background: #F1F5F9;
+  color: #475569;
+  border-color: #94A3B8;
+}
+
+/* Live Vehicle Table */
+.live-vehicle-table .ant-table-thead > tr > th {
+  background: #F8FAFC;
+  font-weight: 600;
+  color: #475569;
+}
+
+.live-vehicle-table .ant-table-tbody > tr:hover > td {
+  background: #F1F5F9;
+}
+
+.live-vehicle-table .ant-table-row-level-0:nth-child(odd) {
+  background: rgba(248, 250, 252, 0.5);
+}
+
+/* Progress Bars */
+.fuel-progress .ant-progress-bg {
+  transition: all 0.3s ease;
+}
+
+.fuel-progress-critical .ant-progress-bg {
+  background: linear-gradient(90deg, #EF4444 0%, #DC2626 100%);
+}
+
+.fuel-progress-warning .ant-progress-bg {
+  background: linear-gradient(90deg, #F59E0B 0%, #D97706 100%);
+}
+
+.fuel-progress-good .ant-progress-bg {
+  background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+}
+
+/* Predictive Insights */
+.insight-card {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.insight-card-high {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border-left: 4px solid #EF4444;
+}
+
+.insight-card-medium {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-left: 4px solid #F59E0B;
+}
+
+.insight-card-low {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-left: 4px solid #3B82F6;
+}
+
+.insight-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Map Container */
+.vehicle-map-container {
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Loading States */
+.loading-skeleton {
+  padding: 24px;
+}
+
+.loading-skeleton .ant-skeleton {
+  margin-bottom: 24px;
+}
+
+/* Empty States */
+.empty-state-container {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  color: #CBD5E1;
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kpi-card .ant-statistic-content {
+    font-size: 24px;
+  }
+  
+  .vehicle-map-container {
+    height: 300px;
+  }
+  
+  .insight-card {
+    padding: 12px;
+  }
+}
+
+/* Dark Mode Preparation */
+[data-theme='dark'] .kpi-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .kpi-card .ant-statistic-title {
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .live-vehicle-table .ant-table-thead > tr > th {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+/* Animations */
+@keyframes pulse-critical {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.alert-critical-pulse {
+  animation: pulse-critical 2s ease-in-out infinite;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.4s ease-out;
+}
+
+/* Status Badge Colors */
+.status-badge-planned {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border-color: #3B82F6;
+}
+
+.status-badge-loading {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #F59E0B;
+}
+
+.status-badge-in-transit {
+  background: #E9D5FF;
+  color: #6B21A8;
+  border-color: #8B5CF6;
+}
+
+.status-badge-delivered {
+  background: #D1FAE5;
+  color: #065F46;
+  border-color: #10B981;
+}
+
+.status-badge-cancelled {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #EF4444;
+}
+
+/* Trip Progress Bar */
+.trip-progress-container {
+  position: relative;
+  padding: 24px 0;
+}
+
+.trip-progress-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.trip-progress-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  width: 2px;
+  height: calc(100% + 16px);
+  background: #E2E8F0;
+}
+
+.trip-progress-step-active::after {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.trip-progress-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 2px solid #E2E8F0;
+  z-index: 1;
+}
+
+.trip-progress-icon-active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.trip-progress-content {
+  margin-left: 16px;
+  flex: 1;
+}
+
+/* Chart Container */
+.chart-container {
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+/* Table Enhancements */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.ant-table-wrapper .ant-table-cell {
+  padding: 12px 16px;
+}
+
+/* Button Enhancements */
+.ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a4291 100%);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+/* Card Header Gradient */
+.ant-card-head-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ant-card-head-gradient .ant-card-head-title {
+  color: white;
+}
+
+/* Page Layout */
+.logistics-page-content {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: calc(100vh - 120px);
+}
+
+@media (max-width: 768px) {
+  .logistics-page-content {
+    padding: 16px;
+  }
+}
+
+.logistics-section {
+  margin-bottom: 24px;
+}
+
+.logistics-card {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: none;
+}
+
+.logistics-card + .logistics-card {
+  margin-top: 16px;
+}
+
+.logistics-filters-card .ant-input,
+.logistics-filters-card .ant-select,
+.logistics-filters-card .ant-btn {
+  border-radius: 10px;
+}
+
+.logistics-filters-card .ant-btn-link,
+.logistics-filters-card .ant-btn-text {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.logistics-table-card .ant-table-container {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.logistics-card-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logistics-card-header svg {
+  color: #667eea;
+}

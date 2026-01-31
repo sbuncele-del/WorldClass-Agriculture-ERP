@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Invitation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .invite-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .invitation-card {
+      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .company-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #6d28d9;
+      margin-bottom: 12px;
+    }
+    
+    .role-badge {
+      display: inline-block;
+      background-color: #8b5cf6;
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 30px 0;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 30px 0;
+    }
+    
+    .feature-item {
+      background-color: #f9fafb;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .info-box {
+      background-color: #eff6ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    
+    .info-box p {
+      font-size: 14px;
+      color: #1e40af;
+      margin-bottom: 0;
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header,
+      .email-body {
+        padding: 30px 20px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="invite-icon">👥</div>
+      <h1>You're Invited!</h1>
+      <p>Join your team on Worldclass ERP</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hello there,
+      </p>
+      
+      <p>
+        <strong>{{inviterName}}</strong> has invited you to join their team on 
+        <strong>Worldclass ERP</strong>. You'll be collaborating with them to 
+        manage business operations more efficiently.
+      </p>
+
+      <!-- Invitation Card -->
+      <div class="invitation-card">
+        <div class="company-name">{{companyName}}</div>
+        <p style="color: #6d28d9; margin-bottom: 0;">
+          You're being added as:
+        </p>
+        <div class="role-badge">{{role}}</div>
+      </div>
+
+      <center>
+        <a href="{{inviteUrl}}" class="cta-button">
+          Accept Invitation
+        </a>
+      </center>
+
+      <p style="text-align: center; font-size: 14px; color: #6b7280;">
+        This invitation will expire in 7 days
+      </p>
+
+      <!-- Features Grid -->
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Real-time Collaboration</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">Secure Access</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📈</div>
+          <div class="feature-title">Powerful Analytics</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Instant Updates</div>
+        </div>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <p>
+          💡 <strong>New to Worldclass ERP?</strong> Don't worry! Once you 
+          accept the invitation, you'll get access to tutorials and documentation 
+          to help you get started quickly.
+        </p>
+      </div>
+
+      <p style="margin-top: 30px;">
+        If you have any questions or didn't expect this invitation, please 
+        contact <strong>{{inviterName}}</strong> directly or reach out to our 
+        support team.
+      </p>
+
+      <p>
+        Best regards,<br>
+        <strong>The Worldclass ERP Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Enterprise Resource Planning Made Simple
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{inviteUrl}}" style="color: #8b5cf6; text-decoration: none; margin: 0 10px;">Accept Invitation</a>
+        <a href="{{frontendUrl}}/help" style="color: #8b5cf6; text-decoration: none; margin: 0 10px;">Help Center</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

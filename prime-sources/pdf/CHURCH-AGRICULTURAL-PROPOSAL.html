@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Sources - Church Agricultural Proposal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2C3E50;
+            background: #FFFFFF;
+        }
+        
+        .cover-page {
+            height: 100vh;
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") repeat;
+            background-size: 60px 60px;
+            animation: none;
+        }
+        
+        .cover-logo {
+            width: 150px;
+            height: 150px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-logo-inner {
+            font-size: 60px;
+        }
+        
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-tagline {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-document-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            background: #FFB300;
+            color: #1B5E20;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-location {
+            font-size: 1.1em;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            color: #2E7D32;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FFB300;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6em;
+            color: #1B5E20;
+            margin: 35px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #FFB300;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            color: #8D6E63;
+            margin: 25px 0 10px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #2E7D32, #FFB300, #2E7D32);
+            margin: 30px 0;
+        }
+        
+        strong {
+            color: #1B5E20;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: #2E7D32;
+            color: #FFFFFF;
+            padding: 15px;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background: #E8F5E9;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #fff 100%);
+            border-left: 5px solid #FFB300;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .contact-box {
+            background: #2E7D32;
+            color: #FFFFFF;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .contact-box h2 {
+            color: #FFFFFF;
+            border: none;
+            padding: 0;
+        }
+        
+        .contact-box p {
+            text-align: center;
+        }
+        
+        .scripture {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2em;
+            color: #1B5E20;
+            margin: 30px 0;
+            padding: 20px;
+            background: #E8F5E9;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #1B5E20;
+            color: #FFFFFF;
+            margin-top: 50px;
+        }
+        
+        @media print {
+            .cover-page {
+                height: 100vh;
+                page-break-after: always;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-logo">
+            <span class="cover-logo-inner">🌾</span>
+        </div>
+        <h1 class="cover-title">Prime Sources</h1>
+        <p class="cover-tagline">Agricultural Consulting & Project Management</p>
+        <div class="cover-document-title">Church Agricultural Project Proposal</div>
+        <p class="cover-location">📍 Mankayane, Manzini, Kingdom of eSwatini</p>
+        <div class="cover-footer">
+            <p>Growing Prosperity, Harvesting Hope</p>
+        </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+        <h1>Prime Sources</h1>
+<h2>Agricultural Consulting & Project Management</h2>
+<hr>
+<strong>Mankayane, Manzini</strong>  
+<strong>Kingdom of eSwatini</strong>
+<strong>Date:</strong> January 2026
+<hr>
+<h2>TO WHOM IT MAY CONCERN</h2>
+<h3>RE: PROPOSAL FOR AGRICULTURAL FUND-RAISING PROJECTS FOR CHURCHES</h3>
+<hr>
+<p>Dear Church Leadership,</p>
+<p>Grace and peace to you.</p>
+<p>We write to you with a unique opportunity that can transform your church's financial sustainability while creating meaningful employment and community impact.</p>
+<hr>
+<h2>WHO WE ARE</h2>
+<strong>Prime Sources</strong> is a professional agricultural consulting firm based in Mankayane, Manzini, in the Kingdom of eSwatini. We specialize in helping organizations establish and manage profitable agricultural projects from conception to completion.
+<p>Our lead consultant, <strong>Sibusiso Dlamini</strong>, brings hands-on expertise in livestock management, feedlot operations, and agricultural project development. We are passionate about empowering communities and institutions to achieve financial independence through sustainable farming practices.</p>
+<hr>
+<h2>THE CHALLENGE FACING CHURCHES TODAY</h2>
+<p>We understand that many churches face significant financial challenges:</p>
+<ul><li><strong>Declining tithes and offerings</strong> due to economic pressures on congregants</li>
+<li><strong>Growing operational costs</strong> including utilities, maintenance, and staff</li>
+<li><strong>Limited funding</strong> for community outreach and development programs</li>
+<li><strong>Dependence on giving alone</strong> which is often insufficient and unpredictable</li>
+</ul>
+<strong>Giving alone is no longer enough.</strong> Churches need sustainable income-generating projects that can supplement offerings and create long-term financial stability.
+<hr>
+<h2>OUR SOLUTION: AGRICULTURAL PROJECTS FOR CHURCHES</h2>
+<p>Prime Sources offers a comprehensive solution to help your church establish profitable agricultural ventures. We handle everything from planning to execution, allowing your leadership to focus on ministry while we manage the farming operations.</p>
+<hr>
+<h2>OUR SERVICES</h2>
+<h3>🌾 Agricultural Consulting</h3>
+<ul><li>Feasibility studies and project planning</li>
+<li>Site assessment and land utilization strategies</li>
+<li>Business plan development for church farms</li>
+<li>Financial projections and ROI analysis</li>
+<li>Compliance with agricultural regulations</li>
+</ul>
+<h3>🏗️ Project Management</h3>
+<ul><li>End-to-end project management from start to finish</li>
+<li>Procurement of materials, equipment, and livestock</li>
+<li>Construction oversight and quality control</li>
+<li>Timeline management and milestone tracking</li>
+<li>Risk assessment and mitigation</li>
+</ul>
+<h3>🐄 Feedlot Design & Construction</h3>
+<ul><li>Custom feedlot design tailored to your land and budget</li>
+<li>Modern feeding systems for optimal livestock growth</li>
+<li>Proper drainage and waste management systems</li>
+<li>Feed storage facilities</li>
+<li>Animal welfare compliance</li>
+</ul>
+<h3>🐷 Pig Farming (Piggery Operations)</h3>
+<ul><li>Pig rearing and breeding programs</li>
+<li>Piglet production and sales</li>
+<li>Pork production for local markets</li>
+<li>Piggery infrastructure setup</li>
+<li>Health management and veterinary coordination</li>
+</ul>
+<h3>🐔 Livestock & Poultry Management</h3>
+<ul><li>Cattle farming and beef production</li>
+<li>Goat and sheep rearing</li>
+<li>Layer and broiler chicken operations</li>
+<li>Egg production enterprises</li>
+<li>Integrated farming systems</li>
+</ul>
+<h3>📊 Ongoing Farm Management</h3>
+<ul><li>Day-to-day farm operations management</li>
+<li>Staff training and supervision</li>
+<li>Record keeping and financial reporting</li>
+<li>Marketing and sales of farm products</li>
+<li>Continuous improvement and scaling</li>
+</ul>
+<hr>
+<h2>WHY PARTNER WITH PRIME SOURCES?</h2>
+<table><thead><tr><th>Benefit</th><th>Description</th></tr></thead><tbody><tr><td><strong>Expertise</strong></td><td>Professional agricultural knowledge and hands-on experience</td></tr><tr><td><strong>Turnkey Solutions</strong></td><td>We handle everything—you focus on ministry</td></tr><tr><td><strong>Local Knowledge</strong></td><td>We understand eSwatini's agricultural landscape</td></tr><tr><td><strong>Sustainable Income</strong></td><td>Create long-term revenue streams for your church</td></tr><tr><td><strong>Community Impact</strong></td><td>Provide employment and food security for congregants</td></tr><tr><td><strong>Transparent Reporting</strong></td><td>Regular updates and financial accountability</td></tr></tbody></table>
+<hr>
+<h2>POTENTIAL PROJECTS FOR YOUR CHURCH</h2>
+<p>Depending on your available land, budget, and goals, we can help you establish:</p>
+<li><strong>Small-Scale Piggery</strong> (10-50 pigs)</li>
+   - Low startup cost, quick returns
+   - High demand for pork in local markets
+<li><strong>Poultry Farm</strong> (Layers or Broilers)</li>
+   - Egg production for consistent income
+   - Broiler sales for seasonal cash flow
+<li><strong>Feedlot Operation</strong> (Cattle Fattening)</li>
+   - Buy lean cattle, fatten, and sell at profit
+   - 3-6 month turnaround cycles
+<li><strong>Vegetable Garden</strong> (Market Gardening)</li>
+   - Fresh produce for church events and local sales
+   - Low investment, quick harvest cycles
+<li><strong>Integrated Farm</strong> (Multiple Enterprises)</li>
+   - Combine livestock and crops for diversified income
+   - Maximize land utilization
+<hr>
+<h2>NEXT STEPS</h2>
+<p>We invite you to explore this opportunity further. Here's how we can begin:</p>
+<li><strong>Initial Consultation</strong> – Free, no-obligation meeting to discuss your church's needs</li>
+<li><strong>Site Assessment</strong> – We visit your available land to evaluate potential</li>
+<li><strong>Proposal Development</strong> – We create a customized project plan and budget</li>
+<li><strong>Project Launch</strong> – Upon approval, we begin implementation</li>
+<li><strong>Ongoing Partnership</strong> – We manage operations and report progress</li>
+<hr>
+<h2>LET'S BUILD TOGETHER</h2>
+<p>Your church has a vision. We have the agricultural expertise. Together, we can create sustainable income streams that will support your ministry for generations to come.</p>
+<strong>"The earth is the Lord's, and everything in it."</strong> — Psalm 24:1
+<p>Let us help you steward the land for the benefit of God's Kingdom.</p>
+<hr>
+<h2>CONTACT US</h2>
+<p>We would be honored to discuss how Prime Sources can serve your church.</p>
+<strong>Consultant:</strong> Sibusiso Dlamini  
+<strong>Phone:</strong> +268 7836 6815  
+<strong>Location:</strong> Mankayane, Manzini, Kingdom of eSwatini
+<hr>
+<em>Prime Sources — Growing Prosperity, Harvesting Hope</em>
+<hr>
+<strong>© 2026 Prime Sources | Agricultural Consulting & Project Management</strong>
+
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Prime Sources</strong> | Agricultural Consulting & Project Management</p>
+        <p>📍 Mankayane, Manzini, Kingdom of eSwatini | 📞 +268 7836 6815</p>
+        <p style="margin-top: 10px; opacity: 0.7;">© 2026 Prime Sources - All Rights Reserved</p>
+    </div>
+</body>
+</html>

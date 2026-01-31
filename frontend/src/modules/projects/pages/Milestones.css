@@ -1,0 +1,112 @@
+.milestones-page {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.milestones-card {
+  margin-bottom: 24px;
+}
+
+.milestone-card {
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.milestone-card.completed {
+  background: #f6ffed;
+}
+
+.milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.milestone-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.milestone-indicator {
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.milestone-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.milestone-description {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.milestone-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.milestone-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.milestone-project {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.milestone-progress {
+  margin-top: 8px;
+}
+
+.progress-tasks {
+  font-size: 11px;
+  color: #999;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 24px;
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

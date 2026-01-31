@@ -1,0 +1,64 @@
+{
+  "family": "worldclass-erp-backend",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::483636500494:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::483636500494:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "worldclass-erp-backend",
+      "image": "483636500494.dkr.ecr.af-south-1.amazonaws.com/worldclass-erp-backend:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "PORT",
+          "value": "3000"
+        },
+        {
+          "name": "DATABASE_URL",
+          "value": "postgresql://erpadmin:WorldClass2024SecureDB@worldclass-erp-db.c92ou2c2e43l.af-south-1.rds.amazonaws.com:5432/erp_database"
+        },
+        {
+          "name": "JWT_SECRET",
+          "value": "worldclass-erp-jwt-secret-2024-production"
+        },
+        {
+          "name": "JWT_REFRESH_SECRET",
+          "value": "worldclass-erp-refresh-secret-2024-production"
+        },
+        {
+          "name": "CORS_ORIGIN",
+          "value": "https://siyabusaerp.co.za"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/worldclass-erp-backend",
+          "awslogs-region": "af-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      }
+    }
+  ]
+}

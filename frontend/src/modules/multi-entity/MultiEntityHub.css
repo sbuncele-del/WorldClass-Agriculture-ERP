@@ -1,0 +1,275 @@
+.multi-entity-hub {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Header */
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.hub-title-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.entity-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-logo .logo-icon {
+  font-size: 32px;
+  color: white;
+}
+
+.hub-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.hub-actions .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+/* Group Status Card */
+.group-status-card {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  border: none;
+  border-radius: 16px;
+}
+
+.group-status-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.group-status-card .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.group-status-card .ant-statistic-content {
+  color: white;
+}
+
+.group-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.group-icon {
+  font-size: 48px;
+  color: white;
+}
+
+/* Stat Cards */
+.stat-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.stat-footer {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Hierarchy Card */
+.hierarchy-card {
+  border-radius: 12px;
+  min-height: 400px;
+}
+
+.entity-tree .ant-tree-treenode {
+  padding: 8px 0;
+}
+
+.entity-tree-node {
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 4px;
+  transition: all 0.2s;
+}
+
+.entity-tree-node:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+.node-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.node-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.node-info {
+  flex: 1;
+}
+
+.node-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.node-meta .ant-tag {
+  margin: 0;
+  font-size: 11px;
+}
+
+/* Rules Card */
+.rules-card {
+  border-radius: 12px;
+}
+
+.rule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.rule-item:last-child {
+  border-bottom: none;
+}
+
+.rule-entity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rule-details {
+  display: flex;
+  gap: 6px;
+}
+
+/* Rates Card */
+.rates-card {
+  border-radius: 12px;
+}
+
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rate-pair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.rate-pair .anticon {
+  color: #64748b;
+}
+
+.rate-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.method-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tabs */
+.hub-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.hub-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.hub-tabs .ant-tabs-tab-active {
+  background: #eff6ff;
+  border-radius: 8px;
+}
+
+/* Table enhancements */
+.ant-table-thead > tr > th {
+  background: #f8fafc !important;
+  font-weight: 600;
+  color: #475569;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f1f5f9 !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hub-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .hub-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .multi-entity-hub {
+    padding: 16px;
+  }
+
+  .hub-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .group-status-card .ant-row {
+    gap: 16px;
+  }
+
+  .group-status-card .ant-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

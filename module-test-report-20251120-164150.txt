@@ -1,0 +1,113 @@
+Worldclass ERP - Full Module Test Report
+Date: Thu Nov 20 16:42:32 SAST 2025
+Instance: http://51.20.92.38/api
+
+SUMMARY
+=======
+Total Tests: 95
+Passed: 20 (%) Passed: 20 (%)
+Failed: 75 (%) Failed: 75 (%)
+
+SCHEMA ERRORS
+=============
+
+FAILED ENDPOINTS
+================
+Financial - /financial/journal-entries/1 - Journal Entry Detail - 404 NOT FOUND
+Financial - /financial/income-statement - Income Statement - 404 NOT FOUND
+Financial - /financial/cash-flow - Cash Flow Statement - HTTP 400
+Financial - /financial/tax-settings - Tax Settings - 404 NOT FOUND
+Financial - /financial/dimensions - Financial Dimensions - 404 NOT FOUND
+HR - /hr/payroll/runs - Payroll Runs - 404 NOT FOUND
+HR - /hr/payroll/slips - Pay Slips - 404 NOT FOUND
+HR - /hr/leave/requests - Leave Requests - 500 ERROR: 
+HR - /hr/leave/types - Leave Types - 404 NOT FOUND
+HR - /hr/attendance - Attendance Records - 404 NOT FOUND
+HR - /hr/benefits - Employee Benefits - 404 NOT FOUND
+Sales - /sales/invoices/1 - Invoice Detail - 500 ERROR: 
+Sales - /sales/quotes - Sales Quotes - 404 NOT FOUND
+Sales - /sales/receipts - Sales Receipts - 404 NOT FOUND
+Sales - /sales/credit-notes - Credit Notes - 404 NOT FOUND
+Sales - /sales/pricing - Pricing Lists - 404 NOT FOUND
+Sales - /sales/commissions - Sales Commissions - 404 NOT FOUND
+Purchase - /purchase/orders - Purchase Orders - 404 NOT FOUND
+Purchase - /purchase/orders/1 - PO Detail - 404 NOT FOUND
+Purchase - /purchase/invoices - Purchase Invoices - 404 NOT FOUND
+Purchase - /purchase/receipts - Goods Receipts - 404 NOT FOUND
+Purchase - /purchase/payments - Vendor Payments - 404 NOT FOUND
+Purchase - /purchase/requisitions - Purchase Requisitions - 500 ERROR: 
+Inventory - /inventory/products - Product List - 404 NOT FOUND
+Inventory - /inventory/products/1 - Product Detail - 404 NOT FOUND
+Inventory - /inventory/locations - Warehouse Locations - 404 NOT FOUND
+Inventory - /inventory/movements - Stock Movements - 404 NOT FOUND
+Inventory - /inventory/adjustments - Stock Adjustments - 404 NOT FOUND
+Inventory - /inventory/transfers - Stock Transfers - 404 NOT FOUND
+Inventory - /inventory/categories - Product Categories - 500 ERROR: 
+Inventory - /inventory/suppliers - Suppliers - 404 NOT FOUND
+Manufacturing - /manufacturing/work-orders - Work Orders - 404 NOT FOUND
+Manufacturing - /manufacturing/bom - Bill of Materials - 404 NOT FOUND
+Manufacturing - /manufacturing/production - Production Records - 404 NOT FOUND
+Manufacturing - /manufacturing/routings - Production Routings - 404 NOT FOUND
+Manufacturing - /manufacturing/work-centers - Work Centers - 404 NOT FOUND
+Manufacturing - /manufacturing/quality-control - QC Inspections - 404 NOT FOUND
+Warehouse - /warehouse/locations - Warehouse Locations - 404 NOT FOUND
+Warehouse - /warehouse/bins - Storage Bins - 404 NOT FOUND
+Warehouse - /warehouse/picks - Pick Lists - 404 NOT FOUND
+Warehouse - /warehouse/shipments - Shipments - 404 NOT FOUND
+Warehouse - /warehouse/receiving - Receiving Records - 404 NOT FOUND
+Warehouse - /warehouse/cycle-counts - Cycle Counts - 404 NOT FOUND
+Assets - /assets/fixed-assets - Fixed Assets - 404 NOT FOUND
+Assets - /assets/depreciation - Depreciation Schedule - 404 NOT FOUND
+Assets - /assets/disposals - Asset Disposals - 404 NOT FOUND
+Assets - /assets/maintenance - Maintenance Records - 404 NOT FOUND
+Assets - /assets/categories - Asset Categories - 404 NOT FOUND
+Cash - /cash-management/transactions - Bank Transactions - 404 NOT FOUND
+Cash - /cash-management/reconciliation - Bank Reconciliation - 404 NOT FOUND
+Cash - /cash-management/deposits - Bank Deposits - 404 NOT FOUND
+Cash - /cash-management/payments - Bank Payments - 404 NOT FOUND
+Compliance - /compliance/vat-returns - VAT Returns - 404 NOT FOUND
+Compliance - /compliance/tax-submissions - Tax Submissions - 404 NOT FOUND
+Compliance - /compliance/audit-trail - Audit Trail - 404 NOT FOUND
+Compliance - /compliance/reports - Compliance Reports - 404 NOT FOUND
+SARS - /sars-sentinel/status - SARS Status - 404 NOT FOUND
+SARS - /sars-sentinel/submissions - SARS Submissions - AUTH REQUIRED
+SARS - /sars-sentinel/e-filing - E-Filing Status - 404 NOT FOUND
+Practice - /practice/clients - Practice Clients - 404 NOT FOUND
+Practice - /practice/matters - Legal Matters - 404 NOT FOUND
+Practice - /practice/timesheets - Timesheets - 404 NOT FOUND
+Practice - /practice/billing - Practice Billing - 404 NOT FOUND
+Logistics - /logistics/vehicles - Fleet Vehicles - 500 ERROR: 
+Logistics - /logistics/trips - Delivery Trips - 500 ERROR: 
+Logistics - /logistics/routes - Delivery Routes - 404 NOT FOUND
+Logistics - /logistics/fuel - Fuel Management - 500 ERROR: 
+Admin - /admin/users - User Management - AUTH REQUIRED
+Admin - /admin/roles - Role Management - AUTH REQUIRED
+Admin - /admin/permissions - Permissions - AUTH REQUIRED
+Admin - /admin/settings - System Settings - AUTH REQUIRED
+Admin - /admin/modules - Module Status - AUTH REQUIRED
+Tenant - /tenant/settings - Tenant Settings - AUTH REQUIRED
+Subscription - /subscription/status - Subscription Status - 404 NOT FOUND
+Subscription - /subscription/plans - Subscription Plans - 404 NOT FOUND
+
+PASSED ENDPOINTS
+================
+Financial - /financial/chart-of-accounts - Chart of Accounts (no data)
+Financial - /financial/journal-entries - Journal Entries List (no data)
+Financial - /financial/fiscal-years - Fiscal Years (no data)
+Financial - /financial/fiscal-periods - Fiscal Periods (no data)
+Financial - /financial/ledger/general - General Ledger (no data)
+Financial - /financial/ledger/accounts/1200 - Account Ledger (no data)
+Financial - /financial/trial-balance - Trial Balance (no data)
+Financial - /financial/balance-sheet - Balance Sheet (no data)
+HR - /hr/employees - Employee List (no data)
+HR - /hr/employees/1 - Employee Detail (no data)
+HR - /hr/departments - Departments (no data)
+HR - /hr/positions - Positions (no data)
+Sales - /sales/customers - Customer List (no data)
+Sales - /sales/customers/1 - Customer Detail (no data)
+Sales - /sales/invoices - Sales Invoices (no data)
+Sales - /sales/orders - Sales Orders (no data)
+Purchase - /purchase/vendors - Vendor List (no data)
+Purchase - /purchase/vendors/1 - Vendor Detail (no data)
+Inventory - /inventory/stock-levels - Stock Levels (no data)
+Cash - /cash-management/bank-accounts - Bank Accounts (no data)

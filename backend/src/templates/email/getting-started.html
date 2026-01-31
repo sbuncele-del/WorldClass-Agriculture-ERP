@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .book-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .tutorial-section {
+      background-color: #f9fafb;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+    }
+    
+    .tutorial-section h3 {
+      font-size: 20px;
+      color: #1f2937;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .tutorial-card {
+      background-color: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+    
+    .tutorial-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    }
+    
+    .tutorial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .tutorial-icon {
+      font-size: 32px;
+      margin-right: 16px;
+    }
+    
+    .tutorial-title {
+      flex: 1;
+    }
+    
+    .tutorial-title h4 {
+      font-size: 16px;
+      color: #1f2937;
+      margin-bottom: 4px;
+    }
+    
+    .tutorial-duration {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    
+    .tutorial-description {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    .tutorial-link {
+      display: inline-block;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .tutorial-link:hover {
+      text-decoration: underline;
+    }
+    
+    .resources-box {
+      background-color: #eff6ff;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .resources-box h3 {
+      font-size: 18px;
+      color: #1e40af;
+      margin-bottom: 16px;
+    }
+    
+    .resource-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .resource-list li {
+      margin-bottom: 12px;
+    }
+    
+    .resource-list a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .resource-list a:hover {
+      text-decoration: underline;
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .cta-box h3 {
+      font-size: 20px;
+      color: #1e40af;
+      margin-bottom: 12px;
+    }
+    
+    .cta-box p {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header {
+        padding: 30px 20px;
+      }
+      
+      .email-body {
+        padding: 30px 20px;
+      }
+      
+      .tutorial-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .tutorial-icon {
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="book-icon">📚</div>
+      <h1>Getting Started Guide</h1>
+      <p>Everything you need to master Worldclass ERP</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hi {{userName}},
+      </p>
+      
+      <p>
+        Welcome to day 2 of your Worldclass ERP journey! Now that you're 
+        settled in, let's dive deeper into the features that will help you 
+        work smarter and faster.
+      </p>
+      
+      <p>
+        We've prepared a collection of tutorials, guides, and resources to 
+        help you get the most out of your ERP system.
+      </p>
+
+      <!-- Tutorial Section -->
+      <div class="tutorial-section">
+        <h3>🎬 Video Tutorials</h3>
+        
+        <div class="tutorial-card">
+          <div class="tutorial-header">
+            <div class="tutorial-icon">📊</div>
+            <div class="tutorial-title">
+              <h4>Dashboard Overview</h4>
+              <div class="tutorial-duration">⏱️ 5 minutes</div>
+            </div>
+          </div>
+          <p class="tutorial-description">
+            Learn how to customize your dashboard, add widgets, and track 
+            key metrics at a glance.
+          </p>
+          <a href="{{tutorialsUrl}}/dashboard-overview" class="tutorial-link">
+            Watch Tutorial →
+          </a>
+        </div>
+        
+        <div class="tutorial-card">
+          <div class="tutorial-header">
+            <div class="tutorial-icon">📦</div>
+            <div class="tutorial-title">
+              <h4>Managing Inventory</h4>
+              <div class="tutorial-duration">⏱️ 8 minutes</div>
+            </div>
+          </div>
+          <p class="tutorial-description">
+            Add products, track stock levels, set reorder points, and manage 
+            inventory movements efficiently.
+          </p>
+          <a href="{{tutorialsUrl}}/inventory-management" class="tutorial-link">
+            Watch Tutorial →
+          </a>
+        </div>
+        
+        <div class="tutorial-card">
+          <div class="tutorial-header">
+            <div class="tutorial-icon">💰</div>
+            <div class="tutorial-title">
+              <h4>Financial Setup</h4>
+              <div class="tutorial-duration">⏱️ 10 minutes</div>
+            </div>
+          </div>
+          <p class="tutorial-description">
+            Set up your chart of accounts, create journal entries, and 
+            generate financial reports.
+          </p>
+          <a href="{{tutorialsUrl}}/financial-setup" class="tutorial-link">
+            Watch Tutorial →
+          </a>
+        </div>
+        
+        <div class="tutorial-card">
+          <div class="tutorial-header">
+            <div class="tutorial-icon">👥</div>
+            <div class="tutorial-title">
+              <h4>Team Collaboration</h4>
+              <div class="tutorial-duration">⏱️ 6 minutes</div>
+            </div>
+          </div>
+          <p class="tutorial-description">
+            Invite team members, assign roles and permissions, and collaborate 
+            effectively across departments.
+          </p>
+          <a href="{{tutorialsUrl}}/team-collaboration" class="tutorial-link">
+            Watch Tutorial →
+          </a>
+        </div>
+      </div>
+
+      <!-- Resources Box -->
+      <div class="resources-box">
+        <h3>📖 Additional Resources</h3>
+        <ul class="resource-list">
+          <li>
+            <a href="{{dashboardUrl}}/help/quick-start">
+              <span>→</span>
+              <span>Quick Start Guide (PDF)</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{dashboardUrl}}/help/keyboard-shortcuts">
+              <span>→</span>
+              <span>Keyboard Shortcuts Cheat Sheet</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{dashboardUrl}}/help/best-practices">
+              <span>→</span>
+              <span>Best Practices & Tips</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{dashboardUrl}}/help/faq">
+              <span>→</span>
+              <span>Frequently Asked Questions</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{dashboardUrl}}/help/api-docs">
+              <span>→</span>
+              <span>API Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA Box -->
+      <div class="cta-box">
+        <h3>Ready to Explore?</h3>
+        <p>Jump back into your dashboard and start putting your new knowledge to work!</p>
+        <a href="{{dashboardUrl}}" class="cta-button">
+          Go to Dashboard
+        </a>
+      </div>
+
+      <p>
+        <strong>💡 Pro Tip:</strong> Bookmark your most-used pages for quick 
+        access. You can find the bookmark option in the top-right corner of 
+        any page.
+      </p>
+
+      <p>
+        Have questions? Our support team is standing by to help you succeed. 
+        Just click the chat icon in your dashboard or email us directly.
+      </p>
+
+      <p style="margin-top: 30px;">
+        Happy exploring!<br>
+        <strong>The Worldclass ERP Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Enterprise Resource Planning Made Simple
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{dashboardUrl}}" style="color: #3b82f6; text-decoration: none; margin: 0 10px;">Dashboard</a>
+        <a href="{{tutorialsUrl}}" style="color: #3b82f6; text-decoration: none; margin: 0 10px;">All Tutorials</a>
+        <a href="{{dashboardUrl}}/help" style="color: #3b82f6; text-decoration: none; margin: 0 10px;">Help Center</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.<br>
+        This email was sent to {{email}}
+      </p>
+      
+      <p style="font-size: 11px; color: #9ca3af;">
+        <a href="{{dashboardUrl}}/unsubscribe" style="color: #9ca3af;">Unsubscribe</a> | 
+        <a href="{{dashboardUrl}}/preferences" style="color: #9ca3af;">Email Preferences</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

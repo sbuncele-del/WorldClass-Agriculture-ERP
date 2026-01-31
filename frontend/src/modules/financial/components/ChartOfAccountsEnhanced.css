@@ -1,0 +1,17 @@
+/* Chart of Accounts Enhanced Styles */
+
+.coa-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: white;
+  font-size: 14px;
+}
+
+.coa-code {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  color: #93c5fd;
+  font-weight: 600;
+}

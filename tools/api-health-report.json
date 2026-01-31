@@ -1,0 +1,213 @@
+{
+  "timestamp": "2025-12-18T12:44:03.027Z",
+  "baseUrl": "http://ec2-13-60-225-34.eu-north-1.compute.amazonaws.com:3000",
+  "total": 29,
+  "passed": 0,
+  "failed": 0,
+  "errors": 29,
+  "details": [
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "path": "/health",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Login Endpoint",
+      "method": "POST",
+      "path": "/auth/login",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "List Tenants",
+      "method": "GET",
+      "path": "/tenants",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "List Users",
+      "method": "GET",
+      "path": "/users",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Inventory List",
+      "method": "GET",
+      "path": "/inventory",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Inventory Items",
+      "method": "GET",
+      "path": "/inventory/items",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Sales Invoices",
+      "method": "GET",
+      "path": "/sales/invoices",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Sales Quotes",
+      "method": "GET",
+      "path": "/sales/quotes",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Customers",
+      "method": "GET",
+      "path": "/customers",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Purchase Orders",
+      "method": "GET",
+      "path": "/purchase/orders",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Suppliers",
+      "method": "GET",
+      "path": "/suppliers",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Chart of Accounts",
+      "method": "GET",
+      "path": "/finance/accounts",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Journal Entries",
+      "method": "GET",
+      "path": "/finance/journal-entries",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "General Ledger",
+      "method": "GET",
+      "path": "/finance/general-ledger",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Employees",
+      "method": "GET",
+      "path": "/hr/employees",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Departments",
+      "method": "GET",
+      "path": "/hr/departments",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Payroll",
+      "method": "GET",
+      "path": "/hr/payroll",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Assets",
+      "method": "GET",
+      "path": "/assets",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Asset Categories",
+      "method": "GET",
+      "path": "/assets/categories",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Projects",
+      "method": "GET",
+      "path": "/projects",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Tasks",
+      "method": "GET",
+      "path": "/projects/tasks",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Warehouse Locations",
+      "method": "GET",
+      "path": "/warehouse/locations",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Bill of Materials",
+      "method": "GET",
+      "path": "/manufacturing/bom",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Work Orders",
+      "method": "GET",
+      "path": "/manufacturing/work-orders",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Bank Accounts",
+      "method": "GET",
+      "path": "/cash/bank-accounts",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Cash Transactions",
+      "method": "GET",
+      "path": "/cash/transactions",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Tax Returns",
+      "method": "GET",
+      "path": "/compliance/tax-returns",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Proposals",
+      "method": "GET",
+      "path": "/proposals",
+      "status": "TIMEOUT",
+      "passed": false
+    },
+    {
+      "name": "Messages",
+      "method": "GET",
+      "path": "/communications/messages",
+      "status": "TIMEOUT",
+      "passed": false
+    }
+  ]
+}

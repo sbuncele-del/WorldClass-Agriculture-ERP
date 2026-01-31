@@ -1,0 +1,324 @@
+/* Email Verification Page Styles */
+
+.verify-email-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.verify-email-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Logo */
+.verify-email-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.verify-email-logo h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Status Card */
+.verify-email-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.status-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.spinner-large {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.error-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  animation: shake 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.verify-email-card h2 {
+  font-size: 1.75rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.status-message {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Status Actions */
+.status-actions {
+  margin-top: 2rem;
+}
+
+.success-info {
+  background-color: #ecfdf5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.success-info p {
+  font-size: 0.95rem;
+  color: #065f46;
+  margin-bottom: 0.5rem;
+}
+
+.success-info p:last-child {
+  margin-bottom: 0;
+}
+
+.redirect-notice {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d1fae5;
+  font-style: italic;
+  color: #047857;
+}
+
+.error-reasons {
+  background-color: #fef2f2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.error-reasons p {
+  font-size: 0.95rem;
+  color: #991b1b;
+  margin-bottom: 0.75rem;
+}
+
+.error-reasons ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.error-reasons li {
+  font-size: 0.9rem;
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+.error-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #6b7280;
+  border: 2px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+/* Help Section */
+.verify-email-help {
+  text-align: center;
+  margin-top: 2rem;
+  color: #ffffff;
+}
+
+.verify-email-help p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.help-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.help-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.help-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.help-links span {
+  opacity: 0.6;
+}
+
+/* Status Variants */
+.status-verifying .status-icon {
+  background-color: #f3f4f6;
+}
+
+.status-success .status-message {
+  color: #065f46;
+}
+
+.status-error .status-message {
+  color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .verify-email-page {
+    padding: 1rem;
+  }
+
+  .verify-email-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .logo-icon {
+    font-size: 3rem;
+  }
+
+  .verify-email-logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .verify-email-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .status-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .success-icon,
+  .error-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .spinner-large {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+}

@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - Brand Experience Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* SiyaBusa Brand Colors */
+            --siyabusa-primary: #667EEA;
+            --siyabusa-primary-dark: #5A67D8;
+            --siyabusa-secondary: #764BA2;
+            --siyabusa-gold: #F59E0B;
+            --siyabusa-gold-light: #FCD34D;
+            
+            /* Neutrals - Refined */
+            --gray-50: #FAFAFA;
+            --gray-100: #F4F4F5;
+            --gray-200: #E4E4E7;
+            --gray-300: #D4D4D8;
+            --gray-400: #A1A1AA;
+            --gray-500: #71717A;
+            --gray-600: #52525B;
+            --gray-700: #3F3F46;
+            --gray-800: #27272A;
+            --gray-900: #18181B;
+            
+            /* Semantic */
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --info: #3B82F6;
+            
+            /* Shadows - Apple-like depth */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.16);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #18181B 0%, #27272A 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-2%, -2%) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .logo-mark svg {
+            width: 48px;
+            height: 48px;
+            fill: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--gray-400);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .tagline strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ==================== BRAND STATEMENT ==================== */
+        .brand-statement {
+            padding: 120px 24px;
+            text-align: center;
+            background: white;
+        }
+
+        .brand-statement h2 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 800px;
+            margin: 0 auto 32px;
+        }
+
+        .brand-statement p {
+            font-size: 20px;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== RESULTS SECTION ==================== */
+        .results-section {
+            padding: 120px 24px;
+            background: var(--gray-50);
+        }
+
+        .results-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--gray-100);
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .result-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+        }
+
+        .result-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .result-card p {
+            font-size: 15px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .result-stat {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 16px;
+        }
+
+        /* ==================== APP PREVIEW ==================== */
+        .app-preview {
+            padding: 120px 24px;
+            background: linear-gradient(180deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            overflow: hidden;
+        }
+
+        .app-preview-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .app-preview-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .app-preview-header p {
+            font-size: 18px;
+            color: var(--gray-400);
+        }
+
+        .app-window {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--gray-800);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid var(--gray-700);
+        }
+
+        .app-titlebar {
+            background: var(--gray-900);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .titlebar-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .titlebar-dot.red { background: #FF5F57; }
+        .titlebar-dot.yellow { background: #FEBC2E; }
+        .titlebar-dot.green { background: #28C840; }
+
+        .app-content {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 600px;
+        }
+
+        /* Sidebar */
+        .app-sidebar {
+            background: linear-gradient(180deg, var(--gray-900) 0%, #1a1a1f 100%);
+            padding: 24px 16px;
+            border-right: 1px solid var(--gray-700);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            margin-bottom: 32px;
+        }
+
+        .sidebar-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .sidebar-logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            color: var(--gray-400);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        .sidebar-item.active {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            color: white;
+        }
+
+        .sidebar-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 3px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Content */
+        .app-main {
+            background: var(--gray-50);
+            padding: 32px;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .main-subtitle {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .stat-change {
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--error);
+        }
+
+        /* Chart Area */
+        .chart-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(180deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.02) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            gap: 8px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: 4px 4px 0 0;
+            min-height: 20px;
+        }
+
+        /* Activity List */
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+
+        /* ==================== MODULES SHOWCASE ==================== */
+        .modules-section {
+            padding: 120px 24px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray-500);
+        }
+
+        .modules-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .module-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .module-card:hover {
+            background: white;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .module-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .module-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ==================== TESTIMONIAL ==================== */
+        .testimonial-section {
+            padding: 120px 24px;
+            background: linear-gradient(180deg, var(--gray-900) 0%, var(--gray-800) 100%);
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 500;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-title {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            padding: 80px 24px 40px;
+            background: var(--gray-900);
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--siyabusa-primary) 0%, var(--siyabusa-secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid var(--gray-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .footer-bottom a {
+            color: var(--siyabusa-primary);
+            text-decoration: none;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .app-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-sidebar {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chart-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                    <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1>Govern Your Business.<br><span>See Results.</span></h1>
+            <p class="tagline">
+                SiyaBusa doesn't sell software. We deliver <strong>sovereignty</strong> — 
+                the power for African businesses to command their operations with 
+                <strong>elegance</strong> and <strong>precision</strong>.
+            </p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">
+                    Start Your Journey
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-secondary">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND STATEMENT -->
+    <section class="brand-statement">
+        <h2>"We don't sell systems.<br>We deliver results."</h2>
+        <p>Every feature exists for one purpose: to make your business more profitable, more compliant, and more efficient. No complexity for complexity's sake.</p>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="results-section">
+        <div class="section-header">
+            <h2>The Results Speak</h2>
+            <p>Real impact for real businesses</p>
+        </div>
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-icon">⏱️</div>
+                <h3>Time Saved</h3>
+                <p>Hours previously spent on manual data entry, reconciliation, and report generation — reclaimed.</p>
+                <div class="result-stat">40+ hrs/mo</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">📊</div>
+                <h3>Compliance Rate</h3>
+                <p>SARS submissions, B-BBEE reporting, and regulatory filings — automated and on time.</p>
+                <div class="result-stat">100%</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">💰</div>
+                <h3>Cash Flow Visibility</h3>
+                <p>Know exactly where your money is, where it's going, and when it's arriving.</p>
+                <div class="result-stat">Real-time</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">🚀</div>
+                <h3>Decision Speed</h3>
+                <p>From question to answer in seconds, not hours. Dashboards that actually inform.</p>
+                <div class="result-stat">10x faster</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APP PREVIEW -->
+    <section class="app-preview">
+        <div class="app-preview-header">
+            <h2>Elegance in Every Detail</h2>
+            <p>A workspace designed for focus, not frustration</p>
+        </div>
+        <div class="app-window">
+            <div class="app-titlebar">
+                <div class="titlebar-dot red"></div>
+                <div class="titlebar-dot yellow"></div>
+                <div class="titlebar-dot green"></div>
+            </div>
+            <div class="app-content">
+                <aside class="app-sidebar">
+                    <div class="sidebar-logo">
+                        <div class="sidebar-logo-icon">⚡</div>
+                        <span class="sidebar-logo-text">SiyaBusa</span>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">Overview</div>
+                        <div class="sidebar-item active">
+                            <span class="sidebar-icon">📊</span>
+                            Dashboard
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📈</span>
+                            Analytics
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">Finance</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">💰</span>
+                            Accounting
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🏦</span>
+                            Banking
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📋</span>
+                            Invoicing
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">Operations</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📦</span>
+                            Inventory
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🛒</span>
+                            Purchases
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🚚</span>
+                            Logistics
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">People</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">👥</span>
+                            HR & Payroll
+                        </div>
+                    </div>
+                </aside>
+                
+                <main class="app-main">
+                    <div class="main-header">
+                        <div>
+                            <div class="main-title">Good morning, Sbusiso</div>
+                            <div class="main-subtitle">Here's what's happening with Masaphokati Technologies today</div>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn btn-secondary btn-sm">Export</button>
+                            <button class="btn btn-primary btn-sm">+ New</button>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Revenue (MTD)</div>
+                            <div class="stat-value">R847K</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 15l-6-6-6 6"/>
+                                </svg>
+                                12.5%
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Outstanding</div>
+                            <div class="stat-value">R124K</div>
+                            <div class="stat-change negative">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                                3.2%
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Active Clients</div>
+                            <div class="stat-value">48</div>
+                            <div class="stat-change positive">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 15l-6-6-6 6"/>
+                                </svg>
+                                8 new
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Compliance</div>
+                            <div class="stat-value">100%</div>
+                            <div class="stat-change positive">
+                                ✓ All filings current
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">Revenue Trend</div>
+                                <select style="padding: 6px 12px; border-radius: 6px; border: 1px solid #e4e4e7; font-size: 13px;">
+                                    <option>Last 12 months</option>
+                                </select>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="chart-bar" style="height: 30%;"></div>
+                                <div class="chart-bar" style="height: 45%;"></div>
+                                <div class="chart-bar" style="height: 35%;"></div>
+                                <div class="chart-bar" style="height: 55%;"></div>
+                                <div class="chart-bar" style="height: 40%;"></div>
+                                <div class="chart-bar" style="height: 65%;"></div>
+                                <div class="chart-bar" style="height: 50%;"></div>
+                                <div class="chart-bar" style="height: 75%;"></div>
+                                <div class="chart-bar" style="height: 60%;"></div>
+                                <div class="chart-bar" style="height: 85%;"></div>
+                                <div class="chart-bar" style="height: 70%;"></div>
+                                <div class="chart-bar" style="height: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">Recent Activity</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">TM</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">Invoice #1247 paid</div>
+                                    <div class="activity-time">2 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">KN</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">New order received</div>
+                                    <div class="activity-time">15 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">SB</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">VAT return submitted</div>
+                                    <div class="activity-time">1 hour ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">PM</div>
+                                <div class="activity-content">
+                                    <div class="activity-text">Stock transfer complete</div>
+                                    <div class="activity-time">3 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULES SHOWCASE -->
+    <section class="modules-section">
+        <div class="section-header">
+            <h2>Every Module. One Platform.</h2>
+            <p>25+ integrated modules designed to work together seamlessly</p>
+        </div>
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">💰</div>
+                <h3>Financial Accounting</h3>
+                <p>General ledger, accounts payable/receivable, bank reconciliation. IFRS compliant, SARS ready.</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);">🏦</div>
+                <h3>Cash Management</h3>
+                <p>Bank feeds, automated reconciliation, cash flow forecasting. See your money in real-time.</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">📦</div>
+                <h3>Inventory & Warehouse</h3>
+                <p>Multi-location stock, batch tracking, automated reordering. Never run out, never overstock.</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">👥</div>
+                <h3>HR & Payroll</h3>
+                <p>Employee management, PAYE calculations, leave tracking. UIF, SDL, and IRP5 automated.</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);">🚚</div>
+                <h3>Logistics & Fleet</h3>
+                <p>Route planning, GPS tracking, proof of delivery. Know where every vehicle is.</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon" style="background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);">🏥</div>
+                <h3>Healthcare Operations</h3>
+                <p>Patient management, medical aid claims, practice operations. GoodX integrated.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section">
+        <div class="testimonial-content">
+            <p class="testimonial-quote">
+                "SiyaBusa didn't just give us software — they gave us clarity. 
+                For the first time, I know exactly how my business is performing, 
+                and I can make decisions with confidence."
+            </p>
+            <div class="testimonial-author">
+                <div class="author-avatar">TM</div>
+                <div class="author-info">
+                    <div class="author-name">Thabo Molefe</div>
+                    <div class="author-title">CEO, Molefe Construction (Pilot Client)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">⚡</div>
+                        <span class="footer-logo-text">SiyaBusa</span>
+                    </div>
+                    <p>Enterprise resource planning built for African business realities. A product of Masaphokati Technologies.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Modules</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">POPIA Compliance</a></li>
+                        <li><a href="#">SLA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Masaphokati Technologies (Pty) Ltd. All rights reserved.</p>
+                <p>Made with ❤️ in South Africa 🇿🇦</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

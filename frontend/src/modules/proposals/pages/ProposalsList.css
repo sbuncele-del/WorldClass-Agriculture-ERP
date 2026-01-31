@@ -1,0 +1,65 @@
+.proposals-list {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Proposal Info */
+.proposal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proposal-title {
+  font-weight: 500;
+  color: #262626;
+}
+
+.proposal-tags {
+  display: flex;
+  gap: 4px;
+}
+
+/* Client Info */
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.client-name {
+  font-weight: 500;
+}
+
+.client-email {
+  font-size: 12px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

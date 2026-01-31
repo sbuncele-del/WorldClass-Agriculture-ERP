@@ -1,0 +1,100 @@
+.location-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+}
+
+.status-active {
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.status-idle {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.status-under_maintenance {
+  background: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+.depreciation-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.depreciation-item {
+  text-align: center;
+  flex: 1;
+}
+
+.depreciation-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.depreciation-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.depreciation-negative {
+  color: #ef4444;
+}
+
+.depreciation-result {
+  color: #10b981;
+}
+
+.depreciation-divider {
+  font-size: 32px;
+  font-weight: 300;
+  color: #9ca3af;
+}
+
+.maintenance-summary {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.maintenance-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.maintenance-icon {
+  color: #3b82f6;
+}
+
+.maintenance-warning {
+  color: #ef4444;
+}
+
+.maintenance-success {
+  color: #10b981;
+}
+
+.maintenance-count {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.maintenance-label {
+  font-size: 14px;
+  color: #6b7280;
+}

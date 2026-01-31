@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - AI Capabilities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ===== 6.2 COVER PAGE BACKGROUND CSS (EXACT SPECIFICATION) ===== */
+        .cover-page {
+            height: 250mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.4) 0%, transparent 20%),
+                linear-gradient(135deg, #020617 0%, #1e3a8a 50%, #172554 100%);
+            margin: -20mm -20mm 0 -20mm;
+            padding: 20mm;
+            page-break-after: always;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* ===== 6.3 GRID OVERLAY CSS (EXACT SPECIFICATION) ===== */
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        /* ===== 6.4 FROSTED GLASS CONTENT BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-content {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ===== 6.5 COVER TYPOGRAPHY (EXACT SPECIFICATION) ===== */
+        /* Logo: 48px, weight 800, #ffffff */
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        
+        /* Title: 32px, weight 700, #ffffff */
+        .cover-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        /* Subtitle: 18px, weight 400, #bfdbfe, margin-bottom: 40px */
+        .cover-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 40px;
+        }
+        
+        /* Company Name: 16px, weight 600, #ffffff */
+        .cover-company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* ===== 6.6 COVER METADATA BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-info {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .cover-info .info-row {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #e0f2fe;
+        }
+        
+        /* Info Label: 14px, weight 600, #93c5fd */
+        .cover-info .info-label {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+        
+        /* Info Value: 14px, weight 400, #ffffff */
+        .cover-info .info-value {
+            color: #ffffff;
+        }
+        
+        /* ===== 6.7 TAGLINE CSS (EXACT SPECIFICATION) ===== */
+        /* Tagline: 12px, weight 400, #93c5fd, letter-spacing: 2px, UPPERCASE */
+        .cover-tagline {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: #93c5fd;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-page {
+            page-break-after: always;
+            padding: 40px 0;
+        }
+        
+        .toc-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 15px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        
+        .toc-number {
+            color: #0ea5e9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .content-section {
+            page-break-before: always;
+            padding: 20px 0;
+        }
+        
+        /* ===== 7.1 INTRO BOX (EXACT SPECIFICATION) ===== */
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border-left: 4px solid #1e3a8a;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro-title {
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .intro-text {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        
+        /* ===== 4.3 HEADING SPECIFICATIONS (EXACT) ===== */
+        h1 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h3 {
+            color: #3730a3;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        p {
+            margin: 12px 0;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            page-break-inside: avoid;
+        }
+        
+        li {
+            margin: 8px 0;
+            page-break-inside: avoid;
+        }
+        
+        /* ===== 7.3 CODE BLOCK STYLING (EXACT SPECIFICATION) ===== */
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            page-break-inside: avoid;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* ===== 7.4 BLOCKQUOTE STYLING (EXACT SPECIFICATION) ===== */
+        blockquote {
+            border-left: 4px solid #7c3aed;
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #faf5ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        /* ===== 7.2 TABLE STYLING (EXACT SPECIFICATION) ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        /* ===== 7.5 HORIZONTAL RULE (EXACT SPECIFICATION) ===== */
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        
+        /* ===== 7.6 STRONG/BOLD TEXT (EXACT SPECIFICATION) ===== */
+        strong {
+            color: #1e3a8a;
+        }
+        
+        .header-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #64748b;
+        }
+        
+        .page-header {
+            position: running(header);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .page-footer {
+            position: running(footer);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-planned {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #dcfce7;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    
+      <div class="cover-page">
+        <div class="cover-content">
+          <div class="cover-logo">SiyaBusa ERP</div>
+          <div class="cover-title">AI Capabilities</div>
+          <div class="cover-subtitle">Investor Documentation</div>
+          <div class="cover-company">Masaphokati Technologies (Pty) Ltd</div>
+          
+          <div class="cover-info">
+            <div class="info-row">
+              <span class="info-label">Document Version:</span>
+              <span class="info-value"> 1.0</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Effective Date:</span>
+              <span class="info-value"> January 29, 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Department:</span>
+              <span class="info-value"> Executive</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Classification:</span>
+              <span class="info-value"> Confidential</span>
+            </div>
+          </div>
+          
+          <div class="cover-tagline">WE RULE. WE GOVERN. WE EMPOWER.</div>
+        </div>
+      </div>
+    
+      <div class="toc-page">
+        <h1 class="toc-title">Table of Contents</h1>
+        <ul class="toc-list">
+          <li class="toc-item"><span class="toc-number">1.</span> AI ASSISTANT ENHANCEMENT</li><li class="toc-item"><span class="toc-number">2.</span> AI AGENTS QUICK START</li>
+        </ul>
+      </div>
+    
+          <div class="content-section">
+            <h1>AI ASSISTANT ENHANCEMENT</h1>
+            <h1>AI Assistant Enhancement - SiyaBusa ERP</h1>
+<h2>&quot;The Smartest Thing Ever&quot; - Your First Point of Contact</h2>
+<p><strong>Updated:</strong> January 12, 2026<br><strong>Status:</strong> ✅ Live in Production<br><strong>Platform:</strong> SiyaBusa ERP (Cape Town AWS Region)</p>
+<hr>
+<h2>What Was Built</h2>
+<h3>1. Comprehensive ERP Knowledge Base (<code>ERPKnowledgeBase.ts</code>)</h3>
+<p>The AI now knows EVERYTHING about the ERP system:</p>
+<ul>
+<li>**All 25 Integrated Modules** - Financial, Sales, Purchase, Inventory, HR, Assets, Banking, Treasury, Cash Management, Projects, Manufacturing, Healthcare, Construction, Property, Agriculture, Mining, Logistics, Warehouse, Compliance Hub, Audit Ready, Communications, Proposals, Admin Hub, Practice Management, and Multi-Entity</li>
+<li>**Module Capabilities** - What each module can do</li>
+<li>**Navigation** - How to get to each feature</li>
+<li>**Common Questions** - Pre-built Q&A for each module</li>
+<li>**Workflows** - Step-by-step processes (Sales Cycle, Purchase Cycle, Month-end Close, Payroll)</li>
+<li>**SA Compliance** - VAT, PAYE, UIF, SDL, POPIA, CIPC</li>
+<li>**Glossary** - Business and accounting terms explained simply</li>
+<li>**Troubleshooting** - Common problems and solutions</li>
+</ul>
+<h3>2. Machine Learning System (<code>AILearningService.ts</code>)</h3>
+<p>The AI learns and improves from every conversation:</p>
+<ul>
+<li>**Conversation Storage** - Every interaction is saved for learning</li>
+<li>**Feedback Loop** - Users can mark responses as helpful/unhelpful</li>
+<li>**Pattern Recognition** - Learns successful response patterns</li>
+<li>**FAQ Generation** - Automatically creates FAQs from common questions</li>
+<li>**User Preferences** - Remembers each user's preferred response style</li>
+<li>**Analytics** - Tracks conversation topics, success rates, trends</li>
+</ul>
+<h3>3. Database Tables (PostgreSQL)</h3>
+<p>New tables created for AI learning:</p>
+<pre><code class="language-sql">ai_conversations      -- Stores all conversations for learning
+ai_learned_patterns   -- Successful response patterns
+ai_faq               -- Frequently asked questions
+ai_user_preferences  -- Personalization per user
+</code></pre>
+<p>Pre-seeded with <strong>15 common FAQs</strong> about invoices, reconciliation, payroll, VAT, etc.</p>
+<h3>4. New API Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/api/ai/feedback/:id</code></td>
+<td>POST</td>
+<td>Record feedback (helpful/unhelpful)</td>
+</tr>
+<tr>
+<td><code>/api/ai/faq</code></td>
+<td>GET</td>
+<td>Get FAQs for help center</td>
+</tr>
+<tr>
+<td><code>/api/ai/analytics</code></td>
+<td>GET</td>
+<td>AI usage analytics</td>
+</tr>
+<tr>
+<td><code>/api/ai/knowledge</code></td>
+<td>GET</td>
+<td>Full ERP knowledge base</td>
+</tr>
+<tr>
+<td><code>/api/ai/knowledge/search</code></td>
+<td>GET</td>
+<td>Search knowledge base</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>How The AI Works Now</h2>
+<h3>When User Asks a Question:</h3>
+<ol>
+<li>**Knowledge Search** - First searches the ERP knowledge base for relevant info</li>
+<li>**Pattern Matching** - Checks learned patterns from past successful responses  </li>
+<li>**Context Loading** - Gets user's recent conversations and preferences</li>
+<li>**OpenAI Processing** - Sends enriched context to GPT-4o-mini</li>
+<li>**Response Generation** - Returns helpful, conversational answer</li>
+<li>**Learning Storage** - Saves conversation for future learning</li>
+</ol>
+<h3>System Prompt Features:</h3>
+<p>The AI has been upgraded with:</p>
+<ul>
+<li>Complete module knowledge</li>
+<li>South African compliance awareness</li>
+<li>Step-by-step navigation guidance</li>
+<li>Troubleshooting expertise</li>
+<li>Simple business language (not accounting jargon)</li>
+<li>Proactive suggestions</li>
+</ul>
+<hr>
+<h2>Example Interactions</h2>
+<p><strong>User:</strong> &quot;How do I create an invoice?&quot;
+<strong>AI:</strong> &quot;Go to Sales Hub → New Invoice. Select your customer, add line items with quantities and prices, review the totals including VAT, then click Save or Save &amp; Send to email it directly. Would you like me to walk you through it step by step?&quot;</p>
+<p><strong>User:</strong> &quot;When is VAT due?&quot;
+<strong>AI:</strong> &quot;VAT returns are due by the 25th of the month following your VAT period. For example, if your period ends on 30 November, your return is due by 25 December. Go to SARS Sentinel to see your upcoming deadlines and prepare your return.&quot;</p>
+<p><strong>User:</strong> &quot;My trial balance doesn&#39;t balance&quot;
+<strong>AI:</strong> &quot;Let&#39;s troubleshoot this. Check for: 1) Unposted journal entries, 2) Suspended transactions, 3) Opening balance errors, 4) Rounding issues. Go to Financial Hub → Reports → Trial Balance and look at any accounts with unusual balances. Would you like help identifying the discrepancy?&quot;</p>
+<hr>
+<h2>Configuration Required</h2>
+<p>For the AI to work, ensure these environment variables are set:</p>
+<pre><code class="language-env">OPENAI_API_KEY=sk-your-key-here
+</code></pre>
+<p>The AI uses GPT-4o-mini which costs approximately <strong>R0.50-2 per customer per month</strong> at typical usage.</p>
+<hr>
+<h2>Files Created/Modified</h2>
+<h3>New Files:</h3>
+<ul>
+<li>`backend/src/services/ai/ERPKnowledgeBase.ts` - Comprehensive ERP knowledge</li>
+<li>`backend/src/services/ai/AILearningService.ts` - Machine learning service</li>
+<li>`backend/migrations/ai-learning-system.sql` - Database tables + seed data</li>
+</ul>
+<h3>Modified Files:</h3>
+<ul>
+<li>`backend/src/services/ai/AIAssistantService.ts` - Enhanced with knowledge + learning</li>
+<li>`backend/src/routes/ai-assistant.routes.ts` - New learning endpoints</li>
+<li>`backend/src/controllers/ai-assistant.controller.v2.ts` - New endpoint handlers</li>
+</ul>
+<hr>
+<h2>Analytics Available</h2>
+<p>Admins can see:</p>
+<ul>
+<li>Total conversations</li>
+<li>Helpful rate (% of positive feedback)</li>
+<li>Top question categories</li>
+<li>Activity trends (last 7 days)</li>
+<li>Learning status</li>
+</ul>
+<p>Access via: <code>/api/ai/analytics</code></p>
+<hr>
+<h2>Next Steps (Optional Enhancements)</h2>
+<ol>
+<li>**Fine-tuning** - Train a custom model on successful conversations</li>
+<li>**Voice Interface** - Add speech-to-text for hands-free use</li>
+<li>**Proactive Alerts** - AI suggests actions based on system state</li>
+<li>**Multi-language** - Add Zulu, Afrikaans, Xhosa support</li>
+<li>**Industry Packs** - Specialized knowledge for healthcare, mining, etc.</li>
+</ol>
+<hr>
+<h2>Support</h2>
+<p>The AI is designed to be THE FIRST POINT OF CONTACT. Users should:</p>
+<ol>
+<li>Ask the AI assistant first</li>
+<li>Check the FAQ section</li>
+<li>Search the knowledge base</li>
+<li>Only then escalate to human support</li>
+</ol>
+<p>This reduces support load and provides instant, 24/7 assistance.</p>
+<p><strong>Live at:</strong> <a href="https://siyabusaerp.co.za">https://siyabusaerp.co.za</a></p>
+
+          </div>
+        
+          <div class="content-section">
+            <h1>AI AGENTS QUICK START</h1>
+            <h1>AI Agents Module - Quick Start Guide</h1>
+<p><strong>Updated:</strong> January 12, 2026<br><strong>Platform:</strong> SiyaBusa ERP (Cape Town AWS Region)<br><strong>Status:</strong> ✅ Integrated</p>
+<h2>Installation (Complete ✅)</h2>
+<p>The AI Agents module is already installed and integrated. All you need to do is configure your API keys.</p>
+<h2>1. Get API Keys</h2>
+<h3>Option A: OpenAI (Recommended)</h3>
+<ol>
+<li>Go to https://platform.openai.com/api-keys</li>
+<li>Create new API key</li>
+<li>Copy the key (starts with `sk-...`)</li>
+</ol>
+<h3>Option B: Anthropic (Alternative)</h3>
+<ol>
+<li>Go to https://console.anthropic.com/</li>
+<li>Create API key</li>
+<li>Copy the key (starts with `sk-ant-...`)</li>
+</ol>
+<h3>Option C: Both (Fallback support)</h3>
+<p>You can configure both. OpenAI will be used first, Anthropic as fallback.</p>
+<h2>2. Configure Environment</h2>
+<p>Add to your <code>.env</code> file:</p>
+<pre><code class="language-bash"># Required: At least one API key
+OPENAI_API_KEY=sk-your-openai-key-here
+# OR
+ANTHROPIC_API_KEY=sk-ant-your-anthropic-key-here
+
+# Optional: Configuration
+AI_DEFAULT_MODEL=gpt-4
+AI_MAX_TOKENS=2000
+AI_TEMPERATURE=0.7
+</code></pre>
+<h2>3. Deploy Database Schema</h2>
+<pre><code class="language-bash"># For Cape Town ECS deployment, connect to RDS directly:
+# Host: worldclass-erp-db.c92ou2c2e43l.af-south-1.rds.amazonaws.com
+# Database: erp_database
+
+# Navigate to backend
+cd /workspaces/WorldClass-ERP/backend
+
+# Run migration
+psql $DATABASE_URL -f database/migrations/018_ai_agents_module.sql
+
+# Verify
+psql $DATABASE_URL -c &quot;SELECT agent_name FROM ai_agents;&quot;
+</code></pre>
+<p>Expected output:</p>
+<pre><code>         agent_name
+----------------------------
+ Sales Assistant
+ Procurement Assistant
+ Finance Assistant
+ HR Assistant
+ Compliance Assistant
+ Analytics Assistant
+ Treasury Assistant
+ Inventory Assistant
+ Logistics Assistant
+(9 rows)
+</code></pre>
+<h2>4. Restart Backend</h2>
+<pre><code class="language-bash"># For ECS deployment, redeploy the service:
+aws ecs update-service --cluster worldclass-erp-cluster --service worldclass-erp-backend --force-new-deployment --region af-south-1
+</code></pre>
+<p>Look for:</p>
+<pre><code>🚀 Server running on port 3000
+📊 ERP System initialized
+</code></pre>
+<h2>5. Test AI Agents</h2>
+<h3>Test 1: List Agents</h3>
+<pre><code class="language-bash">curl -X GET https://siyabusaerp.co.za/api/ai/agents \
+  -H &quot;Authorization: Bearer YOUR_JWT_TOKEN&quot;
+</code></pre>
+<p>Should return 9 agents.</p>
+<h3>Test 2: Chat with Sales Assistant</h3>
+<pre><code class="language-bash">curl -X POST https://siyabusaerp.co.za/api/ai/agents/SALES_ASSISTANT/chat \
+  -H &quot;Authorization: Bearer YOUR_JWT_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+    &quot;message&quot;: &quot;What are the top 3 tips for closing deals?&quot;
+  }&#39;
+</code></pre>
+<p>Should return AI response with conversation ID.</p>
+<h3>Test 3: Get Suggestions</h3>
+<pre><code class="language-bash">curl -X GET https://siyabusaerp.co.za/api/ai/suggestions \
+  -H &quot;Authorization: Bearer YOUR_JWT_TOKEN&quot;
+</code></pre>
+<h2>6. Frontend Integration</h2>
+<p>Add AI chat component to your frontend:</p>
+<pre><code class="language-typescript">// Example: Chat with any agent
+async function chatWithAgent(agentCode: string, message: string) {
+  const response = await fetch(`/api/ai/agents/${agentCode}/chat`, {
+    method: &#39;POST&#39;,
+    headers: {
+      &#39;Authorization&#39;: `Bearer ${token}`,
+      &#39;Content-Type&#39;: &#39;application/json&#39;
+    },
+    body: JSON.stringify({ message })
+  });
+  
+  return await response.json();
+}
+
+// Usage
+const result = await chatWithAgent(&#39;SALES_ASSISTANT&#39;, &#39;Help me create a quotation&#39;);
+console.log(result.response);
+</code></pre>
+<h2>Available Agents</h2>
+<table>
+<thead>
+<tr>
+<th>Agent Code</th>
+<th>Module</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SALES_ASSISTANT</code></td>
+<td>Sales</td>
+<td>Quotations, forecasting, customer insights</td>
+</tr>
+<tr>
+<td><code>PROCUREMENT_ASSISTANT</code></td>
+<td>Purchase</td>
+<td>PO optimization, supplier analysis</td>
+</tr>
+<tr>
+<td><code>FINANCE_ASSISTANT</code></td>
+<td>Financial</td>
+<td>Reconciliation, variance analysis</td>
+</tr>
+<tr>
+<td><code>HR_ASSISTANT</code></td>
+<td>HR</td>
+<td>Onboarding, payroll, policies</td>
+</tr>
+<tr>
+<td><code>COMPLIANCE_ASSISTANT</code></td>
+<td>Compliance</td>
+<td>Risk assessment, deadlines</td>
+</tr>
+<tr>
+<td><code>ANALYTICS_ASSISTANT</code></td>
+<td>Reports</td>
+<td>Data insights, trends</td>
+</tr>
+<tr>
+<td><code>TREASURY_ASSISTANT</code></td>
+<td>Treasury</td>
+<td>Cash flow, FX, investments</td>
+</tr>
+<tr>
+<td><code>INVENTORY_ASSISTANT</code></td>
+<td>Inventory</td>
+<td>Stock optimization, demand forecasting</td>
+</tr>
+<tr>
+<td><code>LOGISTICS_ASSISTANT</code></td>
+<td>Logistics</td>
+<td>Route optimization, fleet tracking</td>
+</tr>
+</tbody></table>
+<h2>Common Use Cases</h2>
+<h3>Sales: Generate Quotation</h3>
+<pre><code class="language-bash">POST /api/ai/sales/generate-quotation
+{
+  &quot;customerId&quot;: &quot;cust-123&quot;,
+  &quot;items&quot;: [{&quot;productId&quot;: &quot;prod-456&quot;, &quot;quantity&quot;: 10}]
+}
+</code></pre>
+<h3>Compliance: Check Status</h3>
+<pre><code class="language-bash">GET /api/ai/compliance/check
+</code></pre>
+<h3>Finance: Explain Variance</h3>
+<pre><code class="language-bash">GET /api/ai/finance/explain-variance?accountCode=4000&amp;period=2024-01
+</code></pre>
+<h3>Sales: Forecast</h3>
+<pre><code class="language-bash">GET /api/ai/sales/forecast?period=quarter
+</code></pre>
+<h2>Monitoring</h2>
+<h3>Check Usage</h3>
+<pre><code class="language-sql">SELECT 
+  a.agent_name,
+  SUM(ua.total_messages) as messages,
+  SUM(ua.total_tokens) as tokens
+FROM ai_usage_analytics ua
+JOIN ai_agents a ON ua.agent_id = a.agent_id
+WHERE ua.usage_date &gt;= CURRENT_DATE - INTERVAL &#39;7 days&#39;
+GROUP BY a.agent_name;
+</code></pre>
+<h3>View Recent Conversations</h3>
+<pre><code class="language-sql">SELECT 
+  a.agent_name,
+  c.conversation_title,
+  c.last_message_at,
+  (SELECT COUNT(*) FROM ai_messages WHERE conversation_id = c.conversation_id) as message_count
+FROM ai_conversations c
+JOIN ai_agents a ON c.agent_id = a.agent_id
+ORDER BY c.last_message_at DESC
+LIMIT 10;
+</code></pre>
+<h2>Troubleshooting</h2>
+<h3>Error: &quot;No AI provider configured&quot;</h3>
+<p><strong>Solution</strong>: Add <code>OPENAI_API_KEY</code> or <code>ANTHROPIC_API_KEY</code> to <code>.env</code> and restart backend</p>
+<h3>Error: &quot;Agent not found&quot;</h3>
+<p><strong>Solution</strong>: </p>
+<pre><code class="language-bash"># Check if agents exist
+psql $DATABASE_URL -c &quot;SELECT * FROM ai_agents WHERE is_active = true;&quot;
+
+# If empty, re-run migration
+psql $DATABASE_URL -f database/migrations/018_ai_agents_module.sql
+</code></pre>
+<h3>Slow responses</h3>
+<p><strong>Solution</strong>: </p>
+<ul>
+<li>Switch to `gpt-3.5-turbo` (faster, cheaper)</li>
+<li>Use streaming endpoint: `/api/ai/agents/:agentCode/stream`</li>
+</ul>
+<h3>High costs</h3>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Reduce `AI_MAX_TOKENS` in `.env`</li>
+<li>Set monthly limits per tenant</li>
+<li>Use gpt-3.5-turbo instead of gpt-4</li>
+</ul>
+<h2>Next Steps</h2>
+<ol>
+<li>✅ **Module Complete**: AI Agents fully integrated</li>
+<li>⏳ **Multi-Entity**: Add multi-entity support (next task)</li>
+<li>⏳ **Deployment Packages**: Create deployment packages for all new modules</li>
+<li>⏳ **Testing**: Comprehensive testing with user</li>
+</ol>
+<h2>Cost Estimation</h2>
+<p><strong>OpenAI GPT-4 Pricing</strong> (as of Nov 2024):</p>
+<ul>
+<li>Input: $0.03 per 1K tokens</li>
+<li>Output: $0.06 per 1K tokens</li>
+</ul>
+<p><strong>Example</strong>: 100 conversations/day with 500 tokens each = $3/day = $90/month</p>
+<p><strong>Optimization</strong>:</p>
+<ul>
+<li>Use GPT-3.5-Turbo: ~10x cheaper</li>
+<li>Cache common queries</li>
+<li>Limit token usage per query</li>
+</ul>
+<h2>Support</h2>
+<p>Full documentation: <code>/backend/AI-AGENTS-DOCUMENTATION.md</code></p>
+<hr>
+<p><strong>Status</strong>: ✅ DEPLOYED<br><strong>Version</strong>: 1.0.0<br><strong>Updated</strong>: January 2026<br><strong>Live URL</strong>: <a href="https://siyabusaerp.co.za">https://siyabusaerp.co.za</a></p>
+
+          </div>
+        
+</body>
+</html>

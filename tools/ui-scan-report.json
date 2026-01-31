@@ -1,0 +1,692 @@
+{
+  "emptyHandlers": [],
+  "disabledButtons": [
+    {
+      "file": "src/components/ui/ActionMenu.tsx",
+      "line": 30,
+      "code": "disabled = false,"
+    },
+    {
+      "file": "src/components/ui/ActionMenu.tsx",
+      "line": 52,
+      "code": "if (!item.disabled && !item.divider) {"
+    },
+    {
+      "file": "src/components/ui/ActionMenu.tsx",
+      "line": 66,
+      "code": "<div onClick={() => !disabled && setIsOpen(!isOpen)}>"
+    },
+    {
+      "file": "src/components/ui/ActionMenu.tsx",
+      "line": 81,
+      "code": "item.disabled ? 'action-menu-item-disabled' : ''"
+    },
+    {
+      "file": "src/modules/assets/AssetsHub.tsx",
+      "line": 1185,
+      "code": "<Input placeholder=\"Auto-generated\" disabled />"
+    },
+    {
+      "file": "src/modules/assets/AssetsHub.tsx",
+      "line": 1313,
+      "code": "<Input value={selectedPolicy.category} disabled />"
+    },
+    {
+      "file": "src/modules/assets/AssetsHub.tsx",
+      "line": 1319,
+      "code": "<Input value={`${selectedPolicy.usefulLifeYears} years`} disabled />"
+    },
+    {
+      "file": "src/modules/assets/AssetsHub.tsx",
+      "line": 1332,
+      "code": "<Input value={`${selectedPolicy.residualValuePercent}%`} disabled />"
+    },
+    {
+      "file": "src/modules/financial/FinancialHub.tsx",
+      "line": 616,
+      "code": "<Input placeholder=\"Auto-generated\" disabled />"
+    },
+    {
+      "file": "src/modules/logistics/DocumentProcessing.tsx",
+      "line": 1120,
+      "code": "input:disabled {"
+    },
+    {
+      "file": "src/modules/projects/ProjectsHub.tsx",
+      "line": 1228,
+      "code": "<Input placeholder=\"Auto-generated\" disabled />"
+    },
+    {
+      "file": "src/modules/sars-sentinel/pages/SARSIntegrationHub.tsx",
+      "line": 633,
+      "code": "<Input value={integrationStatus.sftp.server} disabled />"
+    }
+  ],
+  "comingSoon": [
+    {
+      "file": "src/components/BankReconciliationHub.tsx",
+      "line": 902,
+      "code": "<Divider>Or connect bank (Coming Soon)</Divider>"
+    },
+    {
+      "file": "src/components/BankReconciliationHub.tsx",
+      "line": 906,
+      "code": "<Space>Connect via Yodlee <Tag>Coming Soon</Tag></Space>"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 124,
+      "code": "alert(`${module.name} is coming soon! Stay tuned.`);"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 143,
+      "code": "const isComingSoon = module.status === 'coming_soon';"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 153,
+      "code": "${isComingSoon ? 'opacity-60' : ''}"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 160,
+      "code": "${isComingSoon ? 'bg-gray-100' : 'bg-blue-50'}"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 164,
+      "code": "${isComingSoon ? 'text-gray-400' : 'text-blue-600'}"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 167,
+      "code": "{isComingSoon && ("
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 169,
+      "code": "Coming Soon"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 188,
+      "code": "{!isComingSoon && ("
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 286,
+      "code": "Coming Soon"
+    },
+    {
+      "file": "src/components/DynamicWorkspace.tsx",
+      "line": 300,
+      "code": "{renderModuleSection('Coming Soon', modules.modules.coming_soon)}"
+    },
+    {
+      "file": "src/components/MyWorkspaceHub.tsx",
+      "line": 373,
+      "code": "<Alert message=\"Calendar view coming soon\" description=\"View your schedule, meet"
+    },
+    {
+      "file": "src/components/ReconciliationWorkspace.tsx",
+      "line": 605,
+      "code": "Journal entry creation form coming soon..."
+    },
+    {
+      "file": "src/modules/assets/AssetsHub.tsx",
+      "line": 474,
+      "code": "'under_construction': { color: 'blue', text: 'Under Construction', icon: <ClockC"
+    },
+    {
+      "file": "src/modules/banking/BankingHub.tsx",
+      "line": 847,
+      "code": "<Card className=\"connect-option\" hoverable onClick={() => message.info('Open Ban"
+    },
+    {
+      "file": "src/modules/cash/ReconciliationWorkspace.tsx",
+      "line": 172,
+      "code": "onClick={() => alert('Bulk operations coming soon!')}"
+    },
+    {
+      "file": "src/modules/communication/CommunicationsHub.tsx",
+      "line": 1330,
+      "code": "<Card size=\"small\" hoverable onClick={() => message.info('Webinar feature coming"
+    },
+    {
+      "file": "src/modules/financial/components/AccountLedger.tsx",
+      "line": 149,
+      "code": "alert('Excel export coming soon!');"
+    },
+    {
+      "file": "src/modules/financial/components/AccountLedger.tsx",
+      "line": 153,
+      "code": "alert('PDF export coming soon!');"
+    },
+    {
+      "file": "src/modules/financial/components/BudgetVsActual.tsx",
+      "line": 437,
+      "code": "<button className=\"btn-export\" onClick={() => alert('CSV export feature coming s"
+    },
+    {
+      "file": "src/modules/financial/components/FinancialForecasting.tsx",
+      "line": 163,
+      "code": "<option value=\"EXPONENTIAL\">Exponential (Coming Soon)</option>"
+    },
+    {
+      "file": "src/modules/financial/components/FinancialForecasting.tsx",
+      "line": 164,
+      "code": "<option value=\"MOVING_AVERAGE\">Moving Average (Coming Soon)</option>"
+    },
+    {
+      "file": "src/modules/financial/components/FinancialForecasting.tsx",
+      "line": 165,
+      "code": "<option value=\"SEASONAL\">Seasonal (Coming Soon)</option>"
+    },
+    {
+      "file": "src/modules/financial/components/GLExplorer.tsx",
+      "line": 520,
+      "code": "<p>Hierarchical account navigation coming soon!</p>"
+    },
+    {
+      "file": "src/modules/financial/components/ReportViewer.tsx",
+      "line": 94,
+      "code": "alert('PDF export coming soon!');"
+    },
+    {
+      "file": "src/modules/financial/components/ReportViewer.tsx",
+      "line": 98,
+      "code": "alert('Excel export coming soon!');"
+    },
+    {
+      "file": "src/modules/financial/components/ReportViewer.tsx",
+      "line": 320,
+      "code": "<p>Chart visualization coming soon!</p>"
+    },
+    {
+      "file": "src/modules/financial/components/TrialBalance.tsx",
+      "line": 141,
+      "code": "alert('Excel export coming soon!');"
+    },
+    {
+      "file": "src/modules/financial/components/TrialBalance.tsx",
+      "line": 146,
+      "code": "alert('PDF export coming soon!');"
+    },
+    {
+      "file": "src/modules/property/PropertyHub.tsx",
+      "line": 425,
+      "code": "{ id: 'DEV-001', name: 'Waterfall Business Park Phase 3', status: 'Under Constru"
+    },
+    {
+      "file": "src/modules/property/PropertyHub.tsx",
+      "line": 439,
+      "code": "<Tag color={record.status === 'Under Construction' ? 'blue' : record.status === "
+    },
+    {
+      "file": "src/pages/CashManagement.tsx",
+      "line": 7,
+      "code": "const CashFlowPage: React.FC = () => <div className=\"placeholder\">💵 Cash Flow -"
+    },
+    {
+      "file": "src/pages/CashManagement.tsx",
+      "line": 8,
+      "code": "const Forecasting: React.FC = () => <div className=\"placeholder\">🔮 Forecasting "
+    },
+    {
+      "file": "src/pages/CashManagement.tsx",
+      "line": 9,
+      "code": "const CashReports: React.FC = () => <div className=\"placeholder\">📊 Reports - Co"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 33,
+      "code": "const FinancialOverview: React.FC = () => <div className=\"placeholder\">📊 Financ"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 34,
+      "code": "const ComparativeAnalysis: React.FC = () => <div className=\"placeholder\">📊 Comp"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 35,
+      "code": "const AdjustingEntries: React.FC = () => <div className=\"placeholder\">⚖️ Adjusti"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 36,
+      "code": "const ApprovalWorkflows: React.FC = () => <div className=\"placeholder\">⚙️ Approv"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 37,
+      "code": "const ChangeLog: React.FC = () => <div className=\"placeholder\">📝 Change Log - C"
+    },
+    {
+      "file": "src/pages/FinancialManagement.tsx",
+      "line": 38,
+      "code": "const ComplianceReports: React.FC = () => <div className=\"placeholder\">📊 Compli"
+    },
+    {
+      "file": "src/pages/Sales.tsx",
+      "line": 125,
+      "code": "<p>Opportunity form coming soon...</p>"
+    },
+    {
+      "file": "src/pages/Sales.tsx",
+      "line": 140,
+      "code": "<p>Quotation form coming soon...</p>"
+    },
+    {
+      "file": "src/pages/Sales.tsx",
+      "line": 155,
+      "code": "<p>Sales Order form coming soon...</p>"
+    }
+  ],
+  "placeholders": [],
+  "hardcodedDemoData": [
+    {
+      "file": "src/components/BankReconciliationHub.tsx",
+      "line": 114,
+      "type": "Sample placeholder",
+      "code": "// Initialize with sample data"
+    },
+    {
+      "file": "src/components/MyWorkspaceHub.tsx",
+      "line": 167,
+      "type": "ABC Trading company name",
+      "code": "{ id: '1', type: 'Payment', description: 'Supplier payment - ABC Trading', amoun"
+    },
+    {
+      "file": "src/components/RoleBasedWorkspace.tsx",
+      "line": 140,
+      "type": "R47.8M revenue figure",
+      "code": "<div className=\"kpi-value\">R 47.8M</div>"
+    },
+    {
+      "file": "src/components/RoleBasedWorkspace.tsx",
+      "line": 205,
+      "type": "R47.8M revenue figure",
+      "code": "<Text>R 47.8M / R 51M</Text>"
+    },
+    {
+      "file": "src/components/onboarding/CompanyDetailsStep.tsx",
+      "line": 124,
+      "type": "example.com domain",
+      "code": "placeholder=\"https://example.com\""
+    },
+    {
+      "file": "src/components/ui/GlobalSearch.tsx",
+      "line": 60,
+      "type": "example.com domain",
+      "code": "subtitle: 'john@example.com • Active',"
+    },
+    {
+      "file": "src/contexts/UserContext.tsx",
+      "line": 23,
+      "type": "John Doe placeholder",
+      "code": "fullName: 'John Doe',"
+    },
+    {
+      "file": "src/modules/admin/AdminHub.tsx",
+      "line": 83,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/admin/AdminHub.tsx",
+      "line": 312,
+      "type": "Placeholder address",
+      "code": "<TextArea rows={3} defaultValue=\"123 Main Street\\nSandton\\nJohannesburg\\n2196\" /"
+    },
+    {
+      "file": "src/modules/banking/BankingHub.tsx",
+      "line": 610,
+      "type": "ABC Trading company name",
+      "code": "{ type: 'outflow', desc: 'Supplier - ABC Trading', amount: 125000, date: 'Dec 13"
+    },
+    {
+      "file": "src/modules/calendar/pages/CalendarView.tsx",
+      "line": 63,
+      "type": "ACME placeholder company",
+      "code": "title: 'Client Call - Acme Corp',"
+    },
+    {
+      "file": "src/modules/calendar/pages/Reminders.tsx",
+      "line": 73,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 72,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 81,
+      "type": "John Doe placeholder",
+      "code": "url: 'https://cal.worldclass-erp.com/johndoe/30min',"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 93,
+      "type": "John Doe placeholder",
+      "code": "url: 'https://cal.worldclass-erp.com/johndoe/consultation',"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 105,
+      "type": "John Doe placeholder",
+      "code": "url: 'https://cal.worldclass-erp.com/johndoe/team-demo',"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 117,
+      "type": "John Doe placeholder",
+      "code": "url: 'https://cal.worldclass-erp.com/johndoe/call',"
+    },
+    {
+      "file": "src/modules/calendar/pages/Scheduling.tsx",
+      "line": 139,
+      "type": "example.com domain",
+      "code": "guestEmail: 'alice@example.com',"
+    },
+    {
+      "file": "src/modules/communication/CommunicationsHub.tsx",
+      "line": 148,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/communication/pages/ChatRoom.tsx",
+      "line": 36,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/communication/pages/CommunicationHub.tsx",
+      "line": 44,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/compliance/AuditReadyHub.tsx",
+      "line": 126,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/compliance/AuditorPortalPreview.tsx",
+      "line": 47,
+      "type": "ABC Trading company name",
+      "code": "clientName: 'ABC Trading (Pty) Ltd',"
+    },
+    {
+      "file": "src/modules/compliance/RegulatoryHub.tsx",
+      "line": 76,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/construction/ConstructionHub.tsx",
+      "line": 124,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/financial/components/LocationsManager.tsx",
+      "line": 359,
+      "type": "Placeholder address",
+      "code": "placeholder=\"e.g., 123 Main Street, Sandton\""
+    },
+    {
+      "file": "src/modules/financial/components/ProjectsManager.tsx",
+      "line": 354,
+      "type": "Jane Doe placeholder",
+      "code": "placeholder=\"e.g., Jane Doe\""
+    },
+    {
+      "file": "src/modules/healthcare/HealthcareHub.tsx",
+      "line": 126,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/practice/pages/ClientManagement.tsx",
+      "line": 584,
+      "type": "ACME placeholder company",
+      "code": "<Input placeholder=\"e.g., Acme Corporation\" />"
+    },
+    {
+      "file": "src/modules/projects/ProjectsHub.tsx",
+      "line": 100,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/projects/pages/GanttView.tsx",
+      "line": 25,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/projects/pages/Milestones.tsx",
+      "line": 26,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/projects/pages/ProjectDetails.tsx",
+      "line": 70,
+      "type": "ACME placeholder company",
+      "code": "client: 'Acme Corp',"
+    },
+    {
+      "file": "src/modules/projects/pages/ProjectTemplates.tsx",
+      "line": 27,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/projects/pages/ProjectsDashboard.tsx",
+      "line": 101,
+      "type": "Sample placeholder",
+      "code": "// For now, use sample data until backend is ready"
+    },
+    {
+      "file": "src/modules/projects/pages/ProjectsList.tsx",
+      "line": 37,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/projects/pages/ProjectsList.tsx",
+      "line": 54,
+      "type": "ACME placeholder company",
+      "code": "client: 'Acme Corp',"
+    },
+    {
+      "file": "src/modules/projects/pages/TasksBoard.tsx",
+      "line": 60,
+      "type": "Sample placeholder",
+      "code": "// Sample data - replace with API call"
+    },
+    {
+      "file": "src/modules/projects/pages/TimeTracking.tsx",
+      "line": 39,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/property/PropertyHub.tsx",
+      "line": 152,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/proposals/ProposalsHub.tsx",
+      "line": 86,
+      "type": "Sample placeholder",
+      "code": "// Sample Data"
+    },
+    {
+      "file": "src/modules/proposals/components/ProposalEmailTemplate.tsx",
+      "line": 21,
+      "type": "ACME placeholder company",
+      "code": "recipientCompany = 'Acme Corporation',"
+    },
+    {
+      "file": "src/modules/proposals/pages/PitchBuilder.tsx",
+      "line": 233,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"e.g., Acme Corporation\""
+    },
+    {
+      "file": "src/modules/proposals/pages/ProposalEditor.tsx",
+      "line": 573,
+      "type": "John Doe placeholder",
+      "code": "{ value: 'john', label: 'John Doe - CEO' },"
+    },
+    {
+      "file": "src/modules/proposals/pages/ProposalEditor.tsx",
+      "line": 638,
+      "type": "John Doe placeholder",
+      "code": "<Text type=\"secondary\" className=\"client-contact\">John Doe - CEO</Text>"
+    },
+    {
+      "file": "src/modules/proposals/pages/ProposalPreview.tsx",
+      "line": 44,
+      "type": "John Doe placeholder",
+      "code": "contact: 'John Doe',"
+    },
+    {
+      "file": "src/modules/proposals/pages/ProposalsList.tsx",
+      "line": 66,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/modules/proposals/pages/SendProposal.tsx",
+      "line": 207,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"e.g., Acme Corporation\""
+    },
+    {
+      "file": "src/modules/proposals/pages/SendProposal.tsx",
+      "line": 221,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"e.g., michael@acmecorp.com\""
+    },
+    {
+      "file": "src/modules/sales/InvoicesPage.tsx",
+      "line": 32,
+      "type": "ACME placeholder company",
+      "code": "customer_name: 'Acme Corporation',"
+    },
+    {
+      "file": "src/modules/sales/InvoicesPage.tsx",
+      "line": 80,
+      "type": "ACME placeholder company",
+      "code": "customer_name: 'Acme Corporation',"
+    },
+    {
+      "file": "src/modules/sales/SalesHub.tsx",
+      "line": 1138,
+      "type": "ABC Trading company name",
+      "code": "<Input placeholder=\"ABC Trading\" />"
+    },
+    {
+      "file": "src/modules/sales/SalesOrdersPage.tsx",
+      "line": 31,
+      "type": "ACME placeholder company",
+      "code": "customer_name: 'Acme Corporation',"
+    },
+    {
+      "file": "src/modules/sales/SalesOrdersPage.tsx",
+      "line": 75,
+      "type": "ACME placeholder company",
+      "code": "customer_name: 'Acme Corporation',"
+    },
+    {
+      "file": "src/modules/sales/forms/NewLeadForm.tsx",
+      "line": 99,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"Acme Corporation\""
+    },
+    {
+      "file": "src/modules/sales/forms/NewLeadForm.tsx",
+      "line": 113,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"john@acme.com\""
+    },
+    {
+      "file": "src/modules/sars-sentinel/CorrespondencePage.tsx",
+      "line": 34,
+      "type": "ABC Trading company name",
+      "code": "client_name: 'ABC Trading (Pty) Ltd',"
+    },
+    {
+      "file": "src/modules/sars-sentinel/pages/SARSIntegrationHub.tsx",
+      "line": 156,
+      "type": "ABC Trading company name",
+      "code": "client: 'ABC Trading (Pty) Ltd',"
+    },
+    {
+      "file": "src/modules/sars-sentinel/pages/SARSIntegrationHub.tsx",
+      "line": 221,
+      "type": "ABC Trading company name",
+      "code": "client: 'ABC Trading (Pty) Ltd',"
+    },
+    {
+      "file": "src/modules/warehouse/WarehouseHub.tsx",
+      "line": 150,
+      "type": "ACME placeholder company",
+      "code": "{ id: 'PICK-2024-0234', order: 'SO-2024-0789', customer: 'Acme Corporation', ite"
+    },
+    {
+      "file": "src/modules/warehouse/WarehouseHub.tsx",
+      "line": 947,
+      "type": "ACME placeholder company",
+      "code": "<Option value=\"SO-2024-0789\">SO-2024-0789 - Acme Corp (5 items)</Option>"
+    },
+    {
+      "file": "src/pages/AuditReady.tsx",
+      "line": 205,
+      "type": "John Doe placeholder",
+      "code": "<span className=\"trail-user\">John Doe</span>"
+    },
+    {
+      "file": "src/pages/BankingDashboard.tsx",
+      "line": 34,
+      "type": "Sample placeholder",
+      "code": "// Sample data"
+    },
+    {
+      "file": "src/pages/LandingPage/LandingPage.tsx",
+      "line": 1617,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"Acme Corporation\""
+    },
+    {
+      "file": "src/pages/ResendVerification.tsx",
+      "line": 94,
+      "type": "example.com domain",
+      "code": "placeholder=\"your.email@example.com\""
+    },
+    {
+      "file": "src/pages/Signup.tsx",
+      "line": 426,
+      "type": "ACME placeholder company",
+      "code": "placeholder=\"Acme Inc.\""
+    },
+    {
+      "file": "src/pages/TenantSettings.tsx",
+      "line": 642,
+      "type": "example.com domain",
+      "code": "placeholder=\"user@example.com\""
+    }
+  ]
+}

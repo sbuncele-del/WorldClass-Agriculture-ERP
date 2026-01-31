@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lushikishini Cattle Feedlot Project - Business Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @page content {
+            margin: 2.5cm 2cm;
+            @top-left {
+                content: "Lushikishini Cattle Feedlot Cooperative";
+                font-family: 'Montserrat', sans-serif;
+                font-size: 9pt;
+                color: #2E7D32;
+            }
+            @top-right {
+                content: "Business Plan 2026";
+                font-family: 'Montserrat', sans-serif;
+                font-size: 9pt;
+                color: #666;
+            }
+            @bottom-center {
+                content: "Page " counter(page) " of " counter(pages);
+                font-family: 'Open Sans', sans-serif;
+                font-size: 9pt;
+                color: #666;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            page: cover;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #43A047 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-page::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+        }
+        
+        .cover-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42pt;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cover-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24pt;
+            font-weight: 600;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cover-line {
+            width: 150px;
+            height: 4px;
+            background: #FFD700;
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+        
+        .cover-details {
+            font-size: 14pt;
+            margin-top: 40px;
+            line-height: 2;
+        }
+        
+        .cover-details strong {
+            color: #FFD700;
+        }
+        
+        .cover-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36pt;
+            font-weight: 800;
+            color: #FFD700;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            font-size: 10pt;
+            opacity: 0.8;
+        }
+        
+        /* Content Pages */
+        .content {
+            page: content;
+            padding: 0 2cm;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24pt;
+            font-weight: 800;
+            color: #1B5E20;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2E7D32;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16pt;
+            font-weight: 700;
+            color: #2E7D32;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #43A047;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: #388E3C;
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        /* Executive Summary Box */
+        .exec-summary {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-left: 5px solid #2E7D32;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .exec-summary h2 {
+            color: #1B5E20;
+            border: none;
+            padding: 0;
+            margin-top: 0;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: #FFF8E1;
+            border: 2px solid #FFD700;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .highlight-box .amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28pt;
+            font-weight: 800;
+            color: #F57F17;
+        }
+        
+        /* Info Cards */
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .info-card .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .info-card .value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20pt;
+            font-weight: 700;
+            color: #2E7D32;
+        }
+        
+        .info-card .label {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+        
+        tr:hover {
+            background: #E8F5E9;
+        }
+        
+        .table-highlight {
+            background: #E8F5E9 !important;
+            font-weight: 600;
+        }
+        
+        .table-total {
+            background: #1B5E20 !important;
+            color: white;
+            font-weight: 700;
+        }
+        
+        /* Check marks */
+        .check {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 15px 0 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Two Column Layout */
+        .two-column {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .two-column > div {
+            flex: 1;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #43A047;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #F5F5F5;
+            border-radius: 8px;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #2E7D32;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .timeline-item .month {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #2E7D32;
+        }
+        
+        /* Risk Table */
+        .risk-high { color: #D32F2F; font-weight: bold; }
+        .risk-medium { color: #F57C00; font-weight: bold; }
+        .risk-low { color: #388E3C; font-weight: bold; }
+        
+        /* Footer note */
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #E0E0E0;
+            font-size: 9pt;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Team section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .team-member {
+            background: linear-gradient(135deg, #F5F5F5 0%, #E0E0E0 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #2E7D32;
+        }
+        
+        .team-member .name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #1B5E20;
+        }
+        
+        .team-member .role {
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        /* Profit highlight */
+        .profit-box {
+            background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .profit-box .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14pt;
+            margin-bottom: 10px;
+        }
+        
+        .profit-box .amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36pt;
+            font-weight: 800;
+        }
+        
+        .profit-box .subtitle {
+            font-size: 11pt;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="cover-page">
+        <div class="cover-content">
+            <div class="cover-icon">🐄</div>
+            <h1 class="cover-title">Lushikishini</h1>
+            <h2 class="cover-subtitle">Cattle Feedlot Cooperative</h2>
+            <div class="cover-line"></div>
+            <p style="font-size: 18pt; margin-bottom: 20px;">BUSINESS PLAN</p>
+            <div class="cover-amount">E500,000</div>
+            <p style="font-size: 14pt;">Regional Development Fund Grant Application</p>
+            <div class="cover-details">
+                <p><strong>Location:</strong> Lushikishini, kaMavuso, Phondo Inkhundla</p>
+                <p><strong>Traditional Authority:</strong> Chief Somtsewu</p>
+                <p><strong>Members:</strong> 10 Community Members</p>
+            </div>
+        </div>
+        <div class="cover-footer">
+            <p>Kingdom of Eswatini • January 2026</p>
+        </div>
+    </div>
+    
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="content page-break">
+        <h1>Executive Summary</h1>
+        
+        <div class="exec-summary">
+            <p><strong>The Lushikishini Cattle Feedlot Cooperative</strong> is a community-driven agricultural initiative established by 10 members from Lushikishini, kaMavuso. We seek <strong>E500,000</strong> from the Regional Development Fund to establish a sustainable cattle feedlot operation that will transform the economic prospects of our community.</p>
+        </div>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="icon">💰</div>
+                <div class="value">E500,000</div>
+                <div class="label">Grant Requested</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">🤝</div>
+                <div class="value">E60,000</div>
+                <div class="label">Our Contribution (10.9%)</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">👥</div>
+                <div class="value">10</div>
+                <div class="label">Members</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">🐄</div>
+                <div class="value">40</div>
+                <div class="label">Cattle Capacity</div>
+            </div>
+        </div>
+        
+        <h2>Project Highlights</h2>
+        
+        <table>
+            <tr>
+                <td><span class="check">✓</span> <strong>Strong Team</strong></td>
+                <td>10 committed members including qualified agronomist, accountant, and experienced cattle handlers</td>
+            </tr>
+            <tr>
+                <td><span class="check">✓</span> <strong>Proven Concept</strong></td>
+                <td>Feedlot farming is established and profitable across Southern Africa</td>
+            </tr>
+            <tr>
+                <td><span class="check">✓</span> <strong>Demonstrated Commitment</strong></td>
+                <td>E60,000 own contribution (4 cattle + existing kraal + labour)</td>
+            </tr>
+            <tr>
+                <td><span class="check">✓</span> <strong>Market Access</strong></td>
+                <td>Established relationships with abattoir buyers who collect from farm</td>
+            </tr>
+            <tr>
+                <td><span class="check">✓</span> <strong>Community Support</strong></td>
+                <td>Operating on communal land approved by Chief Somtsewu</td>
+            </tr>
+        </table>
+        
+        <div class="profit-box">
+            <div class="title">EXPECTED MONTHLY PROFIT</div>
+            <div class="amount">E50,100</div>
+            <div class="subtitle">E4,008 per member per month • E54,108 per member annually</div>
+        </div>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="icon">📈</div>
+                <div class="value">142%</div>
+                <div class="label">Return on Investment</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">⏱️</div>
+                <div class="value">8.4</div>
+                <div class="label">Months to Payback</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PROJECT DESCRIPTION -->
+    <div class="content page-break">
+        <h1>Project Description</h1>
+        
+        <h2>What We Do</h2>
+        <p>The project operates a <strong>cattle feedlot business</strong> using a batch feeding and rotational sales model:</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="month">Step 1: Purchase</span>
+                <p>Buy weaner calves (180-220 kg) at market prices (~E6,500 each)</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Step 2: Feed</span>
+                <p>Intensive feeding for 90-120 days using crop residues and supplements</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Step 3: Sell</span>
+                <p>Sell finished cattle (380-450 kg) to abattoirs at ~E14,000 each</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Step 4: Repeat</span>
+                <p>Continue cycle with new batch - selling 10 cattle every month</p>
+            </div>
+        </div>
+        
+        <h2>Infrastructure Plan</h2>
+        
+        <table>
+            <tr>
+                <th>Feedlot</th>
+                <th>Status</th>
+                <th>Capacity</th>
+                <th>Cost</th>
+            </tr>
+            <tr class="table-highlight">
+                <td><strong>Feedlot 1</strong></td>
+                <td><span class="check">✓</span> Already Built</td>
+                <td>10 cattle</td>
+                <td>E10,000 (own contribution)</td>
+            </tr>
+            <tr>
+                <td><strong>Feedlot 2</strong></td>
+                <td>To be built</td>
+                <td>10 cattle</td>
+                <td>E35,000</td>
+            </tr>
+            <tr>
+                <td><strong>Feedlot 3</strong></td>
+                <td>To be built</td>
+                <td>10 cattle</td>
+                <td>E35,000</td>
+            </tr>
+            <tr>
+                <td><strong>Feedlot 4</strong></td>
+                <td>To be built</td>
+                <td>10 cattle</td>
+                <td>E35,000</td>
+            </tr>
+            <tr class="table-total">
+                <td><strong>TOTAL</strong></td>
+                <td></td>
+                <td><strong>40 cattle</strong></td>
+                <td><strong>E115,000</strong></td>
+            </tr>
+        </table>
+        
+        <h2>Why Feedlot Farming?</h2>
+        
+        <table>
+            <tr>
+                <th>Traditional Cattle Farming</th>
+                <th>Feedlot Finishing</th>
+            </tr>
+            <tr>
+                <td>2-3 years to market weight</td>
+                <td><strong>90-120 days to market weight</strong></td>
+            </tr>
+            <tr>
+                <td>Unpredictable income</td>
+                <td><strong>Monthly sales cycle</strong></td>
+            </tr>
+            <tr>
+                <td>Weather-dependent</td>
+                <td><strong>Controlled feeding environment</strong></td>
+            </tr>
+            <tr>
+                <td>Lower weight gains (0.3-0.5 kg/day)</td>
+                <td><strong>Higher weight gains (0.8-1.2 kg/day)</strong></td>
+            </tr>
+            <tr>
+                <td>Variable meat quality</td>
+                <td><strong>Consistent quality for premium prices</strong></td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- TEAM -->
+    <div class="content page-break">
+        <h1>Our Team</h1>
+        
+        <p>The cooperative brings together <strong>10 dedicated members</strong> from the Lushikishini community, combining professional expertise with hands-on cattle farming experience.</p>
+        
+        <h2>Leadership Team</h2>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="name">Sibusiso Mavuso</div>
+                <div class="role">Project Leader & Financial Manager</div>
+                <p style="font-size: 9pt; margin-top: 8px;">Qualified Accountant • Overall leadership and financial oversight</p>
+            </div>
+            <div class="team-member">
+                <div class="name">Sanele Dlamini</div>
+                <div class="role">Technical Advisor (Agronomy)</div>
+                <p style="font-size: 9pt; margin-top: 8px;">BSc Agriculture (UNESWA) • Feed formulation and animal nutrition</p>
+            </div>
+            <div class="team-member">
+                <div class="name">Zakhele Dlamini</div>
+                <div class="role">Secretary & Environmental Compliance</div>
+                <p style="font-size: 9pt; margin-top: 8px;">Qualified Environmentalist • Records and sustainable practices</p>
+            </div>
+            <div class="team-member">
+                <div class="name">Seluleko Ndwandwe</div>
+                <div class="role">Operations Manager</div>
+                <p style="font-size: 9pt; margin-top: 8px;">Experienced cattle handler • Daily operations management</p>
+            </div>
+        </div>
+        
+        <h2>All Members</h2>
+        
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Contribution</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><strong>Sibusiso Mavuso</strong></td>
+                <td>Project Leader / Financial Manager</td>
+                <td>Leadership, 4 cattle (E40,000)</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><strong>Sanele Dlamini</strong></td>
+                <td>Technical Advisor (Agronomist)</td>
+                <td>Technical expertise</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><strong>Zakhele Dlamini</strong></td>
+                <td>Secretary / Environmental</td>
+                <td>Administration</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><strong>Seluleko Ndwandwe</strong></td>
+                <td>Operations Manager</td>
+                <td>Daily management</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><strong>Sibusiso Dlamini</strong></td>
+                <td>Cattle Handler</td>
+                <td>Labour, experience</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><strong>Temancele Mavuso</strong></td>
+                <td>Member / Worker</td>
+                <td>Labour</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><strong>Gugu Vilakati</strong></td>
+                <td>Member / Worker</td>
+                <td>Labour</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><strong>Vuyo Motsa</strong></td>
+                <td>Member / Worker</td>
+                <td>Labour</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><strong>Neliso Mavuso</strong></td>
+                <td>Member / Worker</td>
+                <td>Labour</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><strong>Sphumelele Shabangu</strong></td>
+                <td>Member / Worker</td>
+                <td>Labour</td>
+            </tr>
+        </table>
+        
+        <div class="highlight-box">
+            <p><strong>All 10 members are from Lushikishini community</strong></p>
+            <p>Profits shared equally • 10% per member</p>
+        </div>
+    </div>
+    
+    <!-- FINANCIAL PROJECTIONS -->
+    <div class="content page-break">
+        <h1>Financial Projections</h1>
+        
+        <h2>Capital Requirements</h2>
+        
+        <table>
+            <tr>
+                <th colspan="2">ITEM</th>
+                <th>AMOUNT</th>
+            </tr>
+            <tr>
+                <td colspan="3" style="background: #E8F5E9; font-weight: bold;">A. INFRASTRUCTURE</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>3 Feedlot constructions (poles, wire, cement)</td>
+                <td>E105,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Feeding troughs (12 units)</td>
+                <td>E24,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Water system (pipes, tanks, troughs)</td>
+                <td>E25,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Handling crush</td>
+                <td>E15,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Storage shed for feed</td>
+                <td>E20,000</td>
+            </tr>
+            <tr class="table-highlight">
+                <td></td>
+                <td><strong>Subtotal Infrastructure</strong></td>
+                <td><strong>E189,000</strong></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="background: #E8F5E9; font-weight: bold;">B. LIVESTOCK</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>36 Weaner cattle @ E6,500 each</td>
+                <td>E234,000</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="background: #E8F5E9; font-weight: bold;">C. OPERATING CAPITAL</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Feed (3 months initial supply)</td>
+                <td>E57,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Veterinary supplies</td>
+                <td>E10,000</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Transport & miscellaneous</td>
+                <td>E10,000</td>
+            </tr>
+            <tr class="table-total">
+                <td colspan="2"><strong>TOTAL GRANT REQUESTED</strong></td>
+                <td><strong>E500,000</strong></td>
+            </tr>
+        </table>
+        
+        <h2>Funding Summary</h2>
+        
+        <table>
+            <tr>
+                <th>Source</th>
+                <th>Amount</th>
+                <th>Percentage</th>
+            </tr>
+            <tr>
+                <td>RDF Grant Requested</td>
+                <td><strong>E500,000</strong></td>
+                <td>89.1%</td>
+            </tr>
+            <tr class="table-highlight">
+                <td>Own Contribution (4 cattle + kraal + labour)</td>
+                <td><strong>E60,000</strong></td>
+                <td>10.9%</td>
+            </tr>
+            <tr class="table-total">
+                <td><strong>TOTAL PROJECT COST</strong></td>
+                <td><strong>E560,000</strong></td>
+                <td><strong>100%</strong></td>
+            </tr>
+        </table>
+        
+        <h2>Monthly Revenue (At Full Operation)</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Income</h3>
+                <table>
+                    <tr>
+                        <td>Sale of 10 finished cattle</td>
+                        <td><strong>E140,000</strong></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Expenses</h3>
+                <table>
+                    <tr>
+                        <td>Replacement weaners (10)</td>
+                        <td>E65,000</td>
+                    </tr>
+                    <tr>
+                        <td>Feed costs</td>
+                        <td>E18,900</td>
+                    </tr>
+                    <tr>
+                        <td>Vet & medicine</td>
+                        <td>E2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Utilities & transport</td>
+                        <td>E4,000</td>
+                    </tr>
+                    <tr class="table-highlight">
+                        <td><strong>Total Expenses</strong></td>
+                        <td><strong>E89,900</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="profit-box">
+            <div class="title">MONTHLY NET PROFIT</div>
+            <div class="amount">E50,100</div>
+            <div class="subtitle">After deducting 20% for reserves → E40,080 distributed to members</div>
+        </div>
+    </div>
+    
+    <!-- 5-YEAR PROJECTION -->
+    <div class="content page-break">
+        <h1>5-Year Financial Projection</h1>
+        
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Revenue</th>
+                <th>Costs</th>
+                <th>Gross Profit</th>
+                <th>Per Member (Annual)</th>
+            </tr>
+            <tr>
+                <td><strong>Year 1</strong> (7 months full ops)</td>
+                <td>E980,000</td>
+                <td>E629,300</td>
+                <td>E350,700</td>
+                <td><strong>E31,563</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Year 2</strong></td>
+                <td>E1,680,000</td>
+                <td>E1,078,800</td>
+                <td>E601,200</td>
+                <td><strong>E54,108</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Year 3</strong></td>
+                <td>E1,680,000</td>
+                <td>E1,078,800</td>
+                <td>E601,200</td>
+                <td><strong>E54,108</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Year 4</strong></td>
+                <td>E1,680,000</td>
+                <td>E1,078,800</td>
+                <td>E601,200</td>
+                <td><strong>E54,108</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Year 5</strong></td>
+                <td>E1,680,000</td>
+                <td>E1,078,800</td>
+                <td>E601,200</td>
+                <td><strong>E54,108</strong></td>
+            </tr>
+            <tr class="table-total">
+                <td><strong>5-YEAR TOTAL</strong></td>
+                <td><strong>E7,700,000</strong></td>
+                <td><strong>E4,944,500</strong></td>
+                <td><strong>E2,755,500</strong></td>
+                <td><strong>E247,995</strong></td>
+            </tr>
+        </table>
+        
+        <h2>Key Financial Indicators</h2>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="icon">📈</div>
+                <div class="value">142%</div>
+                <div class="label">Return on Investment</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">⏱️</div>
+                <div class="value">8.4 months</div>
+                <div class="label">Payback Period</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">📊</div>
+                <div class="value">6 cattle</div>
+                <div class="label">Break-even per Month</div>
+            </div>
+            <div class="info-card">
+                <div class="icon">🛡️</div>
+                <div class="value">40%</div>
+                <div class="label">Safety Margin</div>
+            </div>
+        </div>
+        
+        <h2>Risk Analysis</h2>
+        
+        <table>
+            <tr>
+                <th>Risk</th>
+                <th>Likelihood</th>
+                <th>Impact</th>
+                <th>Mitigation Strategy</th>
+            </tr>
+            <tr>
+                <td>Cattle disease outbreak</td>
+                <td class="risk-medium">Medium</td>
+                <td class="risk-high">High</td>
+                <td>Vaccination program, quarantine protocols, vet relationship</td>
+            </tr>
+            <tr>
+                <td>Feed price increases</td>
+                <td class="risk-medium">Medium</td>
+                <td class="risk-medium">Medium</td>
+                <td>Bulk purchasing, grow own fodder, diversify sources</td>
+            </tr>
+            <tr>
+                <td>Cattle theft</td>
+                <td class="risk-low">Low</td>
+                <td class="risk-high">High</td>
+                <td>Security fencing, night watch, community awareness</td>
+            </tr>
+            <tr>
+                <td>Market price drop</td>
+                <td class="risk-medium">Medium</td>
+                <td class="risk-medium">Medium</td>
+                <td>Quality focus for premium prices, buyer relationships</td>
+            </tr>
+            <tr>
+                <td>Drought affecting feed</td>
+                <td class="risk-medium">Medium</td>
+                <td class="risk-medium">Medium</td>
+                <td>Feed storage, crop residue agreements with farmers</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- IMPLEMENTATION -->
+    <div class="content page-break">
+        <h1>Implementation Plan</h1>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="month">Month 1</span>
+                <p><strong>Grant approval & disbursement</strong></p>
+                <p>Procurement planning • Site preparation • Order materials</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Month 2</span>
+                <p><strong>Construction begins</strong></p>
+                <p>Build Feedlot 2 • Install water system • Purchase first 10 weaners</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Month 3</span>
+                <p><strong>Expansion continues</strong></p>
+                <p>Build Feedlot 3 • Purchase second batch • Begin feeding program</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Month 4</span>
+                <p><strong>Complete infrastructure</strong></p>
+                <p>Build Feedlot 4 • Storage shed • Purchase third batch</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Month 5</span>
+                <p><strong>First sales!</strong></p>
+                <p>Sell first 10 finished cattle • Purchase fourth batch • Full capacity</p>
+            </div>
+            <div class="timeline-item">
+                <span class="month">Month 6+</span>
+                <p><strong>Full operation</strong></p>
+                <p>Monthly cycle: Buy 10, Feed 40, Sell 10 • Consistent income begins</p>
+            </div>
+        </div>
+        
+        <h2>Impact & Benefits</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Economic Impact</h3>
+                <ul>
+                    <li><strong>E54,108</strong> annual income per member</li>
+                    <li><strong>E541,080</strong> combined annual income</li>
+                    <li>Reduced poverty for 10 households</li>
+                    <li>Economic multiplier in local area</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Social Impact</h3>
+                <ul>
+                    <li><strong>50+</strong> indirect beneficiaries</li>
+                    <li>Youth retention in community</li>
+                    <li>Skills development & training</li>
+                    <li>Model for replication</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Sustainability</h2>
+        
+        <div class="highlight-box">
+            <p><strong>This project is self-sustaining after the initial grant</strong></p>
+            <p>Monthly profits fund ongoing operations, maintenance, and growth</p>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Reserve Fund</th>
+                <th>Monthly Allocation</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Emergency Reserve</td>
+                <td>E5,010 (10%)</td>
+                <td>Disease outbreaks, cattle deaths, unexpected costs</td>
+            </tr>
+            <tr>
+                <td>Development Fund</td>
+                <td>E5,010 (10%)</td>
+                <td>Maintenance, equipment, future expansion</td>
+            </tr>
+        </table>
+        
+        <div class="footer-note">
+            <p>This business plan was prepared in January 2026 for submission to the Regional Development Fund, Kingdom of Eswatini.</p>
+            <p><strong>Lushikishini Cattle Feedlot Cooperative</strong> • Phondo Inkhundla • Chief Somtsewu</p>
+        </div>
+    </div>
+</body>
+</html>

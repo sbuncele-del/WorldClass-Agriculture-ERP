@@ -1,0 +1,113 @@
+Worldclass ERP - Full Module Test Report
+Date: Thu Nov 20 16:18:50 SAST 2025
+Instance: http://51.20.92.38/api
+
+SUMMARY
+=======
+Total Tests: 95
+Passed: 5 (%) Passed: 5 (%)
+Failed: 90 (%) Failed: 90 (%)
+
+SCHEMA ERRORS
+=============
+
+FAILED ENDPOINTS
+================
+Financial - /financial/chart-of-accounts - Chart of Accounts - HTTP 429
+Financial - /financial/journal-entries - Journal Entries List - HTTP 429
+Financial - /financial/journal-entries/1 - Journal Entry Detail - HTTP 429
+Financial - /financial/fiscal-years - Fiscal Years - HTTP 429
+Financial - /financial/fiscal-periods - Fiscal Periods - HTTP 429
+Financial - /financial/ledger/general - General Ledger - HTTP 429
+Financial - /financial/ledger/accounts/1200 - Account Ledger - HTTP 429
+Financial - /financial/trial-balance - Trial Balance - HTTP 429
+Financial - /financial/income-statement - Income Statement - HTTP 429
+Financial - /financial/balance-sheet - Balance Sheet - HTTP 429
+Financial - /financial/cash-flow - Cash Flow Statement - HTTP 429
+Financial - /financial/tax-settings - Tax Settings - HTTP 429
+Financial - /financial/dimensions - Financial Dimensions - HTTP 429
+HR - /hr/payroll/runs - Payroll Runs - 404 NOT FOUND
+HR - /hr/payroll/slips - Pay Slips - 404 NOT FOUND
+HR - /hr/leave/requests - Leave Requests - 500 ERROR: 
+HR - /hr/leave/types - Leave Types - 404 NOT FOUND
+HR - /hr/attendance - Attendance Records - 404 NOT FOUND
+HR - /hr/benefits - Employee Benefits - 404 NOT FOUND
+Sales - /sales/customers - Customer List - HTTP 429
+Sales - /sales/customers/1 - Customer Detail - HTTP 429
+Sales - /sales/invoices - Sales Invoices - HTTP 429
+Sales - /sales/invoices/1 - Invoice Detail - HTTP 429
+Sales - /sales/quotes - Sales Quotes - HTTP 429
+Sales - /sales/orders - Sales Orders - HTTP 429
+Sales - /sales/receipts - Sales Receipts - HTTP 429
+Sales - /sales/credit-notes - Credit Notes - HTTP 429
+Sales - /sales/pricing - Pricing Lists - HTTP 429
+Sales - /sales/commissions - Sales Commissions - HTTP 429
+Purchase - /purchase/vendors - Vendor List - HTTP 429
+Purchase - /purchase/vendors/1 - Vendor Detail - HTTP 429
+Purchase - /purchase/orders - Purchase Orders - HTTP 429
+Purchase - /purchase/orders/1 - PO Detail - HTTP 429
+Purchase - /purchase/invoices - Purchase Invoices - HTTP 429
+Purchase - /purchase/receipts - Goods Receipts - HTTP 429
+Purchase - /purchase/payments - Vendor Payments - HTTP 429
+Purchase - /purchase/requisitions - Purchase Requisitions - HTTP 429
+Inventory - /inventory/products - Product List - HTTP 429
+Inventory - /inventory/products/1 - Product Detail - HTTP 429
+Inventory - /inventory/stock-levels - Stock Levels - HTTP 429
+Inventory - /inventory/locations - Warehouse Locations - HTTP 429
+Inventory - /inventory/movements - Stock Movements - HTTP 429
+Inventory - /inventory/adjustments - Stock Adjustments - HTTP 429
+Inventory - /inventory/transfers - Stock Transfers - HTTP 429
+Inventory - /inventory/categories - Product Categories - HTTP 429
+Inventory - /inventory/suppliers - Suppliers - HTTP 429
+Manufacturing - /manufacturing/work-orders - Work Orders - 404 NOT FOUND
+Manufacturing - /manufacturing/bom - Bill of Materials - 404 NOT FOUND
+Manufacturing - /manufacturing/production - Production Records - 404 NOT FOUND
+Manufacturing - /manufacturing/routings - Production Routings - 404 NOT FOUND
+Manufacturing - /manufacturing/work-centers - Work Centers - 404 NOT FOUND
+Manufacturing - /manufacturing/quality-control - QC Inspections - 404 NOT FOUND
+Warehouse - /warehouse/locations - Warehouse Locations - 404 NOT FOUND
+Warehouse - /warehouse/bins - Storage Bins - 404 NOT FOUND
+Warehouse - /warehouse/picks - Pick Lists - 404 NOT FOUND
+Warehouse - /warehouse/shipments - Shipments - 404 NOT FOUND
+Warehouse - /warehouse/receiving - Receiving Records - 404 NOT FOUND
+Warehouse - /warehouse/cycle-counts - Cycle Counts - 404 NOT FOUND
+Assets - /assets/fixed-assets - Fixed Assets - 404 NOT FOUND
+Assets - /assets/depreciation - Depreciation Schedule - 404 NOT FOUND
+Assets - /assets/disposals - Asset Disposals - 404 NOT FOUND
+Assets - /assets/maintenance - Maintenance Records - 404 NOT FOUND
+Assets - /assets/categories - Asset Categories - 404 NOT FOUND
+Cash - /cash-management/transactions - Bank Transactions - 404 NOT FOUND
+Cash - /cash-management/reconciliation - Bank Reconciliation - 404 NOT FOUND
+Cash - /cash-management/deposits - Bank Deposits - 404 NOT FOUND
+Cash - /cash-management/payments - Bank Payments - 404 NOT FOUND
+Compliance - /compliance/vat-returns - VAT Returns - HTTP 429
+Compliance - /compliance/tax-submissions - Tax Submissions - HTTP 429
+Compliance - /compliance/audit-trail - Audit Trail - HTTP 429
+Compliance - /compliance/reports - Compliance Reports - HTTP 429
+SARS - /sars-sentinel/status - SARS Status - 404 NOT FOUND
+SARS - /sars-sentinel/submissions - SARS Submissions - AUTH REQUIRED
+SARS - /sars-sentinel/e-filing - E-Filing Status - 404 NOT FOUND
+Practice - /practice/clients - Practice Clients - 404 NOT FOUND
+Practice - /practice/matters - Legal Matters - 404 NOT FOUND
+Practice - /practice/timesheets - Timesheets - 404 NOT FOUND
+Practice - /practice/billing - Practice Billing - 404 NOT FOUND
+Logistics - /logistics/vehicles - Fleet Vehicles - 500 ERROR: 
+Logistics - /logistics/trips - Delivery Trips - 500 ERROR: 
+Logistics - /logistics/routes - Delivery Routes - 404 NOT FOUND
+Logistics - /logistics/fuel - Fuel Management - 500 ERROR: 
+Admin - /admin/users - User Management - AUTH REQUIRED
+Admin - /admin/roles - Role Management - AUTH REQUIRED
+Admin - /admin/permissions - Permissions - AUTH REQUIRED
+Admin - /admin/settings - System Settings - AUTH REQUIRED
+Admin - /admin/modules - Module Status - AUTH REQUIRED
+Tenant - /tenant/settings - Tenant Settings - HTTP 429
+Subscription - /subscription/status - Subscription Status - 404 NOT FOUND
+Subscription - /subscription/plans - Subscription Plans - 404 NOT FOUND
+
+PASSED ENDPOINTS
+================
+HR - /hr/employees - Employee List (no data)
+HR - /hr/employees/1 - Employee Detail (no data)
+HR - /hr/departments - Departments (no data)
+HR - /hr/positions - Positions (no data)
+Cash - /cash-management/bank-accounts - Bank Accounts (no data)

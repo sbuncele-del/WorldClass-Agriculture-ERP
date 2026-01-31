@@ -1,0 +1,49 @@
+import React from 'react';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
+import ManualJournalEntry from '../modules/financial/components/ManualJournalEntry';
+import JournalEntriesList from '../modules/financial/components/JournalEntriesList';
+import TrialBalance from '../modules/financial/components/TrialBalance';
+import AccountLedger from '../modules/financial/components/AccountLedger';
+
+const Financial: React.FC = () => {
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>💰 Financial Management</h1>
+      
+      {/* Quick Navigation */}
+      <div style={{ 
+        marginBottom: '2rem', 
+        display: 'flex', 
+        gap: '1rem',
+        borderBottom: '2px solid #e0e0e0',
+        paddingBottom: '1rem'
+      }}>
+        <Link to="/financial/journal-entries" style={{ textDecoration: 'none', color: '#1976d2', fontWeight: 500 }}>
+          📋 Journal Entries
+        </Link>
+        <Link to="/financial/journal-entry/new" style={{ textDecoration: 'none', color: '#1976d2', fontWeight: 500 }}>
+          ➕ New Entry
+        </Link>
+        <Link to="/financial/trial-balance" style={{ textDecoration: 'none', color: '#1976d2', fontWeight: 500 }}>
+          📊 Trial Balance
+        </Link>
+        <Link to="/financial/chart-of-accounts" style={{ textDecoration: 'none', color: '#1976d2', fontWeight: 500 }}>
+          📖 Chart of Accounts
+        </Link>
+      </div>
+
+      {/* Financial Module Routes */}
+      <Routes>
+        <Route path="/" element={<Navigate to="/financial/journal-entries" replace />} />
+        <Route path="/journal-entries" element={<JournalEntriesList />} />
+        <Route path="/journal-entry/new" element={<ManualJournalEntry />} />
+        <Route path="/journal-entry/:id" element={<div style={{ padding: '2rem' }}>Journal Entry Detail (Coming Soon)</div>} />
+        <Route path="/trial-balance" element={<TrialBalance />} />
+        <Route path="/account-ledger/:code" element={<AccountLedger />} />
+        <Route path="/chart-of-accounts" element={<div style={{ padding: '2rem' }}>Chart of Accounts (Coming Soon)</div>} />
+      </Routes>
+    </div>
+  );
+};
+
+export default Financial;

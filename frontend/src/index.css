@@ -1,0 +1,171 @@
+/* === HYBRID DESIGN SYSTEM - WORLD-CLASS ERP === */
+:root {
+  /* Oracle-inspired Color Palette */
+  --oracle-blue: #0F4B9C;
+  --oracle-teal: #00A3B2;
+  --oracle-purple: #7B4DD1;
+  --oracle-gradient: linear-gradient(135deg, #0F4B9C 0%, #00A3B2 100%);
+  
+  /* SAP-inspired Neutrals */
+  --sap-gray-10: #fafafa;
+  --sap-gray-50: #f5f6f7;
+  --sap-gray-90: #32363a;
+  --sap-gray-100: #1d2226;
+  
+  /* Microsoft-inspired Accents */
+  --ms-blue: #0078d4;
+  --ms-purple: #7160e8;
+  --ms-green: #107c10;
+  --ms-red: #d13438;
+  
+  /* Legacy Support (backwards compatibility) */
+  --primary-gradient: linear-gradient(135deg, #0F4B9C 0%, #00A3B2 100%);
+  --primary-blue: #0F4B9C;
+  --deep-blue: #0d3d82;
+  --electric-blue: #00A3B2;
+  --success-emerald: #107c10;
+  --warning-amber: #f59e0b;
+  --error-coral: #d13438;
+  --slate-50: #fafafa;
+  --slate-100: #f5f6f7;
+  --slate-600: #6b7280;
+  --slate-700: #374151;
+  --slate-800: #1e293b;
+  --slate-900: #32363a;
+  
+  /* Glass Morphism (Apple-inspired) */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+  /* Enterprise Shadows (SAP-inspired) */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
+  --shadow-glow: 0 0 40px rgba(15, 75, 156, 0.15);
+  
+  /* Typography - SAP 72 with Apple fallback */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                  'Helvetica Neue', Arial, sans-serif;
+  --font-display: -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  
+  /* Font Weights for Clear Hierarchy */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Enhanced Text Rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Spacing & Effects */
+  --border-radius-sm: 6px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+  --border-radius-round: 20px;
+
+  /* Font settings */
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--slate-900);
+  background-color: var(--slate-50);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === BASE RESET - APPLE STYLE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--sap-gray-10);
+  min-height: 100vh;
+  color: var(--sap-gray-90);
+  line-height: 1.6;
+}
+
+/* Enterprise Layout - Oracle/SAP Grid System */
+.app {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Reset body for full-width layout */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

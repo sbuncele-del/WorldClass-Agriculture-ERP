@@ -1,0 +1,839 @@
+{
+  "summary": {
+    "timestamp": "2025-12-18T21:39:33.026Z",
+    "totalTests": 42,
+    "passed": 41,
+    "failed": 1,
+    "warnings": 64
+  },
+  "api": {
+    "backend": [
+      {
+        "test": "Health Check",
+        "url": "http://51.20.67.228:3000/health",
+        "status": 200,
+        "success": true,
+        "response": {
+          "status": "OK",
+          "message": "Server is running"
+        },
+        "error": null
+      }
+    ],
+    "endpoints": [
+      {
+        "test": "POST /api/auth/login",
+        "url": "http://51.20.67.228:3000/api/auth/login",
+        "status": 400,
+        "needsAuth": false,
+        "success": true,
+        "response": "Object with keys: error",
+        "error": null
+      },
+      {
+        "test": "GET /api/auth/me",
+        "url": "http://51.20.67.228:3000/api/auth/me",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/inventory/items",
+        "url": "http://51.20.67.228:3000/api/inventory/items",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/sales/orders",
+        "url": "http://51.20.67.228:3000/api/sales/orders",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/purchase/orders",
+        "url": "http://51.20.67.228:3000/api/purchase/orders",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/financial/accounts",
+        "url": "http://51.20.67.228:3000/api/financial/accounts",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/hr/employees",
+        "url": "http://51.20.67.228:3000/api/hr/employees",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/manufacturing/boms",
+        "url": "http://51.20.67.228:3000/api/manufacturing/boms",
+        "status": 500,
+        "needsAuth": true,
+        "success": false,
+        "response": "Object with keys: success, message, error",
+        "error": "Server error"
+      },
+      {
+        "test": "GET /api/warehouse/locations",
+        "url": "http://51.20.67.228:3000/api/warehouse/locations",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/logistics/vehicles",
+        "url": "http://51.20.67.228:3000/api/logistics/vehicles",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/projects/list",
+        "url": "http://51.20.67.228:3000/api/projects/list",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/cash-management/accounts",
+        "url": "http://51.20.67.228:3000/api/cash-management/accounts",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/assets/list",
+        "url": "http://51.20.67.228:3000/api/assets/list",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/audit/logs",
+        "url": "http://51.20.67.228:3000/api/audit/logs",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: error, requestId",
+        "error": null
+      },
+      {
+        "test": "GET /api/sars/returns",
+        "url": "http://51.20.67.228:3000/api/sars/returns",
+        "status": 404,
+        "needsAuth": true,
+        "success": true,
+        "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/sars/returns</pre>\n</body>\n</html>\n",
+        "error": null
+      },
+      {
+        "test": "GET /api/healthcare/patients",
+        "url": "http://51.20.67.228:3000/api/healthcare/patients",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/mining/operations",
+        "url": "http://51.20.67.228:3000/api/mining/operations",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/construction/projects",
+        "url": "http://51.20.67.228:3000/api/construction/projects",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/agriculture/crops",
+        "url": "http://51.20.67.228:3000/api/agriculture/crops",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/property/units",
+        "url": "http://51.20.67.228:3000/api/property/units",
+        "status": 403,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, error",
+        "error": null
+      },
+      {
+        "test": "GET /api/admin/users",
+        "url": "http://51.20.67.228:3000/api/admin/users",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, message",
+        "error": null
+      },
+      {
+        "test": "GET /api/admin/settings",
+        "url": "http://51.20.67.228:3000/api/admin/settings",
+        "status": 401,
+        "needsAuth": true,
+        "success": true,
+        "response": "Object with keys: success, message",
+        "error": null
+      }
+    ]
+  },
+  "frontend": {
+    "routes": [
+      {
+        "route": "/",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/dashboard",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/inventory",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/sales",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/purchase",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/financial",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/hr",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/manufacturing",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/warehouse",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/logistics",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/projects",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/proposals",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/communications",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/healthcare",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/mining",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/construction",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/agriculture",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      },
+      {
+        "route": "/app/property",
+        "status": 200,
+        "isHTML": true,
+        "hasReactRoot": true,
+        "success": true,
+        "size": 1412
+      }
+    ],
+    "components": [],
+    "mockData": [
+      {
+        "file": "/frontend/src/components/BankReconciliationHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/components/ReconciliationWorkspace.tsx",
+        "pattern": "/userId:\\s*['\"]?1['\"]?/i",
+        "matches": [
+          "userId: 1"
+        ]
+      },
+      {
+        "file": "/frontend/src/contexts/ClientContext.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "MOCK DATA"
+        ]
+      },
+      {
+        "file": "/frontend/src/contexts/UserContext.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "MOCK DATA"
+        ]
+      },
+      {
+        "file": "/frontend/src/hooks/useWorkspaceData.ts",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/admin/AdminHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/agriculture/AgricultureHub.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/banking/BankingHub.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/calendar/pages/Reminders.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/calendar/pages/Scheduling.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/cash/BankAccountsPage.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/cash/CashManagementDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/communication/CommunicationsHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample Data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/communication/pages/ChatRoom.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/communication/pages/CommunicationHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/compliance/AuditReadyHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/compliance/RegulatoryHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/construction/ConstructionHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample Data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/financial/components/IncomeStatement.tsx",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "teString('en-ZA')} - {new Date(data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/financial/components/JournalEntriesEnhanced.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/financial/components/TrialBalanceEnhanced.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/healthcare/HealthcareHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample Data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/logistics/LogisticsDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/ProjectsHub.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/GanttView.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/Milestones.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/ProjectDetails.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample project data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/ProjectTemplates.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/ProjectsDashboard.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/ProjectsList.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/TasksBoard.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/projects/pages/TimeTracking.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/property/PropertyHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample Data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/ProProposalBuilder.tsx",
+        "pattern": "/placeholder.*data/i",
+        "matches": [
+          "placeholder={`Paste your research data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/ProposalsHub.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample Data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/SmartProposalBuilder.tsx",
+        "pattern": "/placeholder.*data/i",
+        "matches": [
+          "placeholder=\"Paste your research data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/components/phases/PhaseDelivery.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock tracking data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/components/phases/PhaseIntake.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock CRM data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/pages/ClientPortal.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample proposal data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/pages/ProposalPreview.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample proposal data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/pages/ProposalsList.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/proposals/pages/SendProposal.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample proposal data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/purchase/SuppliersPage.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sales/OrdersList.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sales/SalesDashboardEnhanced.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sales/SalesModernDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sars-sentinel/CorrespondencePage.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sars-sentinel/SARSDashboardEnhanced.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/modules/sars-sentinel/pages/SARSIntegrationHub.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/BankingDashboard.tsx",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "Sample data"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/ExecutiveDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/FinancialDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/Login.tsx",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "test(formData"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/MultiClientDashboard.tsx",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "mock data"
+        ]
+      },
+      {
+        "file": "/frontend/src/pages/Signup.tsx",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "test(formData"
+        ]
+      },
+      {
+        "file": "/backend/src/auth/auth.controller.ts",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "testing without data"
+        ]
+      },
+      {
+        "file": "/backend/src/config/audit-trail-migration.ts",
+        "pattern": "/'john doe'/i",
+        "matches": [
+          "'John Doe'"
+        ]
+      },
+      {
+        "file": "/backend/src/config/run-multi-tenant-migration.ts",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "Test multi-tenant data"
+        ]
+      },
+      {
+        "file": "/backend/src/modules/financial/controllers/financial.controller.ts",
+        "pattern": "/placeholder.*data/i",
+        "matches": [
+          "placeholder data"
+        ]
+      },
+      {
+        "file": "/backend/src/modules/logistics/__tests__/logistics-accounting.test.ts",
+        "pattern": "/test.*data/i",
+        "matches": [
+          "TEST_TENANT_ID, tripData"
+        ]
+      },
+      {
+        "file": "/backend/src/services/ai/AIAssistantService.ts",
+        "pattern": "/mock.*data/i",
+        "matches": [
+          "Mock data service (replace with real data"
+        ]
+      },
+      {
+        "file": "/backend/src/services/demo-reset.service.ts",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "sample data"
+        ]
+      },
+      {
+        "file": "/backend/src/services/provisioning.service.ts",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "sample data"
+        ]
+      },
+      {
+        "file": "/backend/src/types/index.ts",
+        "pattern": "/sample.*data/i",
+        "matches": [
+          "sample_data"
+        ]
+      }
+    ]
+  },
+  "database": {
+    "connections": [],
+    "migrations": []
+  },
+  "deployment": {
+    "status": null,
+    "errors": []
+  }
+}

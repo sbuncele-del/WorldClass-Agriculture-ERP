@@ -1,0 +1,25 @@
+.text-red {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.text-orange {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+  padding: 40px !important;
+  color: #6b7280;
+}
+
+.status-critical {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+.status-warning {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}

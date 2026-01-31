@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDF Application Form - Lushikishini Cattle Feedlot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #333;
+            background: white;
+        }
+        
+        /* Header */
+        .form-header {
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 50%, #2196F3 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-header h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .form-header h2 {
+            font-size: 14pt;
+            font-weight: 500;
+        }
+        
+        .form-header .subtitle {
+            font-size: 10pt;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .form-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: #FFD700;
+            color: #1565C0;
+            padding: 5px 15px;
+            font-weight: 700;
+            border-radius: 3px;
+        }
+        
+        /* Sections */
+        .section {
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            background: linear-gradient(90deg, #1565C0 0%, #1976D2 100%);
+            color: white;
+            padding: 10px 20px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 12pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-number {
+            background: white;
+            color: #1565C0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14pt;
+            font-weight: 700;
+        }
+        
+        .section-body {
+            border: 1px solid #E0E0E0;
+            border-top: none;
+            padding: 20px;
+            background: #FAFAFA;
+        }
+        
+        /* Form Fields */
+        .field {
+            margin: 10px 0;
+        }
+        
+        .field-label {
+            font-weight: 500;
+            color: #1565C0;
+            margin-bottom: 3px;
+            font-size: 9pt;
+        }
+        
+        .field-value {
+            background: white;
+            border: 1px solid #BDBDBD;
+            padding: 8px 12px;
+            min-height: 30px;
+            font-size: 10pt;
+        }
+        
+        .field-value.filled {
+            background: #E3F2FD;
+            border-color: #1976D2;
+            font-weight: 500;
+        }
+        
+        .field-value.large {
+            min-height: 80px;
+        }
+        
+        /* Grid Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 9pt;
+        }
+        
+        th {
+            background: #1976D2;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 8px 10px;
+            border: 1px solid #E0E0E0;
+            background: white;
+        }
+        
+        td.filled {
+            background: #E3F2FD;
+        }
+        
+        tr:nth-child(even) td {
+            background: #F5F5F5;
+        }
+        
+        tr:nth-child(even) td.filled {
+            background: #BBDEFB;
+        }
+        
+        .total-row td {
+            background: #1565C0 !important;
+            color: white;
+            font-weight: 700;
+        }
+        
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #1976D2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .checkbox.checked {
+            background: #1976D2;
+            color: white;
+        }
+        
+        .checkbox.checked::after {
+            content: "✓";
+            font-weight: bold;
+        }
+        
+        /* Highlight boxes */
+        .info-box {
+            background: #E3F2FD;
+            border-left: 4px solid #1976D2;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid #F57C00;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .success-box {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        /* Amount Display */
+        .amount-display {
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .amount-display .label {
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+        
+        .amount-display .value {
+            font-family: 'Roboto Slab', serif;
+            font-size: 28pt;
+            font-weight: 700;
+        }
+        
+        /* Signature section */
+        .signature-area {
+            border: 2px solid #1976D2;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #333;
+            height: 40px;
+            margin: 10px 0;
+        }
+        
+        .signature-label {
+            font-size: 8pt;
+            color: #666;
+        }
+        
+        /* Page break */
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Footer */
+        .form-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #1976D2;
+            text-align: center;
+            font-size: 8pt;
+            color: #666;
+        }
+        
+        /* Official stamp area */
+        .stamp-area {
+            border: 2px dashed #1976D2;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1976D2;
+            font-style: italic;
+            background: #F5F5F5;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="form-header">
+        <h1>REGIONAL DEVELOPMENT FUND</h1>
+        <h2>Application Form</h2>
+        <div class="subtitle">Ministry of Tinkhundla Administration and Development • Kingdom of Eswatini</div>
+        <div class="form-number" style="position: relative; display: inline-block; margin-top: 10px;">Form MNZ 1004</div>
+    </div>
+    
+    <!-- SECTION 1: APPLICANT INFORMATION -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">1</span>
+            <span>APPLICANT INFORMATION</span>
+        </div>
+        <div class="section-body">
+            <div class="grid-2">
+                <div class="field">
+                    <div class="field-label">Name of Project/Group</div>
+                    <div class="field-value filled"><strong>Lushikishini Cattle Feedlot Cooperative</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Date of Application</div>
+                    <div class="field-value filled"><strong>January 2026</strong></div>
+                </div>
+            </div>
+            
+            <div class="grid-3">
+                <div class="field">
+                    <div class="field-label">Inkhundla</div>
+                    <div class="field-value filled"><strong>Phondo</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Chief</div>
+                    <div class="field-value filled"><strong>Chief Somtsewu</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Region</div>
+                    <div class="field-value filled"><strong>Lubombo/Manzini</strong></div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">Physical Address</div>
+                <div class="field-value filled"><strong>Lushikishini Area, kaMavuso, Phondo Inkhundla, Chief Somtsewu</strong></div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="field">
+                    <div class="field-label">Postal Address</div>
+                    <div class="field-value">_______________________________________________</div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Contact Number</div>
+                    <div class="field-value">_______________________________________________</div>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="field">
+                    <div class="field-label">Contact Person</div>
+                    <div class="field-value filled"><strong>Sibusiso Mavuso</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Position</div>
+                    <div class="field-value filled"><strong>Chairperson / Project Leader</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 2: PROJECT TYPE -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">2</span>
+            <span>TYPE OF PROJECT</span>
+        </div>
+        <div class="section-body">
+            <p style="margin-bottom: 10px;">Please indicate the type of project (mark with ✓):</p>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <span class="checkbox checked"></span>
+                    <span>Agriculture</span>
+                </div>
+                <div class="checkbox-item">
+                    <span class="checkbox"></span>
+                    <span>Manufacturing</span>
+                </div>
+                <div class="checkbox-item">
+                    <span class="checkbox"></span>
+                    <span>Trading</span>
+                </div>
+                <div class="checkbox-item">
+                    <span class="checkbox"></span>
+                    <span>Services</span>
+                </div>
+                <div class="checkbox-item">
+                    <span class="checkbox"></span>
+                    <span>Tourism</span>
+                </div>
+                <div class="checkbox-item">
+                    <span class="checkbox"></span>
+                    <span>Construction</span>
+                </div>
+            </div>
+            
+            <div class="field" style="margin-top: 15px;">
+                <div class="field-label">Specific Activity</div>
+                <div class="field-value filled"><strong>Cattle Feedlot Enterprise - Beef Production</strong></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 3: FUNDING REQUESTED -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">3</span>
+            <span>FUNDING REQUESTED</span>
+        </div>
+        <div class="section-body">
+            <div class="amount-display">
+                <div class="label">Total Grant Amount Requested</div>
+                <div class="value">E500,000</div>
+            </div>
+            
+            <table>
+                <tr>
+                    <th style="width: 40%;">Source of Funds</th>
+                    <th style="width: 30%;">Amount (Emalangeni)</th>
+                    <th style="width: 30%;">Percentage</th>
+                </tr>
+                <tr>
+                    <td class="filled"><strong>RDF Grant Requested</strong></td>
+                    <td class="filled"><strong>E500,000</strong></td>
+                    <td class="filled"><strong>89.1%</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Own Contribution (Cash)</td>
+                    <td class="filled">E0</td>
+                    <td class="filled">0%</td>
+                </tr>
+                <tr>
+                    <td class="filled">Own Contribution (In-kind: 4 cattle)</td>
+                    <td class="filled">E40,000</td>
+                    <td class="filled">7.1%</td>
+                </tr>
+                <tr>
+                    <td class="filled">Own Contribution (In-kind: Existing kraal)</td>
+                    <td class="filled">E10,000</td>
+                    <td class="filled">1.8%</td>
+                </tr>
+                <tr>
+                    <td class="filled">Own Contribution (Labour)</td>
+                    <td class="filled">E10,000</td>
+                    <td class="filled">1.8%</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL PROJECT COST</strong></td>
+                    <td><strong>E560,000</strong></td>
+                    <td><strong>100%</strong></td>
+                </tr>
+            </table>
+            
+            <div class="success-box">
+                <strong>✓ Own Contribution: 10.9%</strong> - Exceeds the minimum 10% requirement
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+    
+    <!-- SECTION 4: PROJECT MEMBERS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">4</span>
+            <span>PROJECT MEMBERS</span>
+        </div>
+        <div class="section-body">
+            <div class="info-box">
+                <strong>Total Members: 10</strong> (6 Male, 4 Female) • All from Lushikishini Community
+            </div>
+            
+            <table>
+                <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 25%;">Full Name</th>
+                    <th style="width: 20%;">ID Number</th>
+                    <th style="width: 25%;">Role</th>
+                    <th style="width: 25%;">Signature</th>
+                </tr>
+                <tr>
+                    <td class="filled">1</td>
+                    <td class="filled"><strong>Sibusiso Mavuso</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Chairperson/Treasurer</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">2</td>
+                    <td class="filled"><strong>Sanele Dlamini</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Technical Advisor</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">3</td>
+                    <td class="filled"><strong>Zakhele Dlamini</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Secretary</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">4</td>
+                    <td class="filled"><strong>Seluleko Ndwandwe</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Vice-Chairperson</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">5</td>
+                    <td class="filled"><strong>Sibusiso Dlamini</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">6</td>
+                    <td class="filled"><strong>Temancele Mavuso</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">7</td>
+                    <td class="filled"><strong>Gugu Vilakati</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">8</td>
+                    <td class="filled"><strong>Vuyo Motsa</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">9</td>
+                    <td class="filled"><strong>Neliso Mavuso</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="filled">10</td>
+                    <td class="filled"><strong>Sphumelele Shabangu</strong></td>
+                    <td>_____________</td>
+                    <td class="filled">Member/Worker</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- SECTION 5: PROJECT DESCRIPTION -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">5</span>
+            <span>PROJECT DESCRIPTION</span>
+        </div>
+        <div class="section-body">
+            <div class="field">
+                <div class="field-label">Describe the project activities in detail:</div>
+                <div class="field-value filled large" style="min-height: 120px;">
+                    <p>The Lushikishini Cattle Feedlot Cooperative will establish a commercial cattle feedlot operation with the following activities:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li><strong>Purchase:</strong> Acquire weaner cattle (180-220 kg) from local farmers at approximately E6,500 each</li>
+                        <li><strong>Feeding:</strong> Intensive feeding program for 90-120 days using locally sourced crop residues and supplements</li>
+                        <li><strong>Infrastructure:</strong> Construct 3 additional feedlots (10 cattle each) to complement our existing kraal</li>
+                        <li><strong>Sales:</strong> Sell finished cattle (380-450 kg) to registered abattoirs at approximately E14,000 each</li>
+                        <li><strong>Cycle:</strong> Continuous monthly sales cycle of 10 cattle with replacement purchases</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">Objectives and Expected Outcomes:</div>
+                <div class="field-value filled large">
+                    <ul style="margin: 0 0 0 20px;">
+                        <li>Generate sustainable income for 10 member households (~E54,000 annually per member)</li>
+                        <li>Create employment within the Lushikishini community</li>
+                        <li>Contribute to food security through local beef production</li>
+                        <li>Develop local capacity in commercial livestock farming</li>
+                        <li>Establish a replicable model for community-based agricultural enterprise</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+    
+    <!-- SECTION 6: BUDGET BREAKDOWN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">6</span>
+            <span>DETAILED BUDGET BREAKDOWN</span>
+        </div>
+        <div class="section-body">
+            <table>
+                <tr>
+                    <th style="width: 50%;">Item Description</th>
+                    <th style="width: 15%;">Quantity</th>
+                    <th style="width: 15%;">Unit Cost</th>
+                    <th style="width: 20%;">Total Cost</th>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background: #E3F2FD; font-weight: 700; color: #1565C0;">A. INFRASTRUCTURE</td>
+                </tr>
+                <tr>
+                    <td class="filled">Feedlot construction (poles, wire, cement)</td>
+                    <td class="filled">3 units</td>
+                    <td class="filled">E35,000</td>
+                    <td class="filled"><strong>E105,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Feeding troughs</td>
+                    <td class="filled">12 units</td>
+                    <td class="filled">E2,000</td>
+                    <td class="filled"><strong>E24,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Water system (tanks, pipes, troughs)</td>
+                    <td class="filled">1 system</td>
+                    <td class="filled">E25,000</td>
+                    <td class="filled"><strong>E25,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Handling crush</td>
+                    <td class="filled">1 unit</td>
+                    <td class="filled">E15,000</td>
+                    <td class="filled"><strong>E15,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Feed storage shed</td>
+                    <td class="filled">1 unit</td>
+                    <td class="filled">E20,000</td>
+                    <td class="filled"><strong>E20,000</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right; font-weight: 600; background: #BBDEFB;">Infrastructure Subtotal:</td>
+                    <td style="font-weight: 700; background: #BBDEFB;"><strong>E189,000</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background: #E3F2FD; font-weight: 700; color: #1565C0;">B. LIVESTOCK</td>
+                </tr>
+                <tr>
+                    <td class="filled">Weaner cattle (initial stock)</td>
+                    <td class="filled">36 head</td>
+                    <td class="filled">E6,500</td>
+                    <td class="filled"><strong>E234,000</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right; font-weight: 600; background: #BBDEFB;">Livestock Subtotal:</td>
+                    <td style="font-weight: 700; background: #BBDEFB;"><strong>E234,000</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background: #E3F2FD; font-weight: 700; color: #1565C0;">C. OPERATING CAPITAL</td>
+                </tr>
+                <tr>
+                    <td class="filled">Feed supplies (3 months)</td>
+                    <td class="filled">3 months</td>
+                    <td class="filled">E19,000</td>
+                    <td class="filled"><strong>E57,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Veterinary supplies & medicines</td>
+                    <td class="filled">Lump sum</td>
+                    <td class="filled">-</td>
+                    <td class="filled"><strong>E10,000</strong></td>
+                </tr>
+                <tr>
+                    <td class="filled">Transport & miscellaneous</td>
+                    <td class="filled">Lump sum</td>
+                    <td class="filled">-</td>
+                    <td class="filled"><strong>E10,000</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right; font-weight: 600; background: #BBDEFB;">Operating Capital Subtotal:</td>
+                    <td style="font-weight: 700; background: #BBDEFB;"><strong>E77,000</strong></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3" style="text-align: right;"><strong>TOTAL GRANT REQUESTED:</strong></td>
+                    <td><strong>E500,000</strong></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- SECTION 7: MARKET & VIABILITY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">7</span>
+            <span>MARKET INFORMATION & VIABILITY</span>
+        </div>
+        <div class="section-body">
+            <div class="grid-2">
+                <div class="field">
+                    <div class="field-label">Target Market</div>
+                    <div class="field-value filled">Registered abattoirs (Swazi Beef, City Meat)</div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Expected Customers</div>
+                    <div class="field-value filled">Abattoir buyers (collect from farm gate)</div>
+                </div>
+            </div>
+            
+            <div class="grid-3">
+                <div class="field">
+                    <div class="field-label">Monthly Revenue</div>
+                    <div class="field-value filled"><strong>E140,000</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Monthly Costs</div>
+                    <div class="field-value filled"><strong>E89,900</strong></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Monthly Profit</div>
+                    <div class="field-value filled"><strong>E50,100</strong></div>
+                </div>
+            </div>
+            
+            <div class="success-box">
+                <strong>Key Viability Indicators:</strong><br>
+                • Return on Investment: <strong>142%</strong><br>
+                • Payback Period: <strong>8.4 months</strong><br>
+                • Break-even: <strong>6 cattle per month</strong> (we sell 10)
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+    
+    <!-- SECTION 8: DECLARATIONS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">8</span>
+            <span>DECLARATIONS & UNDERTAKINGS</span>
+        </div>
+        <div class="section-body">
+            <p style="margin-bottom: 15px;">We, the undersigned members of the <strong>Lushikishini Cattle Feedlot Cooperative</strong>, hereby declare and undertake that:</p>
+            
+            <div style="margin: 10px 0 10px 20px;">
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> All information provided in this application is true and accurate to the best of our knowledge.</p>
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> We have not received or applied for funding from another government source for this same project.</p>
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> We will use the funds solely for the purposes stated in this application.</p>
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> We will maintain proper records and submit reports as required by the RDF.</p>
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> We understand that misuse of funds may result in legal action and repayment obligations.</p>
+                <p><span class="checkbox checked" style="margin-right: 10px;"></span> We commit to operating the project for a minimum of 5 years.</p>
+            </div>
+            
+            <div class="signature-area">
+                <h3 style="margin-bottom: 15px; color: #1565C0;">Applicant Signatures</h3>
+                <div class="grid-2">
+                    <div>
+                        <p><strong>Chairperson:</strong> Sibusiso Mavuso</p>
+                        <div class="signature-line"></div>
+                        <p class="signature-label">Signature & Date</p>
+                    </div>
+                    <div>
+                        <p><strong>Secretary:</strong> Zakhele Dlamini</p>
+                        <div class="signature-line"></div>
+                        <p class="signature-label">Signature & Date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 9: CHIEF'S ENDORSEMENT -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">9</span>
+            <span>TRADITIONAL AUTHORITY ENDORSEMENT</span>
+        </div>
+        <div class="section-body">
+            <div class="info-box">
+                <strong>To be completed by the Chief or representative:</strong>
+            </div>
+            
+            <p style="margin: 15px 0;">I, the undersigned, representing the traditional authority under <strong>Chief Somtsewu</strong>, hereby confirm that:</p>
+            
+            <div style="margin: 10px 0 10px 20px;">
+                <p><span class="checkbox" style="margin-right: 10px;"></span> The applicants are bona fide residents of Lushikishini/kaMavuso community</p>
+                <p><span class="checkbox" style="margin-right: 10px;"></span> The project has been presented to and approved by the community</p>
+                <p><span class="checkbox" style="margin-right: 10px;"></span> Land for the project is available on communal land</p>
+                <p><span class="checkbox" style="margin-right: 10px;"></span> The traditional authority supports this application</p>
+            </div>
+            
+            <div class="signature-area">
+                <div class="grid-2">
+                    <div>
+                        <p><strong>Chief/Representative Name:</strong></p>
+                        <div class="signature-line"></div>
+                        <p class="signature-label">Name & Position</p>
+                        <div class="signature-line" style="margin-top: 30px;"></div>
+                        <p class="signature-label">Signature & Date</p>
+                    </div>
+                    <div>
+                        <p><strong>Official Stamp:</strong></p>
+                        <div class="stamp-area">
+                            Chief's Official Stamp
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 10: OFFICE USE -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-number">10</span>
+            <span>FOR OFFICIAL USE ONLY</span>
+        </div>
+        <div class="section-body" style="background: #ECEFF1;">
+            <div class="grid-2">
+                <div class="field">
+                    <div class="field-label">Application Number</div>
+                    <div class="field-value"></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Date Received</div>
+                    <div class="field-value"></div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">Received By</div>
+                <div class="field-value"></div>
+            </div>
+            
+            <div class="grid-3">
+                <div class="field">
+                    <div class="field-label">Recommendation</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item"><span class="checkbox"></span> Approved</div>
+                        <div class="checkbox-item"><span class="checkbox"></span> Rejected</div>
+                        <div class="checkbox-item"><span class="checkbox"></span> Deferred</div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Amount Approved</div>
+                    <div class="field-value"></div>
+                </div>
+                <div class="field">
+                    <div class="field-label">Date</div>
+                    <div class="field-value"></div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">Comments</div>
+                <div class="field-value large"></div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 20px;">
+                <div>
+                    <p><strong>Recommending Officer:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">Signature & Date</p>
+                </div>
+                <div>
+                    <p><strong>Approving Authority:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">Signature & Date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <div class="form-footer">
+        <p><strong>Regional Development Fund • Ministry of Tinkhundla Administration and Development</strong></p>
+        <p>Kingdom of Eswatini • Form MNZ 1004</p>
+    </div>
+</body>
+</html>

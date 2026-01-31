@@ -1,0 +1,9 @@
+.status-active {
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.status-inactive {
+  background: #e5e7eb !important;
+  color: #374151 !important;
+}

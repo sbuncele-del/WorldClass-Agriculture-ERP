@@ -1,0 +1,319 @@
+.sars-integration-hub {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Header */
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.hub-title-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sars-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.sars-logo .logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.sars-logo .logo-subtext {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.hub-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.hub-actions .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+/* ISV Status Card */
+.isv-status-card {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #0f766e 0%, #10b981 100%);
+  border: none;
+  border-radius: 16px;
+}
+
+.isv-status-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.isv-status-card .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.isv-status-card .ant-statistic-content {
+  color: white;
+}
+
+.isv-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.isv-icon {
+  font-size: 48px;
+  color: white;
+}
+
+/* Stat Cards */
+.stat-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.stat-footer {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Tax Types Card */
+.tax-types-card {
+  border-radius: 12px;
+}
+
+.tax-type-card {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.tax-type-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.tax-type-card.ready {
+  border-left: 3px solid #10b981;
+}
+
+.tax-type-card.upcoming {
+  border-left: 3px solid #3b82f6;
+}
+
+.tax-type-card.overdue {
+  border-left: 3px solid #ef4444;
+}
+
+.tax-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.tax-type-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-item .ant-typography {
+  font-size: 12px;
+}
+
+.tax-type-features {
+  display: flex;
+  gap: 6px;
+}
+
+/* Notifications Card */
+.notifications-card {
+  border-radius: 12px;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.notification-list {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background: #f8fafc;
+}
+
+.notification-item.unread {
+  background: #eff6ff;
+  border-left: 3px solid #3b82f6;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.notification-deadline {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #f59e0b;
+}
+
+.notification-deadline .anticon {
+  margin-right: 4px;
+}
+
+/* Tabs */
+.hub-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.hub-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.hub-tabs .ant-tabs-tab-active {
+  background: #eff6ff;
+  border-radius: 8px;
+}
+
+/* Settings */
+.settings-card {
+  border-radius: 12px;
+  height: 100%;
+}
+
+.connection-status {
+  padding: 8px 0;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-label {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.status-indicator.connected {
+  color: #10b981;
+}
+
+.status-indicator .anticon {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hub-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .hub-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .sars-integration-hub {
+    padding: 16px;
+  }
+
+  .hub-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .isv-status-card .ant-row {
+    gap: 16px;
+  }
+
+  .isv-status-card .ant-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Scrollbar */
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Table enhancements */
+.ant-table-thead > tr > th {
+  background: #f8fafc !important;
+  font-weight: 600;
+  color: #475569;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f1f5f9 !important;
+}

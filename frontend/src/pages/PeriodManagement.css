@@ -1,0 +1,314 @@
+/**
+ * Period Management Page Styles
+ */
+
+.period-management {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.period-management-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(102, 126, 234, 0.3);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.period-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 24px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header-content h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.header-subtitle {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card.open {
+  border-left: 4px solid #4caf50;
+}
+
+.summary-card.closed {
+  border-left: 4px solid #ff9800;
+}
+
+.summary-card.locked {
+  border-left: 4px solid #f44336;
+}
+
+.summary-card.future {
+  border-left: 4px solid #2196f3;
+}
+
+.card-icon {
+  font-size: 32px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.card-label {
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.fiscal-year-banner {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.banner-icon {
+  font-size: 32px;
+}
+
+.banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banner-text strong {
+  font-size: 20px;
+  color: #667eea;
+}
+
+.banner-dates {
+  font-size: 14px;
+  color: #666;
+}
+
+.banner-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.banner-badge.status-open {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.banner-badge.status-closed {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.banner-badge.status-locked {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.current-period-alert {
+  background: linear-gradient(135deg, #fff9e6 0%, #fffef7 100%);
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.alert-icon {
+  font-size: 24px;
+}
+
+.alert-code {
+  color: #666;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+.period-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.period-calendar-section {
+  min-height: 600px;
+}
+
+.period-actions-section {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.period-info {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.period-info h3 {
+  margin: 0 0 24px 0;
+  color: #667eea;
+  font-size: 24px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.info-card {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.info-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.workflow-info {
+  padding: 24px;
+  background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+}
+
+.workflow-info h4 {
+  margin: 0 0 16px 0;
+  color: #667eea;
+  font-size: 18px;
+}
+
+.workflow-info ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.workflow-info li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .period-content {
+    grid-template-columns: 1fr;
+  }
+
+  .period-actions-section {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .period-management {
+    padding: 16px;
+  }
+
+  .period-header {
+    padding: 24px;
+  }
+
+  .header-content h1 {
+    font-size: 24px;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

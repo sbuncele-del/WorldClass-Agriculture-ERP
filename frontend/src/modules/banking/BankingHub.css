@@ -1,0 +1,287 @@
+/* Banking & Treasury Hub Styles */
+
+.banking-hub {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hub-title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.banking-logo {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.banking-logo .logo-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.hub-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Treasury Status Banner */
+.treasury-status-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+}
+
+.treasury-status-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.treasury-status-card .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 12px;
+}
+
+.treasury-status-card .ant-statistic-content {
+  color: white;
+}
+
+.treasury-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.treasury-icon {
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tabs */
+.hub-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+  background: white;
+  padding: 4px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.hub-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.hub-tabs .ant-tabs-tab-active {
+  background: #f0f5ff;
+  border-radius: 8px;
+}
+
+/* Account Cards Grid */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.account-card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.account-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.account-card.connected {
+  border-left: 4px solid #10b981;
+}
+
+.account-card.pending {
+  border-left: 4px solid #f59e0b;
+}
+
+.account-card.disconnected {
+  border-left: 4px solid #ef4444;
+}
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.account-bank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bank-logo {
+  font-size: 28px;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.account-balance {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.balance-amount {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.available-amount {
+  font-size: 16px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.account-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.account-actions {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+}
+
+.account-actions .ant-btn-link {
+  padding: 0;
+  height: auto;
+  color: #667eea;
+}
+
+/* Reconciliation Stats */
+.recon-stat-card {
+  border-radius: 12px;
+  text-align: center;
+}
+
+.recon-stat-card .ant-statistic-title {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.stat-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Bank Connect Modal */
+.bank-connect-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.connect-option {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.connect-option:hover {
+  border-color: #667eea;
+}
+
+.connect-option .anticon {
+  margin-bottom: 12px;
+}
+
+.connect-option h5 {
+  margin: 8px 0;
+}
+
+.supported-banks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.supported-banks .ant-tag {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* Transaction Table */
+.banking-hub .ant-table-thead > tr > th {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.banking-hub .ant-table-tbody > tr:hover > td {
+  background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .accounts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bank-connect-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hub-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .accounts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .treasury-status-card .ant-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .treasury-status-card .ant-col {
+    max-width: 100%;
+  }
+}

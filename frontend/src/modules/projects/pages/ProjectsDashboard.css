@@ -1,0 +1,162 @@
+.projects-dashboard {
+  padding: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1a1a2e;
+}
+
+.dashboard-header p {
+  margin: 4px 0 0 40px;
+  color: #666;
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card.active {
+  border-left: 4px solid #52c41a;
+}
+
+.stat-card.warning {
+  border-left: 4px solid #ff4d4f;
+}
+
+.stat-card .ant-statistic-title {
+  color: #666;
+  font-size: 13px;
+}
+
+.stat-card .ant-statistic-content {
+  font-size: 28px;
+}
+
+.quick-actions {
+  margin-bottom: 24px;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+}
+
+.action-card:hover {
+  background: linear-gradient(135deg, #e8f4ff 0%, #fff 100%);
+  border-color: #1890ff;
+}
+
+.action-card svg {
+  color: #1890ff;
+  margin-bottom: 12px;
+}
+
+.action-card span {
+  font-weight: 500;
+  color: #333;
+}
+
+.projects-table-card {
+  border-radius: 12px;
+}
+
+.projects-table-card .ant-card-head-title {
+  font-weight: 600;
+}
+
+.project-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-link {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dashboard-header h1 {
+    color: #fff;
+  }
+
+  .action-card {
+    background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%);
+  }
+
+  .action-card:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1f1f1f 100%);
+  }
+
+  .action-card span {
+    color: #fff;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .stat-card .ant-statistic-content {
+    font-size: 24px;
+  }
+}

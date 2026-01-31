@@ -1,0 +1,181 @@
+.proposal-editor {
+  padding: 0;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Editor Card */
+.editor-card {
+  min-height: calc(100vh - 200px);
+}
+
+/* Proposal Cover */
+.proposal-cover {
+  margin-bottom: 24px;
+}
+
+.proposal-title-input {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Sections */
+.sections-container {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drag-handle {
+  color: #999;
+  cursor: grab;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Text Editor */
+.text-editor {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  padding: 8px;
+  background: #fafafa;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.text-editor .ant-input {
+  border: none;
+  border-radius: 0;
+}
+
+.text-editor .ant-input:focus {
+  box-shadow: none;
+}
+
+/* Pricing Editor */
+.pricing-editor {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.pricing-summary {
+  margin-top: 24px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  max-width: 300px;
+  margin-left: auto;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.summary-row.total {
+  margin-bottom: 0;
+}
+
+/* Signature Section */
+.signature-section {
+  padding: 16px;
+}
+
+.signature-box {
+  padding: 16px;
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.signature-line {
+  height: 60px;
+  margin: 16px 0;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.signature-line.signed {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 24px;
+}
+
+/* Add Section */
+.add-section {
+  padding: 16px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.add-section .ant-typography {
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Sidebar Cards */
+.sidebar-card {
+  margin-bottom: 16px;
+}
+
+.client-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.client-contact {
+  display: block;
+  font-size: 12px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.summary-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

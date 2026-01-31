@@ -1,0 +1,990 @@
+{
+  "generated": "2025-12-18T22:05:50.885Z",
+  "summary": {
+    "filesWithMockData": 49,
+    "totalIssues": 95
+  },
+  "files": [
+    {
+      "file": "frontend/src/components/BankReconciliation.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 481,
+          "match": "[\n                { id: 1, name: 'Exact Reference Match', field: 'Reference', co",
+          "context": "dataSource={[",
+          "suggestedApi": "/api/purchase/suppliers"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/components/BankReconciliationHub.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 779,
+          "match": "[\n                { id: 1, name: 'Invoice Reference Match', field: 'Reference', ",
+          "context": "dataSource={[",
+          "suggestedApi": "/api/sales/invoices"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/contexts/ClientContext.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 16,
+          "match": "const MOCK_CLIENTS:",
+          "context": "const MOCK_CLIENTS: Client[] = [",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "MOCK_CONSTANT",
+          "severity": "HIGH",
+          "line": 16,
+          "match": "MOCK_CLIENTS:",
+          "context": "const MOCK_CLIENTS: Client[] = [",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/contexts/CurrencyContext.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 29,
+          "match": "const MOCK_EXCHANGE_RATES:",
+          "context": "const MOCK_EXCHANGE_RATES: ExchangeRate[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_CONSTANT",
+          "severity": "HIGH",
+          "line": 29,
+          "match": "MOCK_EXCHANGE_RATES:",
+          "context": "const MOCK_EXCHANGE_RATES: ExchangeRate[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/contexts/UserContext.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 17,
+          "match": "const MOCK_USER:",
+          "context": "const MOCK_USER: User = {",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "MOCK_CONSTANT",
+          "severity": "HIGH",
+          "line": 17,
+          "match": "MOCK_USER:",
+          "context": "const MOCK_USER: User = {",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/agriculture/AgricultureHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 367,
+          "match": "const equipment = [\n    { id: 'EQ-001', name: 'John",
+          "context": "const equipment = [",
+          "suggestedApi": "/api/assets"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/calendar/pages/Scheduling.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 73,
+          "match": "[\n    {\n      id: '1',\n      name: '30 Minute Meeting',\n      duration: 30,\n    ",
+          "context": "const schedulingLinks: SchedulingLink[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "FAKE_EMAIL",
+          "severity": "MEDIUM",
+          "line": 139,
+          "match": "Email: 'alice@example.",
+          "context": "guestEmail: 'alice@example.com',",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/Announcements.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 26,
+          "match": "[\n  {\n    id: '1',\n    title: 'Company All-Hands Meeting Next Friday',\n    conte",
+          "context": "const sampleAnnouncements: Announcement[] = [",
+          "suggestedApi": "/api/hr/employees"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/Channels.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 26,
+          "match": "[\n  { id: '1', name: 'general', description: 'Company-wide announcements and dis",
+          "context": "const sampleChannels: Channel[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/ChatRoom.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 37,
+          "match": "[\n  {\n    id: '1',\n    sender: { id: '2', name: 'Sarah Johnson' },\n    content: ",
+          "context": "const sampleMessages: Message[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 99,
+          "match": "[\n  { id: '2', name: 'Sarah Johnson', role: 'Project Manager', status: 'online' ",
+          "context": "const sampleMembers: RoomMember[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/CommunicationHub.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 45,
+          "match": "[\n  { id: '1', name: 'general', type: 'public', members: 45, unread: 3, lastMess",
+          "context": "const sampleChannels: Channel[] = [",
+          "suggestedApi": "/api/users"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 54,
+          "match": "[\n  { id: '1', user: { name: 'Sarah Johnson', status: 'online' }, unread: 2, las",
+          "context": "const sampleDMs: DirectMessage[] = [",
+          "suggestedApi": "/api/users"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/DirectMessages.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 21,
+          "match": "[\n  { id: '1', user: { name: 'Sarah Johnson', email: 'sarah@company.com', status",
+          "context": "const sampleDMs: DirectMessage[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/communication/pages/VideoCall.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 28,
+          "match": "[\n  { id: '1', name: 'You', isMuted: false, isVideoOff: false, isSpeaking: false",
+          "context": "const sampleParticipants: Participant[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/financial/components/ChartOfAccountsEnhanced.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 73,
+          "match": "[\n        { id: '1', code: '1000', name: 'Cash', account_type: 'ASSET', category",
+          "context": "setAccounts([",
+          "suggestedApi": "/api/assets"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/healthcare/HealthcareHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 128,
+          "match": "phone: '0821234567",
+          "context": "{ id: 'PAT-001', title: 'Mr', firstName: 'John', lastName: 'Smith', idNumber: '8501015800089', dob: ",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 129,
+          "match": "phone: '0839876543",
+          "context": "{ id: 'PAT-002', title: 'Mrs', firstName: 'Sarah', lastName: 'Johnson', idNumber: '9003150800087', d",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 130,
+          "match": "phone: '0761112233",
+          "context": "{ id: 'PAT-003', title: 'Ms', firstName: 'Thandi', lastName: 'Nkosi', idNumber: '9505200800083', dob",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 131,
+          "match": "phone: '0829998877",
+          "context": "{ id: 'PAT-004', title: 'Mr', firstName: 'David', lastName: 'Mokoena', idNumber: '7808085800081', do",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 132,
+          "match": "phone: '0845556666",
+          "context": "{ id: 'PAT-005', title: 'Dr', firstName: 'Lisa', lastName: 'van der Berg', idNumber: '8206120800085'",
+          "suggestedApi": "/api/sales/invoices"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/inventory/ItemManagement.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 121,
+          "match": "[\n        { uom_id: 1, uom_code: 'EA', uom_name: 'Each', uom_type: 'Quantity' },",
+          "context": "setUOMs([",
+          "suggestedApi": "/api/inventory"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/logistics/DriverManagementEnhanced.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 39,
+          "match": "const mockDrivers:",
+          "context": "const mockDrivers: Driver[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/logistics/LogisticsDashboardEnhanced.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 98,
+          "match": "[\n        {\n          vehicle_id: 1,\n          vehicle_number: 'TRK-001',\n      ",
+          "context": "setActiveVehicles([",
+          "suggestedApi": "/api/logistics/vehicles"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/logistics/LogisticsHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 161,
+          "match": "const activeTrips = [\n    { \n      id: 'TRP-2024-0456', \n      driver: 'John",
+          "context": "const activeTrips = [",
+          "suggestedApi": "/api/purchase/orders"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 217,
+          "match": "const vehicles = [\n    { id: 'TRK-015', registration: 'GP 123 456', type: 'Truck",
+          "context": "const vehicles = [",
+          "suggestedApi": "/api/purchase/orders"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 227,
+          "match": "const drivers = [\n    { id: 'DRV-001', name: 'John",
+          "context": "const drivers = [",
+          "suggestedApi": "/api/purchase/orders"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 236,
+          "match": "const fuelRecords = [\n    { id: 'FUEL-2024-0890', date: '2024-12-11', vehicle: '",
+          "context": "const fuelRecords = [",
+          "suggestedApi": "/api/purchase/orders"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/logistics/TripManagementEnhanced.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 39,
+          "match": "const mockTrips:",
+          "context": "const mockTrips: Trip[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/manufacturing/ManufacturingHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 212,
+          "match": "'Test",
+          "context": "{ id: 'WC-006', name: 'Testing Station 1', type: 'QC', status: 'running', utilization: 65, currentWO",
+          "suggestedApi": "/api/sales/orders"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 217,
+          "match": "const qualityRecords = [\n    { id: 'QC-2024-0456', workOrder: 'WO-2024-0235', pr",
+          "context": "const qualityRecords = [",
+          "suggestedApi": "/api/sales/orders"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 868,
+          "match": "\"Test",
+          "context": "description=\"Testing Station 1 calibration due in 3 days. Schedule maintenance to avoid production d",
+          "suggestedApi": "/api/sales/orders"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/practice/pages/ClientManagement.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 66,
+          "match": "[\n  {\n    id: '1',\n    name: 'Nexus Industries Ltd',\n    type: 'Corporation',\n  ",
+          "context": "const clientsData = [",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/professional/PracticeHub.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 134,
+          "match": "[\n  { id: 1, name: 'John Matthews', role: 'Partner', avatar: 'JM', utilization: ",
+          "context": "const teamMembers = [",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 65,
+          "match": "const activeEngagements = [\n  {\n    id: 'ENG-001',\n    client: 'Stellar Holdings",
+          "context": "const activeEngagements = [",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 134,
+          "match": "const teamMembers = [\n  { id: 1, name: 'John",
+          "context": "const teamMembers = [",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/ProjectsHub.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 918,
+          "match": "[\n            { id: 1, name: 'Sarah Johnson', role: 'Project Manager', projects:",
+          "context": "dataSource={[",
+          "suggestedApi": "/api/projects"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 201,
+          "match": "'Test",
+          "context": "{ id: 'TSK-005', title: 'Testing & QA', project: 'PRJ-001', assignee: 'Alex Turner', status: 'todo',",
+          "suggestedApi": "/api/projects"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/GanttView.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 26,
+          "match": "[\n  {\n    id: '1',\n    name: 'Website Redesign',\n    project: 'Website Redesign'",
+          "context": "const sampleTasks: GanttTask[] = [",
+          "suggestedApi": "/api/projects/tasks"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 91,
+          "match": "'Test",
+          "context": "name: 'Testing & QA',",
+          "suggestedApi": "/api/projects/tasks"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/Milestones.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 27,
+          "match": "[\n  {\n    id: '1',\n    name: 'Design Approval',\n    description: 'Complete all d",
+          "context": "const sampleMilestones: Milestone[] = [",
+          "suggestedApi": "/api/projects"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/ProjectDetails.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 41,
+          "match": "[\n    { id: '2', name: 'Mike Wilson', email: 'mike@company.com', role: 'Lead Dev",
+          "context": "team: [",
+          "suggestedApi": "/api/projects"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 53,
+          "match": "[\n    { id: '1', name: 'Design Approval', date: '2024-01-30', status: 'completed",
+          "context": "milestones: [",
+          "suggestedApi": "/api/projects"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/ProjectTemplates.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 28,
+          "match": "[\n  {\n    id: '1',\n    name: 'Software Development',\n    description: 'Complete ",
+          "context": "const sampleTemplates: Template[] = [",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 40,
+          "match": "'Test",
+          "context": "features: ['Agile sprints', 'Code review checkpoints', 'Testing phases', 'Deployment workflow']",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/ProjectsDashboard.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 113,
+          "match": "[\n        {\n          id: '1',\n          name: 'ERP System Implementation',\n    ",
+          "context": "const sampleProjects: Project[] = [",
+          "suggestedApi": "/api/users"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 152,
+          "match": "[\n            { id: '4', name: 'Emily Davis' },\n            { id: '5', name: 'To",
+          "context": "team: [",
+          "suggestedApi": "/api/users"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 174,
+          "match": "[\n            { id: '6', name: 'Lisa Brown' },\n            { id: '7', name: 'Jam",
+          "context": "team: [",
+          "suggestedApi": "/api/users"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 196,
+          "match": "[\n            { id: '8', name: 'David Martinez' },\n            { id: '9', name: ",
+          "context": "team: [",
+          "suggestedApi": "/api/users"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/ProjectsList.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 38,
+          "match": "[\n  {\n    id: '1',\n    name: 'Website Redesign',\n    description: 'Complete over",
+          "context": "const sampleProjects: Project[] = [",
+          "suggestedApi": "/api/projects"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/projects/pages/TasksBoard.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 61,
+          "match": "[\n        {\n          id: '1',\n          title: 'Design system architecture',\n  ",
+          "context": "const sampleTasks: Task[] = [",
+          "suggestedApi": "/api/projects/tasks"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 139,
+          "match": "'Test",
+          "context": "tags: ['Testing', 'QA'],",
+          "suggestedApi": "/api/projects/tasks"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/property/PropertyHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 186,
+          "match": "'Jane",
+          "context": "{ id: 'MNT-004', ticketNo: 'TKT-2024-0004', property: 'Sandton Square Apartments', unit: 'A201', ten",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 169,
+          "match": "phone: '0821234567",
+          "context": "{ id: 'T-001', name: 'Michael Smith', idNumber: '8501015800089', type: 'individual', email: 'michael",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 170,
+          "match": "phone: '0839876543",
+          "context": "{ id: 'T-002', name: 'Lisa Johnson', idNumber: '9003150800087', type: 'individual', email: 'lisa@ema",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 171,
+          "match": "phone: '0114567890",
+          "context": "{ id: 'T-003', name: 'Tech Solutions (Pty) Ltd', type: 'company', companyReg: '2018/123456/07', emai",
+          "suggestedApi": "/api/sales/invoices"
+        },
+        {
+          "type": "FAKE_PHONE",
+          "severity": "LOW",
+          "line": 172,
+          "match": "phone: '0216789012",
+          "context": "{ id: 'T-004', name: 'Fashion Retail Group', type: 'company', companyReg: '2015/789012/07', email: '",
+          "suggestedApi": "/api/sales/invoices"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/components/phases/PhaseCollaboration.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 40,
+          "match": "const mockTeamMembers:",
+          "context": "const mockTeamMembers: TeamMember[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 80,
+          "match": "const mockComments:",
+          "context": "const mockComments: CommentType[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 108,
+          "match": "const mockVersions:",
+          "context": "const mockVersions: Version[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/components/phases/PhaseDelivery.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 41,
+          "match": "const mockTrackingData =",
+          "context": "const mockTrackingData = {",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 68,
+          "match": "const mockSigners =",
+          "context": "const mockSigners = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_DATA",
+          "severity": "HIGH",
+          "line": 41,
+          "match": "mockTrackingData =",
+          "context": "const mockTrackingData = {",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 68,
+          "match": "const mockSigners = [\n  { name: 'John",
+          "context": "const mockSigners = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/components/phases/PhaseIntake.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 49,
+          "match": "const mockCRMClients =",
+          "context": "const mockCRMClients = [",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 109,
+          "match": "const mockERPData =",
+          "context": "const mockERPData = {",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "MOCK_DATA",
+          "severity": "HIGH",
+          "line": 109,
+          "match": "mockERPData =",
+          "context": "const mockERPData = {",
+          "suggestedApi": "/api/clients"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 49,
+          "match": "const mockCRMClients = [\n  {\n    id: 'crm-001',\n    name: 'John",
+          "context": "const mockCRMClients = [",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/pages/PricingLibrary.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 63,
+          "match": "[\n    { id: '1', name: 'Implementation', itemCount: 12, color: '#1890ff' },\n    ",
+          "context": "const categories: PricingCategory[] = [",
+          "suggestedApi": "/api/inventory/products"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 72,
+          "match": "[\n    {\n      id: '1',\n      name: 'System Implementation - Basic',\n      descri",
+          "context": "const pricingItems: PricingItem[] = [",
+          "suggestedApi": "/api/inventory/products"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/pages/ProposalEditor.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 136,
+          "match": "[\n    {\n      id: '1',\n      name: 'Implementation Services',\n      description:",
+          "context": "const [lineItems, setLineItems] = useState<LineItem[]>([",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 574,
+          "match": "'Jane",
+          "context": "{ value: 'jane', label: 'Jane Smith - CFO' },",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/proposals/pages/Templates.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 70,
+          "match": "[\n    {\n      id: '1',\n      name: 'Enterprise Solution',\n      description: 'Co",
+          "context": "const templates: Template[] = [",
+          "suggestedApi": "/api/inventory/products"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/sales/InvoicesPage.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 28,
+          "match": "[\n        {\n          invoice_id: 1,\n          invoice_number: 'INV-2025-001',\n ",
+          "context": "setInvoices([",
+          "suggestedApi": "/api/sales/invoices"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/sales/OrdersList.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 25,
+          "match": "[\n        { order_id: '1', order_number: 'SO-2025-001', customer_name: 'ABC Corp",
+          "context": "setOrders([",
+          "suggestedApi": "/api/sales/orders"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/sales/SalesOrdersPage.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 27,
+          "match": "[\n        {\n          order_id: 1,\n          order_number: 'SO-2025-001',\n      ",
+          "context": "setOrders([",
+          "suggestedApi": "/api/sales/orders"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/sars-sentinel/CorrespondencePage.tsx",
+      "issues": [
+        {
+          "type": "MOCK_VARIABLE",
+          "severity": "HIGH",
+          "line": 30,
+          "match": "const mockData:",
+          "context": "const mockData: Correspondence[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "MOCK_DATA",
+          "severity": "HIGH",
+          "line": 30,
+          "match": "mockData:",
+          "context": "const mockData: Correspondence[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        },
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 30,
+          "match": "[\n      {\n        id: '1',\n        reference_number: 'RFI-2025-1234',\n        cl",
+          "context": "const mockData: Correspondence[] = [",
+          "suggestedApi": "Check context to determine appropriate API"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/modules/warehouse/WarehouseHub.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 149,
+          "match": "const pickOrders = [\n    { id: 'PICK-2024-0234', order: 'SO-2024-0789', customer",
+          "context": "const pickOrders = [",
+          "suggestedApi": "/api/inventory"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/Agriculture.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 75,
+          "match": "const equipment = [\n    { id: 'AGE001', name: 'John",
+          "context": "const equipment = [",
+          "suggestedApi": "/api/inventory"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/AuditReady.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 8,
+          "match": "[\n    { id: 1, name: 'Financial Statements', status: 'ready', lastUpdated: '2025",
+          "context": "const auditDocuments = [",
+          "suggestedApi": "/api/sales/invoices"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/BankingDashboard.tsx",
+      "issues": [
+        {
+          "type": "HARDCODED_ARRAY",
+          "severity": "MEDIUM",
+          "line": 35,
+          "match": "[\n    { id: 1, name: 'FNB Current Account', number: '****1234', balance: 125450.",
+          "context": "const accounts = [",
+          "suggestedApi": "/api/finance/accounts"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/Construction.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 7,
+          "match": "const projects = [\n    { id: 'PRJ001', name: 'Downtown Office Complex', client: ",
+          "context": "const projects = [",
+          "suggestedApi": "/api/inventory"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/Healthcare.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 7,
+          "match": "const patients = [\n    { id: 'PT001', name: 'John",
+          "context": "const patients = [",
+          "suggestedApi": "/api/inventory"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 14,
+          "match": "const appointments = [\n    { id: 'AP001', patient: 'John",
+          "context": "const appointments = [",
+          "suggestedApi": "/api/inventory"
+        },
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 28,
+          "match": "const billing = [\n    { id: 'INV001', patient: 'John",
+          "context": "const billing = [",
+          "suggestedApi": "/api/inventory"
+        }
+      ]
+    },
+    {
+      "file": "frontend/src/pages/LandingPage/LandingPage.tsx",
+      "issues": [
+        {
+          "type": "FAKE_NAMES",
+          "severity": "HIGH",
+          "line": 1551,
+          "match": "'Demo",
+          "context": "alert('Demo request submitted! We\\'ll be in touch within 24 hours.');",
+          "suggestedApi": "/api/clients"
+        }
+      ]
+    }
+  ]
+}

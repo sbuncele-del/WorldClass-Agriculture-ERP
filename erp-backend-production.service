@@ -1,0 +1,32 @@
+[Unit]
+Description=ERP Backend Production Service (Locked Version)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/ec2-user
+ExecStart=/bin/bash -c '\
+    echo "Starting ERP Backend with locked production image..." && \
+    docker stop erp-backend-production || true && \
+    docker rm erp-backend-production || true && \
+    docker run -d \
+        --name erp-backend-production \
+        -p 3000:3000 \
+        --restart unless-stopped \
+        erp-backend:production-locked-dec30-2025 && \
+    echo "ERP Backend started successfully" \
+'
+ExecStop=/bin/bash -c '\
+    echo "Stopping ERP Backend..." && \
+    docker stop erp-backend-production && \
+    docker rm erp-backend-production \
+'
+ExecReload=/bin/bash -c '\
+    echo "Reloading ERP Backend..." && \
+    docker restart erp-backend-production \
+'
+
+[Install]
+WantedBy=multi-user.target

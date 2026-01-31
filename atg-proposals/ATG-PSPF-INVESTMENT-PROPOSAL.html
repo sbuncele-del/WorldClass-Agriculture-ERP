@@ -1,0 +1,1803 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Investment Proposal - Alex Tsela Global (ATG) Holdings</title>
+      <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+    
+    :root {
+      --atg-primary: #1a5f2a;
+      --atg-secondary: #2d8a3e;
+      --atg-accent: #c9a227;
+      --atg-dark: #0d2818;
+      --atg-light: #e8f5e9;
+      --atg-text: #1a1a1a;
+      --atg-white: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    @page {
+      size: A4;
+      margin: 25mm 22mm 30mm 22mm;
+    }
+    
+    @page :first {
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10pt;
+      line-height: 1.65;
+      color: var(--atg-text);
+      background: white;
+    }
+    
+    /* ========== COVER PAGE ========== */
+    .cover-page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      background: linear-gradient(145deg, 
+        #0d2818 0%, 
+        #1a5f2a 40%, 
+        #2d8a3e 70%,
+        #1a5f2a 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    
+    /* Decorative elements */
+    .cover-page::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .cover-page::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    /* Coffee plant decorative pattern */
+    .cover-decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 30c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 35c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z' fill='%23ffffff'/%3E%3C/svg%3E");
+      background-size: 80px 80px;
+    }
+    
+    .cover-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 50px;
+      max-width: 90%;
+    }
+    
+    /* Logo placeholder */
+    .cover-logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 40px;
+      background: linear-gradient(135deg, var(--atg-accent) 0%, #d4af37 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    
+    .cover-logo::before {
+      content: 'ATG';
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--atg-dark);
+      letter-spacing: 2px;
+    }
+    
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42pt;
+      font-weight: 700;
+      color: var(--atg-white);
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+    }
+    
+    .cover-subtitle {
+      font-size: 16pt;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 50px;
+      letter-spacing: 1px;
+    }
+    
+    /* Info box with glassmorphism */
+    .cover-info-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px 45px;
+      margin: 30px auto;
+      max-width: 500px;
+    }
+    
+    .cover-info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11pt;
+    }
+    
+    .cover-info-row:last-child {
+      border-bottom: none;
+    }
+    
+    .cover-info-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+    }
+    
+    .cover-info-value {
+      color: var(--atg-white);
+      font-weight: 600;
+    }
+    
+    .cover-meta {
+      margin-top: 50px;
+    }
+    
+    .cover-meta strong {
+      font-size: 14pt;
+      font-weight: 600;
+      color: var(--atg-white);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .cover-tagline {
+      font-size: 11pt;
+      color: var(--atg-accent);
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+    
+    /* Classification badge */
+    .cover-classification {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: rgba(201, 162, 39, 0.9);
+      color: var(--atg-dark);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Footer stripe */
+    .cover-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, 
+        var(--atg-accent) 0%, 
+        var(--atg-accent) 30%,
+        var(--atg-white) 30%,
+        var(--atg-white) 70%,
+        var(--atg-secondary) 70%,
+        var(--atg-secondary) 100%);
+    }
+    
+    /* ========== CONTENT PAGES ========== */
+    .content {
+      padding: 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+    
+    /* Page header for content pages */
+    .page-header {
+      display: none;
+    }
+    
+    /* Headings */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--atg-primary);
+      margin: 0 0 18px 0;
+      padding-top: 10px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--atg-accent);
+      page-break-before: always;
+      page-break-after: avoid;
+    }
+    
+    h1:first-of-type {
+      margin-top: 0;
+      page-break-before: avoid;
+    }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16pt;
+      font-weight: 600;
+      color: var(--atg-primary);
+      margin: 25px 0 14px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--atg-light);
+      page-break-after: avoid;
+    }
+    
+    h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--atg-secondary);
+      margin: 20px 0 10px 0;
+      page-break-after: avoid;
+    }
+    
+    h4 {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--atg-text);
+      margin: 16px 0 8px 0;
+      page-break-after: avoid;
+    }
+    
+    /* Paragraphs */
+    p {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    
+    /* Executive summary styling */
+    .exec-summary {
+      background: linear-gradient(135deg, var(--atg-light) 0%, #f1f8e9 100%);
+      padding: 18px 22px;
+      border-radius: 8px;
+      border-left: 4px solid var(--atg-primary);
+      font-size: 10pt;
+      margin-bottom: 18px;
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    
+    thead {
+      background: linear-gradient(135deg, var(--atg-primary) 0%, var(--atg-secondary) 100%);
+    }
+    
+    th {
+      color: white;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8faf8;
+    }
+    
+    tr:hover {
+      background-color: var(--atg-light);
+    }
+    
+    /* Highlight important rows */
+    tr:has(td:contains("TOTAL")),
+    tr:has(td:contains("Total")),
+    tr:has(td strong) {
+      background: linear-gradient(135deg, var(--atg-light) 0%, #e8f5e9 100%);
+      font-weight: 600;
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin: 10px 0 10px 22px;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+    
+    li::marker {
+      color: var(--atg-primary);
+      font-weight: bold;
+    }
+    
+    /* Blockquotes */
+    blockquote {
+      background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+      border-left: 4px solid var(--atg-accent);
+      padding: 14px 20px;
+      margin: 16px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #5d4e37;
+    }
+    
+    blockquote p {
+      margin: 0;
+    }
+    
+    /* Strong and emphasis */
+    strong {
+      font-weight: 700;
+      color: var(--atg-primary);
+    }
+    
+    em {
+      font-style: italic;
+      color: #555;
+    }
+    
+    /* Code/highlight */
+    code {
+      background: var(--atg-light);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Inter', monospace;
+      font-size: 8.5pt;
+      color: var(--atg-primary);
+    }
+    
+    /* Horizontal rules */
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, var(--atg-primary) 0%, var(--atg-accent) 50%, var(--atg-secondary) 100%);
+      margin: 25px 0;
+      border-radius: 2px;
+      page-break-after: always;
+    }
+    
+    /* Page breaks for major sections */
+    h1[id*="company"],
+    h1[id*="market"],
+    h1[id*="project"],
+    h1[id*="strategic"],
+    h1[id*="investment"],
+    h1[id*="financial"],
+    h1[id*="risk"],
+    h1[id*="implementation"],
+    h1[id*="social"],
+    h1[id*="governance"],
+    h1[id*="conclusion"],
+    h1[id*="appendices"] {
+      page-break-before: always;
+    }
+    
+    /* Print optimizations */
+    @media print {
+      .cover-page {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      thead {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      tr:nth-child(even) {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+    
+    /* Ensure page breaks work properly */
+    h1, h2, h3 {
+      page-break-after: avoid;
+      orphans: 3;
+      widows: 3;
+    }
+    
+    table, figure, blockquote {
+      page-break-inside: avoid;
+    }
+    
+    p {
+      orphans: 3;
+      widows: 3;
+    }
+    
+    /* Section spacing */
+    section {
+      page-break-inside: avoid;
+    }
+    
+    /* Ensure no overflow */
+    * {
+      max-width: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+    </head>
+    <body>
+      
+    <div class="cover-page">
+      <div class="cover-decoration"></div>
+      <div class="cover-classification">Confidential</div>
+      
+      <div class="cover-content">
+        <div class="cover-logo"></div>
+        
+        <h1 class="cover-title">Investment Proposal</h1>
+        <p class="cover-subtitle">High-Value Agriculture & Agro-Processing Initiative</p>
+        
+        <div class="cover-info-box">
+          <div class="cover-info-row">
+            <span class="cover-info-label">Submitted To</span>
+            <span class="cover-info-value">Public Service Pensions Fund (PSPF)</span>
+          </div>
+          <div class="cover-info-row">
+            <span class="cover-info-label">Submitted By</span>
+            <span class="cover-info-value">Alex Tsela Global (ATG) Holdings</span>
+          </div>
+          <div class="cover-info-row">
+            <span class="cover-info-label">Date</span>
+            <span class="cover-info-value">January 2026</span>
+          </div>
+          <div class="cover-info-row">
+            <span class="cover-info-label">Document ID</span>
+            <span class="cover-info-value">ATG-PSPF-2026-001</span>
+          </div>
+          <div class="cover-info-row">
+            <span class="cover-info-label">Version</span>
+            <span class="cover-info-value">1.0</span>
+          </div>
+        </div>
+        
+        <div class="cover-meta">
+          <strong>Alex Tsela Global (ATG) Holdings</strong>
+          <span class="cover-tagline">Sustainable Agriculture • Economic Growth • Community Impact</span>
+        </div>
+      </div>
+      
+      <div class="cover-footer"></div>
+    </div>
+  
+      <div class="content">
+        <h2>Executive Summary</h2>
+<p>Alex Tsela Global (ATG) Holdings presents this investment proposal to the Public Service Pensions Fund (PSPF) for funding of a <strong>High-Value Agriculture Initiative</strong> in the Kingdom of Eswatini, focusing on two strategic pillars:</p>
+<ol>
+<li><strong>Specialty Coffee Production</strong> — Arabica coffee cultivation</li>
+<li><strong>Spring Water Bottling</strong> — Premium natural spring water processing</li>
+</ol>
+<p>This initiative directly aligns with the Kingdom&#39;s national strategy to diversify away from traditional exports (sugar and timber) and the Prime Minister&#39;s directive to develop high-value crops for economic growth, job creation, and youth empowerment.</p>
+<h3>Investment Highlights</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Total Investment Requested</strong></td>
+<td><strong>E 1,320,000</strong></td>
+</tr>
+<tr>
+<td><strong>Primary Location</strong></td>
+<td>Tikhuba, Eswatini</td>
+</tr>
+<tr>
+<td><strong>Project Duration</strong></td>
+<td>36 months to full production</td>
+</tr>
+<tr>
+<td><strong>Jobs Created</strong></td>
+<td>25+ direct, 100+ indirect</td>
+</tr>
+<tr>
+<td><strong>Export Potential</strong></td>
+<td>USD 500,000+ annually (Year 5)</td>
+</tr>
+<tr>
+<td><strong>Strategic Partners</strong></td>
+<td>Patrick DuPont (Coffee Expert), Eswatini Coffee Association</td>
+</tr>
+</tbody></table>
+<h3>Why This Investment?</h3>
+<ul>
+<li><strong>Government Priority</strong>: Coffee identified as strategic sector by PM Russell Dlamini</li>
+<li><strong>Import Substitution</strong>: Eswatini imports $2.32M coffee annually — local production reduces forex outflow</li>
+<li><strong>Guaranteed Off-take</strong>: Pre-arranged agreement with established buyer</li>
+<li><strong>Climate Suitable</strong>: Expert-verified sites ideal for Arabica cultivation</li>
+<li><strong>First-Mover Advantage</strong>: Early entrant in emerging specialty coffee sector</li>
+</ul>
+<div style="page-break-before: always;"></div>
+
+<h2>1. Company Overview</h2>
+<h3>About ATG Holdings</h3>
+<p><strong>Alex Tsela Global (ATG) Holdings</strong> is an Eswatini-based investment and development company focused on sustainable agriculture, agro-processing, and natural resource development.</p>
+<p><strong>Company Details:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Company Name</td>
+<td>Alex Tsela Global (ATG) Holdings</td>
+</tr>
+<tr>
+<td>Registration</td>
+<td>Kingdom of Eswatini</td>
+</tr>
+<tr>
+<td>Sector</td>
+<td>Agriculture, Agro-processing, Natural Resources</td>
+</tr>
+<tr>
+<td>Leadership</td>
+<td>Geoffrey M. Tsela (Managing Director)</td>
+</tr>
+</tbody></table>
+<h3>Our Vision</h3>
+<p>To develop sustainable, high-value agricultural enterprises that create employment, generate export revenue, and contribute to Eswatini&#39;s economic diversification.</p>
+<h3>Our Mission</h3>
+<p>To establish ATG Holdings as a leading agribusiness entity in Southern Africa, specializing in premium agricultural products for both local consumption and international export markets.</p>
+<div style="page-break-before: always;"></div>
+
+<h2>2. Market Opportunity</h2>
+<h3>2.1 Global Coffee Market</h3>
+<p>The global coffee market presents an exceptional opportunity for new entrants focused on quality and sustainability.</p>
+<p><strong>Market Size &amp; Growth:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Global Market Value (2024)</td>
+<td>USD 269.27 billion</td>
+</tr>
+<tr>
+<td>Projected Value (2030)</td>
+<td>USD 369.46 billion</td>
+</tr>
+<tr>
+<td>Annual Growth Rate (CAGR)</td>
+<td>5.3%</td>
+</tr>
+<tr>
+<td>Daily Consumption</td>
+<td>2.25 billion cups worldwide</td>
+</tr>
+</tbody></table>
+<p><strong>Supply-Demand Dynamics (2024/2025):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Volume</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Global Production</td>
+<td>174.4 million bags (60kg)</td>
+</tr>
+<tr>
+<td>Global Consumption</td>
+<td>180.2 million bags</td>
+</tr>
+<tr>
+<td><strong>Supply Deficit</strong></td>
+<td><strong>5.8 million bags</strong></td>
+</tr>
+</tbody></table>
+<p>The current supply deficit, combined with climate change pressures on traditional growing regions, creates significant opportunity for new quality-focused producers.</p>
+<h3>2.2 Market Trends Favoring Eswatini</h3>
+<ol>
+<li><strong>Specialty Coffee Premium</strong>: Single-origin, ethically-sourced Arabica commands 50-100% price premiums</li>
+<li><strong>African Origin Demand</strong>: Growing consumer preference for African coffees (Ethiopian, Kenyan profiles)</li>
+<li><strong>Sustainability Focus</strong>: Fairtrade and Rainforest Alliance certifications increasingly required by buyers</li>
+<li><strong>Climate Shift</strong>: Traditional regions losing suitability — new regions emerging</li>
+</ol>
+<h3>2.3 Eswatini Coffee Landscape</h3>
+<p><strong>Current Status:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Annual Coffee Exports</td>
+<td>USD 267,000</td>
+</tr>
+<tr>
+<td>Annual Coffee Imports</td>
+<td>USD 2.32 million</td>
+</tr>
+<tr>
+<td><strong>Trade Deficit</strong></td>
+<td><strong>USD 2.05 million</strong></td>
+</tr>
+<tr>
+<td>Registered Farmers</td>
+<td>200+ smallholders</td>
+</tr>
+<tr>
+<td>Growth Rate (2024)</td>
+<td>15% increase</td>
+</tr>
+</tbody></table>
+<p><strong>Key Insight</strong>: Eswatini is a <strong>net importer</strong> of coffee, spending over $2 million annually on imports. Local production directly substitutes imports and retains forex in the economy.</p>
+<h3>2.4 Spring Water Market</h3>
+<p><strong>Southern African Bottled Water Market:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Regional Market Value</td>
+<td>USD 2.1 billion</td>
+</tr>
+<tr>
+<td>Annual Growth</td>
+<td>8-10%</td>
+</tr>
+<tr>
+<td>Premium Segment Growth</td>
+<td>15%+</td>
+</tr>
+</tbody></table>
+<p>Eswatini&#39;s pristine highland springs offer exceptional quality water with natural mineral content, positioning for premium market segments.</p>
+<div style="page-break-before: always;"></div>
+
+<h2>3. Project Description</h2>
+<h3>3.1 Project Locations</h3>
+<p>ATG Holdings has secured access to multiple sites at <strong>Tikhuba</strong>, inspected and approved by coffee expert <strong>Mr. Patrick DuPont</strong>.</p>
+<p><strong>Site Assessment Results:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Ranking</th>
+<th>Hectares</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tikhuba</td>
+<td>1st (Best)</td>
+<td>4.9 Ha (initial)</td>
+<td>✅ Approved</td>
+</tr>
+<tr>
+<td>Mpolonjeni Siteki</td>
+<td>2nd</td>
+<td>Available</td>
+<td>✅ Approved</td>
+</tr>
+<tr>
+<td>Gamula</td>
+<td>3rd</td>
+<td>Available</td>
+<td>✅ Approved</td>
+</tr>
+</tbody></table>
+<p><strong>Expert Assessment (Patrick DuPont):</strong></p>
+<blockquote>
+<p><em>&quot;The whole area is outstandingly ideal for coffee plantation.&quot;</em></p>
+</blockquote>
+<p><strong>Additional Opportunities at Tikhuba:</strong></p>
+<p>The local authority (Inkhosatana Setsabile Magongo) has offered ATG Holdings access to:</p>
+<ul>
+<li>Coffee farming sites (primary focus)</li>
+<li>Natural spring water sources (3+ springs identified)</li>
+<li>Potential energy generation sites (wind turbines)</li>
+<li>Hospitality and recreation development</li>
+</ul>
+<h3>3.2 Project Components</h3>
+<h4>Component A: Coffee Farm Development</h4>
+<p><strong>Phase 1 — Initial Farm (4.9 Hectares)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>Tikhuba (Site 1)</td>
+</tr>
+<tr>
+<td>Area</td>
+<td>4.9 hectares (1,190m perimeter)</td>
+</tr>
+<tr>
+<td>Coffee Variety</td>
+<td>Arabica (specialty grade)</td>
+</tr>
+<tr>
+<td>Planting Density</td>
+<td>~8,000 seedlings</td>
+</tr>
+<tr>
+<td>Farming Method</td>
+<td>Agroforestry (shade-grown)</td>
+</tr>
+<tr>
+<td>Companion Crops</td>
+<td>Banana, Macadamia (shade + income)</td>
+</tr>
+<tr>
+<td>Irrigation</td>
+<td>Drip system with 20,000L storage</td>
+</tr>
+<tr>
+<td>Timeline</td>
+<td>36 months to first harvest</td>
+</tr>
+</tbody></table>
+<p><strong>Agroforestry Benefits:</strong></p>
+<ul>
+<li>Climate resilience through shade cover</li>
+<li>Diversified income (bananas, macadamia) during coffee maturation</li>
+<li>Soil health improvement</li>
+<li>Premium &quot;shade-grown&quot; certification eligibility</li>
+</ul>
+<h4>Component B: Spring Water Bottling</h4>
+<p><strong>Facility Specifications:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>Tikhuba (spring site)</td>
+</tr>
+<tr>
+<td>Facility Type</td>
+<td>Container-based processing plant</td>
+</tr>
+<tr>
+<td>Capacity</td>
+<td>2,000 liters/day (initial)</td>
+</tr>
+<tr>
+<td>Products</td>
+<td>Still water (500ml, 1L, 5L)</td>
+</tr>
+<tr>
+<td>Launch Target</td>
+<td>Q1 2026</td>
+</tr>
+</tbody></table>
+<p><strong>Revenue Timeline:</strong></p>
+<ul>
+<li><strong>Immediate</strong>: Spring water generates revenue from Month 1</li>
+<li><strong>Medium-term</strong>: Coffee income begins Year 3-4</li>
+<li><strong>Long-term</strong>: Full production + export by Year 5</li>
+</ul>
+<div style="page-break-before: always;"></div>
+
+<h2>4. Strategic Partnerships</h2>
+<h3>4.1 Patrick DuPont — Coffee Expert &amp; Off-taker</h3>
+<p>ATG Holdings has established a strategic partnership with <strong>Mr. Patrick DuPont</strong>, an international coffee expert with extensive experience in African coffee development.</p>
+<p><strong>Partnership Structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Benefit to ATG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Technical Advisor</td>
+<td>Site selection, agronomy guidance</td>
+</tr>
+<tr>
+<td>Seedling Supplier</td>
+<td>Quality Arabica seedlings at fair prices</td>
+</tr>
+<tr>
+<td><strong>Guaranteed Off-taker</strong></td>
+<td>Pre-agreed purchase of all production</td>
+</tr>
+<tr>
+<td>Market Access</td>
+<td>Connection to international specialty buyers</td>
+</tr>
+</tbody></table>
+<p><strong>Risk Mitigation</strong>: The off-take agreement eliminates market risk — all coffee produced has a guaranteed buyer at pre-agreed prices.</p>
+<h3>4.2 Eswatini Coffee Association (ECA)</h3>
+<table>
+<thead>
+<tr>
+<th>Support Area</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Farmer Training</td>
+<td>Best practice agronomy</td>
+</tr>
+<tr>
+<td>Industry Governance</td>
+<td>Quality standards compliance</td>
+</tr>
+<tr>
+<td>Market Linkages</td>
+<td>Export facilitation</td>
+</tr>
+<tr>
+<td>Certification</td>
+<td>Support for organic/Fairtrade certification</td>
+</tr>
+</tbody></table>
+<h3>4.3 Government &amp; International Partners</h3>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ministry of Agriculture</td>
+<td>Policy support, extension services</td>
+</tr>
+<tr>
+<td>FAO</td>
+<td>Technical assistance, capacity building</td>
+</tr>
+<tr>
+<td>European Union</td>
+<td>Funding for nursery management</td>
+</tr>
+<tr>
+<td>International Trade Centre</td>
+<td>Export market development</td>
+</tr>
+</tbody></table>
+<div style="page-break-before: always;"></div>
+
+<h2>5. Investment Requirements</h2>
+<h3>5.1 Detailed Budget</h3>
+<h4>A. Coffee Farm Setup — E 570,350</h4>
+<p><strong>A1. Fencing (1,190m perimeter)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Diamond mesh (100m × 1.5m rolls)</td>
+<td>12</td>
+<td>E 2,000</td>
+<td>E 24,000</td>
+</tr>
+<tr>
+<td>Wooden poles (2.4m)</td>
+<td>600</td>
+<td>E 35</td>
+<td>E 21,000</td>
+</tr>
+<tr>
+<td>Steel corner poles</td>
+<td>4</td>
+<td>E 400</td>
+<td>E 1,600</td>
+</tr>
+<tr>
+<td>Stay-support poles</td>
+<td>20</td>
+<td>E 80</td>
+<td>E 1,600</td>
+</tr>
+<tr>
+<td>U-nails &amp; binding wire</td>
+<td>Bulk</td>
+<td>—</td>
+<td>E 2,500</td>
+</tr>
+<tr>
+<td>Gates (1 large + 1 pedestrian)</td>
+<td>2</td>
+<td>E 2,000</td>
+<td>E 4,000</td>
+</tr>
+<tr>
+<td>Installation labor</td>
+<td>—</td>
+<td>—</td>
+<td>E 8,000</td>
+</tr>
+<tr>
+<td><strong>Fencing Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 62,700</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A2. Land Preparation</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tractor hire (cultivation)</td>
+<td>4 hrs</td>
+<td>E 800/hr</td>
+<td>E 3,200</td>
+</tr>
+<tr>
+<td>Bush clearing (manual labor)</td>
+<td>—</td>
+<td>—</td>
+<td>E 5,000</td>
+</tr>
+<tr>
+<td><strong>Land Prep Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 8,200</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A3. Shade Plants (Agroforestry)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Banana plants</td>
+<td>200</td>
+<td>E 30</td>
+<td>E 6,000</td>
+</tr>
+<tr>
+<td>Macadamia trees</td>
+<td>100</td>
+<td>E 150</td>
+<td>E 15,000</td>
+</tr>
+<tr>
+<td>Planting labor (2 months)</td>
+<td>2 workers</td>
+<td>E 3,000/mo</td>
+<td>E 12,000</td>
+</tr>
+<tr>
+<td><strong>Shade Plants Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 33,000</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A4. Farm Tools &amp; Equipment</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Picks</td>
+<td>5</td>
+<td>E 180</td>
+<td>E 900</td>
+</tr>
+<tr>
+<td>Spades/shovels</td>
+<td>5</td>
+<td>E 150</td>
+<td>E 750</td>
+</tr>
+<tr>
+<td>Garden forks</td>
+<td>5</td>
+<td>E 200</td>
+<td>E 1,000</td>
+</tr>
+<tr>
+<td>Bush knives (pangas)</td>
+<td>5</td>
+<td>E 120</td>
+<td>E 600</td>
+</tr>
+<tr>
+<td>Garden hoes</td>
+<td>5</td>
+<td>E 100</td>
+<td>E 500</td>
+</tr>
+<tr>
+<td>Slashers</td>
+<td>5</td>
+<td>E 150</td>
+<td>E 750</td>
+</tr>
+<tr>
+<td>Wheelbarrows</td>
+<td>3</td>
+<td>E 650</td>
+<td>E 1,950</td>
+</tr>
+<tr>
+<td><strong>Tools Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 6,450</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A5. Irrigation System</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Drip lines (60cm spacing)</td>
+<td>8,000m</td>
+<td>E 2.50/m</td>
+<td>E 20,000</td>
+</tr>
+<tr>
+<td>Drip lines (40cm spacing)</td>
+<td>5,000m</td>
+<td>E 3.00/m</td>
+<td>E 15,000</td>
+</tr>
+<tr>
+<td>JoJo water tanks (10,000L)</td>
+<td>2</td>
+<td>E 12,000</td>
+<td>E 24,000</td>
+</tr>
+<tr>
+<td>Tank stand (steel construction)</td>
+<td>1</td>
+<td>E 8,000</td>
+<td>E 8,000</td>
+</tr>
+<tr>
+<td>Diesel water pump</td>
+<td>1</td>
+<td>E 18,000</td>
+<td>E 18,000</td>
+</tr>
+<tr>
+<td>Fittings, connectors, valves</td>
+<td>Bulk</td>
+<td>—</td>
+<td>E 5,000</td>
+</tr>
+<tr>
+<td><strong>Irrigation Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 90,000</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A6. Coffee Seedlings</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Arabica seedlings (from DuPont)</td>
+<td>8,000</td>
+<td>E 12</td>
+<td>E 96,000</td>
+</tr>
+<tr>
+<td>Planting labor (2 months)</td>
+<td>4 workers</td>
+<td>E 3,000/mo</td>
+<td>E 24,000</td>
+</tr>
+<tr>
+<td><strong>Seedlings Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 120,000</strong></td>
+</tr>
+</tbody></table>
+<p><strong>A7. Vehicle</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4×4 High-ride vehicle (used)</td>
+<td>1</td>
+<td>E 250,000</td>
+<td>E 250,000</td>
+</tr>
+<tr>
+<td><strong>Vehicle Subtotal</strong></td>
+<td></td>
+<td></td>
+<td><strong>E 250,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h4>B. Spring Water Bottling Plant — E 304,000</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Specification</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shipping container</td>
+<td>Modified/insulated 6m</td>
+<td>E 55,000</td>
+</tr>
+<tr>
+<td>Bottling equipment</td>
+<td>Small-scale complete line</td>
+<td>E 165,000</td>
+</tr>
+<tr>
+<td>Initial materials</td>
+<td>Bottles, caps, labels</td>
+<td>E 40,000</td>
+</tr>
+<tr>
+<td>Site preparation</td>
+<td>Concrete slab, plumbing</td>
+<td>E 18,000</td>
+</tr>
+<tr>
+<td>Licensing &amp; permits</td>
+<td>Food/beverage compliance</td>
+<td>E 18,000</td>
+</tr>
+<tr>
+<td>Laboratory testing</td>
+<td>Quality certification</td>
+<td>E 8,000</td>
+</tr>
+<tr>
+<td><strong>Spring Water Total</strong></td>
+<td></td>
+<td><strong>E 304,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h4>C. Operations (First 6 Months) — E 174,000</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly</th>
+<th>6 Months</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Staff salaries (4 workers)</td>
+<td>E 15,000</td>
+<td>E 90,000</td>
+</tr>
+<tr>
+<td>Utilities &amp; fuel</td>
+<td>E 5,000</td>
+<td>E 30,000</td>
+</tr>
+<tr>
+<td>Transport &amp; logistics</td>
+<td>E 4,000</td>
+<td>E 24,000</td>
+</tr>
+<tr>
+<td>Initial marketing</td>
+<td>E 2,500</td>
+<td>E 15,000</td>
+</tr>
+<tr>
+<td>Administrative costs</td>
+<td>E 2,500</td>
+<td>E 15,000</td>
+</tr>
+<tr>
+<td><strong>Operations Total</strong></td>
+<td></td>
+<td><strong>E 174,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h4>D. Project Management — E 45,000</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Site surveys &amp; assessments</td>
+<td>E 15,000</td>
+</tr>
+<tr>
+<td>Legal &amp; company registration</td>
+<td>E 18,000</td>
+</tr>
+<tr>
+<td>Travel &amp; site visits</td>
+<td>E 12,000</td>
+</tr>
+<tr>
+<td><strong>Project Management Total</strong></td>
+<td><strong>E 45,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>5.2 Investment Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Amount (SZL)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Coffee Farm Setup</td>
+<td>E 570,350</td>
+</tr>
+<tr>
+<td>Spring Water Plant</td>
+<td>E 304,000</td>
+</tr>
+<tr>
+<td>Operations (6 months)</td>
+<td>E 174,000</td>
+</tr>
+<tr>
+<td>Project Management</td>
+<td>E 45,000</td>
+</tr>
+<tr>
+<td><strong>SUBTOTAL</strong></td>
+<td><strong>E 1,093,350</strong></td>
+</tr>
+<tr>
+<td><strong>Contingency (20%)</strong></td>
+<td><strong>E 226,650</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL INVESTMENT</strong></td>
+<td><strong>E 1,320,000</strong></td>
+</tr>
+</tbody></table>
+<div style="page-break-before: always;"></div>
+
+<h2>6. Financial Projections</h2>
+<h3>6.1 Revenue Projections</h3>
+<h4>Spring Water Revenue (Immediate)</h4>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Daily Output</th>
+<th>Price/L</th>
+<th>Annual Revenue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Year 1</td>
+<td>1,000L</td>
+<td>E 8</td>
+<td>E 2,920,000</td>
+</tr>
+<tr>
+<td>Year 2</td>
+<td>1,500L</td>
+<td>E 8</td>
+<td>E 4,380,000</td>
+</tr>
+<tr>
+<td>Year 3</td>
+<td>2,000L</td>
+<td>E 9</td>
+<td>E 6,570,000</td>
+</tr>
+</tbody></table>
+<h4>Coffee Revenue (From Year 4)</h4>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Yield (kg)</th>
+<th>Price/kg</th>
+<th>Annual Revenue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Year 4</td>
+<td>2,000</td>
+<td>E 150</td>
+<td>E 300,000</td>
+</tr>
+<tr>
+<td>Year 5</td>
+<td>4,000</td>
+<td>E 160</td>
+<td>E 640,000</td>
+</tr>
+<tr>
+<td>Year 6</td>
+<td>6,000</td>
+<td>E 170</td>
+<td>E 1,020,000</td>
+</tr>
+</tbody></table>
+<h3>6.2 Combined Revenue Projection</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Spring Water</th>
+<th>Coffee</th>
+<th><strong>Total Revenue</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Year 1</td>
+<td>E 2,920,000</td>
+<td>—</td>
+<td><strong>E 2,920,000</strong></td>
+</tr>
+<tr>
+<td>Year 2</td>
+<td>E 4,380,000</td>
+<td>—</td>
+<td><strong>E 4,380,000</strong></td>
+</tr>
+<tr>
+<td>Year 3</td>
+<td>E 6,570,000</td>
+<td>—</td>
+<td><strong>E 6,570,000</strong></td>
+</tr>
+<tr>
+<td>Year 4</td>
+<td>E 7,000,000</td>
+<td>E 300,000</td>
+<td><strong>E 7,300,000</strong></td>
+</tr>
+<tr>
+<td>Year 5</td>
+<td>E 8,000,000</td>
+<td>E 640,000</td>
+<td><strong>E 8,640,000</strong></td>
+</tr>
+</tbody></table>
+<h3>6.3 Return on Investment</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total Investment</td>
+<td>E 1,320,000</td>
+</tr>
+<tr>
+<td>Year 1 Revenue</td>
+<td>E 2,920,000</td>
+</tr>
+<tr>
+<td>Year 1 Operating Costs</td>
+<td>E 1,800,000</td>
+</tr>
+<tr>
+<td><strong>Year 1 Net Profit</strong></td>
+<td><strong>E 1,120,000</strong></td>
+</tr>
+<tr>
+<td><strong>Payback Period</strong></td>
+<td><strong>&lt; 2 Years</strong></td>
+</tr>
+<tr>
+<td>5-Year ROI</td>
+<td><strong>450%+</strong></td>
+</tr>
+</tbody></table>
+<div style="page-break-before: always;"></div>
+
+<h2>7. Risk Analysis &amp; Mitigation</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Climate/weather</td>
+<td>Medium</td>
+<td>High</td>
+<td>Irrigation system, shade trees, drought-resistant varieties</td>
+</tr>
+<tr>
+<td>Market price fluctuation</td>
+<td>Low</td>
+<td>Medium</td>
+<td><strong>Guaranteed off-take agreement with DuPont</strong></td>
+</tr>
+<tr>
+<td>Pest/disease</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Expert guidance, integrated pest management</td>
+</tr>
+<tr>
+<td>Water availability</td>
+<td>Low</td>
+<td>High</td>
+<td>Multiple spring sources identified, storage capacity</td>
+</tr>
+<tr>
+<td>Operational delays</td>
+<td>Medium</td>
+<td>Low</td>
+<td>20% contingency budget, experienced management</td>
+</tr>
+<tr>
+<td>Regulatory changes</td>
+<td>Low</td>
+<td>Low</td>
+<td>Strong government support for coffee sector</td>
+</tr>
+</tbody></table>
+<p><strong>Key Risk Mitigator</strong>: The pre-arranged off-take agreement with Patrick DuPont eliminates the primary market risk faced by most agricultural ventures.</p>
+<div style="page-break-before: always;"></div>
+
+<h2>8. Implementation Timeline</h2>
+<h3>Year 1 (2026)</h3>
+<table>
+<thead>
+<tr>
+<th>Quarter</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Q1</td>
+<td>• Spring water plant setup and launch<br>• Site preparation for coffee farm<br>• Fencing installation</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>• Shade plant establishment (banana, macadamia)<br>• Irrigation system installation<br>• Water bottling operations commence</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>• Coffee seedling planting begins<br>• Spring water market expansion<br>• First revenue generation</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>• Complete seedling planting<br>• Ongoing farm maintenance<br>• Market development</td>
+</tr>
+</tbody></table>
+<h3>Year 2-3 (2027-2028)</h3>
+<ul>
+<li>Coffee plant nurturing and maintenance</li>
+<li>Expansion of spring water operations</li>
+<li>Preparation for first coffee harvest</li>
+<li>Certification processes (organic, Fairtrade)</li>
+</ul>
+<h3>Year 4+ (2029 onwards)</h3>
+<ul>
+<li>First coffee harvest</li>
+<li>Export market entry</li>
+<li>Expansion to additional farm sites</li>
+<li>Processing facility development</li>
+</ul>
+<div style="page-break-before: always;"></div>
+
+<h2>9. Social Impact</h2>
+<h3>9.1 Job Creation</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Direct Jobs</th>
+<th>Indirect Jobs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Farm workers</td>
+<td>15</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Processing</td>
+<td>5</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Transport/logistics</td>
+<td>3</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>2</td>
+<td>15</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>25</strong></td>
+<td><strong>100</strong></td>
+</tr>
+</tbody></table>
+<h3>9.2 Community Benefits</h3>
+<ul>
+<li><strong>Youth Employment</strong>: Priority hiring of local youth (aligned with government policy)</li>
+<li><strong>Women Empowerment</strong>: Targeting 40% female workforce</li>
+<li><strong>Skills Transfer</strong>: Training in modern agricultural techniques</li>
+<li><strong>Income Generation</strong>: Smallholder farmer integration opportunities</li>
+<li><strong>Infrastructure</strong>: Road access improvements benefit entire community</li>
+</ul>
+<h3>9.3 Economic Impact</h3>
+<table>
+<thead>
+<tr>
+<th>Impact Area</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Import Substitution</td>
+<td>Reduces $2.32M annual coffee imports</td>
+</tr>
+<tr>
+<td>Export Revenue</td>
+<td>New forex earnings from specialty coffee</td>
+</tr>
+<tr>
+<td>Tax Revenue</td>
+<td>Corporate tax, employee PAYE</td>
+</tr>
+<tr>
+<td>Local Procurement</td>
+<td>80%+ local sourcing policy</td>
+</tr>
+</tbody></table>
+<div style="page-break-before: always;"></div>
+
+<h2>10. Governance &amp; Reporting</h2>
+<h3>10.1 Project Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ATG Holdings Board</td>
+<td>Strategic oversight, major decisions</td>
+</tr>
+<tr>
+<td>Managing Director</td>
+<td>Day-to-day operations, PSPF liaison</td>
+</tr>
+<tr>
+<td>Technical Advisor (DuPont)</td>
+<td>Agronomy guidance, quality assurance</td>
+</tr>
+<tr>
+<td>Farm Manager</td>
+<td>On-site operations management</td>
+</tr>
+</tbody></table>
+<h3>10.2 Reporting to PSPF</h3>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Frequency</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Progress Report</td>
+<td>Monthly</td>
+<td>Activities, milestones, photos</td>
+</tr>
+<tr>
+<td>Financial Report</td>
+<td>Quarterly</td>
+<td>Expenditure, revenue, cash flow</td>
+</tr>
+<tr>
+<td>Annual Review</td>
+<td>Yearly</td>
+<td>Full financial statements, audit</td>
+</tr>
+<tr>
+<td>Site Visits</td>
+<td>Bi-annual</td>
+<td>Physical inspection by PSPF</td>
+</tr>
+</tbody></table>
+<h3>10.3 Fund Utilization</h3>
+<p>All funds will be:</p>
+<ul>
+<li>Held in dedicated project account</li>
+<li>Disbursed against verified invoices</li>
+<li>Subject to quarterly audit</li>
+<li>Reported with full transparency</li>
+</ul>
+<div style="page-break-before: always;"></div>
+
+<h2>11. Conclusion</h2>
+<p>ATG Holdings presents PSPF with a compelling investment opportunity that combines:</p>
+<p>✅ <strong>Strong Market Fundamentals</strong> — Growing global demand, supply deficit, premium pricing for specialty coffee</p>
+<p>✅ <strong>Government Alignment</strong> — Direct support from Prime Minister&#39;s high-value crop initiative</p>
+<p>✅ <strong>De-risked Execution</strong> — Expert partnership, guaranteed off-take, proven site suitability</p>
+<p>✅ <strong>Immediate Returns</strong> — Spring water generates revenue from Month 1</p>
+<p>✅ <strong>Social Impact</strong> — Job creation, youth employment, rural development</p>
+<p>✅ <strong>Attractive Returns</strong> — Payback under 2 years, 450%+ 5-year ROI</p>
+<p><strong>We respectfully request PSPF&#39;s consideration of this E 1,320,000 investment to develop Eswatini&#39;s emerging specialty coffee sector and create sustainable economic value for the Kingdom.</strong></p>
+<div style="page-break-before: always;"></div>
+
+<h2>12. Appendices</h2>
+<h3>Appendix A: Site Inspection Report</h3>
+<p><em>Available upon request — includes photos and GPS coordinates</em></p>
+<h3>Appendix B: DuPont Off-take Agreement</h3>
+<p><em>Commercial agreement available under NDA</em></p>
+<h3>Appendix C: Company Registration Documents</h3>
+<p><em>ATG Holdings registration and director details</em></p>
+<h3>Appendix D: Detailed Equipment Quotations</h3>
+<p><em>Supplier quotes for major equipment items</em></p>
+<hr>
+<p><strong>Document Control</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document</td>
+<td>ATG-PSPF-2026-001</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>January 2026</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Confidential</td>
+</tr>
+<tr>
+<td>Prepared by</td>
+<td>ATG Holdings</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>© 2026 Alex Tsela Global (ATG) Holdings. All Rights Reserved.</em></p>
+<p><em>This document contains confidential business information intended solely for the Public Service Pensions Fund (PSPF). Unauthorized distribution is prohibited.</em></p>
+
+      </div>
+    </body>
+    </html>
+  

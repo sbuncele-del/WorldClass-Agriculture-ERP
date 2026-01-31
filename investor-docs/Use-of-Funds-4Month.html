@@ -1,0 +1,1342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - Use of Funds 4Month</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ===== 6.2 COVER PAGE BACKGROUND CSS (EXACT SPECIFICATION) ===== */
+        .cover-page {
+            height: 250mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.4) 0%, transparent 20%),
+                linear-gradient(135deg, #020617 0%, #1e3a8a 50%, #172554 100%);
+            margin: -20mm -20mm 0 -20mm;
+            padding: 20mm;
+            page-break-after: always;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* ===== 6.3 GRID OVERLAY CSS (EXACT SPECIFICATION) ===== */
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        /* ===== 6.4 FROSTED GLASS CONTENT BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-content {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ===== 6.5 COVER TYPOGRAPHY (EXACT SPECIFICATION) ===== */
+        /* Logo: 48px, weight 800, #ffffff */
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        
+        /* Title: 32px, weight 700, #ffffff */
+        .cover-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        /* Subtitle: 18px, weight 400, #bfdbfe, margin-bottom: 40px */
+        .cover-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 40px;
+        }
+        
+        /* Company Name: 16px, weight 600, #ffffff */
+        .cover-company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* ===== 6.6 COVER METADATA BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-info {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .cover-info .info-row {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #e0f2fe;
+        }
+        
+        /* Info Label: 14px, weight 600, #93c5fd */
+        .cover-info .info-label {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+        
+        /* Info Value: 14px, weight 400, #ffffff */
+        .cover-info .info-value {
+            color: #ffffff;
+        }
+        
+        /* ===== 6.7 TAGLINE CSS (EXACT SPECIFICATION) ===== */
+        /* Tagline: 12px, weight 400, #93c5fd, letter-spacing: 2px, UPPERCASE */
+        .cover-tagline {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: #93c5fd;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-page {
+            page-break-after: always;
+            padding: 40px 0;
+        }
+        
+        .toc-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 15px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        
+        .toc-number {
+            color: #0ea5e9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .content-section {
+            page-break-before: always;
+            padding: 20px 0;
+        }
+        
+        /* ===== 7.1 INTRO BOX (EXACT SPECIFICATION) ===== */
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border-left: 4px solid #1e3a8a;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro-title {
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .intro-text {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        
+        /* ===== 4.3 HEADING SPECIFICATIONS (EXACT) ===== */
+        h1 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h3 {
+            color: #3730a3;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        p {
+            margin: 12px 0;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            page-break-inside: avoid;
+        }
+        
+        li {
+            margin: 8px 0;
+            page-break-inside: avoid;
+        }
+        
+        /* ===== 7.3 CODE BLOCK STYLING (EXACT SPECIFICATION) ===== */
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            page-break-inside: avoid;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* ===== 7.4 BLOCKQUOTE STYLING (EXACT SPECIFICATION) ===== */
+        blockquote {
+            border-left: 4px solid #7c3aed;
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #faf5ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        /* ===== 7.2 TABLE STYLING (EXACT SPECIFICATION) ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        /* ===== 7.5 HORIZONTAL RULE (EXACT SPECIFICATION) ===== */
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        
+        /* ===== 7.6 STRONG/BOLD TEXT (EXACT SPECIFICATION) ===== */
+        strong {
+            color: #1e3a8a;
+        }
+        
+        .header-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #64748b;
+        }
+        
+        .page-header {
+            position: running(header);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .page-footer {
+            position: running(footer);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-planned {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #dcfce7;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    
+      <div class="cover-page">
+        <div class="cover-content">
+          <div class="cover-logo">SiyaBusa ERP</div>
+          <div class="cover-title">Use of Funds 4Month</div>
+          <div class="cover-subtitle">Investor Documentation</div>
+          <div class="cover-company">Masaphokati Technologies (Pty) Ltd</div>
+          
+          <div class="cover-info">
+            <div class="info-row">
+              <span class="info-label">Document Version:</span>
+              <span class="info-value"> 1.0</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Effective Date:</span>
+              <span class="info-value"> January 29, 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Department:</span>
+              <span class="info-value"> Executive</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Classification:</span>
+              <span class="info-value"> Confidential</span>
+            </div>
+          </div>
+          
+          <div class="cover-tagline">WE RULE. WE GOVERN. WE EMPOWER.</div>
+        </div>
+      </div>
+    
+      <div class="toc-page">
+        <h1 class="toc-title">Table of Contents</h1>
+        <ul class="toc-list">
+          <li class="toc-item"><span class="toc-number">1.</span> investor docs/USE OF FUNDS 4 MONTH RUNWAY</li>
+        </ul>
+      </div>
+    
+          <div class="content-section">
+            <h1>investor docs/USE OF FUNDS 4 MONTH RUNWAY</h1>
+            <h1>Use of Funds — 4-Month Runway</h1>
+<h2>February - May 2026</h2>
+<p><strong>Investment Amount:</strong> R200,000 (~$11,000 USD)<br><strong>Duration:</strong> 4 months<br><strong>Objective:</strong> Achieve first paying customer by May 2026
+<strong>Document Date:</strong> January 29, 2026</p>
+<hr>
+<h2>Executive Summary</h2>
+<p>This document details how R200,000 will be deployed over 4 months to take SiyaBusa ERP from &quot;production ready&quot; to &quot;revenue generating.&quot;</p>
+<p><strong>Key Principles:</strong> </p>
+<ul>
+<li>Every user pays R980/month — no free tier</li>
+<li>Paid marketing to acquire customers</li>
+<li>Each user covers their cost (R380) + margin (R600)</li>
+<li>Lean operations to maximize runway</li>
+</ul>
+<hr>
+<h2>Monthly Breakdown</h2>
+<h3>Month 1: February 2026 — Launch Marketing</h3>
+<p><strong>Focus:</strong> Product polish + marketing campaigns go live</p>
+<table>
+<thead>
+<tr>
+<th>Expense</th>
+<th>Amount</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R5,500</td>
+<td>ECS, RDS, ALB, S3</td>
+</tr>
+<tr>
+<td>Domain &amp; Email</td>
+<td>R500</td>
+<td>siyabusaerp.co.za, SendGrid paid</td>
+</tr>
+<tr>
+<td>Technical Oversight &amp; Dev Review</td>
+<td>R15,000</td>
+<td>Product quality, architecture</td>
+</tr>
+<tr>
+<td>Mobile &amp; Internet</td>
+<td>R1,500</td>
+<td>Business communications</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>R2,000</td>
+<td>Initial meetings</td>
+</tr>
+<tr>
+<td><strong>Marketing - LinkedIn Ads</strong></td>
+<td>R3,000</td>
+<td>Lead generation campaigns</td>
+</tr>
+<tr>
+<td><strong>Marketing - Google Ads</strong></td>
+<td>R2,000</td>
+<td>Search ads</td>
+</tr>
+<tr>
+<td><strong>Marketing - Content</strong></td>
+<td>R1,500</td>
+<td>Blog, video production</td>
+</tr>
+<tr>
+<td>Legal - Terms of Service</td>
+<td>R2,500</td>
+<td>Customer contracts, T&amp;Cs drafted</td>
+</tr>
+<tr>
+<td>Contingency (10%)</td>
+<td>R1,500</td>
+<td>Buffer</td>
+</tr>
+<tr>
+<td><strong>Month 1 Total</strong></td>
+<td><strong>R35,000</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>✅ All critical bugs resolved</li>
+<li>✅ LinkedIn + Google Ads campaigns live</li>
+<li>✅ Landing page optimized for conversion</li>
+<li>✅ First 50+ leads captured</li>
+</ul>
+<hr>
+<h3>Month 2: March 2026 — Beta + Lead Gen</h3>
+<p><strong>Focus:</strong> Beta testing + accelerate lead generation</p>
+<table>
+<thead>
+<tr>
+<th>Expense</th>
+<th>Amount</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R6,000</td>
+<td>Increased usage (beta users)</td>
+</tr>
+<tr>
+<td>Domain &amp; Email</td>
+<td>R500</td>
+<td>Continued</td>
+</tr>
+<tr>
+<td>Technical Oversight &amp; Dev Review</td>
+<td>R15,000</td>
+<td>Ongoing product quality</td>
+</tr>
+<tr>
+<td>Mobile &amp; Internet</td>
+<td>R1,500</td>
+<td>Business communications</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>R3,000</td>
+<td>Client visits, demos</td>
+</tr>
+<tr>
+<td><strong>Marketing - LinkedIn Ads</strong></td>
+<td>R4,000</td>
+<td>Increased spend (working)</td>
+</tr>
+<tr>
+<td><strong>Marketing - Google Ads</strong></td>
+<td>R2,500</td>
+<td>Search ads</td>
+</tr>
+<tr>
+<td><strong>Marketing - Content</strong></td>
+<td>R2,000</td>
+<td>Case study prep, videos</td>
+</tr>
+<tr>
+<td><strong>Marketing - Event</strong></td>
+<td>R3,000</td>
+<td>1 networking event/trade show</td>
+</tr>
+<tr>
+<td>Demo Environment Setup</td>
+<td>R2,000</td>
+<td>Dedicated demo tenant, sample data</td>
+</tr>
+<tr>
+<td>Contingency (10%)</td>
+<td>R2,500</td>
+<td>Buffer</td>
+</tr>
+<tr>
+<td><strong>Month 2 Total</strong></td>
+<td><strong>R42,000</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>✅ 5 beta partners actively using system</li>
+<li>✅ 100+ qualified leads in pipeline</li>
+<li>✅ First demos conducted</li>
+<li>✅ Feedback collected and prioritized</li>
+</ul>
+<hr>
+<h3>Month 3: April 2026 — Sales Push</h3>
+<p><strong>Focus:</strong> Convert leads to trials to customers</p>
+<table>
+<thead>
+<tr>
+<th>Expense</th>
+<th>Amount</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R6,500</td>
+<td>Demo environments</td>
+</tr>
+<tr>
+<td>Domain &amp; Email</td>
+<td>R500</td>
+<td>Continued</td>
+</tr>
+<tr>
+<td>Technical Oversight &amp; Dev Review</td>
+<td>R15,000</td>
+<td>Ongoing product quality</td>
+</tr>
+<tr>
+<td>Mobile &amp; Internet</td>
+<td>R1,500</td>
+<td>Business communications</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>R5,000</td>
+<td>Heavy client meeting month</td>
+</tr>
+<tr>
+<td><strong>Marketing - LinkedIn Ads</strong></td>
+<td>R4,000</td>
+<td>Retargeting campaigns</td>
+</tr>
+<tr>
+<td><strong>Marketing - Google Ads</strong></td>
+<td>R3,000</td>
+<td>Increased intent keywords</td>
+</tr>
+<tr>
+<td><strong>Marketing - Content</strong></td>
+<td>R2,000</td>
+<td>Testimonial videos</td>
+</tr>
+<tr>
+<td><strong>Marketing - Referral</strong></td>
+<td>R1,500</td>
+<td>R500/referral incentives</td>
+</tr>
+<tr>
+<td>Sales Materials</td>
+<td>R2,000</td>
+<td>Printed proposals, demo materials</td>
+</tr>
+<tr>
+<td>Security Audit</td>
+<td>R2,500</td>
+<td>Pre-customer security review</td>
+</tr>
+<tr>
+<td>Contingency (10%)</td>
+<td>R2,500</td>
+<td>Buffer</td>
+</tr>
+<tr>
+<td><strong>Month 3 Total</strong></td>
+<td><strong>R46,000</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>✅ 30+ demo meetings conducted</li>
+<li>✅ 15+ trials started (14-day free trial)</li>
+<li>✅ 5+ proposals sent</li>
+<li>✅ First contracts in negotiation</li>
+</ul>
+<hr>
+<h3>Month 4: May 2026 — FIRST CUSTOMER 🎉</h3>
+<p><strong>Focus:</strong> Sign first paying customer, complete onboarding</p>
+<table>
+<thead>
+<tr>
+<th>Expense</th>
+<th>Amount</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R7,500</td>
+<td>Production load + customer data</td>
+</tr>
+<tr>
+<td>Domain &amp; Email</td>
+<td>R500</td>
+<td>Continued</td>
+</tr>
+<tr>
+<td>Technical Oversight &amp; Dev Review</td>
+<td>R15,000</td>
+<td>Ongoing product quality</td>
+</tr>
+<tr>
+<td>Mobile &amp; Internet</td>
+<td>R1,500</td>
+<td>Business communications</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>R6,000</td>
+<td>Client onboarding visits (multiple)</td>
+</tr>
+<tr>
+<td><strong>Marketing - LinkedIn Ads</strong></td>
+<td>R3,000</td>
+<td>Maintain presence</td>
+</tr>
+<tr>
+<td><strong>Marketing - Google Ads</strong></td>
+<td>R2,000</td>
+<td>Maintain presence</td>
+</tr>
+<tr>
+<td><strong>Marketing - PR</strong></td>
+<td>R2,000</td>
+<td>Press release, first customer announcement</td>
+</tr>
+<tr>
+<td><strong>Customer Onboarding</strong></td>
+<td>R12,000</td>
+<td>Data migration, training (2 days), go-live support</td>
+</tr>
+<tr>
+<td>Legal - SLA &amp; Contract</td>
+<td>R5,000</td>
+<td>Service agreement, SLA, attorney review</td>
+</tr>
+<tr>
+<td>Bank &amp; Payment Gateway</td>
+<td>R4,000</td>
+<td>Business bank fees, Payfast/Yoco setup</td>
+</tr>
+<tr>
+<td>Customer Success Tools</td>
+<td>R3,500</td>
+<td>Helpdesk (Freshdesk), documentation</td>
+</tr>
+<tr>
+<td>Insurance (Liability)</td>
+<td>R4,000</td>
+<td>Professional indemnity, cyber liability</td>
+</tr>
+<tr>
+<td>First Hire Prep</td>
+<td>R6,000</td>
+<td>Job posts, recruitment fees, interview costs</td>
+</tr>
+<tr>
+<td>Contingency (10%)</td>
+<td>R5,000</td>
+<td>Buffer for unexpected costs</td>
+</tr>
+<tr>
+<td><strong>Month 4 Total</strong></td>
+<td><strong>R77,000</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>✅ **FIRST PAYING CUSTOMER SIGNED**</li>
+<li>✅ First MRR recorded (R2,990+ for 10 users)</li>
+<li>✅ Customer successfully onboarded</li>
+<li>✅ Case study in production</li>
+</ul>
+<hr>
+<h2>Summary by Category</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Month 1</th>
+<th>Month 2</th>
+<th>Month 3</th>
+<th>Month 4</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Infrastructure (AWS + Domain)</td>
+<td>R6,000</td>
+<td>R6,500</td>
+<td>R7,000</td>
+<td>R8,000</td>
+<td><strong>R27,500</strong></td>
+</tr>
+<tr>
+<td>Development &amp; Operations</td>
+<td>R18,500</td>
+<td>R19,500</td>
+<td>R22,000</td>
+<td>R22,500</td>
+<td><strong>R82,500</strong></td>
+</tr>
+<tr>
+<td><strong>Marketing</strong></td>
+<td>R6,500</td>
+<td>R11,500</td>
+<td>R10,500</td>
+<td>R7,000</td>
+<td><strong>R35,500</strong></td>
+</tr>
+<tr>
+<td>Customer Operations</td>
+<td>R0</td>
+<td>R2,000</td>
+<td>R2,000</td>
+<td>R15,500</td>
+<td><strong>R19,500</strong></td>
+</tr>
+<tr>
+<td>Legal &amp; Compliance</td>
+<td>R2,500</td>
+<td>R0</td>
+<td>R2,500</td>
+<td>R9,000</td>
+<td><strong>R14,000</strong></td>
+</tr>
+<tr>
+<td>Business Setup (Payments, Hiring)</td>
+<td>R0</td>
+<td>R0</td>
+<td>R0</td>
+<td>R9,500</td>
+<td><strong>R9,500</strong></td>
+</tr>
+<tr>
+<td>Contingency (~10%)</td>
+<td>R1,500</td>
+<td>R2,500</td>
+<td>R2,500</td>
+<td>R5,000</td>
+<td><strong>R11,500</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>R35,000</strong></td>
+<td><strong>R42,000</strong></td>
+<td><strong>R46,500</strong></td>
+<td><strong>R77,000</strong></td>
+<td><strong>R200,000</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Percentage Allocation</h2>
+<pre><code>┌────────────────────────────────────────────────────────────┐
+│               USE OF FUNDS (R200,000)                       │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│  ██████████████████████████████████████████  42%             │
+│  Development &amp; Operations (R84,000)                        │
+│                                                            │
+│  ██████████████████████                    22%             │
+│  Contingency (R44,000)                                     │
+│                                                            │
+│  ██████████████████                        18%             │
+│  MARKETING (R35,500)                                       │
+│                                                            │
+│  ██████████████                            14%             │
+│  Infrastructure (R27,000)                                  │
+│                                                            │
+│  █████                                       5%              │
+│  Client Operations (R9,500)                                │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h2>Marketing Budget Breakdown</h2>
+<h3>Why 18% on Marketing?</h3>
+<p>You can&#39;t grow without customers. We&#39;re investing in <strong>paid acquisition</strong> because:</p>
+<ul>
+<li>Organic growth is too slow for 4-month runway</li>
+<li>LinkedIn/Google ads provide measurable ROI</li>
+<li>We need to build pipeline fast</li>
+</ul>
+<h3>Marketing Spend by Channel</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>4-Month Spend</th>
+<th>% of Marketing</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LinkedIn Ads</td>
+<td>R14,000</td>
+<td>39%</td>
+<td>B2B lead generation</td>
+</tr>
+<tr>
+<td>Google Ads</td>
+<td>R9,500</td>
+<td>27%</td>
+<td>Search intent capture</td>
+</tr>
+<tr>
+<td>Content/Video</td>
+<td>R7,500</td>
+<td>21%</td>
+<td>Thought leadership</td>
+</tr>
+<tr>
+<td>Events/PR</td>
+<td>R3,000</td>
+<td>8%</td>
+<td>Networking, credibility</td>
+</tr>
+<tr>
+<td>Referrals</td>
+<td>R1,500</td>
+<td>4%</td>
+<td>Word-of-mouth incentives</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>R35,500</strong></td>
+<td>100%</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Expected Marketing Results</h3>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Leads</th>
+<th>Demos</th>
+<th>Trials</th>
+<th>Customers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Feb</td>
+<td>50</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>100</td>
+<td>15</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Apr</td>
+<td>80</td>
+<td>20</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>May</td>
+<td>60</td>
+<td>15</td>
+<td>8</td>
+<td><strong>1-3</strong></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>290</strong></td>
+<td><strong>55</strong></td>
+<td><strong>25</strong></td>
+<td><strong>1-3</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Conversion Funnel:</strong></p>
+<ul>
+<li>Lead → Demo: 19%</li>
+<li>Demo → Trial: 45%</li>
+<li>Trial → Customer: 4-12%</li>
+</ul>
+<hr>
+<h2>Infrastructure Cost Details</h2>
+<h3>AWS Cape Town (af-south-1) — Monthly Costs</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Configuration</th>
+<th>Monthly Cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ECS Fargate - Backend</strong></td>
+<td>0.5 vCPU, 1GB RAM</td>
+<td>R1,200</td>
+</tr>
+<tr>
+<td><strong>ECS Fargate - Frontend</strong></td>
+<td>0.25 vCPU, 0.5GB RAM</td>
+<td>R600</td>
+</tr>
+<tr>
+<td><strong>RDS PostgreSQL</strong></td>
+<td>db.t3.micro, 20GB SSD</td>
+<td>R1,800</td>
+</tr>
+<tr>
+<td><strong>Application Load Balancer</strong></td>
+<td>Standard</td>
+<td>R400</td>
+</tr>
+<tr>
+<td><strong>S3 Storage</strong></td>
+<td>~50GB documents</td>
+<td>R200</td>
+</tr>
+<tr>
+<td><strong>CloudWatch</strong></td>
+<td>Logs &amp; metrics</td>
+<td>R150</td>
+</tr>
+<tr>
+<td><strong>Route 53</strong></td>
+<td>DNS hosting</td>
+<td>R50</td>
+</tr>
+<tr>
+<td><strong>Data Transfer</strong></td>
+<td>~100GB/month</td>
+<td>R100</td>
+</tr>
+<tr>
+<td><strong>Email (SendGrid)</strong></td>
+<td>10,000 emails/month</td>
+<td>R500</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>R5,000 - R7,500</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong> Costs increase with beta users and production traffic.</p>
+<h3>Why AWS Cape Town?</h3>
+<ol>
+<li>**Data sovereignty** - SA data stays in SA</li>
+<li>**Latency** - <50ms response times</li>
+<li>**POPIA compliance** - Local data residency</li>
+<li>**Customer confidence** - "Your data never leaves Africa"</li>
+</ol>
+<hr>
+<h2>What This Investment Does NOT Cover</h2>
+<p>To be transparent, R150,000 is a <strong>tight runway</strong>. It does NOT include:</p>
+<table>
+<thead>
+<tr>
+<th>Not Included</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Employee salaries</td>
+<td>Founder operates solo</td>
+</tr>
+<tr>
+<td>Office space</td>
+<td>Working from home</td>
+</tr>
+<tr>
+<td>Legal fees</td>
+<td>Using standard templates</td>
+</tr>
+<tr>
+<td>Accounting fees</td>
+<td>DIY until revenue</td>
+</tr>
+<tr>
+<td>Paid advertising (large scale)</td>
+<td>Organic growth focus</td>
+</tr>
+<tr>
+<td>Hardware/equipment</td>
+<td>Using existing laptop</td>
+</tr>
+<tr>
+<td>Travel (flights)</td>
+<td>Local meetings only</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Risk Mitigation</h2>
+<h3>What if first customer takes longer?</h3>
+<p><strong>Scenario:</strong> No customer by May 2026</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>R47,000 contingency extends runway by ~5 weeks</li>
+<li>Reduce marketing spend 50% (extends 2 weeks)</li>
+<li>Reduce operational costs (extends 2 weeks)</li>
+<li>Revenue from implementation services (R7,500-R25,000 per customer)</li>
+<li>Total runway extension possible: ~2 months</li>
+</ul>
+<h3>What if AWS costs spike?</h3>
+<p><strong>Scenario:</strong> Unexpected traffic or usage</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>AWS billing alerts set at 80% of budget</li>
+<li>Auto-scaling with cost limits</li>
+<li>Reserved instances if predictable load</li>
+<li>Contingency buffer covers 2x spike</li>
+</ul>
+<h3>What if marketing doesn&#39;t work?</h3>
+<p><strong>Scenario:</strong> Low lead quality or high CAC</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>Pause underperforming channels within 2 weeks</li>
+<li>Reallocate to channels showing ROI</li>
+<li>Pivot to outbound/cold outreach (lower cost)</li>
+<li>Leverage beta partner referrals</li>
+</ul>
+<hr>
+<h2>Investor Reporting</h2>
+<p><strong>Commitment:</strong> Weekly updates every Friday</p>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Week 1-4</strong></td>
+<td>Marketing launch, lead metrics, beta progress</td>
+</tr>
+<tr>
+<td><strong>Week 5-8</strong></td>
+<td>Demo metrics, pipeline growth, CAC tracking</td>
+</tr>
+<tr>
+<td><strong>Week 9-12</strong></td>
+<td>Trial conversions, proposals sent</td>
+</tr>
+<tr>
+<td><strong>Week 13-16</strong></td>
+<td>Customer status, MRR booked</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Success Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Feb</td>
+<td>Marketing campaigns live</td>
+<td>LinkedIn + Google Ads</td>
+</tr>
+<tr>
+<td>Feb</td>
+<td>Leads captured</td>
+<td>50+</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>Active beta users</td>
+<td>5+ users</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>Demos conducted</td>
+<td>15+</td>
+</tr>
+<tr>
+<td>Apr</td>
+<td>Trials started</td>
+<td>10+</td>
+</tr>
+<tr>
+<td>Apr</td>
+<td>Proposals sent</td>
+<td>5+</td>
+</tr>
+<tr>
+<td>May</td>
+<td><strong>PAYING CUSTOMERS</strong></td>
+<td><strong>1+ customers</strong></td>
+</tr>
+<tr>
+<td>May</td>
+<td>MRR</td>
+<td><strong>R7,840+</strong> (8 users @ R980)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Per-User Pricing: R980/User</h2>
+<p><strong>No Free Tier.</strong> Every user pays after 14-day trial.</p>
+<h3>Why R980/User?</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cost to serve per user</td>
+<td>R380</td>
+</tr>
+<tr>
+<td>Margin per user</td>
+<td>R600 (61%)</td>
+</tr>
+<tr>
+<td><strong>Price per user</strong></td>
+<td><strong>R980/month</strong></td>
+</tr>
+</tbody></table>
+<h3>Pricing Tiers</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Per User</th>
+<th>Min Users</th>
+<th>Min Monthly</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Starter</td>
+<td>R980</td>
+<td>5</td>
+<td>R4,900</td>
+</tr>
+<tr>
+<td>Professional</td>
+<td>R931 (5% off)</td>
+<td>10</td>
+<td>R9,310</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>R882 (10% off)</td>
+<td>25</td>
+<td>R22,050</td>
+</tr>
+</tbody></table>
+<h3>Competitive Position</h3>
+<table>
+<thead>
+<tr>
+<th>Competitor</th>
+<th>Per User</th>
+<th>Our Position</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SAP</td>
+<td>R2,500-R5,000</td>
+<td>60-80% cheaper</td>
+</tr>
+<tr>
+<td>Sage X3</td>
+<td>R1,000-R2,000</td>
+<td>Competitive</td>
+</tr>
+<tr>
+<td>Sage 300</td>
+<td>R800-R1,200</td>
+<td>Competitive</td>
+</tr>
+<tr>
+<td><strong>SiyaBusa</strong></td>
+<td><strong>R980</strong></td>
+<td>Industry-tailored suite</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Contact</h2>
+<p><strong>Sibusiso Buncele</strong><br>Founder &amp; CEO<br>Masaphokati Technologies (Pty) Ltd</p>
+<p>📧 <a href="mailto:info@masaphokati.co.za">info@masaphokati.co.za</a><br>📍 Centurion, Gauteng</p>
+<hr>
+<p><strong>Document Version:</strong> 2.0<br><strong>Date:</strong> January 28, 2026<br><strong>Classification:</strong> Confidential — Investor Eyes Only</p>
+
+          </div>
+        
+</body>
+</html>

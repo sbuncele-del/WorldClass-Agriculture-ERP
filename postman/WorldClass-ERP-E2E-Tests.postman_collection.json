@@ -1,0 +1,310 @@
+{
+  "info": {
+    "name": "WorldClass ERP - E2E Tests",
+    "description": "Comprehensive end-to-end tests for all API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "https://siyabusaerp.co.za", "type": "string"},
+    {"key": "token", "value": "", "type": "string"},
+    {"key": "tenantId", "value": "", "type": "string"}
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{"key": "token", "value": "{{token}}", "type": "string"}]
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "1.1 Login",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Login returns 200', () => pm.response.to.have.status(200));",
+            "const json = pm.response.json();",
+            "pm.test('Has access token', () => {",
+            "    const token = json.data?.tokens?.accessToken;",
+            "    pm.expect(token).to.be.a('string');",
+            "    pm.collectionVariables.set('token', token);",
+            "});",
+            "pm.test('Has tenant ID', () => {",
+            "    const tenantId = json.data?.tenant?.id;",
+            "    pm.collectionVariables.set('tenantId', tenantId);",
+            "});"
+          ], "type": "text/javascript"}}],
+          "request": {
+            "auth": {"type": "noauth"},
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\"email\": \"{{email}}\", \"password\": \"{{password}}\"}"}
+          }
+        },
+        {
+          "name": "1.2 Verify Token",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Auth check returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/auth/me"}
+        }
+      ]
+    },
+    {
+      "name": "2. Dashboard",
+      "item": [
+        {
+          "name": "2.1 Dashboard Stats",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/dashboard/stats"}
+        },
+        {
+          "name": "2.2 Dashboard Summary",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/dashboard/summary"}
+        }
+      ]
+    },
+    {
+      "name": "3. Sales Module",
+      "item": [
+        {
+          "name": "3.1 Get Customers",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/sales/customers"}
+        },
+        {
+          "name": "3.2 Sales Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/sales/dashboard"}
+        },
+        {
+          "name": "3.3 Get Invoices",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/sales/invoices"}
+        },
+        {
+          "name": "3.4 Get Quotes",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/sales/quotes"}
+        }
+      ]
+    },
+    {
+      "name": "4. Purchase Module",
+      "item": [
+        {
+          "name": "4.1 Get Suppliers",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/purchase/suppliers"}
+        },
+        {
+          "name": "4.2 Get Purchase Orders",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/purchase/orders"}
+        }
+      ]
+    },
+    {
+      "name": "5. Inventory Module",
+      "item": [
+        {
+          "name": "5.1 Get Items",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/inventory/items"}
+        },
+        {
+          "name": "5.2 Get Categories",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/inventory/categories"}
+        },
+        {
+          "name": "5.3 Inventory Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/inventory/dashboard"}
+        }
+      ]
+    },
+    {
+      "name": "6. Financial Module",
+      "item": [
+        {
+          "name": "6.1 Get Accounts (COA)",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/financial/accounts"}
+        },
+        {
+          "name": "6.2 Get Journal Entries",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/financial/journal-entries"}
+        },
+        {
+          "name": "6.3 Financial Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/financial/dashboard"}
+        },
+        {
+          "name": "6.4 Balance Sheet",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/financial/balance-sheet"}
+        },
+        {
+          "name": "6.5 Income Statement",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/financial/income-statement"}
+        }
+      ]
+    },
+    {
+      "name": "7. HR Module",
+      "item": [
+        {
+          "name": "7.1 Get Employees",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/hr/employees"}
+        },
+        {
+          "name": "7.2 HR Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/hr/dashboard"}
+        },
+        {
+          "name": "7.3 Get Departments",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/hr/departments"}
+        }
+      ]
+    },
+    {
+      "name": "8. Assets Module",
+      "item": [
+        {
+          "name": "8.1 Get Assets",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/assets"}
+        },
+        {
+          "name": "8.2 Asset Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/assets/dashboard"}
+        }
+      ]
+    },
+    {
+      "name": "9. Cash Management",
+      "item": [
+        {
+          "name": "9.1 Cash Position",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/cash-management/cash-position"}
+        },
+        {
+          "name": "9.2 Bank Accounts",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/cash-management/bank-accounts"}
+        }
+      ]
+    },
+    {
+      "name": "10. Calendar",
+      "item": [
+        {
+          "name": "10.1 Get Events",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/calendar/events"}
+        }
+      ]
+    },
+    {
+      "name": "11. Compliance",
+      "item": [
+        {
+          "name": "11.1 Compliance Dashboard",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/compliance/dashboard"}
+        }
+      ]
+    },
+    {
+      "name": "12. Manufacturing",
+      "item": [
+        {
+          "name": "12.1 Get BOMs",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/manufacturing/boms"}
+        },
+        {
+          "name": "12.2 Get Work Orders",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));"
+          ], "type": "text/javascript"}}],
+          "request": {"method": "GET", "url": "{{baseUrl}}/api/v2/manufacturing/work-orders"}
+        }
+      ]
+    },
+    {
+      "name": "13. Health Check",
+      "item": [
+        {
+          "name": "13.1 Backend Health",
+          "event": [{"listen": "test", "script": {"exec": [
+            "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+            "pm.test('Server OK', () => pm.expect(pm.response.json().status).to.equal('OK'));"
+          ], "type": "text/javascript"}}],
+          "request": {"auth": {"type": "noauth"}, "method": "GET", "url": "{{baseUrl}}/health"}
+        }
+      ]
+    }
+  ]
+}

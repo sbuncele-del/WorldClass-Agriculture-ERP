@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Failed</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .alert-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .error-details {
+      background-color: #fef2f2;
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .error-details h3 {
+      font-size: 18px;
+      color: #991b1b;
+      margin-bottom: 16px;
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #fecaca;
+    }
+    
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .detail-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .reason-highlight {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .action-steps {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .action-steps h3 {
+      font-size: 18px;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    
+    .action-steps ol {
+      margin-left: 20px;
+      color: #4b5563;
+    }
+    
+    .action-steps li {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    
+    .warning-box {
+      background-color: #fef3c7;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+      border-left: 4px solid #f59e0b;
+    }
+    
+    .warning-box p {
+      font-size: 14px;
+      color: #78350f;
+      margin-bottom: 0;
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header,
+      .email-body {
+        padding: 30px 20px;
+      }
+      
+      .detail-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="alert-icon">⚠️</div>
+      <h1>Payment Failed</h1>
+      <p>Action required to continue your subscription</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hi {{userName}},
+      </p>
+      
+      <p>
+        We attempted to process your subscription payment but it was unsuccessful. 
+        To ensure uninterrupted access to your account, please update your payment 
+        information.
+      </p>
+
+      <!-- Error Details -->
+      <div class="error-details">
+        <h3>Payment Attempt Details</h3>
+        
+        <div class="detail-row">
+          <span class="detail-label">Plan</span>
+          <span class="detail-value">{{planName}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Amount</span>
+          <span class="detail-value">{{currency}} {{amount}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Attempt Date</span>
+          <span class="detail-value">{{attemptDate}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Reason</span>
+          <span class="detail-value reason-highlight">{{reason}}</span>
+        </div>
+      </div>
+
+      <!-- Action Steps -->
+      <div class="action-steps">
+        <h3>📋 What You Need To Do</h3>
+        <ol>
+          <li>Check if you have sufficient funds in your account</li>
+          <li>Verify your payment method details are up to date</li>
+          <li>Update your payment information in your billing dashboard</li>
+          <li>Contact your bank if the issue persists</li>
+        </ol>
+      </div>
+
+      <center>
+        <a href="{{updatePaymentUrl}}" class="cta-button">
+          Update Payment Method
+        </a>
+      </center>
+
+      <!-- Warning Box -->
+      <div class="warning-box">
+        <p>
+          ⚠️ <strong>Important:</strong> If payment is not received within 7 days, 
+          your account may be suspended. We'll send you reminder emails to help 
+          you avoid any service interruption.
+        </p>
+      </div>
+
+      <p style="margin-top: 30px;">
+        Need help? Our support team is here to assist you. Contact us at 
+        <a href="mailto:support@worldclasserp.com" style="color: #ef4444;">support@worldclasserp.com</a> 
+        or visit our <a href="{{supportUrl}}" style="color: #ef4444;">help center</a>.
+      </p>
+
+      <p>
+        Best regards,<br>
+        <strong>The Worldclass ERP Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Enterprise Resource Planning Made Simple
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{updatePaymentUrl}}" style="color: #ef4444; text-decoration: none; margin: 0 10px;">Update Payment</a>
+        <a href="{{supportUrl}}" style="color: #ef4444; text-decoration: none; margin: 0 10px;">Get Help</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

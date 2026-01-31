@@ -1,0 +1,504 @@
+.manual-journal-entry {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.journal-header {
+  margin-bottom: 2rem;
+}
+
+.journal-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.journal-header .subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Approval Status Badge */
+.approval-status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.status-pending_approval {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 2px solid #f59e0b;
+}
+
+.status-approved {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 2px solid #10b981;
+}
+
+.status-rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #ef4444;
+}
+
+.status-posted {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 2px solid #3b82f6;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alert-error {
+  background-color: #fee;
+  color: #c00;
+  border: 1px solid #fcc;
+}
+
+.alert-success {
+  background-color: #efe;
+  color: #090;
+  border: 1px solid #cfc;
+}
+
+/* Form */
+.journal-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-section {
+  padding: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.form-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+  margin-bottom: 0;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-field input[type="text"],
+.form-field input[type="date"],
+.form-field textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-field textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Journal Lines Table */
+.journal-lines-table {
+  overflow-x: auto;
+}
+
+.journal-lines-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.journal-lines-table thead {
+  background-color: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.journal-lines-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.journal-lines-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s;
+}
+
+.journal-lines-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.journal-lines-table td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+.journal-lines-table select,
+.journal-lines-table input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.journal-lines-table select:focus,
+.journal-lines-table input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.account-name {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.amount-input {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons */
+.btn-add-line {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add-line:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-remove-line {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #fee;
+  color: #c00;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-remove-line:hover:not(:disabled) {
+  background-color: #fcc;
+  transform: scale(1.1);
+}
+
+.btn-remove-line:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn-dimensions {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.btn-dimensions:hover {
+  background-color: #bae6fd;
+  transform: scale(1.05);
+}
+
+/* Dimensions Panel */
+.dimensions-row {
+  background-color: #f0f9ff;
+  border-left: 3px solid #3b82f6;
+}
+
+.dimensions-row td {
+  padding: 1rem !important;
+}
+
+.dimensions-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dimension-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dimension-field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.dimension-field select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.dimension-field select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.dimension-field select:hover {
+  border-color: #9ca3af;
+}
+
+
+/* Totals */
+.journal-lines-table tfoot {
+  background-color: #f9fafb;
+  border-top: 2px solid #e5e7eb;
+  font-weight: 600;
+}
+
+.totals-row td {
+  padding: 1rem 0.75rem;
+}
+
+.totals-label {
+  text-align: right;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.total-debit,
+.total-credit {
+  font-variant-numeric: tabular-nums;
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.difference-row {
+  border-top: 1px solid #d1d5db;
+}
+
+.difference-row td {
+  padding: 0.75rem;
+}
+
+.balanced {
+  color: #059669;
+  font-weight: 600;
+}
+
+.unbalanced {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.balanced-amount {
+  color: #059669;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.unbalanced-amount {
+  color: #dc2626;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Form Actions */
+.form-actions {
+  padding: 2rem;
+  background-color: #f9fafb;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .journal-lines-table {
+    font-size: 0.875rem;
+  }
+  
+  .journal-lines-table th,
+  .journal-lines-table td {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .manual-journal-entry {
+    padding: 1rem;
+  }
+  
+  .form-section {
+    padding: 1.5rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .journal-lines-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .journal-lines-table table {
+    min-width: 800px;
+  }
+}

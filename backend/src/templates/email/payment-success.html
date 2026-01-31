@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Received</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .success-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .payment-details {
+      background-color: #f0fdf4;
+      border-left: 4px solid #10b981;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .payment-details h3 {
+      font-size: 18px;
+      color: #065f46;
+      margin-bottom: 16px;
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #d1fae5;
+    }
+    
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .detail-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .amount-highlight {
+      font-size: 24px;
+      color: #059669;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .info-box {
+      background-color: #eff6ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    
+    .info-box p {
+      font-size: 14px;
+      color: #1e40af;
+      margin-bottom: 0;
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header,
+      .email-body {
+        padding: 30px 20px;
+      }
+      
+      .detail-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="success-icon">✓</div>
+      <h1>Payment Received!</h1>
+      <p>Thank you for your payment</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hi {{userName}},
+      </p>
+      
+      <p>
+        We've successfully received your payment. Your subscription has been 
+        renewed and you can continue enjoying uninterrupted access to all features.
+      </p>
+
+      <!-- Payment Details -->
+      <div class="payment-details">
+        <h3>Payment Details</h3>
+        
+        <div class="detail-row">
+          <span class="detail-label">Invoice Number</span>
+          <span class="detail-value">{{invoiceNumber}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Plan</span>
+          <span class="detail-value">{{planName}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Payment Date</span>
+          <span class="detail-value">{{paymentDate}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Amount Paid</span>
+          <span class="detail-value amount-highlight">{{currency}} {{amount}}</span>
+        </div>
+      </div>
+
+      <p>
+        A detailed receipt has been sent to your email and is also available in 
+        your billing dashboard.
+      </p>
+
+      <center>
+        <a href="{{dashboardUrl}}" class="cta-button">
+          View Receipt & Invoice
+        </a>
+      </center>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <p>
+          💡 <strong>Need help?</strong> If you have any questions about your 
+          payment or subscription, our support team is here to help. Contact us 
+          anytime at support@worldclasserp.com
+        </p>
+      </div>
+
+      <p style="margin-top: 30px;">
+        Thank you for choosing Worldclass ERP!<br>
+        <strong>The Worldclass ERP Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Enterprise Resource Planning Made Simple
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{dashboardUrl}}" style="color: #10b981; text-decoration: none; margin: 0 10px;">Dashboard</a>
+        <a href="{{frontendUrl}}/billing" style="color: #10b981; text-decoration: none; margin: 0 10px;">Billing</a>
+        <a href="{{frontendUrl}}/help" style="color: #10b981; text-decoration: none; margin: 0 10px;">Help Center</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

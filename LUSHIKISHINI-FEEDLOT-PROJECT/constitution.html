@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lushikishini Cooperative Constitution</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @page content {
+            margin: 2.5cm 2.5cm;
+            @top-center {
+                content: "Lushikishini Cattle Feedlot Cooperative Constitution";
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 9pt;
+                color: #7B1FA2;
+            }
+            @bottom-center {
+                content: "Page " counter(page);
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 9pt;
+                color: #666;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 50%, #9C27B0 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cover-page::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+        }
+        
+        .cover-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .cover-title {
+            font-family: 'Merriweather', serif;
+            font-size: 36pt;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .cover-subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .cover-doc-type {
+            font-size: 28pt;
+            font-weight: 900;
+            background: #FFD700;
+            color: #4A148C;
+            padding: 15px 50px;
+            border-radius: 5px;
+            margin: 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        
+        .cover-line {
+            width: 200px;
+            height: 3px;
+            background: white;
+            margin: 30px auto;
+            opacity: 0.5;
+        }
+        
+        .cover-details {
+            font-size: 12pt;
+            line-height: 2;
+            margin-top: 30px;
+        }
+        
+        .cover-footer {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            font-size: 10pt;
+            opacity: 0.8;
+        }
+        
+        /* Content */
+        .content {
+            page: content;
+            padding: 0;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Article Styling */
+        .article {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .article-number {
+            font-family: 'Merriweather', serif;
+            font-size: 28pt;
+            font-weight: 900;
+            opacity: 0.5;
+        }
+        
+        .article-title {
+            font-family: 'Merriweather', serif;
+            font-size: 14pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-content {
+            background: #FAFAFA;
+            border: 1px solid #E0E0E0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 25px;
+        }
+        
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 24pt;
+            font-weight: 900;
+            color: #4A148C;
+            text-align: center;
+            margin: 40px 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 14pt;
+            font-weight: 700;
+            color: #7B1FA2;
+            margin: 20px 0 10px 0;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #9C27B0;
+            margin: 15px 0 8px 0;
+        }
+        
+        p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        
+        /* Numbered List with Styling */
+        ol {
+            margin: 15px 0 15px 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: item;
+        }
+        
+        ol > li {
+            counter-increment: item;
+            margin-bottom: 10px;
+            padding-left: 35px;
+            position: relative;
+        }
+        
+        ol > li::before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #7B1FA2;
+            width: 25px;
+        }
+        
+        ol ol > li::before {
+            content: counter(item, lower-alpha) ")";
+        }
+        
+        ul {
+            margin: 10px 0 10px 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%);
+            color: white;
+            font-weight: 600;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+        
+        /* Member Box */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .member-box {
+            background: white;
+            border: 2px solid #E1BEE7;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .member-box .name {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #4A148C;
+            font-size: 12pt;
+        }
+        
+        .member-box .role {
+            color: #7B1FA2;
+            font-size: 10pt;
+            margin-top: 3px;
+        }
+        
+        .member-box .details {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #E0E0E0;
+        }
+        
+        /* Highlight Boxes */
+        .highlight {
+            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+            border-left: 5px solid #7B1FA2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .warning {
+            background: #FFF3E0;
+            border-left: 5px solid #F57C00;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Signature Section */
+        .signature-section {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .signature-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .signature-item {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-top: 2px solid #333;
+            margin-top: 60px;
+            padding-top: 10px;
+        }
+        
+        .signature-label {
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        /* Footer */
+        .doc-footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 3px solid #7B1FA2;
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #F5F5F5;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4A148C;
+        }
+        
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .toc-item:last-child {
+            border-bottom: none;
+        }
+        
+        .toc-title {
+            font-weight: 600;
+        }
+        
+        .toc-page {
+            color: #7B1FA2;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="cover-page">
+        <div class="cover-content">
+            <div class="cover-icon">⚖️</div>
+            <h1 class="cover-title">Lushikishini</h1>
+            <h2 class="cover-subtitle">Cattle Feedlot Cooperative</h2>
+            <div class="cover-doc-type">Constitution</div>
+            <div class="cover-line"></div>
+            <div class="cover-details">
+                <p>Established under the Cooperative Societies Act, 2003</p>
+                <p>Kingdom of Eswatini</p>
+                <p style="margin-top: 20px; font-size: 14pt;"><strong>Founding Members: 10</strong></p>
+                <p><strong>Date of Adoption: January 2026</strong></p>
+            </div>
+        </div>
+        <div class="cover-footer">
+            <p>Registered Office: Lushikishini, kaMavuso, Phondo Inkhundla</p>
+            <p>Traditional Authority: Chief Somtsewu</p>
+        </div>
+    </div>
+    
+    <!-- TABLE OF CONTENTS -->
+    <div class="content page-break">
+        <h1>Table of Contents</h1>
+        
+        <div class="toc">
+            <div class="toc-item">
+                <span class="toc-title">Article 1: Name, Location & Objectives</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 2: Membership</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 3: Rights & Duties of Members</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 4: Governance Structure</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 5: Meetings</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 6: Financial Provisions</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 7: Distribution of Surplus</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 8: Discipline & Dispute Resolution</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 9: Amendment of Constitution</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Article 10: Dissolution</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Schedule A: Founding Members</span>
+            </div>
+            <div class="toc-item">
+                <span class="toc-title">Schedule B: Signature Page</span>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <h2 style="margin-top: 0;">Preamble</h2>
+            <p>We, the undersigned founding members, residents of Lushikishini, kaMavuso area, under the jurisdiction of Phondo Inkhundla and traditional authority of Chief Somtsewu, hereby voluntarily associate ourselves to form a cooperative society for our mutual benefit and economic advancement.</p>
+            <p>We commit to operate in accordance with the internationally recognized cooperative principles of voluntary membership, democratic control, member economic participation, autonomy, education, cooperation among cooperatives, and concern for community.</p>
+        </div>
+    </div>
+    
+    <!-- ARTICLE 1 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">01</span>
+                <span class="article-title">Name, Location & Registered Office</span>
+            </div>
+            <div class="article-content">
+                <h2>1.1 Name</h2>
+                <p>The name of the cooperative shall be <strong>"Lushikishini Cattle Feedlot Cooperative"</strong> (hereinafter referred to as "the Cooperative").</p>
+                
+                <h2>1.2 Registered Office</h2>
+                <p>The registered office of the Cooperative shall be located at:</p>
+                <div class="highlight">
+                    <p><strong>Physical Address:</strong><br>
+                    Lushikishini Area<br>
+                    kaMavuso<br>
+                    Phondo Inkhundla<br>
+                    Under Chief Somtsewu<br>
+                    Kingdom of Eswatini</p>
+                </div>
+                
+                <h2>1.3 Objectives</h2>
+                <p>The primary objectives of the Cooperative shall be:</p>
+                <ol>
+                    <li>To operate a cattle feedlot enterprise for the economic benefit of members;</li>
+                    <li>To purchase, fatten, and sell cattle for profit;</li>
+                    <li>To provide employment and income generation for members;</li>
+                    <li>To promote sustainable agricultural practices in cattle farming;</li>
+                    <li>To contribute to food security in the Kingdom of Eswatini;</li>
+                    <li>To foster cooperation and unity among community members;</li>
+                    <li>To provide training and skills development in livestock management;</li>
+                    <li>To serve as a model for community-based agricultural enterprises.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ARTICLE 2 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">02</span>
+                <span class="article-title">Membership</span>
+            </div>
+            <div class="article-content">
+                <h2>2.1 Founding Members</h2>
+                <p>The Cooperative is established with <strong>ten (10) founding members</strong> as listed in Schedule A of this Constitution.</p>
+                
+                <h2>2.2 Eligibility for Membership</h2>
+                <p>Membership shall be open to any person who:</p>
+                <ol>
+                    <li>Is a citizen of the Kingdom of Eswatini or permanent resident;</li>
+                    <li>Is 18 years of age or older;</li>
+                    <li>Resides within or has strong ties to the Lushikishini/kaMavuso community;</li>
+                    <li>Agrees to abide by this Constitution and decisions of the Cooperative;</li>
+                    <li>Is willing to participate actively in the activities of the Cooperative;</li>
+                    <li>Is approved by a two-thirds majority vote of existing members.</li>
+                </ol>
+                
+                <h2>2.3 Application Process</h2>
+                <ol>
+                    <li>Applications for membership shall be submitted in writing to the Executive Committee;</li>
+                    <li>The Executive Committee shall review applications within 30 days;</li>
+                    <li>Recommended applications shall be presented to the next General Meeting;</li>
+                    <li>Membership becomes effective upon payment of the membership fee.</li>
+                </ol>
+                
+                <h2>2.4 Membership Fee</h2>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Joining Fee</td>
+                        <td><strong>E500</strong></td>
+                        <td>One-time, non-refundable</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Subscription</td>
+                        <td><strong>E200</strong></td>
+                        <td>Due January each year</td>
+                    </tr>
+                </table>
+                
+                <h2>2.5 Termination of Membership</h2>
+                <p>Membership may be terminated by:</p>
+                <ol>
+                    <li>Voluntary resignation with 30 days written notice;</li>
+                    <li>Death of the member;</li>
+                    <li>Expulsion by two-thirds majority vote for serious misconduct;</li>
+                    <li>Non-payment of fees for more than 6 months after due date.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ARTICLE 3 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">03</span>
+                <span class="article-title">Rights & Duties of Members</span>
+            </div>
+            <div class="article-content">
+                <h2>3.1 Rights of Members</h2>
+                <p>Every member in good standing shall have the right to:</p>
+                <ol>
+                    <li>Attend and participate in all General Meetings;</li>
+                    <li>Vote on all matters brought before the membership (one member, one vote);</li>
+                    <li>Stand for election to the Executive Committee;</li>
+                    <li>Receive a share of the annual surplus according to Article 7;</li>
+                    <li>Access to financial records and reports of the Cooperative;</li>
+                    <li>Participate in training and capacity building activities;</li>
+                    <li>Submit proposals for consideration by the Cooperative.</li>
+                </ol>
+                
+                <h2>3.2 Duties of Members</h2>
+                <p>Every member shall be obligated to:</p>
+                <ol>
+                    <li>Abide by this Constitution and all lawful decisions of the Cooperative;</li>
+                    <li>Pay all fees, levies, and contributions as determined by the Cooperative;</li>
+                    <li>Participate actively in meetings and activities of the Cooperative;</li>
+                    <li>Contribute labor as required according to the work schedule;</li>
+                    <li>Protect the property and interests of the Cooperative;</li>
+                    <li>Act in good faith and in the best interests of the Cooperative;</li>
+                    <li>Not engage in activities that compete with or harm the Cooperative.</li>
+                </ol>
+                
+                <div class="warning">
+                    <strong>⚠️ Important:</strong> Members who fail to fulfill their duties may face disciplinary action as outlined in Article 8.
+                </div>
+            </div>
+        </div>
+        
+        <!-- ARTICLE 4 -->
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">04</span>
+                <span class="article-title">Governance Structure</span>
+            </div>
+            <div class="article-content">
+                <h2>4.1 General Meeting</h2>
+                <p>The General Meeting is the <strong>supreme governing body</strong> of the Cooperative, comprising all members in good standing.</p>
+                
+                <h2>4.2 Executive Committee</h2>
+                <p>The Executive Committee shall consist of:</p>
+                
+                <table>
+                    <tr>
+                        <th>Position</th>
+                        <th>Current Holder</th>
+                        <th>Key Responsibilities</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Chairperson</strong></td>
+                        <td>Sibusiso Mavuso</td>
+                        <td>Overall leadership, chair meetings, external representation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vice-Chairperson</strong></td>
+                        <td>Seluleko Ndwandwe</td>
+                        <td>Deputize for Chairperson, operations oversight</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secretary</strong></td>
+                        <td>Zakhele Dlamini</td>
+                        <td>Records, correspondence, meeting minutes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treasurer</strong></td>
+                        <td>Sibusiso Mavuso</td>
+                        <td>Financial management, accounting, reporting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Technical Advisor</strong></td>
+                        <td>Sanele Dlamini</td>
+                        <td>Agricultural expertise, feed management, animal health</td>
+                    </tr>
+                </table>
+                
+                <h2>4.3 Term of Office</h2>
+                <ol>
+                    <li>Executive Committee members serve for <strong>two (2) years</strong>;</li>
+                    <li>Members may be re-elected for a maximum of <strong>two consecutive terms</strong>;</li>
+                    <li>Elections shall be held at the Annual General Meeting;</li>
+                    <li>Vacancies may be filled at any Special General Meeting.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ARTICLE 5 & 6 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">05</span>
+                <span class="article-title">Meetings</span>
+            </div>
+            <div class="article-content">
+                <h2>5.1 Annual General Meeting (AGM)</h2>
+                <ol>
+                    <li>Shall be held once per year, not later than <strong>March 31</strong>;</li>
+                    <li>Members shall receive at least <strong>14 days written notice</strong>;</li>
+                    <li>Agenda shall include: Annual report, audited accounts, elections, annual plan.</li>
+                </ol>
+                
+                <h2>5.2 Ordinary General Meetings</h2>
+                <ol>
+                    <li>Shall be held at least <strong>once per month</strong>;</li>
+                    <li>Notice of at least <strong>7 days</strong> shall be given;</li>
+                    <li>Shall review operations, finances, and make operational decisions.</li>
+                </ol>
+                
+                <h2>5.3 Special General Meetings</h2>
+                <ol>
+                    <li>May be called by the Executive Committee at any time;</li>
+                    <li>Must be called within 14 days if requested by at least <strong>one-third of members</strong>;</li>
+                    <li>Only matters specified in the notice may be discussed.</li>
+                </ol>
+                
+                <h2>5.4 Quorum and Voting</h2>
+                <table>
+                    <tr>
+                        <th>Meeting Type</th>
+                        <th>Quorum Required</th>
+                        <th>Voting Threshold</th>
+                    </tr>
+                    <tr>
+                        <td>General Meetings</td>
+                        <td>50% + 1 members</td>
+                        <td>Simple majority (50% + 1)</td>
+                    </tr>
+                    <tr>
+                        <td>Constitutional Amendments</td>
+                        <td>Two-thirds members</td>
+                        <td>Two-thirds majority</td>
+                    </tr>
+                    <tr>
+                        <td>Expulsion of Member</td>
+                        <td>Two-thirds members</td>
+                        <td>Two-thirds majority</td>
+                    </tr>
+                    <tr>
+                        <td>Dissolution</td>
+                        <td>All members</td>
+                        <td>Three-quarters majority</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">06</span>
+                <span class="article-title">Financial Provisions</span>
+            </div>
+            <div class="article-content">
+                <h2>6.1 Financial Year</h2>
+                <p>The financial year shall run from <strong>1 April to 31 March</strong>.</p>
+                
+                <h2>6.2 Bank Account</h2>
+                <ol>
+                    <li>The Cooperative shall maintain a bank account at a registered financial institution;</li>
+                    <li>All transactions require <strong>two signatories</strong>: Chairperson AND Treasurer;</li>
+                    <li>Monthly bank reconciliation shall be performed and reported to members.</li>
+                </ol>
+                
+                <h2>6.3 Records and Audit</h2>
+                <ol>
+                    <li>Proper books of account shall be maintained;</li>
+                    <li>Annual accounts shall be prepared and presented at AGM;</li>
+                    <li>External audit may be conducted if required by law or voted by members.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ARTICLE 7 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">07</span>
+                <span class="article-title">Distribution of Surplus</span>
+            </div>
+            <div class="article-content">
+                <h2>7.1 Surplus Allocation</h2>
+                <p>The annual surplus (net profit) shall be distributed as follows:</p>
+                
+                <table>
+                    <tr>
+                        <th>Allocation</th>
+                        <th>Percentage</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Emergency Reserve</strong></td>
+                        <td>10%</td>
+                        <td>Unforeseen expenses, disease outbreaks, emergencies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Development Fund</strong></td>
+                        <td>10%</td>
+                        <td>Expansion, infrastructure, equipment replacement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Member Distribution</strong></td>
+                        <td>80%</td>
+                        <td>Equal distribution to all members in good standing</td>
+                    </tr>
+                </table>
+                
+                <div class="highlight">
+                    <h3>7.2 Equal Distribution Principle</h3>
+                    <p>With 10 members, each member receives <strong>10% of the distributable surplus</strong> (8% of total surplus).</p>
+                    <p><strong>Example:</strong> If monthly profit is E50,100:</p>
+                    <ul>
+                        <li>Emergency Reserve: E5,010</li>
+                        <li>Development Fund: E5,010</li>
+                        <li>Member Distribution: E40,080 (E4,008 per member)</li>
+                    </ul>
+                </div>
+                
+                <h2>7.3 Distribution Schedule</h2>
+                <ol>
+                    <li>Monthly distributions may be made from operating profits;</li>
+                    <li>Final annual distribution after year-end accounts are prepared;</li>
+                    <li>New members receive distribution from their second month of membership.</li>
+                </ol>
+                
+                <h2>7.4 Reserve Fund Management</h2>
+                <ol>
+                    <li>Reserve funds shall be kept in a separate savings account;</li>
+                    <li>Emergency Reserve may only be used with Executive Committee approval;</li>
+                    <li>Development Fund use requires General Meeting approval;</li>
+                    <li>Reserve fund balance shall be reported at each meeting.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ARTICLES 8, 9, 10 -->
+    <div class="content page-break">
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">08</span>
+                <span class="article-title">Discipline & Dispute Resolution</span>
+            </div>
+            <div class="article-content">
+                <h2>8.1 Disciplinary Offenses</h2>
+                <ol>
+                    <li>Theft or misappropriation of Cooperative funds or property;</li>
+                    <li>Willful damage to Cooperative property;</li>
+                    <li>Failure to perform assigned duties without reasonable cause;</li>
+                    <li>Bringing the Cooperative into disrepute;</li>
+                    <li>Persistent failure to attend meetings without apology;</li>
+                    <li>Engaging in competing business activities.</li>
+                </ol>
+                
+                <h2>8.2 Disciplinary Procedure</h2>
+                <ol>
+                    <li><strong>Written Warning:</strong> First offense (minor matters)</li>
+                    <li><strong>Final Warning:</strong> Second offense or first serious offense</li>
+                    <li><strong>Suspension:</strong> Up to 3 months, with loss of distribution</li>
+                    <li><strong>Expulsion:</strong> Serious misconduct, requires 2/3 majority vote</li>
+                </ol>
+                
+                <h2>8.3 Dispute Resolution</h2>
+                <ol>
+                    <li><strong>Step 1:</strong> Direct discussion between parties involved</li>
+                    <li><strong>Step 2:</strong> Mediation by Executive Committee</li>
+                    <li><strong>Step 3:</strong> Hearing at General Meeting</li>
+                    <li><strong>Step 4:</strong> External mediation (if unresolved)</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">09</span>
+                <span class="article-title">Amendment of Constitution</span>
+            </div>
+            <div class="article-content">
+                <ol>
+                    <li>This Constitution may only be amended at a General Meeting;</li>
+                    <li>Proposed amendments must be circulated <strong>21 days</strong> before the meeting;</li>
+                    <li>Amendments require <strong>two-thirds majority</strong> of members present;</li>
+                    <li>Amendments take effect upon registration with relevant authorities.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="article">
+            <div class="article-header">
+                <span class="article-number">10</span>
+                <span class="article-title">Dissolution</span>
+            </div>
+            <div class="article-content">
+                <ol>
+                    <li>The Cooperative may only be dissolved by a <strong>three-quarters majority</strong> of all members;</li>
+                    <li>Upon dissolution, assets shall be liquidated;</li>
+                    <li>Proceeds shall first settle all liabilities;</li>
+                    <li>Remaining assets distributed equally among members;</li>
+                    <li>The Registrar of Cooperatives shall be notified.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SCHEDULE A: FOUNDING MEMBERS -->
+    <div class="content page-break">
+        <h1>Schedule A: Founding Members</h1>
+        
+        <p style="text-align: center; margin-bottom: 20px;"><em>The following ten (10) persons are recognized as the Founding Members of the Lushikishini Cattle Feedlot Cooperative:</em></p>
+        
+        <div class="member-grid">
+            <div class="member-box">
+                <div class="name">1. Sibusiso Mavuso</div>
+                <div class="role">Chairperson & Treasurer</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">2. Sanele Dlamini</div>
+                <div class="role">Technical Advisor</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">3. Zakhele Dlamini</div>
+                <div class="role">Secretary</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">4. Seluleko Ndwandwe</div>
+                <div class="role">Vice-Chairperson</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">5. Sibusiso Dlamini</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">6. Temancele Mavuso</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">7. Gugu Vilakati</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">8. Vuyo Motsa</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">9. Neliso Mavuso</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+            <div class="member-box">
+                <div class="name">10. Sphumelele Shabangu</div>
+                <div class="role">Member</div>
+                <div class="details">
+                    ID Number: _______________________<br>
+                    Signature: _______________________
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SCHEDULE B: SIGNATURE PAGE -->
+    <div class="content page-break">
+        <h1>Schedule B: Adoption & Certification</h1>
+        
+        <div class="highlight">
+            <p style="text-align: center; font-size: 12pt;"><strong>CERTIFICATE OF ADOPTION</strong></p>
+            <p style="text-align: justify;">We, the undersigned founding members of the Lushikishini Cattle Feedlot Cooperative, do hereby certify that this Constitution was duly adopted at a meeting of the founding members held at Lushikishini, kaMavuso, on this day.</p>
+        </div>
+        
+        <div class="signature-section">
+            <h2>Executive Committee Signatures</h2>
+            
+            <div class="signature-box">
+                <div class="signature-item">
+                    <div class="signature-line">
+                        <p><strong>Sibusiso Mavuso</strong></p>
+                        <p class="signature-label">Chairperson</p>
+                    </div>
+                </div>
+                <div class="signature-item">
+                    <div class="signature-line">
+                        <p><strong>Zakhele Dlamini</strong></p>
+                        <p class="signature-label">Secretary</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin: 30px 0;">
+                <strong>Date of Adoption:</strong> _______ day of _________________ 2026
+            </p>
+            
+            <h2 style="margin-top: 40px;">Traditional Authority Endorsement</h2>
+            
+            <div class="highlight">
+                <p><strong>Witnessed and Endorsed by the Office of Chief Somtsewu:</strong></p>
+                <br>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <p>Chief's Signature/Stamp:</p>
+                        <br><br><br>
+                        <p>_______________________________</p>
+                    </div>
+                    <div style="flex: 1;">
+                        <p>Witness Name:</p>
+                        <br><br><br>
+                        <p>_______________________________</p>
+                    </div>
+                </div>
+                <br>
+                <p>Date: _______________________________</p>
+            </div>
+        </div>
+        
+        <div class="doc-footer">
+            <p><strong>LUSHIKISHINI CATTLE FEEDLOT COOPERATIVE</strong></p>
+            <p>Constitution Adopted January 2026</p>
+            <p style="margin-top: 10px;">Phondo Inkhundla • Chief Somtsewu • Kingdom of Eswatini</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,571 @@
+{
+  "info": {
+    "name": "WorldClass ERP API",
+    "description": "Complete API collection for WorldClass ERP system. Import into Postman or Insomnia.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://51.20.67.228:3000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "tenantId",
+      "value": "00000000-0000-0000-0000-000000000001",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.token) {",
+                  "        pm.collectionVariables.set('token', jsonData.token);",
+                  "    }",
+                  "}",
+                  "",
+                  "pm.test('Login successful', function() {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@worldclass.co.za\",\n  \"password\": \"admin123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/me"
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/refresh"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {
+          "name": "Get All Items",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Response is successful', function() {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/inventory/items"
+          }
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/inventory/items",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_code\": \"TEST-001\",\n  \"item_name\": \"Test Product\",\n  \"item_type\": \"STOCK\",\n  \"uom\": \"EACH\",\n  \"description\": \"Test product for API testing\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Stock Levels",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/inventory/stock-levels"
+          }
+        },
+        {
+          "name": "Get Warehouses",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/inventory/warehouses"
+          }
+        },
+        {
+          "name": "Inventory Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/inventory/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sales",
+      "item": [
+        {
+          "name": "Get Customers",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/sales/customers"
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/sales/customers",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_code\": \"CUST-001\",\n  \"company_name\": \"Test Company\",\n  \"contact_name\": \"John Doe\",\n  \"email\": \"john@test.com\",\n  \"phone\": \"+27123456789\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Invoices",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/sales/invoices"
+          }
+        },
+        {
+          "name": "Get Quotes",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/sales/quotes"
+          }
+        },
+        {
+          "name": "Sales Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/sales/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Purchase",
+      "item": [
+        {
+          "name": "Get Suppliers",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/purchase/suppliers"
+          }
+        },
+        {
+          "name": "Get Purchase Orders",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/purchase/orders"
+          }
+        },
+        {
+          "name": "Purchase Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/purchase/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Financial",
+      "item": [
+        {
+          "name": "Get Chart of Accounts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/financial/chart-of-accounts"
+          }
+        },
+        {
+          "name": "Get Journal Entries",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/financial/journal-entries"
+          }
+        },
+        {
+          "name": "Create Journal Entry",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/financial/journal-entries",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Test Journal Entry\",\n  \"journal_date\": \"2026-01-07\",\n  \"lines\": [\n    {\n      \"account_code\": \"1000\",\n      \"debit_amount\": 1000,\n      \"credit_amount\": 0,\n      \"description\": \"Debit entry\"\n    },\n    {\n      \"account_code\": \"2000\",\n      \"debit_amount\": 0,\n      \"credit_amount\": 1000,\n      \"description\": \"Credit entry\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Financial Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/financial/dashboard"
+          }
+        },
+        {
+          "name": "GL Explorer - Filter Options",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/financial/gl-explorer/filter-options"
+          }
+        },
+        {
+          "name": "Balance Sheet",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/financial/balance-sheet?asOfDate=2026-01-07",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "financial", "balance-sheet"],
+              "query": [
+                {"key": "asOfDate", "value": "2026-01-07"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Income Statement",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v2/financial/income-statement?fromDate=2026-01-01&toDate=2026-01-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v2", "financial", "income-statement"],
+              "query": [
+                {"key": "fromDate", "value": "2026-01-01"},
+                {"key": "toDate", "value": "2026-01-31"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HR & Payroll",
+      "item": [
+        {
+          "name": "Get Employees",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/hr/employees"
+          }
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/hr/employees",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_number\": \"EMP-001\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"john.doe@company.com\",\n  \"hire_date\": \"2026-01-01\",\n  \"basic_salary\": 50000\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Departments",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/hr/departments"
+          }
+        },
+        {
+          "name": "Get Leave Requests",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/hr/leave-requests"
+          }
+        },
+        {
+          "name": "Get Payroll Runs",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/hr/payroll/runs"
+          }
+        },
+        {
+          "name": "HR Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/hr/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calendar & Events",
+      "item": [
+        {
+          "name": "Get Events",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/calendar/events"
+          }
+        },
+        {
+          "name": "Create Event",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Event created successfully', function() {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/calendar/events",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test Meeting\",\n  \"description\": \"API Test Event\",\n  \"start_time\": \"2026-01-08T10:00:00Z\",\n  \"end_time\": \"2026-01-08T11:00:00Z\",\n  \"event_type\": \"meeting\",\n  \"location\": \"Conference Room A\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Event by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/calendar/events/1"
+          }
+        },
+        {
+          "name": "Update Event",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v2/calendar/events/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Meeting\",\n  \"description\": \"Updated description\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Event",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/calendar/events/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Manufacturing",
+      "item": [
+        {
+          "name": "Get BOMs",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/manufacturing/boms"
+          }
+        },
+        {
+          "name": "Get Work Orders",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/manufacturing/work-orders"
+          }
+        },
+        {
+          "name": "Manufacturing Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/manufacturing/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Assets",
+      "item": [
+        {
+          "name": "Get Assets",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets"
+          }
+        },
+        {
+          "name": "Get Asset Categories",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/categories"
+          }
+        },
+        {
+          "name": "Assets Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/assets/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Compliance",
+      "item": [
+        {
+          "name": "Get Compliance Requirements",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/compliance/requirements"
+          }
+        },
+        {
+          "name": "Compliance Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/compliance/dashboard"
+          }
+        },
+        {
+          "name": "SARS Status",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/compliance/sars/status"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Treasury",
+      "item": [
+        {
+          "name": "Get Treasury Accounts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/treasury/accounts"
+          }
+        },
+        {
+          "name": "Treasury Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/treasury/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multi-Entity",
+      "item": [
+        {
+          "name": "Get Entities",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/multi-entity/entities"
+          }
+        },
+        {
+          "name": "Multi-Entity Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/multi-entity/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Main Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/dashboard/stats"
+          }
+        }
+      ]
+    }
+  ]
+}

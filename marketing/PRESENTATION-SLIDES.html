@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AetherOS ERP - Sales Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        p, li {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .bullet-list {
+            text-align: left;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+
+        .bullet-list li {
+            margin-bottom: 1.5rem;
+            list-style: none;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .bullet-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 1.2rem;
+        }
+
+        .stat-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 2rem 3rem;
+            border-radius: 1rem;
+            margin: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .price-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s;
+        }
+
+        .price-card:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+        }
+
+        .price-card.featured {
+            border-color: #ffd700;
+            border-width: 3px;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: #ffd700;
+            margin: 1rem 0;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .logo {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-table {
+            background: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .comparison-table th {
+            color: #ffd700;
+            font-size: 1.3rem;
+        }
+
+        .checkmark {
+            color: #4caf50;
+            font-size: 1.5rem;
+        }
+
+        .xmark {
+            color: #f44336;
+            font-size: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.5rem 3rem;
+            font-size: 1.8rem;
+            background: #ffd700;
+            color: #1a1a2e;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <div class="logo">⚡</div>
+                <h1>AetherOS ERP</h1>
+                <p class="subtitle">South Africa's Most Advanced Cloud ERP Platform</p>
+                <p style="font-size: 1.8rem; margin-top: 3rem;">Built for South African Businesses</p>
+                <p style="font-size: 1.3rem; opacity: 0.8;">Fully RSA Tax Compliant | AI-Powered | Enterprise Features at SME Pricing</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2>The Problem with Traditional ERPs</h2>
+                <ul class="bullet-list">
+                    <li>💰 <strong>Expensive:</strong> R15,000 - R50,000/month for 25 users</li>
+                    <li>⏰ <strong>Slow:</strong> 6-12 month implementations</li>
+                    <li>🌍 <strong>Foreign:</strong> Built for US/Europe, not South Africa</li>
+                    <li>🔧 <strong>Complex:</strong> Require expensive consultants forever</li>
+                    <li>📊 <strong>Outdated:</strong> 20-year-old technology with modern UI bolted on</li>
+                </ul>
+                <h3 style="margin-top: 3rem;">There Had to Be a Better Way...</h3>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Solution -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2>Introducing AetherOS</h2>
+                <p class="subtitle">The ERP Built for South Africa</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🇿🇦 RSA-First</h3>
+                        <p>SARS eFiling, PAYE/UIF/SDL, BCEA, B-BBEE tracking built-in</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🤖 AI-Powered</h3>
+                        <p>Auto-reconcile 90% of transactions, AI invoice processing, fraud detection</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ Fast</h3>
+                        <p>Go live in 4-8 weeks, not 6-12 months</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💰 Affordable</h3>
+                        <p>R499 - R4,999/month vs R15,000+ for competitors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Complete Platform -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2>10 Integrated Modules</h2>
+                <p class="subtitle">Everything You Need to Run Your Business</p>
+                <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="feature-card">
+                        <h3>💰 Sales & CRM</h3>
+                        <p>Lead tracking, pipeline, quotations, orders, invoicing</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🛒 Purchase</h3>
+                        <p>Suppliers, PO automation, goods receipt, 3-way matching</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📦 Inventory</h3>
+                        <p>Multi-warehouse, bin tracking, real-time stock, valuation</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>👥 HR & Payroll</h3>
+                        <p>Employees, PAYE/UIF/SDL, leave, RSA compliance</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💵 Financial</h3>
+                        <p>General ledger, double-entry, IFRS reports</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💰 Cash Management</h3>
+                        <p>Bank rec, cash flow forecasting, payments</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏢 Asset Management</h3>
+                        <p>Fixed assets, depreciation, maintenance</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏭 Manufacturing</h3>
+                        <p>Production orders, BOMs, work centers</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📍 Warehouse</h3>
+                        <p>Bin management, picking/packing, cycle counts</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🇿🇦 SARS Sentinel</h3>
+                        <p>AI compliance, deadline tracking, eFiling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: AI Automation -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2>🤖 AI-Powered Automation</h2>
+                <p class="subtitle">Let AI Handle the Tedious Work</p>
+                <div class="stat-box">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Bank Reconciliation Automated</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Invoices Auto-Processed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">SARS Deadline Adherence</div>
+                </div>
+                <ul class="bullet-list" style="margin-top: 3rem;">
+                    <li><strong>Smart Bank Reconciliation:</strong> AI matches 85-95% of transactions automatically</li>
+                    <li><strong>Invoice OCR:</strong> Forward PDF invoices via email, AI extracts all data</li>
+                    <li><strong>Fraud Detection:</strong> Real-time anomaly detection, flags suspicious transactions</li>
+                    <li><strong>Cash Flow Forecasting:</strong> AI predicts cash position with 95% accuracy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: RSA Compliance -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2>🇿🇦 Built for South Africa</h2>
+                <p class="subtitle">Not a Foreign System Retrofitted for SA</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>SARS eFiling</h3>
+                        <ul style="text-align: left; font-size: 1.2rem;">
+                            <li>✓ EMP201 Monthly</li>
+                            <li>✓ EMP501 Annual</li>
+                            <li>✓ VAT201 Returns</li>
+                            <li>✓ IRP5/IT3(a)</li>
+                            <li>✓ IT14 Income Tax</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Payroll Compliance</h3>
+                        <ul style="text-align: left; font-size: 1.2rem;">
+                            <li>✓ PAYE (SARS tables)</li>
+                            <li>✓ UIF (2%: 1%+1%)</li>
+                            <li>✓ SDL (1% of payroll)</li>
+                            <li>✓ Auto-calculations</li>
+                            <li>✓ Submission ready</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Labor Law</h3>
+                        <ul style="text-align: left; font-size: 1.2rem;">
+                            <li>✓ BCEA Leave Rules</li>
+                            <li>✓ LRA Compliance</li>
+                            <li>✓ Employment Equity</li>
+                            <li>✓ Skills Development</li>
+                            <li>✓ OH&S Tracking</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>B-BBEE & More</h3>
+                        <ul style="text-align: left; font-size: 1.2rem;">
+                            <li>✓ B-BBEE Scorecard</li>
+                            <li>✓ POPIA Compliant</li>
+                            <li>✓ SA Banking APIs</li>
+                            <li>✓ ZAR Currency</li>
+                            <li>✓ SA Tax Methods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Pricing -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2>Transparent Pricing</h2>
+                <p class="subtitle">No Hidden Fees | No Per-User Charges (Pro & Enterprise)</p>
+                <div class="price-table">
+                    <div class="price-card">
+                        <h3>Starter</h3>
+                        <div class="price">R499</div>
+                        <p style="font-size: 1.1rem;">per month</p>
+                        <ul style="text-align: left; margin-top: 1.5rem; font-size: 1.1rem;">
+                            <li>✓ Up to 5 users</li>
+                            <li>✓ Core modules</li>
+                            <li>✓ Email support</li>
+                            <li>✓ All updates</li>
+                        </ul>
+                    </div>
+                    <div class="price-card featured">
+                        <h3>Professional</h3>
+                        <div class="price">R1,999</div>
+                        <p style="font-size: 1.1rem;">per month</p>
+                        <ul style="text-align: left; margin-top: 1.5rem; font-size: 1.1rem;">
+                            <li>✓ Up to 25 users</li>
+                            <li>✓ All 10 modules</li>
+                            <li>✓ Priority support</li>
+                            <li>✓ 5 hrs training</li>
+                            <li>✓ AI features</li>
+                        </ul>
+                        <p style="margin-top: 1rem; color: #ffd700; font-weight: bold;">⭐ MOST POPULAR</p>
+                    </div>
+                    <div class="price-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">R4,999</div>
+                        <p style="font-size: 1.1rem;">per month</p>
+                        <ul style="text-align: left; margin-top: 1.5rem; font-size: 1.1rem;">
+                            <li>✓ Unlimited users</li>
+                            <li>✓ All modules + custom</li>
+                            <li>✓ Dedicated manager</li>
+                            <li>✓ 20 hrs training</li>
+                            <li>✓ 99.9% SLA</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1.3rem;">🎁 <strong>Limited Offer:</strong> 3 months free when you sign up by Dec 31, 2025!</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Comparison -->
+        <div class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2>How We Compare</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>AetherOS</th>
+                                <th>SAP B1</th>
+                                <th>NetSuite</th>
+                                <th>Sage X3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Cost (25 users)</td>
+                                <td><strong>R1,999</strong></td>
+                                <td>~R15,000</td>
+                                <td>~R10,000</td>
+                                <td>~R12,000</td>
+                            </tr>
+                            <tr>
+                                <td>Implementation Time</td>
+                                <td><strong>4-8 weeks</strong></td>
+                                <td>6-12 months</td>
+                                <td>4-6 months</td>
+                                <td>6-9 months</td>
+                            </tr>
+                            <tr>
+                                <td>RSA Tax Compliance</td>
+                                <td><span class="checkmark">✓ Built-in</span></td>
+                                <td><span class="xmark">⚠️ Custom</span></td>
+                                <td><span class="xmark">⚠️ Custom</span></td>
+                                <td><span class="xmark">⚠️ Custom</span></td>
+                            </tr>
+                            <tr>
+                                <td>SARS eFiling</td>
+                                <td><span class="checkmark">✓ Direct</span></td>
+                                <td><span class="xmark">✗ No</span></td>
+                                <td><span class="xmark">✗ No</span></td>
+                                <td><span class="xmark">⚠️ 3rd party</span></td>
+                            </tr>
+                            <tr>
+                                <td>AI Automation</td>
+                                <td><span class="checkmark">✓ Built-in</span></td>
+                                <td><span class="xmark">✗ No</span></td>
+                                <td><span class="xmark">⚠️ Limited</span></td>
+                                <td><span class="xmark">✗ No</span></td>
+                            </tr>
+                            <tr>
+                                <td>All Modules Included</td>
+                                <td><span class="checkmark">✓ Yes</span></td>
+                                <td><span class="xmark">✗ Separate</span></td>
+                                <td><span class="xmark">✗ Module pricing</span></td>
+                                <td><span class="xmark">✗ Module pricing</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 style="margin-top: 2rem;">Save R424,000+ over 3 years vs. cheapest competitor!</h3>
+            </div>
+        </div>
+
+        <!-- Slide 9: ROI -->
+        <div class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2>Real Results</h2>
+                <p class="subtitle">Average Customer Outcomes</p>
+                <div class="stat-box">
+                    <div class="stat-number">4.2</div>
+                    <div class="stat-label">Months to ROI</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Faster Month-End Close</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">73%</div>
+                    <div class="stat-label">Reduction in Admin Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Reduction in Errors</div>
+                </div>
+                <h3 style="margin-top: 3rem;">Client Testimonial:</h3>
+                <p style="font-style: italic; font-size: 1.5rem; margin-top: 1rem;">
+                    "We replaced 7 systems with AetherOS. Month-end close went from 15 days to 3 days. 
+                    The SARS Sentinel feature alone is worth the price."
+                </p>
+                <p style="margin-top: 1rem; opacity: 0.8;">— CFO, Manufacturing Company (150 employees)</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Implementation -->
+        <div class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2>Fast, Risk-Free Implementation</h2>
+                <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="feature-card">
+                        <h3>Week 1</h3>
+                        <p>Discovery & planning, process mapping, data assessment</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Week 2-3</h3>
+                        <p>System configuration, master data setup, integration</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Week 4-5</h3>
+                        <p>Data migration, testing, training all users</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Week 6-8</h3>
+                        <p>Go-live, hyper-care support, optimization</p>
+                    </div>
+                </div>
+                <h3 style="margin-top: 3rem;">What's Included:</h3>
+                <ul class="bullet-list">
+                    <li>Full project management</li>
+                    <li>Data migration (up to 100K records)</li>
+                    <li>Configuration & integration setup</li>
+                    <li>Training (up to 20 hours)</li>
+                    <li>2 weeks on-site support</li>
+                    <li>6 weeks hyper-care</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 11: Security & Compliance -->
+        <div class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2>🔒 Enterprise-Grade Security</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🛡️ Data Protection</h3>
+                        <ul style="text-align: left; font-size: 1.1rem;">
+                            <li>✓ 256-bit encryption</li>
+                            <li>✓ Daily backups</li>
+                            <li>✓ Multi-factor auth</li>
+                            <li>✓ Role-based access</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📜 Certifications</h3>
+                        <ul style="text-align: left; font-size: 1.1rem;">
+                            <li>✓ ISO 27001</li>
+                            <li>✓ SOC 2 Type II</li>
+                            <li>✓ POPIA Compliant</li>
+                            <li>✓ 99.9% Uptime SLA</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🇿🇦 SA Data Centers</h3>
+                        <ul style="text-align: left; font-size: 1.1rem;">
+                            <li>✓ Johannesburg (primary)</li>
+                            <li>✓ Cape Town (DR)</li>
+                            <li>✓ Data stays in SA</li>
+                            <li>✓ Full POPIA compliance</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Audit & Control</h3>
+                        <ul style="text-align: left; font-size: 1.1rem;">
+                            <li>✓ Complete audit trails</li>
+                            <li>✓ Change tracking</li>
+                            <li>✓ Fraud detection</li>
+                            <li>✓ Compliance reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Customer Success -->
+        <div class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2>Trusted by 500+ SA Businesses</h2>
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Active Customers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Retention Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Customer Rating</div>
+                </div>
+                <h3 style="margin-top: 3rem;">Industries We Serve:</h3>
+                <ul class="bullet-list">
+                    <li>Manufacturing & Engineering</li>
+                    <li>Retail & Wholesale Distribution</li>
+                    <li>Professional Services (Accounting, Legal, Consulting)</li>
+                    <li>Import/Export & Trading</li>
+                    <li>Construction & Property</li>
+                    <li>Healthcare & Pharmaceuticals</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 13: Why Now -->
+        <div class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2>Why Now?</h2>
+                <div class="feature-grid" style="grid-template-columns: 1fr;">
+                    <div class="feature-card">
+                        <h3>🎁 Limited Time Offer</h3>
+                        <p style="font-size: 1.8rem; margin-top: 1rem;">
+                            Sign up before December 31, 2025
+                        </p>
+                        <div class="stat-number" style="margin-top: 1rem;">3 MONTHS FREE</div>
+                        <p style="margin-top: 1rem;">That's up to R14,997 in value!</p>
+                    </div>
+                </div>
+                <ul class="bullet-list" style="margin-top: 3rem;">
+                    <li><strong>No Risk:</strong> 90-day money-back guarantee</li>
+                    <li><strong>No Commitment:</strong> Cancel anytime (monthly plans)</li>
+                    <li><strong>Fast Start:</strong> Go live in time for new fiscal year</li>
+                    <li><strong>Tax Deductible:</strong> Full expense deduction</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 14: Next Steps -->
+        <div class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2>Get Started Today</h2>
+                <p class="subtitle">3 Easy Steps to Transform Your Business</p>
+                <div class="feature-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="feature-card">
+                        <h3 style="font-size: 3rem;">1</h3>
+                        <h3>Free Demo</h3>
+                        <p>30-minute walkthrough with your industry data</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 style="font-size: 3rem;">2</h3>
+                        <h3>Free Trial</h3>
+                        <p>14 days, full access, test with your data</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 style="font-size: 3rem;">3</h3>
+                        <h3>Go Live</h3>
+                        <p>4-8 weeks implementation, full support</p>
+                    </div>
+                </div>
+                <a href="mailto:sales@aetheros-erp.co.za" class="cta-button" style="margin-top: 3rem;">
+                    📞 Book Your Free Demo Now
+                </a>
+                <p style="margin-top: 2rem; font-size: 1.3rem;">
+                    📧 sales@aetheros-erp.co.za | ☎️ +27 (0)11 123 4567 | 🌐 www.aetheros-erp.co.za
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Thank You -->
+        <div class="slide" data-slide="15">
+            <div class="slide-content">
+                <div class="logo">⚡</div>
+                <h1>Thank You</h1>
+                <h2 style="margin-top: 2rem;">Let's Transform Your Business Together</h2>
+                <div style="margin-top: 4rem;">
+                    <h3>Contact Us:</h3>
+                    <p style="font-size: 1.5rem; margin-top: 2rem;">
+                        📧 sales@aetheros-erp.co.za<br>
+                        ☎️ +27 (0)11 123 4567<br>
+                        💬 WhatsApp: +27 82 123 4567<br>
+                        🌐 www.aetheros-erp.co.za
+                    </p>
+                </div>
+                <p style="margin-top: 3rem; font-size: 1.2rem; opacity: 0.8;">
+                    Follow us: LinkedIn @AetherOS-ERP | Twitter @AetherOS_ZA
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button class="btn" onclick="previousSlide()">← Previous</button>
+        <button class="btn" onclick="nextSlide()">Next →</button>
+    </div>
+    <div class="slide-number">
+        <span id="current-slide">1</span> / <span id="total-slides">15</span>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide > totalSlides) currentSlide = totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            if (currentSlide < 1) currentSlide = 1;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

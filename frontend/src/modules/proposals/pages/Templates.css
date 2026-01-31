@@ -1,0 +1,116 @@
+.templates-page {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Favorites Card */
+.favorites-card {
+  margin-bottom: 24px;
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.favorite-item:hover {
+  border-color: #1890ff;
+  background: #e6f7ff;
+}
+
+.template-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.favorite-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-info .ant-typography-secondary {
+  font-size: 12px;
+}
+
+/* Filters */
+.filters-card {
+  margin-bottom: 24px;
+}
+
+.filters-card .ant-card-body {
+  padding: 16px;
+}
+
+/* Template Card */
+.template-card {
+  height: 100%;
+}
+
+.template-cover {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cover-icon {
+  font-size: 48px;
+  color: white;
+  opacity: 0.8;
+}
+
+/* Preview Modal */
+.template-preview {
+  margin: -24px -24px 0;
+}
+
+.preview-header-bar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-icon {
+  font-size: 48px;
+  color: white;
+}
+
+.preview-content {
+  padding: 24px;
+}
+
+.preview-content ul {
+  padding-left: 20px;
+}
+
+.preview-content li {
+  margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

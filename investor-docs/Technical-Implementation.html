@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - Technical Implementation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ===== 6.2 COVER PAGE BACKGROUND CSS (EXACT SPECIFICATION) ===== */
+        .cover-page {
+            height: 250mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.4) 0%, transparent 20%),
+                linear-gradient(135deg, #020617 0%, #1e3a8a 50%, #172554 100%);
+            margin: -20mm -20mm 0 -20mm;
+            padding: 20mm;
+            page-break-after: always;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* ===== 6.3 GRID OVERLAY CSS (EXACT SPECIFICATION) ===== */
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        /* ===== 6.4 FROSTED GLASS CONTENT BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-content {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ===== 6.5 COVER TYPOGRAPHY (EXACT SPECIFICATION) ===== */
+        /* Logo: 48px, weight 800, #ffffff */
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        
+        /* Title: 32px, weight 700, #ffffff */
+        .cover-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        /* Subtitle: 18px, weight 400, #bfdbfe, margin-bottom: 40px */
+        .cover-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 40px;
+        }
+        
+        /* Company Name: 16px, weight 600, #ffffff */
+        .cover-company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* ===== 6.6 COVER METADATA BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-info {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .cover-info .info-row {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #e0f2fe;
+        }
+        
+        /* Info Label: 14px, weight 600, #93c5fd */
+        .cover-info .info-label {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+        
+        /* Info Value: 14px, weight 400, #ffffff */
+        .cover-info .info-value {
+            color: #ffffff;
+        }
+        
+        /* ===== 6.7 TAGLINE CSS (EXACT SPECIFICATION) ===== */
+        /* Tagline: 12px, weight 400, #93c5fd, letter-spacing: 2px, UPPERCASE */
+        .cover-tagline {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: #93c5fd;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-page {
+            page-break-after: always;
+            padding: 40px 0;
+        }
+        
+        .toc-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 15px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        
+        .toc-number {
+            color: #0ea5e9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .content-section {
+            page-break-before: always;
+            padding: 20px 0;
+        }
+        
+        /* ===== 7.1 INTRO BOX (EXACT SPECIFICATION) ===== */
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border-left: 4px solid #1e3a8a;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro-title {
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .intro-text {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        
+        /* ===== 4.3 HEADING SPECIFICATIONS (EXACT) ===== */
+        h1 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h3 {
+            color: #3730a3;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        p {
+            margin: 12px 0;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            page-break-inside: avoid;
+        }
+        
+        li {
+            margin: 8px 0;
+            page-break-inside: avoid;
+        }
+        
+        /* ===== 7.3 CODE BLOCK STYLING (EXACT SPECIFICATION) ===== */
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            page-break-inside: avoid;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* ===== 7.4 BLOCKQUOTE STYLING (EXACT SPECIFICATION) ===== */
+        blockquote {
+            border-left: 4px solid #7c3aed;
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #faf5ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        /* ===== 7.2 TABLE STYLING (EXACT SPECIFICATION) ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        /* ===== 7.5 HORIZONTAL RULE (EXACT SPECIFICATION) ===== */
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        
+        /* ===== 7.6 STRONG/BOLD TEXT (EXACT SPECIFICATION) ===== */
+        strong {
+            color: #1e3a8a;
+        }
+        
+        .header-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #64748b;
+        }
+        
+        .page-header {
+            position: running(header);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .page-footer {
+            position: running(footer);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-planned {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #dcfce7;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    
+      <div class="cover-page">
+        <div class="cover-content">
+          <div class="cover-logo">SiyaBusa ERP</div>
+          <div class="cover-title">Technical Implementation</div>
+          <div class="cover-subtitle">Investor Documentation</div>
+          <div class="cover-company">Masaphokati Technologies (Pty) Ltd</div>
+          
+          <div class="cover-info">
+            <div class="info-row">
+              <span class="info-label">Document Version:</span>
+              <span class="info-value"> 1.0</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Effective Date:</span>
+              <span class="info-value"> January 29, 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Department:</span>
+              <span class="info-value"> Executive</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Classification:</span>
+              <span class="info-value"> Confidential</span>
+            </div>
+          </div>
+          
+          <div class="cover-tagline">WE RULE. WE GOVERN. WE EMPOWER.</div>
+        </div>
+      </div>
+    
+      <div class="toc-page">
+        <h1 class="toc-title">Table of Contents</h1>
+        <ul class="toc-list">
+          <li class="toc-item"><span class="toc-number">1.</span> AWS DEPLOYMENT STATUS</li><li class="toc-item"><span class="toc-number">2.</span> FRONTEND BACKEND INTEGRATION</li><li class="toc-item"><span class="toc-number">3.</span> DATABASE MIGRATION SUCCESS</li>
+        </ul>
+      </div>
+    
+          <div class="content-section">
+            <h1>AWS DEPLOYMENT STATUS</h1>
+            <h1>🎉 DEPLOYMENT STATUS - AetherOS ERP on AWS</h1>
+<h2>✅ COMPLETED (Steps 1-8)</h2>
+<h3>1. EC2 Instance ✅</h3>
+<ul>
+<li>**Public IP**: `51.21.219.35`</li>
+<li>**Instance ID**: `i-0b20fd06fae7e84b1`</li>
+<li>**Instance Type**: t3.micro (FREE tier)</li>
+<li>**Region**: eu-north-1</li>
+<li>**Status**: ✅ Running</li>
+</ul>
+<h3>2. RDS PostgreSQL Database ✅</h3>
+<ul>
+<li>**Endpoint**: `aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com`</li>
+<li>**Port**: `5432`</li>
+<li>**Database Name**: `aetheros_erp`</li>
+<li>**Instance Type**: db.t3.micro (FREE tier)</li>
+<li>**Status**: ✅ Running</li>
+<li>**Tables Created**: users, chart_of_accounts, journal_entries, journal_entry_lines</li>
+</ul>
+<h3>3. Backend API ✅</h3>
+<ul>
+<li>**URL**: `http://51.21.219.35:3000`</li>
+<li>**Status**: ✅ LIVE and accessible</li>
+<li>**Health Check**: `curl http://51.21.219.35:3000/health` → `{"status":"OK","message":"Server is running"}`</li>
+<li>**Process Manager**: PM2 (auto-restart enabled)</li>
+<li>**Environment**: Production</li>
+<li>**Database**: Connected to RDS ✅</li>
+</ul>
+<h3>4. Frontend Build ✅</h3>
+<ul>
+<li>**Status**: ✅ Built successfully</li>
+<li>**Size**: 1.4 MB</li>
+<li>**Location**: `/frontend/dist/`</li>
+<li>**API URL**: `http://51.21.219.35:3000`</li>
+</ul>
+<hr>
+<h2>📋 REMAINING STEPS (Steps 9-10)</h2>
+<h3>Step 9: Deploy Frontend to S3 (10 minutes)</h3>
+<p>Since AWS CLI is not installed, use <strong>AWS Console</strong> (web browser):</p>
+<ol>
+<li>**Go to S3** in AWS Console
+</li>
+<li>**Create Bucket**:
+- Click **Create bucket**
+- Bucket name: `aetheros-erp-frontend-YOUR_AWS_ACCOUNT_ID` (must be globally unique)
+- Region: **eu-north-1** (same as your EC2)
+- **Uncheck** "Block all public access" ⚠️
+- Check "I acknowledge that the current settings might result in this bucket and the objects within becoming public"
+- Click **Create bucket**
+</li>
+<li>**Upload Frontend Files**:
+- Open your new bucket
+- Click **Upload**
+- Click **Add files**
+- Select ALL files from: `/Users/sibusisomavuso/Desktop/Worldclass ERP Software /frontend/dist/`
+- **Important**: Upload the contents of `dist/`, not the `dist/` folder itself
+- Files to upload:
+  * `index.html`
+  * `vite.svg`
+  * The entire `assets/` folder
+- Click **Upload**
+- Wait for completion
+</li>
+<li>**Enable Static Website Hosting**:
+- Go to **Properties** tab
+- Scroll to **Static website hosting**
+- Click **Edit**
+- Select **Enable**
+- Index document: `index.html`
+- Error document: `index.html`
+- Click **Save changes**
+- **Copy the Bucket website endpoint** (example: `http://aetheros-erp-frontend-123456.s3-website-eu-north-1.amazonaws.com`)
+</li>
+<li>**Set Bucket Policy for Public Access**:
+- Go to **Permissions** tab
+- Scroll to **Bucket policy**
+- Click **Edit**
+- Paste this (replace `YOUR-BUCKET-NAME`):</li>
+</ol>
+<pre><code class="language-json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;PublicReadGetObject&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: &quot;s3:GetObject&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:s3:::YOUR-BUCKET-NAME/*&quot;
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li>Click **Save changes**</li>
+</ul>
+<ol start="6">
+<li>**Done!** Your frontend is now live at the S3 website endpoint.</li>
+</ol>
+<hr>
+<h3>Step 10: Test Your Application (5 minutes)</h3>
+<ol>
+<li>**Open the S3 website URL** in your browser
+- Example: `http://aetheros-erp-frontend-123456.s3-website-eu-north-1.amazonaws.com`
+</li>
+<li>**You should see**: AetherOS ERP login page with:
+- Oracle blue header
+- Microsoft purple CoPilot button
+- Professional login form
+</li>
+<li>**Test Navigation**:
+- Click around the menu
+- Go to **Financial Management**
+- Check the enhanced pages with purple gradients:
+  * Dashboard (KPI cards)
+  * Journal Entries (with secondary sidebar)
+  * Trial Balance (with filters)
+  * Chart of Accounts (with secondary sidebar)
+  * Financial Statements Hub
+</li>
+<li>**Verify API Connection**:
+- Open browser console (F12)
+- Navigate through pages
+- Check Network tab - you should see API calls to `http://51.21.219.35:3000`</li>
+</ol>
+<hr>
+<h2>🎯 Your Live URLs</h2>
+<ul>
+<li>**Backend API**: `http://51.21.219.35:3000`</li>
+<li>**Frontend**: `http://aetheros-erp-frontend-[YOUR-ID].s3-website-eu-north-1.amazonaws.com`</li>
+<li>**Database**: `aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com:5432`</li>
+</ul>
+<hr>
+<h2>💰 Monthly Cost</h2>
+<p><strong>Current Setup (First 12 Months)</strong>: <strong>$0/month</strong> ✅</p>
+<ul>
+<li>EC2 t3.micro: FREE (750 hours/month)</li>
+<li>RDS db.t3.micro: FREE (750 hours/month + 20GB)</li>
+<li>S3 Storage: FREE (5GB + 20,000 requests)</li>
+<li>Data Transfer: FREE (15GB outbound)</li>
+</ul>
+<p><strong>After 12 Months</strong>: ~$28-35/month</p>
+<hr>
+<h2>🔧 How to Update Your Code</h2>
+<h3>Update Backend:</h3>
+<pre><code class="language-bash"># On your Mac
+cd backend
+npm run build
+scp -i ~/.ssh/aetheros-aws.pem -r dist/ ec2-user@51.21.219.35:~/backend/
+
+# SSH into EC2
+ssh -i ~/.ssh/aetheros-aws.pem ec2-user@51.21.219.35
+
+# Restart backend
+pm2 restart aetheros-backend
+pm2 logs aetheros-backend --lines 20
+</code></pre>
+<h3>Update Frontend:</h3>
+<pre><code class="language-bash"># On your Mac
+cd frontend
+npm run build
+
+# Upload dist/ contents to S3 via AWS Console
+# Or install AWS CLI and use:
+# aws s3 sync dist/ s3://your-bucket-name --delete
+</code></pre>
+<hr>
+<h2>🆘 Troubleshooting</h2>
+<h3>Backend not responding:</h3>
+<pre><code class="language-bash">ssh -i ~/.ssh/aetheros-aws.pem ec2-user@51.21.219.35
+pm2 status
+pm2 logs aetheros-backend
+pm2 restart aetheros-backend
+</code></pre>
+<h3>Database connection issues:</h3>
+<pre><code class="language-bash">ssh -i ~/.ssh/aetheros-aws.pem ec2-user@51.21.219.35
+psql &quot;postgresql://postgres:caxMex-0putca-dyjnah@aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com:5432/aetheros_erp&quot; -c &quot;SELECT version();&quot;
+</code></pre>
+<h3>Frontend blank page:</h3>
+<ul>
+<li>Check browser console for errors</li>
+<li>Verify S3 bucket policy is set correctly</li>
+<li>Ensure static website hosting is enabled</li>
+<li>Check that `index.html` is in the root of the bucket</li>
+</ul>
+<hr>
+<h2>🔒 Security Notes</h2>
+<p>⚠️ <strong>Important</strong>: Your backend API is currently accessible via HTTP (not HTTPS) on port 3000. For production use, you should:</p>
+<ol>
+<li>Set up an Application Load Balancer with SSL certificate</li>
+<li>Or use CloudFront with your backend behind an ALB</li>
+<li>Or restrict backend port 3000 to only CloudFront IP ranges</li>
+</ol>
+<p>⚠️ <strong>Database Password</strong>: Currently stored in plain text in <code>.env</code>. For production:</p>
+<ul>
+<li>Use AWS Secrets Manager</li>
+<li>Or AWS Systems Manager Parameter Store</li>
+</ul>
+<hr>
+<h2>📚 Next Steps (Optional)</h2>
+<ol>
+<li>**Add HTTPS** with CloudFront distribution</li>
+<li>**Custom Domain** with Route 53</li>
+<li>**Email Service** with AWS SES</li>
+<li>**File Storage** with S3 for uploads</li>
+<li>**Monitoring** with CloudWatch dashboards</li>
+<li>**Backups** - RDS automated backups already enabled (7 days)</li>
+<li>**SSL Certificate** - Free with AWS Certificate Manager</li>
+</ol>
+<hr>
+<h2>🎉 Congratulations!</h2>
+<p>You&#39;ve successfully deployed AetherOS ERP to AWS using the FREE tier!</p>
+<p>Your enterprise-grade ERP system is now:</p>
+<ul>
+<li>✅ Running on production infrastructure</li>
+<li>✅ Using managed PostgreSQL database</li>
+<li>✅ Scalable and reliable</li>
+<li>✅ Costing $0/month for 12 months</li>
+</ul>
+<p><strong>System is 90% complete!</strong> Just upload frontend to S3 and you&#39;re done! 🚀</p>
+<p><em>Last updated: November 8, 2025 - 02:50 AM SAST</em></p>
+
+          </div>
+        
+          <div class="content-section">
+            <h1>FRONTEND BACKEND INTEGRATION</h1>
+            <h1>🔗 Frontend-Backend Integration Guide</h1>
+<h2>Current Status: <strong>MOCK DATA</strong> → Moving to <strong>REAL API CALLS</strong></h2>
+<hr>
+<h2>🎯 Problem Statement</h2>
+<p>Your ERP system has:</p>
+<ul>
+<li>✅ Beautiful frontend with all modules working</li>
+<li>✅ Backend API with 13 workspace controllers deployed</li>
+<li>❌ **Frontend NOT connected to backend (using mock data)**</li>
+<li>❌ **No centralized API service**</li>
+<li>❌ **No authentication headers on API calls**</li>
+</ul>
+<h2>🔧 Solution Implemented</h2>
+<h3>1. Centralized API Service</h3>
+<p><strong>File Created:</strong> <code>/frontend/src/services/api.service.ts</code></p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>✅ Single source of truth for API_BASE_URL</li>
+<li>✅ Automatic authentication headers (Bearer token)</li>
+<li>✅ Automatic workspace/tenant context (X-Workspace-ID, X-Tenant-ID)</li>
+<li>✅ Consistent error handling</li>
+<li>✅ Auto-redirect to login on 401 errors</li>
+<li>✅ Pre-built functions for all 13 workspaces</li>
+</ul>
+<p><strong>Usage Example:</strong>
+```typescript
+import { workspaceApi } from &#39;../services/api.service&#39;;</p>
+<p>// Get logistics dashboard data
+const data = await workspaceApi.logistics.getDashboard();</p>
+<p>// Get sales leads with filters
+const leads = await workspaceApi.sales.getLeads({ status: &#39;active&#39; });</p>
+<p>// Create new trip
+const trip = await workspaceApi.logistics.createTrip({
+  vehicle_id: 1,
+  driver_id: 5,
+  route: &#39;Johannesburg to Durban&#39;
+});
+```</p>
+<hr>
+<h2>📡 API Endpoints Mapping</h2>
+<h3>Backend API Structure (51.21.219.35:3000)</h3>
+<p>```
+/api/workspaces/financial/*       → Financial workspace
+/api/workspaces/sales/*           → Sales workspace
+/api/workspaces/purchase/*        → Purchase workspace
+/api/workspaces/inventory/*       → Inventory workspace
+/api/workspaces/hr/*              → HR workspace
+/api/workspaces/logistics/*       → Logistics workspace
+/api/workspaces/compliance/*      → Compliance workspace
+/api/workspaces/sars/*            → SARS workspace
+/api/workspaces/assets/*          → Assets workspace
+/api/workspaces/manufacturing/*   → Manufacturing workspace
+/api/workspaces/warehouse/*       → Warehouse workspace
+/api/workspaces/admin/*           → Admin workspace
+/api/workspaces/superadmin/*      → Super Admin workspace
+```</p>
+<h3>Authentication Flow</h3>
+<p>```</p>
+<ol>
+<li>User logs in → POST /api/auth/login
+Response: { token, user, workspace }
+</li>
+<li>Store in localStorage:
+- token (JWT)
+- user (user object)
+- workspaceId (current workspace)
+- tenantId (tenant ID)
+</li>
+<li>All subsequent API calls include:
+Headers:
+  Authorization: Bearer <token>
+  X-Workspace-ID: <workspaceId>
+  X-Tenant-ID: <tenantId>
+\`\`\`</li>
+</ol>
+<hr>
+<h2>🧪 Testing API Connectivity</h2>
+<h3>Step 1: Access API Test Dashboard</h3>
+<p>Navigate to: <strong><a href="http://localhost:5173/api-test">http://localhost:5173/api-test</a></strong></p>
+<p>This dashboard will:</p>
+<ul>
+<li>✅ Test backend connectivity</li>
+<li>✅ Show authentication status</li>
+<li>✅ Test all 14 workspace endpoints</li>
+<li>✅ Display response times</li>
+<li>✅ Show detailed error messages</li>
+</ul>
+<h3>Step 2: Check Backend Health</h3>
+<p>```bash
+curl <a href="http://51.21.219.35:3000/api/health">http://51.21.219.35:3000/api/health</a>
+```</p>
+<p>Expected response:
+```json
+{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;timestamp&quot;: &quot;2025-11-16T...&quot;
+}
+```</p>
+<h3>Step 3: Test Authentication</h3>
+<p>```bash
+curl -X POST <a href="http://51.21.219.35:3000/api/auth/login">http://51.21.219.35:3000/api/auth/login</a> <br>  -H &quot;Content-Type: application/json&quot; <br>  -d &#39;{
+    &quot;email&quot;: &quot;<a href="mailto:admin@aetheros.com">admin@aetheros.com</a>&quot;,
+    &quot;password&quot;: &quot;your-password&quot;
+  }&#39;
+```</p>
+<p>Expected response:
+```json
+{
+  &quot;success&quot;: true,
+  &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;,
+  &quot;user&quot;: { ... },
+  &quot;workspace&quot;: { ... }
+}
+```</p>
+<hr>
+<h2>🔄 Module Migration Status</h2>
+<h3>✅ Already Updated (Using API Service)</h3>
+<ol>
+<li>**Logistics Dashboard** - Connected to `/api/workspaces/logistics/dashboard`</li>
+</ol>
+<h3>⏳ Pending Migration (Still Using Mock Data)</h3>
+<ol start="2">
+<li>**Sales Module** - Needs update to use `workspaceApi.sales.*`</li>
+<li>**Purchase Module** - Needs update to use `workspaceApi.purchase.*`</li>
+<li>**Financial Module** - Needs update to use `workspaceApi.financial.*`</li>
+<li>**Inventory Module** - Needs update to use `workspaceApi.inventory.*`</li>
+<li>**HR Module** - Needs update to use `workspaceApi.hr.*`</li>
+<li>**SARS Sentinel** - Needs update to use `workspaceApi.sars.*`</li>
+<li>**Assets Module** - Needs update to use `workspaceApi.assets.*`</li>
+<li>**Manufacturing Module** - Needs update to use `workspaceApi.manufacturing.*`</li>
+<li>**Warehouse Module** - Needs update to use `workspaceApi.warehouse.*`</li>
+</ol>
+<hr>
+<h2>🚀 How to Connect a Module to Backend</h2>
+<h3>Example: HR Dashboard</h3>
+<p><strong>Before (Mock Data):</strong>
+```typescript
+const fetchDashboardData = async () =&gt; {
+  setLoading(true);
+  try {
+    // Mock data
+    setStats({
+      total_employees: 127,
+      monthly_payroll: 4856300,
+      // ...
+    });
+  } catch (error) {
+    console.error(&#39;Error:&#39;, error);
+  } finally {
+    setLoading(false);
+  }
+};
+```</p>
+<p><strong>After (Real API):</strong>
+```typescript
+import { workspaceApi } from &#39;../../services/api.service&#39;;</p>
+<p>const fetchDashboardData = async () =&gt; {
+  setLoading(true);
+  try {
+    const data = await workspaceApi.hr.getDashboard();</p>
+<pre><code>if (data &amp;&amp; data.success) {
+  setStats(data.data.stats);
+} else {
+  throw new Error(&#39;Failed to fetch dashboard data&#39;);
+}
+</code></pre>
+<p>  } catch (error) {
+    console.error(&#39;Error fetching HR dashboard:&#39;, error);
+    // Fallback to mock data on error
+    setStats({
+      total_employees: 127,
+      monthly_payroll: 4856300,
+      // ...
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+```</p>
+<hr>
+<h2>🔐 Authentication Setup</h2>
+<h3>Login Flow</h3>
+<ol>
+<li>User enters email/password on Login page</li>
+<li>Frontend calls: `authApi.login(email, password)`</li>
+<li>Backend validates credentials</li>
+<li>Backend returns: `{ token, user, workspace }`</li>
+<li>Frontend stores in localStorage</li>
+<li>All subsequent API calls include token</li>
+</ol>
+<h3>Auto-Login (Remember Me)</h3>
+<p>When page loads, frontend checks:
+```typescript
+const token = localStorage.getItem(&#39;token&#39;);
+if (token) {
+  // Call authApi.me() to validate token
+  const user = await authApi.me();
+  // If valid, user is logged in
+  // If invalid (401), redirect to login
+}
+```</p>
+<hr>
+<h2>📋 Environment Configuration</h2>
+<h3>Development (.env.development)</h3>
+<p>```bash
+VITE_API_URL=<a href="http://localhost:3000">http://localhost:3000</a>
+VITE_ENV=development
+VITE_API_DEBUG=true
+```</p>
+<h3>Production (.env.production)</h3>
+<p>```bash
+VITE_API_URL=<a href="http://51.21.219.35:3000">http://51.21.219.35:3000</a>
+VITE_ENV=production
+VITE_API_DEBUG=true
+```</p>
+<hr>
+<h2>🐛 Common Issues &amp; Solutions</h2>
+<h3>Issue 1: &quot;Network Error&quot; on API Calls</h3>
+<p><strong>Cause:</strong> Backend not running or CORS issues</p>
+<p><strong>Check:</strong>
+```bash</p>
+<h1>Test backend health</h1>
+<p>curl <a href="http://51.21.219.35:3000/api/health">http://51.21.219.35:3000/api/health</a></p>
+<h1>Check if PM2 is running</h1>
+<p>ssh <a href="mailto:ec2-user@51.21.219.35">ec2-user@51.21.219.35</a>
+pm2 status
+```</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Ensure backend is running on port 3000</li>
+<li>Check CORS configuration in backend allows frontend origin</li>
+</ul>
+<hr>
+<h3>Issue 2: &quot;401 Unauthorized&quot; Errors</h3>
+<p><strong>Cause:</strong> Missing or invalid authentication token</p>
+<p><strong>Check:</strong>
+```javascript
+console.log(&#39;Token:&#39;, localStorage.getItem(&#39;token&#39;));
+console.log(&#39;Workspace ID:&#39;, localStorage.getItem(&#39;workspaceId&#39;));
+```</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Login again to get fresh token</li>
+<li>Check token expiration (JWT)</li>
+<li>Verify token is being sent in Authorization header</li>
+</ul>
+<hr>
+<h3>Issue 3: &quot;Workspace Not Found&quot; or &quot;403 Forbidden&quot;</h3>
+<p><strong>Cause:</strong> Missing X-Workspace-ID header or invalid workspace access</p>
+<p><strong>Check:</strong>
+```javascript
+console.log(&#39;Workspace ID:&#39;, localStorage.getItem(&#39;workspaceId&#39;));
+console.log(&#39;Tenant ID:&#39;, localStorage.getItem(&#39;tenantId&#39;));
+```</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Ensure workspace_id is stored after login</li>
+<li>Verify user has access to requested workspace</li>
+<li>Check multi-tenant isolation in backend</li>
+</ul>
+<hr>
+<h3>Issue 4: &quot;Cannot read property of undefined&quot;</h3>
+<p><strong>Cause:</strong> API response structure different from expected</p>
+<p><strong>Debug:</strong>
+```typescript
+try {
+  const data = await workspaceApi.logistics.getDashboard();
+  console.log(&#39;API Response:&#39;, data);</p>
+<p>  // Check if response has expected structure
+  if (!data || !data.success) {
+    console.error(&#39;Unexpected response:&#39;, data);
+  }
+} catch (error) {
+  console.error(&#39;API Error:&#39;, error);
+}
+```</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Log full API response to see actual structure</li>
+<li>Update TypeScript interfaces to match backend response</li>
+<li>Add defensive checks before accessing nested properties</li>
+</ul>
+<hr>
+<h2>📊 Backend Response Structure (Standard)</h2>
+<p>All workspace endpoints return:
+```json
+{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;stats&quot;: { ... },
+    &quot;recentActivity&quot;: [ ... ],
+    &quot;alerts&quot;: [ ... ]
+  },
+  &quot;timestamp&quot;: &quot;2025-11-16T...&quot;
+}
+```</p>
+<p>Error responses:
+```json
+{
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Error message here&quot;,
+  &quot;code&quot;: &quot;ERROR_CODE&quot;,
+  &quot;timestamp&quot;: &quot;2025-11-16T...&quot;
+}
+```</p>
+<hr>
+<h2>✅ Next Steps (Priority Order)</h2>
+<h3>Immediate (Today)</h3>
+<ol>
+<li>✅ Test API Test Dashboard (`/api-test`)</li>
+<li>✅ Verify backend health endpoint works</li>
+<li>✅ Test login flow and token storage</li>
+<li>✅ Verify one module (Logistics) connects successfully</li>
+</ol>
+<h3>Short Term (This Week)</h3>
+<ol start="5">
+<li>⏳ Connect Sales module to backend</li>
+<li>⏳ Connect Financial module to backend</li>
+<li>⏳ Connect HR module to backend</li>
+<li>⏳ Connect Inventory module to backend</li>
+<li>⏳ Test all CRUD operations (Create, Read, Update, Delete)</li>
+</ol>
+<h3>Medium Term (Next Week)</h3>
+<ol start="10">
+<li>⏳ Replace all remaining mock data</li>
+<li>⏳ Add loading states for all API calls</li>
+<li>⏳ Add error boundaries for failed API calls</li>
+<li>⏳ Implement data caching (React Query or SWR)</li>
+<li>⏳ Add retry logic for failed requests</li>
+</ol>
+<hr>
+<h2>🔍 Debugging Tips</h2>
+<h3>Enable API Logging</h3>
+<p>Add this to your component:
+```typescript
+import { API_BASE_URL } from &#39;../../services/api.service&#39;;</p>
+<p>console.log(&#39;API Base URL:&#39;, API_BASE_URL);
+console.log(&#39;Token:&#39;, localStorage.getItem(&#39;token&#39;));
+console.log(&#39;Workspace ID:&#39;, localStorage.getItem(&#39;workspaceId&#39;));
+```</p>
+<h3>Monitor Network Requests</h3>
+<ol>
+<li>Open Chrome DevTools (F12)</li>
+<li>Go to **Network** tab</li>
+<li>Filter by **XHR** or **Fetch**</li>
+<li>Click on request to see:
+- Request headers (check Authorization)
+- Response body (check data structure)
+- Status code (200, 401, 500, etc.)</li>
+</ol>
+<h3>Test API Directly (Postman/Insomnia)</h3>
+<p>```
+GET <a href="http://51.21.219.35:3000/api/workspaces/logistics/dashboard">http://51.21.219.35:3000/api/workspaces/logistics/dashboard</a></p>
+<p>Headers:
+  Authorization: Bearer <your-token>
+  X-Workspace-ID: <your-workspace-id>
+  Content-Type: application/json
+```</p>
+<hr>
+<h2>📞 Need Help?</h2>
+<p>If you encounter issues:</p>
+<ol>
+<li>Check API Test Dashboard first (`/api-test`)</li>
+<li>Review browser console for errors</li>
+<li>Check Network tab in DevTools</li>
+<li>Verify backend is running: `pm2 status`</li>
+<li>Check backend logs: `pm2 logs`</li>
+</ol>
+<hr>
+<p><strong>Last Updated:</strong> November 16, 2025<br><strong>Status:</strong> API Service Created, Testing Phase<br><strong>Next:</strong> Connect all modules to real backend data</p>
+
+          </div>
+        
+          <div class="content-section">
+            <h1>DATABASE MIGRATION SUCCESS</h1>
+            <h1>🎉 Database Migration SUCCESS - November 12, 2024</h1>
+<h2>✅ MIGRATION COMPLETE</h2>
+<p><strong>Time</strong>: 14:48 UTC<br><strong>Database</strong>: aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com<br><strong>Status</strong>: ALL TABLES CREATED ✅</p>
+<hr>
+<h2>📊 Created Objects</h2>
+<h3>Schemas (3)</h3>
+<ul>
+<li>✅ `sales`</li>
+<li>✅ `logistics`  </li>
+<li>✅ `financial`</li>
+</ul>
+<h3>Tables (5)</h3>
+<ul>
+<li>✅ `sales.customers` (1 row - 4PL.COM)</li>
+<li>✅ `logistics.processed_documents` (0 rows)</li>
+<li>✅ `logistics.loads` (0 rows)</li>
+<li>✅ `financial.invoices` (0 rows)</li>
+<li>✅ `financial.invoice_line_items` (0 rows)</li>
+</ul>
+<hr>
+<h2>🔧 Migration Output</h2>
+<pre><code>🔄 Starting database migration...
+
+📁 Creating schemas...
+✅ Schemas created
+
+📋 Creating sales.customers table...
+✅ sales.customers created
+
+📋 Creating logistics.processed_documents table...
+✅ logistics.processed_documents created
+
+📋 Creating logistics.loads table...
+✅ logistics.loads created
+
+📋 Creating financial.invoices table...
+✅ financial.invoices created
+
+📋 Creating financial.invoice_line_items table...
+✅ financial.invoice_line_items created
+
+👤 Inserting sample customer...
+✅ Sample customer created with ID: 1
+
+🔍 Verifying tables...
+
+📊 Created tables:
+   • financial.invoice_line_items
+   • financial.invoices
+   • logistics.loads
+   • logistics.processed_documents
+   • sales.customers
+
+👥 Total customers: 1
+
+════════════════════════════════════════
+   ✅ MIGRATION COMPLETE!
+════════════════════════════════════════
+
+🎉 Database is ready!
+</code></pre>
+<hr>
+<h2>⚠️ NEXT STEP: Fix Backend Schema References</h2>
+<p><strong>Problem</strong>: Backend queries <code>customers</code> but table is <code>sales.customers</code></p>
+<p><strong>Solution</strong>: Update backend SQL queries to include schema prefix:</p>
+<pre><code class="language-typescript">// Update in: backend/src/controllers/sales.controller.ts
+FROM customers c              // OLD ❌
+FROM sales.customers c        // NEW ✅
+</code></pre>
+<p><strong>Command to fix and restart</strong>:</p>
+<pre><code class="language-bash">ssh -i ~/.ssh/aetheros-aws.pem ec2-user@51.21.219.35
+cd /home/ec2-user/backend/src/controllers
+# Edit sales.controller.ts
+pm2 restart all
+</code></pre>
+<hr>
+<h2>📝 Test Verification</h2>
+<p>Run this to verify everything:</p>
+<pre><code class="language-bash">ssh -i ~/.ssh/aetheros-aws.pem ec2-user@51.21.219.35 &quot;node verify-db.js&quot;
+</code></pre>
+<p>Expected output:</p>
+<pre><code>✅ Connected successfully!
+Schemas found: 3
+  - financial
+  - logistics
+  - sales
+Tables found: 5
+Customers found: 1
+  - 4PL.COM - Logistical Solutions Provider (TAUFEEQ PETERSEN)
+</code></pre>
+<hr>
+<h2>🎯 What&#39;s Working</h2>
+<p>✅ RDS database accessible<br>✅ All schemas created<br>✅ All tables created with proper foreign keys<br>✅ Sample customer data inserted<br>✅ Backend server running (port 3000)<br>✅ Frontend deployed to S3  </p>
+<h2>🚫 What Needs Fixing</h2>
+<p>❌ Backend SQL queries need schema prefix (<code>sales.customers</code>)<br>❌ OCR extraction needs testing with live data  </p>
+<p><strong>Next</strong>: Update backend code to fix schema references, then test full workflow!</p>
+
+          </div>
+        
+</body>
+</html>

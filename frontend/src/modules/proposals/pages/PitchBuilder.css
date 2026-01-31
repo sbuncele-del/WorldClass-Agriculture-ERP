@@ -1,0 +1,425 @@
+.pitch-builder-page {
+  padding: 32px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.pitch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pitch-header h2 {
+  margin: 0;
+  color: #1e293b;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.header-actions .ant-btn {
+  border-radius: 8px;
+  height: 42px;
+  padding: 0 24px;
+  font-weight: 500;
+}
+
+.header-actions .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.header-actions .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Steps Card */
+.steps-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 24px;
+}
+
+.steps-card .ant-steps-item-icon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+}
+
+.steps-card .ant-steps-item-process .ant-steps-item-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.steps-card .ant-steps-item-finish .ant-steps-item-icon {
+  background: #10b981;
+  border: none;
+}
+
+.steps-card .ant-steps-item-finish .ant-steps-item-icon .anticon {
+  color: white;
+}
+
+.steps-card .ant-steps-item-title {
+  font-weight: 500;
+}
+
+/* Content Card */
+.content-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+}
+
+.step-content {
+  padding: 8px;
+}
+
+.step-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.step-header h3 {
+  margin: 0;
+  color: #1e293b;
+}
+
+/* Form Styling */
+.step-content .ant-form-item-label > label {
+  font-weight: 600;
+  color: #475569;
+}
+
+.step-content .ant-input,
+.step-content .ant-select-selector,
+.step-content .ant-input-number,
+.step-content .ant-picker {
+  border-radius: 10px !important;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.step-content .ant-input:focus,
+.step-content .ant-select-focused .ant-select-selector,
+.step-content .ant-input-number-focused {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.step-content textarea.ant-input {
+  border-radius: 10px !important;
+}
+
+/* Pain Points */
+.pain-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pain-point-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pain-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Impact Section */
+.impact-section {
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fee2e2 100%);
+  border-radius: 16px;
+}
+
+.impact-section h5 {
+  margin-bottom: 16px;
+  color: #92400e;
+}
+
+.impact-card {
+  border-radius: 12px;
+  text-align: center;
+  border: none;
+  background: white;
+}
+
+.impact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 24px;
+}
+
+/* Value Props */
+.value-props-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.value-prop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.value-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Deliverables */
+.deliverable-card {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  height: 100%;
+}
+
+.deliverable-card h5 {
+  color: #667eea;
+  margin-bottom: 12px;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.team-card {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.team-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.team-card-header h5 {
+  margin: 0;
+  color: #667eea;
+}
+
+.add-team-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+}
+
+/* Milestones */
+.milestones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.milestone-card {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.milestone-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* Investment */
+.investment-breakdown {
+  margin-top: 16px;
+}
+
+.breakdown-card {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  text-align: center;
+}
+
+/* Case Studies */
+.empty-case-studies {
+  text-align: center;
+  padding: 48px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 16px;
+  border: 2px dashed #cbd5e1;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #fbbf24;
+  margin-bottom: 16px;
+}
+
+.case-study-form {
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+/* Closing */
+.closing-checklist {
+  padding: 24px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-radius: 16px;
+}
+
+.closing-checklist h5 {
+  margin-bottom: 16px;
+  color: #065f46;
+}
+
+.checklist-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 8px;
+}
+
+.checklist-item span {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Navigation */
+.step-navigation {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.step-navigation .ant-btn {
+  height: 48px;
+  padding: 0 32px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.step-navigation .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.step-navigation .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Radio Buttons */
+.step-content .ant-radio-button-wrapper {
+  border-radius: 8px;
+  margin-right: 8px;
+  border: 2px solid #e2e8f0;
+  height: 42px;
+  line-height: 38px;
+}
+
+.step-content .ant-radio-button-wrapper:first-child {
+  border-radius: 8px;
+}
+
+.step-content .ant-radio-button-wrapper:last-child {
+  border-radius: 8px;
+}
+
+.step-content .ant-radio-button-wrapper-checked {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+/* Slider */
+.step-content .ant-slider-track {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.step-content .ant-slider-handle {
+  border-color: #667eea;
+}
+
+.step-content .ant-slider-handle:hover {
+  border-color: #764ba2;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pitch-builder-page {
+    padding: 16px;
+  }
+
+  .steps-card {
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist-items {
+    grid-template-columns: 1fr;
+  }
+}

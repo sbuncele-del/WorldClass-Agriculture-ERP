@@ -1,0 +1,1736 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - Market Strategy Pricing 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ===== 6.2 COVER PAGE BACKGROUND CSS (EXACT SPECIFICATION) ===== */
+        .cover-page {
+            height: 250mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.4) 0%, transparent 20%),
+                linear-gradient(135deg, #020617 0%, #1e3a8a 50%, #172554 100%);
+            margin: -20mm -20mm 0 -20mm;
+            padding: 20mm;
+            page-break-after: always;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* ===== 6.3 GRID OVERLAY CSS (EXACT SPECIFICATION) ===== */
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        /* ===== 6.4 FROSTED GLASS CONTENT BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-content {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ===== 6.5 COVER TYPOGRAPHY (EXACT SPECIFICATION) ===== */
+        /* Logo: 48px, weight 800, #ffffff */
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        
+        /* Title: 32px, weight 700, #ffffff */
+        .cover-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        /* Subtitle: 18px, weight 400, #bfdbfe, margin-bottom: 40px */
+        .cover-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 40px;
+        }
+        
+        /* Company Name: 16px, weight 600, #ffffff */
+        .cover-company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* ===== 6.6 COVER METADATA BOX CSS (EXACT SPECIFICATION) ===== */
+        .cover-info {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .cover-info .info-row {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #e0f2fe;
+        }
+        
+        /* Info Label: 14px, weight 600, #93c5fd */
+        .cover-info .info-label {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+        
+        /* Info Value: 14px, weight 400, #ffffff */
+        .cover-info .info-value {
+            color: #ffffff;
+        }
+        
+        /* ===== 6.7 TAGLINE CSS (EXACT SPECIFICATION) ===== */
+        /* Tagline: 12px, weight 400, #93c5fd, letter-spacing: 2px, UPPERCASE */
+        .cover-tagline {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: #93c5fd;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-page {
+            page-break-after: always;
+            padding: 40px 0;
+        }
+        
+        .toc-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 15px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        
+        .toc-number {
+            color: #0ea5e9;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .content-section {
+            page-break-before: always;
+            padding: 20px 0;
+        }
+        
+        /* ===== 7.1 INTRO BOX (EXACT SPECIFICATION) ===== */
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border-left: 4px solid #1e3a8a;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro-title {
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .intro-text {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        
+        /* ===== 4.3 HEADING SPECIFICATIONS (EXACT) ===== */
+        h1 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h3 {
+            color: #3730a3;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        p {
+            margin: 12px 0;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            page-break-inside: avoid;
+        }
+        
+        li {
+            margin: 8px 0;
+            page-break-inside: avoid;
+        }
+        
+        /* ===== 7.3 CODE BLOCK STYLING (EXACT SPECIFICATION) ===== */
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            page-break-inside: avoid;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* ===== 7.4 BLOCKQUOTE STYLING (EXACT SPECIFICATION) ===== */
+        blockquote {
+            border-left: 4px solid #7c3aed;
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #faf5ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        /* ===== 7.2 TABLE STYLING (EXACT SPECIFICATION) ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        /* ===== 7.5 HORIZONTAL RULE (EXACT SPECIFICATION) ===== */
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        
+        /* ===== 7.6 STRONG/BOLD TEXT (EXACT SPECIFICATION) ===== */
+        strong {
+            color: #1e3a8a;
+        }
+        
+        .header-footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #64748b;
+        }
+        
+        .page-header {
+            position: running(header);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .page-footer {
+            position: running(footer);
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+            padding: 10px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .status-complete {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-planned {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #dcfce7;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    
+      <div class="cover-page">
+        <div class="cover-content">
+          <div class="cover-logo">SiyaBusa ERP</div>
+          <div class="cover-title">Market Strategy Pricing 2026</div>
+          <div class="cover-subtitle">Investor Documentation</div>
+          <div class="cover-company">Masaphokati Technologies (Pty) Ltd</div>
+          
+          <div class="cover-info">
+            <div class="info-row">
+              <span class="info-label">Document Version:</span>
+              <span class="info-value"> 1.0</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Effective Date:</span>
+              <span class="info-value"> January 29, 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Department:</span>
+              <span class="info-value"> Executive</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Classification:</span>
+              <span class="info-value"> Confidential</span>
+            </div>
+          </div>
+          
+          <div class="cover-tagline">WE RULE. WE GOVERN. WE EMPOWER.</div>
+        </div>
+      </div>
+    
+      <div class="toc-page">
+        <h1 class="toc-title">Table of Contents</h1>
+        <ul class="toc-list">
+          <li class="toc-item"><span class="toc-number">1.</span> investor docs/MARKET STRATEGY AND PRICING 2026</li>
+        </ul>
+      </div>
+    
+          <div class="content-section">
+            <h1>investor docs/MARKET STRATEGY AND PRICING 2026</h1>
+            <h1>SiyaBusa ERP - Market Strategy &amp; Pricing Model</h1>
+<h2>Investor Briefing Document — January 2026</h2>
+<p><strong>Document Classification:</strong> Confidential — Investment Memorandum<br><strong>Prepared by:</strong> Masaphokati Technologies (Pty) Ltd<br><strong>Date:</strong> January 29, 2026</p>
+<hr>
+<h2>Executive Summary</h2>
+<p>SiyaBusa ERP targets the <strong>underserved middle market</strong> — businesses that have outgrown basic accounting software but cannot justify enterprise-level pricing. We deliver a complete ERP experience at accessible price points, capturing the segment that traditional vendors overlook.</p>
+<p><strong>The Ask:</strong> 4-month runway funding to achieve first paying customer by May 2026</p>
+<hr>
+<h2>1. Market Positioning: Value Leadership</h2>
+<h3>The Market Opportunity</h3>
+<p>Across industries, a consistent pattern emerges: premium incumbents leave gaps that value-focused alternatives can fill.</p>
+<table>
+<thead>
+<tr>
+<th>Market Segment</th>
+<th>The Gap</th>
+<th>Our Approach</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Enterprise ERP</td>
+<td>R50K-R200K/month</td>
+<td>Unaffordable for 95% of SMEs</td>
+</tr>
+<tr>
+<td>Mid-Market</td>
+<td>Limited options</td>
+<td>Overpriced, under-featured</td>
+</tr>
+<tr>
+<td><strong>SiyaBusa Target</strong></td>
+<td><strong>R5M-R100M businesses</strong></td>
+<td><strong>Enterprise features, SME pricing</strong></td>
+</tr>
+</tbody></table>
+<h3>Our Position</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                    ERP MARKET POSITIONING                           │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│   $$  │  SAP Business One        │  R50K-R200K/month             │
+│         │  Oracle NetSuite         │  Enterprise clients only      │
+│         │  Sage X3                  │                               │
+│         │─────────────────────────────────────────────────────      │
+│    $$  │                          │  THE UNDERSERVED MIDDLE       │
+│         │  Companies that have     │  95,000 SA businesses         │
+│         │  outgrown basics but     │  R5M - R100M revenue          │
+│         │  can&#39;t justify R100K+    │                               │
+│         │─────────────────────────────────────────────────────      │
+│     $  │  ⭐ SiyaBusa ERP ⭐       │  R1,500 - R15,000/month       │
+│         │  Industry-specific ERP   │  SME-friendly pricing         │
+│         │─────────────────────────────────────────────────────      │
+│      $  │  QuickBooks, Xero        │  Accounting only              │
+│         │  Pastel Partner          │  Limited functionality        │
+│         │                          │                               │
+└─────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>What We Offer vs. What They Charge</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SAP Business One</th>
+<th>SiyaBusa ERP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Implementation</strong></td>
+<td>R500K - R2M</td>
+<td>R15,000 - R50,000</td>
+</tr>
+<tr>
+<td><strong>Monthly License</strong></td>
+<td>R50K - R200K</td>
+<td>R1,500 - R15,000</td>
+</tr>
+<tr>
+<td><strong>Modules Included</strong></td>
+<td>15-20 (pay per module)</td>
+<td>Industry-relevant suite</td>
+</tr>
+<tr>
+<td><strong>Multi-tenant</strong></td>
+<td>Extra cost</td>
+<td>Included</td>
+</tr>
+<tr>
+<td><strong>AI Assistant</strong></td>
+<td>Add-on ($)</td>
+<td>Included</td>
+</tr>
+<tr>
+<td><strong>SARS Integration</strong></td>
+<td>Extra</td>
+<td>Included</td>
+</tr>
+<tr>
+<td><strong>Time to Deploy</strong></td>
+<td>6-18 months</td>
+<td>2-4 weeks</td>
+</tr>
+</tbody></table>
+<p><strong>Our Approach:</strong> <em>Customers get the modules relevant to their industry — a logistics company gets logistics tools, a manufacturer gets production tools. No paying for features you&#39;ll never use.</em></p>
+<hr>
+<h2>2. Target Market: The Underserved Middle</h2>
+<h3>Primary Target Segment</h3>
+<p><strong>Profile:</strong> Growing South African SMEs with 10-100 employees</p>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Employee Count</strong></td>
+<td>10 - 100</td>
+</tr>
+<tr>
+<td><strong>Annual Revenue</strong></td>
+<td>R5M - R100M</td>
+</tr>
+<tr>
+<td><strong>Current Pain</strong></td>
+<td>Outgrown basic accounting software</td>
+</tr>
+<tr>
+<td><strong>Budget Reality</strong></td>
+<td>Cannot justify R100K+/month for ERP</td>
+</tr>
+<tr>
+<td><strong>Decision Maker</strong></td>
+<td>Owner, Finance Director, or Operations Manager</td>
+</tr>
+</tbody></table>
+<h3>Industries We Serve (Industry-Specific Configurations)</h3>
+<p><strong>Each customer receives modules tailored to their industry</strong> — not a generic one-size-fits-all solution.</p>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>What They Get</th>
+<th>Unique Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Manufacturing</td>
+<td>Production, BOM, Inventory</td>
+<td>Work orders, capacity planning</td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td>Inventory, Logistics, Fleet</td>
+<td>Multi-warehouse, route optimization</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>Project Costing, Inventory</td>
+<td>Progress billing, job costing</td>
+</tr>
+<tr>
+<td>Professional Services</td>
+<td>Practice Management, CRM</td>
+<td>Time billing, matter management</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>Patient Management, Inventory</td>
+<td>Medical inventory, compliance</td>
+</tr>
+<tr>
+<td>Agriculture</td>
+<td>Farm Operations, Inventory</td>
+<td>Crop tracking, input management</td>
+</tr>
+<tr>
+<td>Property</td>
+<td>Lease Management, Accounting</td>
+<td>Tenant billing, maintenance</td>
+</tr>
+</tbody></table>
+<h3>Market Size (South Africa)</h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Businesses</th>
+<th>Addressable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SMEs (10-50 employees)</td>
+<td>~150,000</td>
+<td>75,000</td>
+</tr>
+<tr>
+<td>Medium (51-200 employees)</td>
+<td>~25,000</td>
+<td>20,000</td>
+</tr>
+<tr>
+<td><strong>Total Addressable Market</strong></td>
+<td></td>
+<td><strong>95,000 businesses</strong></td>
+</tr>
+<tr>
+<td><strong>Serviceable (first 3 years)</strong></td>
+<td></td>
+<td><strong>5,000 businesses</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Pricing Model: Per-User SaaS Pricing</h2>
+<h3>Core Principle: Every User Pays</h3>
+<p>We use <strong>per-user, per-month pricing</strong> — the industry standard for ERP/SaaS. No free tier. Every user on the platform contributes to covering our infrastructure costs.</p>
+<h3>Trial Period (NOT Free Tier)</h3>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Duration</th>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Free Trial</strong></td>
+<td>14 days</td>
+<td>Full access, 3 users max</td>
+</tr>
+<tr>
+<td><strong>Extended Trial</strong></td>
+<td>30 days</td>
+<td>For serious prospects, requires call</td>
+</tr>
+</tbody></table>
+<p><strong>After trial:</strong> Convert to paid or data is archived. No indefinite free usage.</p>
+<h3>Per-User Pricing Structure</h3>
+<p><strong>Standard Rate: R980 per user per month</strong></p>
+<p>This rate ensures each user covers their infrastructure cost + provides healthy margin.</p>
+<h4>Cost Per User Breakdown (Why R980 Works)</h4>
+<table>
+<thead>
+<tr>
+<th>Cost Component</th>
+<th>Per User/Month</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R55</td>
+<td>Multi-tenant, shared resources</td>
+</tr>
+<tr>
+<td>Support allocation</td>
+<td>R100</td>
+<td>Helpdesk, tickets, training</td>
+</tr>
+<tr>
+<td>Development/Updates</td>
+<td>R150</td>
+<td>Ongoing improvements</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>R75</td>
+<td>Admin, compliance, tools</td>
+</tr>
+<tr>
+<td><strong>Total Cost to Serve</strong></td>
+<td><strong>R380</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Margin</strong></td>
+<td><strong>R600 (61%)</strong></td>
+<td>Healthy SaaS margin</td>
+</tr>
+<tr>
+<td><strong>Final Price</strong></td>
+<td><strong>R980/user</strong></td>
+<td>Covers cost + profit</td>
+</tr>
+</tbody></table>
+<h4>Tier 1: Starter (5-15 users)</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Per User</strong></td>
+<td><strong>R980/user/month</strong></td>
+</tr>
+<tr>
+<td>Minimum users</td>
+<td>5 users</td>
+</tr>
+<tr>
+<td><strong>Minimum Monthly</strong></td>
+<td><strong>R4,900/month</strong></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Industry-relevant modules (tailored to your business)</td>
+</tr>
+<tr>
+<td>Core: Accounting, Inventory, CRM, HR</td>
+</tr>
+<tr>
+<td>10GB storage per user</td>
+</tr>
+<tr>
+<td>Email support (24hr response)</td>
+</tr>
+<tr>
+<td>Standard reporting</td>
+</tr>
+<tr>
+<td>Mobile access</td>
+</tr>
+</tbody></table>
+<h4>Tier 2: Professional (10-50 users)</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Per User</strong></td>
+<td><strong>R980/user/month</strong></td>
+</tr>
+<tr>
+<td>Minimum users</td>
+<td>10 users</td>
+</tr>
+<tr>
+<td><strong>Minimum Monthly</strong></td>
+<td><strong>R9,800/month</strong></td>
+</tr>
+<tr>
+<td><strong>Volume Discount</strong></td>
+<td>5% off (R931/user effective)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Everything in Starter, plus:</td>
+</tr>
+<tr>
+<td>25GB storage per user</td>
+</tr>
+<tr>
+<td>Priority support (8hr response)</td>
+</tr>
+<tr>
+<td>Advanced reporting &amp; dashboards</td>
+</tr>
+<tr>
+<td>API access</td>
+</tr>
+<tr>
+<td>Custom fields</td>
+</tr>
+<tr>
+<td>Dedicated onboarding</td>
+</tr>
+</tbody></table>
+<h4>Tier 3: Enterprise (25+ users)</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Per User</strong></td>
+<td><strong>R980/user/month</strong></td>
+</tr>
+<tr>
+<td>Minimum users</td>
+<td>25 users</td>
+</tr>
+<tr>
+<td><strong>Minimum Monthly</strong></td>
+<td><strong>R24,500/month</strong></td>
+</tr>
+<tr>
+<td><strong>Volume Discount</strong></td>
+<td>10% off (R882/user effective)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Everything in Professional, plus:</td>
+</tr>
+<tr>
+<td>Unlimited storage</td>
+</tr>
+<tr>
+<td>Dedicated account manager</td>
+</tr>
+<tr>
+<td>Phone support (4hr response)</td>
+</tr>
+<tr>
+<td>Custom SLA</td>
+</tr>
+<tr>
+<td>White-label option</td>
+</tr>
+<tr>
+<td>On-premise deployment option</td>
+</tr>
+<tr>
+<td>Custom development hours (10/month)</td>
+</tr>
+</tbody></table>
+<h3>Pricing Comparison vs. Competition</h3>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Per User/Month</th>
+<th>20 Users/Month</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SAP Business One</td>
+<td>R2,500 - R5,000</td>
+<td>R50,000 - R100,000</td>
+<td>+ R500K implementation</td>
+</tr>
+<tr>
+<td>Oracle NetSuite</td>
+<td>R1,500 - R3,000</td>
+<td>R30,000 - R60,000</td>
+<td>+ Platform fee</td>
+</tr>
+<tr>
+<td>Sage X3</td>
+<td>R1,000 - R2,000</td>
+<td>R20,000 - R40,000</td>
+<td>Limited modules</td>
+</tr>
+<tr>
+<td>Sage 300</td>
+<td>R800 - R1,200</td>
+<td>R16,000 - R24,000</td>
+<td>Basic ERP</td>
+</tr>
+<tr>
+<td><strong>SiyaBusa</strong></td>
+<td><strong>R980</strong></td>
+<td><strong>R19,600</strong></td>
+<td>Industry-tailored suite</td>
+</tr>
+</tbody></table>
+<p><strong>Our Position:</strong></p>
+<ul>
+<li>**50-60% cheaper than SAP/Oracle** (enterprise players)</li>
+<li>**Competitive with Sage** but with industry-specific depth</li>
+<li>**Modules tailored to your business** — pay for what you need</li>
+</ul>
+<h3>Implementation &amp; Setup Fees (One-Time)</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Setup Fee</th>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Starter</td>
+<td>R7,500</td>
+<td>Data migration, 4hr training</td>
+</tr>
+<tr>
+<td>Professional</td>
+<td>R25,000</td>
+<td>Full onboarding, data migration, 16hr training</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>R75,000+</td>
+<td>Custom implementation, change management, on-site</td>
+</tr>
+</tbody></table>
+<h3>Add-On Modules (Optional)</h3>
+<table>
+<thead>
+<tr>
+<th>Add-On</th>
+<th>Monthly</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI Assistant Pro</td>
+<td>R500/month</td>
+<td>Advanced NLP, predictive analytics</td>
+</tr>
+<tr>
+<td>SARS eFiling Integration</td>
+<td>R300/month</td>
+<td>Direct submission, auto-reconciliation</td>
+</tr>
+<tr>
+<td>Multi-Entity Consolidation</td>
+<td>R1,000/month</td>
+<td>Group reporting, intercompany</td>
+</tr>
+<tr>
+<td>Advanced Manufacturing</td>
+<td>R750/month</td>
+<td>MRP, capacity planning</td>
+</tr>
+<tr>
+<td>Fleet GPS Integration</td>
+<td>R200/vehicle</td>
+<td>Real-time tracking</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Unit Economics</h2>
+<h3>Revenue Per Customer (R980/User)</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Users</th>
+<th>Per User</th>
+<th>Monthly</th>
+<th>Annual</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Small business</td>
+<td>8</td>
+<td>R980</td>
+<td>R7,840</td>
+<td>R94,080</td>
+</tr>
+<tr>
+<td>Growing SME</td>
+<td>15</td>
+<td>R980</td>
+<td>R14,700</td>
+<td>R176,400</td>
+</tr>
+<tr>
+<td>Medium business</td>
+<td>30</td>
+<td>R931*</td>
+<td>R27,930</td>
+<td>R335,160</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>60</td>
+<td>R882*</td>
+<td>R52,920</td>
+<td>R635,040</td>
+</tr>
+</tbody></table>
+<p>*Volume discounts: 5% for 10+ users, 10% for 25+ users</p>
+<p><strong>Target Average Customer Value:</strong> R10,000/month (~10-12 users)</p>
+<h3>Cost to Serve Per Customer (Based on R380/User Cost)</h3>
+<table>
+<thead>
+<tr>
+<th>Cost Type</th>
+<th>Per User</th>
+<th>10 Users</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AWS Infrastructure</td>
+<td>R55</td>
+<td>R550</td>
+<td>Multi-tenant, shared</td>
+</tr>
+<tr>
+<td>Support allocation</td>
+<td>R100</td>
+<td>R1,000</td>
+<td>Helpdesk, tickets</td>
+</tr>
+<tr>
+<td>Development/Updates</td>
+<td>R150</td>
+<td>R1,500</td>
+<td>Ongoing improvements</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>R75</td>
+<td>R750</td>
+<td>Admin, compliance</td>
+</tr>
+<tr>
+<td><strong>Total Cost to Serve</strong></td>
+<td><strong>R380</strong></td>
+<td><strong>R3,800</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Gross Margin</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Revenue (10 users @ R980)</td>
+<td>R9,800/month</td>
+</tr>
+<tr>
+<td>Cost to Serve (10 × R380)</td>
+<td>R3,800/month</td>
+</tr>
+<tr>
+<td><strong>Gross Profit</strong></td>
+<td><strong>R6,000/month</strong></td>
+</tr>
+<tr>
+<td><strong>Gross Margin</strong></td>
+<td><strong>61%</strong></td>
+</tr>
+</tbody></table>
+<p>This margin ensures:</p>
+<ul>
+<li>✅ Each user pays for themselves</li>
+<li>✅ Healthy profit to fund growth</li>
+<li>✅ Room for support & development</li>
+</ul>
+<hr>
+<h2>5. Marketing Budget &amp; Strategy</h2>
+<h3>Why Marketing Matters</h3>
+<p>We can&#39;t rely on organic growth alone. We need to <strong>actively acquire customers</strong> to hit first-customer target by May 2026.</p>
+<h3>Marketing Budget (4-Month Runway)</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Monthly</th>
+<th>4 Months</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LinkedIn Ads</strong></td>
+<td>R3,000</td>
+<td>R12,000</td>
+<td>Lead generation</td>
+</tr>
+<tr>
+<td><strong>Google Ads</strong></td>
+<td>R2,000</td>
+<td>R8,000</td>
+<td>Search intent capture</td>
+</tr>
+<tr>
+<td><strong>Content Creation</strong></td>
+<td>R1,500</td>
+<td>R6,000</td>
+<td>Blog, videos, case studies</td>
+</tr>
+<tr>
+<td><strong>Trade Shows/Events</strong></td>
+<td>R2,500</td>
+<td>R10,000</td>
+<td>1-2 events, networking</td>
+</tr>
+<tr>
+<td><strong>Referral Incentives</strong></td>
+<td>R1,000</td>
+<td>R4,000</td>
+<td>R500 per referred customer</td>
+</tr>
+<tr>
+<td><strong>PR/Media</strong></td>
+<td>R1,000</td>
+<td>R4,000</td>
+<td>Press releases, articles</td>
+</tr>
+<tr>
+<td><strong>Total Marketing</strong></td>
+<td><strong>R11,000</strong></td>
+<td><strong>R44,000</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Marketing Channels</h3>
+<h4>Digital (Primary)</h4>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Strategy</th>
+<th>Expected Leads</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LinkedIn</td>
+<td>Targeted ads to CFOs, MDs, IT Managers</td>
+<td>50-100/month</td>
+</tr>
+<tr>
+<td>Google Ads</td>
+<td>&quot;ERP software South Africa&quot;, &quot;SAP alternative&quot;</td>
+<td>30-50/month</td>
+</tr>
+<tr>
+<td>Content Marketing</td>
+<td>Blog posts, LinkedIn articles, YouTube</td>
+<td>20-30/month</td>
+</tr>
+</tbody></table>
+<h4>Traditional (Secondary)</h4>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Strategy</th>
+<th>Expected Leads</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Referral Program</td>
+<td>R500 cash per converted referral</td>
+<td>5-10/month</td>
+</tr>
+<tr>
+<td>Trade Shows</td>
+<td>1-2 events (SAICA, Tech4Africa)</td>
+<td>10-20/event</td>
+</tr>
+<tr>
+<td>Cold Outreach</td>
+<td>LinkedIn InMail, email campaigns</td>
+<td>10-20/month</td>
+</tr>
+</tbody></table>
+<h3>Customer Acquisition Cost (CAC) Target</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Marketing spend (4 months)</td>
+<td>R44,000</td>
+</tr>
+<tr>
+<td>Target customers (4 months)</td>
+<td>3-5</td>
+</tr>
+<tr>
+<td><strong>CAC</strong></td>
+<td><strong>R8,800 - R14,700</strong></td>
+</tr>
+<tr>
+<td>Customer Lifetime Value (LTV)</td>
+<td>R120,000+ (2 year avg)</td>
+</tr>
+<tr>
+<td><strong>LTV:CAC Ratio</strong></td>
+<td><strong>8:1 - 14:1</strong> ✅</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. The Ask: 4-Month Runway to First Customer</h2>
+<h3>Timeline: February 2026 → May 2026</h3>
+<pre><code>FEB 2026          MAR 2026          APR 2026          MAY 2026
+    │                 │                 │                 │
+    ▼                 ▼                 ▼                 ▼
+┌─────────┐      ┌─────────┐      ┌─────────┐      ┌─────────┐
+│ MONTH 1 │      │ MONTH 2 │      │ MONTH 3 │      │ MONTH 4 │
+│ Product │  →   │ Beta    │  →   │ Pipeline│  →   │ FIRST   │
+│ Polish  │      │ Testing │      │ Building│      │ CUSTOMER│
+│ &amp; Prep  │      │ &amp; Fix   │      │ &amp; Demos │      │  🎉     │
+└─────────┘      └─────────┘      └─────────┘      └─────────┘
+</code></pre>
+<h3>Monthly Cost Breakdown (REVISED)</h3>
+<h4>Infrastructure Costs (AWS)</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ECS Fargate (Backend)</td>
+<td>R1,200</td>
+<td>t3.small equivalent</td>
+</tr>
+<tr>
+<td>ECS Fargate (Frontend)</td>
+<td>R600</td>
+<td>Static hosting</td>
+</tr>
+<tr>
+<td>RDS PostgreSQL</td>
+<td>R1,800</td>
+<td>db.t3.micro + storage</td>
+</tr>
+<tr>
+<td>Application Load Balancer</td>
+<td>R400</td>
+<td>HTTPS termination</td>
+</tr>
+<tr>
+<td>S3 Storage</td>
+<td>R200</td>
+<td>Document storage</td>
+</tr>
+<tr>
+<td>CloudWatch / Monitoring</td>
+<td>R150</td>
+<td>Logs and alerts</td>
+</tr>
+<tr>
+<td>Route 53 / DNS</td>
+<td>R50</td>
+<td>Domain management</td>
+</tr>
+<tr>
+<td><strong>Total Infrastructure</strong></td>
+<td><strong>R4,400/month</strong></td>
+<td>~$240/month</td>
+</tr>
+</tbody></table>
+<h4>Operating Costs</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Infrastructure (AWS)</td>
+<td>R4,400</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Domain &amp; SSL</td>
+<td>R100</td>
+<td>siyabusaerp.co.za</td>
+</tr>
+<tr>
+<td>Email (SendGrid)</td>
+<td>R500</td>
+<td>Paid tier for marketing</td>
+</tr>
+<tr>
+<td>Development Tools</td>
+<td>R500</td>
+<td>GitHub, monitoring</td>
+</tr>
+<tr>
+<td><strong>Total Operating</strong></td>
+<td><strong>R5,500/month</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4>Marketing Costs (NEW)</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LinkedIn Ads</td>
+<td>R3,000</td>
+<td>Lead generation</td>
+</tr>
+<tr>
+<td>Google Ads</td>
+<td>R2,000</td>
+<td>Search capture</td>
+</tr>
+<tr>
+<td>Content creation</td>
+<td>R1,500</td>
+<td>Blog, video</td>
+</tr>
+<tr>
+<td>Events/networking</td>
+<td>R2,500</td>
+<td>Trade shows</td>
+</tr>
+<tr>
+<td>Referral incentives</td>
+<td>R1,000</td>
+<td>Cash rewards</td>
+</tr>
+<tr>
+<td>PR/Media</td>
+<td>R1,000</td>
+<td>Press releases</td>
+</tr>
+<tr>
+<td><strong>Total Marketing</strong></td>
+<td><strong>R11,000/month</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4>Development &amp; Operations Support</h4>
+<p><em>Ongoing technical support, product improvements, and business development activities.</em></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Monthly</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Technical oversight &amp; dev review</td>
+<td>R15,000</td>
+<td>Ongoing product quality</td>
+</tr>
+<tr>
+<td>Mobile/Internet</td>
+<td>R1,500</td>
+<td>Business communications</td>
+</tr>
+<tr>
+<td>Client meetings &amp; demos</td>
+<td>R3,000</td>
+<td>On-site visits, presentations</td>
+</tr>
+<tr>
+<td><strong>Total Development/Ops</strong></td>
+<td><strong>R19,500/month</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><em>This covers hands-on technical guidance, code reviews, architecture decisions, and customer-facing activities.</em></p>
+<h3>Total 4-Month Runway Required</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Monthly</th>
+<th>4 Months</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Infrastructure (AWS + Domain)</td>
+<td>R6,750</td>
+<td>R27,000</td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>R8,875</td>
+<td>R35,500</td>
+</tr>
+<tr>
+<td>Development &amp; Operations</td>
+<td>R21,000</td>
+<td>R84,000</td>
+</tr>
+<tr>
+<td>Client Operations</td>
+<td>R2,375</td>
+<td>R9,500</td>
+</tr>
+<tr>
+<td>Contingency</td>
+<td>R11,000</td>
+<td>R44,000</td>
+</tr>
+<tr>
+<td><strong>TOTAL REQUIRED</strong></td>
+<td><strong>R50,000</strong></td>
+<td><strong>R200,000</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Ask:</strong> <strong>R200,000</strong> (~$11,000 USD) for 4-month runway with marketing</p>
+<hr>
+<h2>7. What the Investment Enables</h2>
+<h3>Deliverables by May 2026</h3>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Target Date</th>
+<th>Success Metric</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Product stabilization</td>
+<td>Feb 15</td>
+<td>Zero critical bugs</td>
+</tr>
+<tr>
+<td>Marketing campaigns live</td>
+<td>Feb 28</td>
+<td>LinkedIn + Google Ads running</td>
+</tr>
+<tr>
+<td>Beta partner onboarding</td>
+<td>Mar 15</td>
+<td>3-5 active beta users</td>
+</tr>
+<tr>
+<td>Demo pipeline built</td>
+<td>Mar 31</td>
+<td>20+ qualified leads</td>
+</tr>
+<tr>
+<td>First signed contract</td>
+<td>Apr 30</td>
+<td>1 paying customer</td>
+</tr>
+<tr>
+<td>First revenue</td>
+<td>May 31</td>
+<td>R3,000+ MRR</td>
+</tr>
+</tbody></table>
+<h3>What Investors Get</h3>
+<ol>
+<li>**Early Access** - Preview of product before public launch</li>
+<li>**No Testing Costs** - Investors don't pay to evaluate; testing is on us</li>
+<li>**Proof of Concept** - 4 months to prove market fit</li>
+<li>**Clear Milestones** - Measurable progress weekly</li>
+<li>**Real Marketing** - Paid acquisition, not just hoping for organic</li>
+</ol>
+<hr>
+<h2>8. Revenue Projections (Post-First Customer)</h2>
+<h3>Conservative Scenario (R980/User Pricing)</h3>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Customers</th>
+<th>Avg Users</th>
+<th>MRR</th>
+<th>ARR Run Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>May 2026</td>
+<td>1</td>
+<td>8</td>
+<td>R7,840</td>
+<td>R94,080</td>
+</tr>
+<tr>
+<td>Jun 2026</td>
+<td>2</td>
+<td>10</td>
+<td>R19,600</td>
+<td>R235,200</td>
+</tr>
+<tr>
+<td>Sep 2026</td>
+<td>5</td>
+<td>10</td>
+<td>R49,000</td>
+<td>R588,000</td>
+</tr>
+<tr>
+<td>Dec 2026</td>
+<td>10</td>
+<td>12</td>
+<td>R117,600</td>
+<td>R1,411,200</td>
+</tr>
+<tr>
+<td>Jun 2027</td>
+<td>25</td>
+<td>12</td>
+<td>R294,000</td>
+<td>R3,528,000</td>
+</tr>
+<tr>
+<td>Dec 2027</td>
+<td>50</td>
+<td>15</td>
+<td>R735,000</td>
+<td>R8,820,000</td>
+</tr>
+</tbody></table>
+<h3>Path to Profitability</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Monthly burn rate</td>
+<td>R41,400</td>
+</tr>
+<tr>
+<td>Break-even MRR</td>
+<td>~R45,000 (5-6 customers @ 8 users)</td>
+</tr>
+<tr>
+<td>Target achievement</td>
+<td>Q3 2026</td>
+</tr>
+<tr>
+<td>First profitable month</td>
+<td><strong>September 2026</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Key Insight:</strong> At R980/user, we only need <strong>5-6 small customers</strong> (8 users each) to break even. At R199/user, we would have needed 25+ customers.</p>
+<hr>
+<h2>9. Why This Strategy Works</h2>
+<h3>Expanding the Market, Not Stealing Share</h3>
+<blockquote>
+<p><em>&quot;We&#39;re not competing for existing ERP customers. We&#39;re creating new ERP customers.&quot;</em></p>
+</blockquote>
+<p>Our target isn&#39;t businesses currently using SAP. Our target is:</p>
+<ul>
+<li>QuickBooks users ready to graduate to **real ERP**</li>
+<li>Pastel users who need **multi-branch support**</li>
+<li>Excel-dependent businesses ready for **a proper system**</li>
+</ul>
+<h3>Competitive Moat</h3>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Built for Africa</strong></td>
+<td>SARS integration, ZAR-first, local support</td>
+</tr>
+<tr>
+<td><strong>Multi-tenant from Day 1</strong></td>
+<td>Lower cost to serve each customer</td>
+</tr>
+<tr>
+<td><strong>AI-Native</strong></td>
+<td>Natural language queries, smart automation</td>
+</tr>
+<tr>
+<td><strong>Full Stack Ownership</strong></td>
+<td>No license dependencies, full control</td>
+</tr>
+<tr>
+<td><strong>Vertical Expertise</strong></td>
+<td>Industry modules built by industry experts</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. Investment Terms</h2>
+<h3>Option A: Seed Investment</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Amount</td>
+<td>R150,000 - R500,000</td>
+</tr>
+<tr>
+<td>Instrument</td>
+<td>SAFE (Simple Agreement for Future Equity)</td>
+</tr>
+<tr>
+<td>Valuation Cap</td>
+<td>R5,000,000</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td>20% to next round</td>
+</tr>
+<tr>
+<td>Use of Funds</td>
+<td>4-month runway + marketing</td>
+</tr>
+</tbody></table>
+<h3>Option B: Angel Round</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Amount</td>
+<td>R500,000 - R2,000,000</td>
+</tr>
+<tr>
+<td>Equity</td>
+<td>10-20%</td>
+</tr>
+<tr>
+<td>Pre-money Valuation</td>
+<td>R5,000,000 - R10,000,000</td>
+</tr>
+<tr>
+<td>Use of Funds</td>
+<td>12-month runway + team + marketing</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Contact &amp; Next Steps</h2>
+<p><strong>Sibusiso Buncele</strong><br>Founder &amp; CEO, Masaphokati Technologies  </p>
+<p>📧 <a href="mailto:info@masaphokati.co.za">info@masaphokati.co.za</a><br>🌐 siyabusaerp.co.za<br>📍 Centurion, Gauteng, South Africa</p>
+<h3>Immediate Next Steps</h3>
+<ol>
+<li>✅ Schedule demo call</li>
+<li>✅ Sign NDA (if required)</li>
+<li>✅ Review product in action</li>
+<li>✅ Due diligence questions</li>
+<li>✅ Term sheet discussion</li>
+</ol>
+<hr>
+<p><strong>Document Version:</strong> 1.0<br><strong>Last Updated:</strong> January 28, 2026<br><strong>Classification:</strong> Confidential</p>
+<hr>
+<p><em>&quot;We rule. We govern. We empower.&quot;</em></p>
+
+          </div>
+        
+</body>
+</html>

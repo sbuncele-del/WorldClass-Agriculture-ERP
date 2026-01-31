@@ -1,0 +1,180 @@
+/**
+ * Floating AI Assistant Styles
+ */
+
+/* Floating Button */
+.floating-ai-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4AA 0%, #00a88a 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1000;
+  box-shadow: 
+    0 4px 15px rgba(0, 212, 170, 0.4),
+    0 0 0 0 rgba(0, 212, 170, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.floating-ai-button:hover {
+  box-shadow: 
+    0 6px 20px rgba(0, 212, 170, 0.5),
+    0 0 0 6px rgba(0, 212, 170, 0.1);
+}
+
+.floating-ai-button.active {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.floating-ai-button .button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.floating-ai-button .sparkle-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #F4B400;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+/* Notification dot */
+.notification-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Backdrop */
+.floating-ai-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+
+/* Chat Panel */
+.floating-ai-panel {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 420px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 150px);
+  z-index: 1001;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.floating-ai-panel .ai-assistant {
+  height: 100%;
+  max-height: calc(100vh - 150px);
+}
+
+/* Tooltip */
+.ai-tooltip {
+  position: fixed;
+  bottom: 34px;
+  right: 94px;
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 998;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.ai-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left-color: #1a1f2e;
+}
+
+.ai-tooltip svg {
+  color: #00D4AA;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .floating-ai-button {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .floating-ai-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .floating-ai-backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .ai-tooltip {
+    display: none;
+  }
+}
+
+/* Pulse animation for button on load */
+.floating-ai-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 212, 170, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
+  }
+}

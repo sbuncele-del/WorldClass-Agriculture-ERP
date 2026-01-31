@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiyaBusa ERP - Brand Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* SiyaBusa Brand Colors */
+      --royal-purple: #5B21B6;
+      --royal-purple-light: #7C3AED;
+      --royal-purple-dark: #4C1D95;
+      --gold: #F59E0B;
+      --gold-light: #FBBF24;
+      --gold-dark: #D97706;
+      
+      /* Neutrals */
+      --dark-bg: #0f172a;
+      --dark-bg-lighter: #1e293b;
+      --text-white: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.6);
+      --text-subtle: rgba(255, 255, 255, 0.4);
+      
+      /* Accents */
+      --success: #10B981;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      --info: #3B82F6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 280px;
+      background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-bg-lighter) 100%);
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Logo Section */
+    .sidebar-logo {
+      padding: 20px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-dark) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(91, 33, 182, 0.4);
+    }
+
+    .logo-crown {
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-name span {
+      color: var(--gold);
+    }
+
+    .logo-tagline {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* Entity Selector */
+    .entity-selector {
+      padding: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .entity-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .entity-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(91, 33, 182, 0.3);
+    }
+
+    .entity-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-light) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: white;
+      font-size: 14px;
+    }
+
+    .entity-info {
+      flex: 1;
+    }
+
+    .entity-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .entity-type {
+      font-size: 11px;
+      color: var(--text-subtle);
+    }
+
+    /* Navigation */
+    .sidebar-nav {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+    }
+
+    .nav-section {
+      margin-bottom: 8px;
+    }
+
+    .nav-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px 8px;
+      cursor: pointer;
+    }
+
+    .nav-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+      margin: 2px 8px;
+      border-radius: 8px;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-white);
+    }
+
+    .nav-item.active {
+      background: rgba(91, 33, 182, 0.2);
+      color: var(--gold);
+      border-left-color: var(--gold);
+      border-radius: 0 8px 8px 0;
+      margin-left: 0;
+      padding-left: 21px;
+    }
+
+    .nav-item-icon {
+      width: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .nav-item-text {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .nav-item-badge {
+      margin-left: auto;
+      background: var(--royal-purple);
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    /* Sidebar Footer */
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .footer-version {
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--gold) 100%);
+      color: white;
+      font-size: 9px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      position: fixed;
+      left: 280px;
+      right: 0;
+      top: 0;
+      height: 64px;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      z-index: 99;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 44px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 14px;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--royal-purple);
+      box-shadow: 0 0 0 3px rgba(91, 33, 182, 0.1);
+      background: white;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: #f1f5f9;
+      color: var(--royal-purple);
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      background: var(--error);
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 12px 6px 6px;
+      background: #f8fafc;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--gold) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .user-role {
+      font-size: 11px;
+      color: var(--royal-purple);
+      font-weight: 500;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main-content {
+      margin-left: 280px;
+      margin-top: 64px;
+      padding: 24px;
+      min-height: calc(100vh - 64px);
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-dark) 50%, var(--dark-bg) 100%);
+      border-radius: 20px;
+      padding: 32px;
+      color: white;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .welcome-banner::after {
+      content: '👑';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 80px;
+      opacity: 0.1;
+    }
+
+    .welcome-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .welcome-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .welcome-subtitle {
+      font-size: 15px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .welcome-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .welcome-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* Dashboard Cards */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+
+    .stat-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .stat-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .stat-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .stat-card-icon.purple {
+      background: rgba(91, 33, 182, 0.1);
+      color: var(--royal-purple);
+    }
+
+    .stat-card-icon.gold {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--gold-dark);
+    }
+
+    .stat-card-icon.green {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+    }
+
+    .stat-card-icon.blue {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--info);
+    }
+
+    .stat-card-trend {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .stat-card-trend.up {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+    }
+
+    .stat-card-trend.down {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+    }
+
+    .stat-card-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .stat-card-label {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title .icon {
+      color: var(--royal-purple);
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .action-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 16px;
+      background: #f8fafc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .action-card:hover {
+      background: rgba(91, 33, 182, 0.05);
+      border-color: rgba(91, 33, 182, 0.2);
+    }
+
+    .action-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .action-card-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    /* Login Preview */
+    .login-preview {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed #e2e8f0;
+    }
+
+    .preview-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #64748b;
+    }
+
+    .login-container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-dark) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 8px 24px rgba(91, 33, 182, 0.3);
+    }
+
+    .login-logo-icon .crown {
+      font-size: 36px;
+    }
+
+    .login-logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .login-logo-text span {
+      color: var(--royal-purple);
+    }
+
+    .login-tagline {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .form-input {
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--royal-purple);
+      box-shadow: 0 0 0 3px rgba(91, 33, 182, 0.1);
+    }
+
+    .login-btn {
+      padding: 16px;
+      background: linear-gradient(135deg, var(--royal-purple) 0%, var(--royal-purple-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(91, 33, 182, 0.3);
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .login-footer-text {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .login-footer-text a {
+      color: var(--royal-purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Color Palette Display */
+    .color-palette {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed #e2e8f0;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .color-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .swatch-color {
+      height: 80px;
+    }
+
+    .swatch-info {
+      padding: 12px;
+      background: white;
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      color: #64748b;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <span class="logo-crown">👑</span>
+      </div>
+      <div class="logo-text">
+        <div class="logo-name">Siya<span>Busa</span></div>
+        <div class="logo-tagline">Rule Your Industry</div>
+      </div>
+    </div>
+
+    <!-- Entity Selector -->
+    <div class="entity-selector">
+      <div class="entity-btn">
+        <div class="entity-avatar">A</div>
+        <div class="entity-info">
+          <div class="entity-name">ABC Trading (Pty) Ltd</div>
+          <div class="entity-type">Company</div>
+        </div>
+        <span style="color: rgba(255,255,255,0.4)">▼</span>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <!-- Workspace Section -->
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <span class="nav-section-title">Workspace</span>
+        </div>
+        <a href="#" class="nav-item active">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">👤</span>
+          <span class="nav-item-text">My Workspace</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">📅</span>
+          <span class="nav-item-text">Calendar</span>
+          <span class="nav-item-badge">3</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">💬</span>
+          <span class="nav-item-text">Communications</span>
+          <span class="nav-item-badge">5</span>
+        </a>
+      </div>
+
+      <!-- Operations Section -->
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <span class="nav-section-title">Operations</span>
+        </div>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">💰</span>
+          <span class="nav-item-text">Sales Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🛒</span>
+          <span class="nav-item-text">Purchase Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">📦</span>
+          <span class="nav-item-text">Inventory Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🏭</span>
+          <span class="nav-item-text">Assets Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🏬</span>
+          <span class="nav-item-text">Warehouse Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">👥</span>
+          <span class="nav-item-text">HR Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">📋</span>
+          <span class="nav-item-text">Projects Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">📄</span>
+          <span class="nav-item-text">Proposals</span>
+        </a>
+      </div>
+
+      <!-- Financial Section -->
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <span class="nav-section-title">Financial</span>
+        </div>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span class="nav-item-text">Financial Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🏦</span>
+          <span class="nav-item-text">Banking Hub</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">💵</span>
+          <span class="nav-item-text">Cash Management</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🏛️</span>
+          <span class="nav-item-text">Treasury</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">🛡️</span>
+          <span class="nav-item-text">SARS Sentinel</span>
+        </a>
+      </div>
+
+      <!-- Compliance Section -->
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <span class="nav-section-title">Compliance</span>
+        </div>
+        <a href="#" class="nav-item">
+          <span class="nav-item-icon">✅</span>
+          <span class="nav-item-text">Audit-Ready Hub</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="footer-brand">
+        <span class="footer-name">SiyaBusa</span>
+        <span class="footer-version">v2.0</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search transactions, customers, reports...">
+    </div>
+
+    <div class="topbar-actions">
+      <button class="action-btn">🌙</button>
+      <button class="action-btn">
+        🔔
+        <span class="notification-dot"></span>
+      </button>
+      <button class="action-btn">💬</button>
+      
+      <div class="user-menu">
+        <div class="user-avatar">U</div>
+        <div class="user-info">
+          <span class="user-name">User Name</span>
+          <span class="user-role">Director</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <div class="welcome-content">
+        <h1 class="welcome-title">Welcome back, Director 👑</h1>
+        <p class="welcome-subtitle">Here's what's happening with your business today</p>
+        <div class="welcome-stats">
+          <div class="welcome-stat">
+            <span class="stat-value">R2.4M</span>
+            <span class="stat-label">Revenue Today</span>
+          </div>
+          <div class="welcome-stat">
+            <span class="stat-value">47</span>
+            <span class="stat-label">New Orders</span>
+          </div>
+          <div class="welcome-stat">
+            <span class="stat-value">12</span>
+            <span class="stat-label">Pending Tasks</span>
+          </div>
+          <div class="welcome-stat">
+            <span class="stat-value">98.2%</span>
+            <span class="stat-label">System Health</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-card-icon purple">💰</div>
+          <span class="stat-card-trend up">↑ 12%</span>
+        </div>
+        <div class="stat-card-value">R4.2M</div>
+        <div class="stat-card-label">Total Revenue (MTD)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-card-icon gold">📦</div>
+          <span class="stat-card-trend up">↑ 8%</span>
+        </div>
+        <div class="stat-card-value">1,247</div>
+        <div class="stat-card-label">Orders This Month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-card-icon green">👥</div>
+          <span class="stat-card-trend up">↑ 24%</span>
+        </div>
+        <div class="stat-card-value">89</div>
+        <div class="stat-card-label">New Customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">
+          <div class="stat-card-icon blue">📊</div>
+          <span class="stat-card-trend down">↓ 3%</span>
+        </div>
+        <div class="stat-card-value">R847K</div>
+        <div class="stat-card-label">Outstanding AR</div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h2 class="section-title"><span class="icon">⚡</span> Quick Actions</h2>
+      <div class="action-grid">
+        <div class="action-card">
+          <div class="action-card-icon">📝</div>
+          <span class="action-card-text">New Invoice</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">📦</div>
+          <span class="action-card-text">Create Order</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">👤</div>
+          <span class="action-card-text">Add Customer</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">📊</div>
+          <span class="action-card-text">Run Report</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">💳</div>
+          <span class="action-card-text">Record Payment</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">📋</div>
+          <span class="action-card-text">New Project</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">📄</div>
+          <span class="action-card-text">Create Proposal</span>
+        </div>
+        <div class="action-card">
+          <div class="action-card-icon">🏦</div>
+          <span class="action-card-text">Bank Transfer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGIN PAGE PREVIEW -->
+    <div class="login-preview">
+      <h2 class="preview-title">📱 Login Page Preview</h2>
+      <div class="login-container">
+        <div class="login-logo">
+          <div class="login-logo-icon">
+            <span class="crown">👑</span>
+          </div>
+          <div class="login-logo-text">Siya<span>Busa</span></div>
+          <div class="login-tagline">Rule Your Industry</div>
+        </div>
+
+        <form class="login-form">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" placeholder="••••••••">
+          </div>
+          <button type="button" class="login-btn">Sign In to SiyaBusa</button>
+        </form>
+
+        <div class="login-footer">
+          <p class="login-footer-text">
+            Don't have an account? <a href="#">Start your free trial</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLOR PALETTE -->
+    <div class="color-palette">
+      <h2 class="preview-title">🎨 Brand Color Palette</h2>
+      <div class="palette-grid">
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #5B21B6;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Royal Purple</div>
+            <div class="swatch-hex">#5B21B6</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #7C3AED;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Purple Light</div>
+            <div class="swatch-hex">#7C3AED</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #4C1D95;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Purple Dark</div>
+            <div class="swatch-hex">#4C1D95</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #F59E0B;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Gold</div>
+            <div class="swatch-hex">#F59E0B</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #0f172a;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Dark BG</div>
+            <div class="swatch-hex">#0f172a</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-color" style="background: #1e293b;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Dark Lighter</div>
+            <div class="swatch-hex">#1e293b</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

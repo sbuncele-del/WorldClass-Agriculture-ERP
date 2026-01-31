@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Low Stock Alert</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .stock-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .product-card {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      border-left: 6px solid #f59e0b;
+    }
+    
+    .product-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 8px;
+    }
+    
+    .product-sku {
+      font-size: 14px;
+      color: #78350f;
+      margin-bottom: 20px;
+    }
+    
+    .stock-bar-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      height: 40px;
+      position: relative;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    
+    .stock-bar-fill {
+      background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .stock-numbers {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #78350f;
+    }
+    
+    .stock-numbers span {
+      font-weight: 600;
+    }
+    
+    .warning-badge {
+      display: inline-block;
+      background-color: #dc2626;
+      color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .action-box {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .action-box h3 {
+      font-size: 18px;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    
+    .action-box ul {
+      margin-left: 20px;
+      color: #4b5563;
+    }
+    
+    .action-box li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header,
+      .email-body {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="stock-icon">📦</div>
+      <h1>Low Stock Alert</h1>
+      <p>Inventory reorder point reached</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hi {{userName}},
+      </p>
+      
+      <p>
+        One of your products has reached its reorder point. We recommend placing 
+        a new order soon to avoid stockouts and potential lost sales.
+      </p>
+
+      <!-- Product Card -->
+      <div class="product-card">
+        <div class="product-name">{{productName}}</div>
+        <div class="product-sku">SKU: {{sku}}</div>
+        
+        <!-- Stock Bar -->
+        <div class="stock-bar-container">
+          <div class="stock-bar-fill" style="width: 25%;">
+            {{currentStock}} units left
+          </div>
+        </div>
+        
+        <div class="stock-numbers">
+          <span>Current Stock: {{currentStock}}</span>
+          <span>Reorder Point: {{reorderPoint}}</span>
+        </div>
+        
+        <div class="warning-badge">⚠️ Action Required</div>
+      </div>
+
+      <!-- Action Box -->
+      <div class="action-box">
+        <h3>📋 Recommended Actions</h3>
+        <ul>
+          <li>Review current sales velocity and demand forecast</li>
+          <li>Check existing purchase orders for this item</li>
+          <li>Create a new purchase order with your supplier</li>
+          <li>Update reorder point if needed based on lead time</li>
+          <li>Consider safety stock levels to prevent stockouts</li>
+        </ul>
+      </div>
+
+      <center>
+        <a href="{{inventoryUrl}}" class="cta-button">
+          View Inventory & Reorder
+        </a>
+      </center>
+
+      <p style="margin-top: 30px;">
+        <strong>💡 Pro Tip:</strong> Set up automatic purchase orders for 
+        frequently sold items to streamline your inventory management and 
+        never miss a sale due to stockouts.
+      </p>
+
+      <p>
+        Need help managing your inventory?<br>
+        <strong>The Worldclass ERP Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Smart Inventory Management
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{inventoryUrl}}" style="color: #f59e0b; text-decoration: none; margin: 0 10px;">Inventory</a>
+        <a href="{{frontendUrl}}/purchase" style="color: #f59e0b; text-decoration: none; margin: 0 10px;">Purchase Orders</a>
+        <a href="{{frontendUrl}}/help" style="color: #f59e0b; text-decoration: none; margin: 0 10px;">Help</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.<br>
+        You're receiving this because you have inventory alerts enabled.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

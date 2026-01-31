@@ -1,0 +1,58 @@
+/* SAP-inspired Quick Actions */
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.quick-action {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius-sm);
+  color: var(--sap-gray-90);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.quick-action:hover {
+  border-color: var(--oracle-blue);
+  color: var(--oracle-blue);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.quick-action:hover .action-icon {
+  opacity: 1;
+}
+
+.action-label {
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quick-actions {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+  }
+  
+  .quick-action {
+    flex-shrink: 0;
+  }
+}

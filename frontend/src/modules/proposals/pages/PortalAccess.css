@@ -1,0 +1,232 @@
+/* Portal Access Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.portal-access {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 24px;
+}
+
+.portal-access::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.access-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 48px;
+  text-align: center;
+  position: relative;
+}
+
+/* Brand Section */
+.brand-section {
+  margin-bottom: 40px;
+}
+
+.brand-section .brand-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+}
+
+.brand-section h1 {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 8px 0;
+}
+
+.brand-section span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Access Content */
+.access-content {
+  padding: 32px 0;
+}
+
+.lock-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.lock-icon .anticon {
+  font-size: 32px;
+  color: #a5b4fc;
+}
+
+.access-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px 0;
+}
+
+.access-content > p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+/* Code Input */
+.code-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.code-input {
+  height: 56px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  text-align: center !important;
+  letter-spacing: 8px !important;
+  font-weight: 600 !important;
+}
+
+.code-input::placeholder {
+  letter-spacing: normal !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+.code-input:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+}
+
+.access-button {
+  height: 56px !important;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.access-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* Help Text */
+.help-text {
+  margin-top: 24px;
+}
+
+.help-text p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.help-text a {
+  color: #a5b4fc;
+  text-decoration: none;
+}
+
+.help-text a:hover {
+  text-decoration: underline;
+}
+
+/* Security Notice */
+.security-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 32px;
+}
+
+.security-notice .anticon {
+  font-size: 14px;
+  color: #10b981;
+}
+
+.security-notice span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading State */
+.loading-state {
+  padding: 60px 0;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .access-card {
+    padding: 32px 24px;
+  }
+  
+  .brand-section h1 {
+    font-size: 24px;
+  }
+  
+  .code-input {
+    letter-spacing: 4px !important;
+  }
+}

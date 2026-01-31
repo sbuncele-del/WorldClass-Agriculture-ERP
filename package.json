@@ -1,0 +1,54 @@
+{
+  "name": "worldclass-erp",
+  "version": "1.0.0",
+  "description": "World-class ERP Software System",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "generate:pdfs": "node tools/generate-investor-pdfs.js",
+    "package:pdfs": "npm run generate:pdfs && zip -r investor-docs-package.zip investor-docs/*.pdf investor-docs/README.md",
+    "check:deps": "node tools/check-dependencies.js",
+    "lock:deps": "node tools/lock-dependencies.js && npm install"
+  },
+  "keywords": [
+    "erp",
+    "enterprise",
+    "management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "8.2.2",
+    "html-docx-js": "0.3.1",
+    "html-pdf-node": "1.0.8",
+    "ioredis-mock": "8.13.1",
+    "mammoth": "1.11.0",
+    "marked": "17.0.1",
+    "pptxgenjs": "4.0.1",
+    "puppeteer": "24.34.0"
+  },
+  "dependencies": {
+    "@socket.io/redis-adapter": "8.3.0",
+    "@types/bull": "4.10.4",
+    "@types/ioredis": "5.0.0",
+    "bcryptjs": "3.0.3",
+    "bull": "4.16.5",
+    "html-to-docx": "1.8.0",
+    "ioredis": "5.8.2",
+    "pg": "8.16.3",
+    "rate-limit-redis": "4.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

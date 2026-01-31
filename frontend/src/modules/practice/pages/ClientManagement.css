@@ -1,0 +1,361 @@
+.client-management-page {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+  color: #1e293b;
+}
+
+.page-header .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* Stats Row */
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-card .ant-statistic-title {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.stat-card .ant-statistic-content-prefix {
+  margin-right: 8px;
+  opacity: 0.6;
+}
+
+.stat-trend {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+/* Clients Card */
+.clients-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-header .ant-input-search {
+  border-radius: 8px;
+}
+
+.card-header .ant-select-selector {
+  border-radius: 8px !important;
+}
+
+/* Client Table */
+.clients-table .ant-table-thead > tr > th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.clients-table .ant-table-tbody > tr:hover > td {
+  background: #f8fafc;
+}
+
+.client-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.client-meta .ant-tag {
+  font-size: 10px;
+  line-height: 16px;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.client-meta .ant-badge-status-text {
+  font-size: 12px;
+}
+
+.contact-cell,
+.deadline-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Cards */
+.deadlines-card,
+.quick-actions-card,
+.services-card {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.deadlines-card .ant-card-head-title,
+.quick-actions-card .ant-card-head-title,
+.services-card .ant-card-head-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Deadlines List */
+.deadlines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deadline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border-left: 3px solid #e2e8f0;
+}
+
+.deadline-item.priority-high {
+  border-left-color: #ef4444;
+  background: #fef2f2;
+}
+
+.deadline-item.priority-medium {
+  border-left-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.deadline-item.priority-low {
+  border-left-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.deadline-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Quick Actions */
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.actions-grid .ant-btn {
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Services Card */
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-info .anticon {
+  font-size: 18px;
+  color: #667eea;
+}
+
+/* Modal */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.modal-actions .ant-btn {
+  height: 40px;
+  border-radius: 8px;
+}
+
+.modal-actions .ant-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .clients-card {
+    overflow-x: auto;
+  }
+}
+
+/* Client Profile Drawer */
+.client-profile-drawer .ant-drawer-body {
+  padding: 0;
+}
+
+.client-profile {
+  padding: 24px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.profile-header-info {
+  flex: 1;
+}
+
+.profile-header-info h4 {
+  color: #1e293b;
+}
+
+.profile-stats {
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.profile-stats .ant-statistic-title {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Engagements List */
+.engagements-list {
+  min-height: 200px;
+}
+
+.empty-engagements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+  gap: 12px;
+}
+
+.engagement-item {
+  padding: 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.engagement-info {
+  width: 100%;
+}
+
+.engagement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.engagement-meta {
+  margin-bottom: 12px;
+}
+
+.engagement-stats {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.engagement-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Interactions */
+.interaction-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.interaction-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Contacts */
+.contact-details {
+  padding: 8px 0;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.contact-row .anticon {
+  color: #667eea;
+  font-size: 16px;
+  margin-top: 2px;
+}

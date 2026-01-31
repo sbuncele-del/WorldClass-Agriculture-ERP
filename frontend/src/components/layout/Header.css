@@ -1,0 +1,171 @@
+/* ========================================
+   AETHEROS HEADER - Enterprise Design
+   Using AetherOS Design System Variables
+   ======================================== */
+
+/* Import design system */
+@import '../../styles/design-system.css';
+
+/* ===== MAIN HEADER ===== */
+.enterprise-header {
+  grid-column: 1 / -1;
+  background: var(--gradient-primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2xl);
+  height: var(--topbar-height);
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-fixed);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ===== HEADER LEFT ===== */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
+}
+
+.logo-icon {
+  font-size: var(--font-3xl);
+}
+
+.logo-text {
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* ===== GLOBAL SEARCH ===== */
+.global-search {
+  width: 400px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg) var(--space-md) calc(var(--space-xl) + var(--space-lg));
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: var(--font-sm);
+  font-family: inherit;
+  transition: all var(--transition-slow) var(--ease-in-out);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+/* ===== HEADER ACTIONS ===== */
+.header-actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.header-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-in-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-profile-btn {
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.user-avatar-small {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-semibold);
+  font-size: var(--font-xs);
+}
+
+.user-name-text {
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .enterprise-header {
+    padding: 0 var(--space-lg);
+  }
+
+  .header-left {
+    gap: var(--space-lg);
+  }
+
+  .global-search {
+    width: 200px;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .user-name-text {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .global-search {
+    width: 150px;
+  }
+
+  .header-actions {
+    gap: var(--space-xs);
+  }
+}

@@ -1,0 +1,646 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>REFERRAL PARTNER POLICY - SiyaBusa ERP</title>
+      <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A4;
+      margin: 25mm 20mm 25mm 20mm;
+    }
+    
+    @page :first { margin: 0; }
+    
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #1e293b;
+    }
+    
+    /* ===== COVER PAGE - Official Brand Style ===== */
+    .cover-page {
+      width: 210mm;
+      height: 297mm;
+      background: linear-gradient(135deg, #1e3a5f 0%, #0d1f33 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      page-break-after: always;
+      text-align: center;
+      padding: 60px 50px;
+      color: #ffffff;
+    }
+    
+    .cover-logo {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    
+    .cover-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 30px 0 15px 0;
+      text-transform: uppercase;
+    }
+    
+    .cover-subtitle {
+      font-size: 18px;
+      color: #93c5fd;
+      margin-bottom: 50px;
+    }
+    
+    .cover-company {
+      font-size: 18px;
+      color: #60a5fa;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    
+    .cover-metadata {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 25px 40px;
+      margin: 20px 0;
+      text-align: left;
+      min-width: 320px;
+    }
+    
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .meta-row:last-child { border-bottom: none; }
+    
+    .meta-label {
+      font-weight: 600;
+      color: #93c5fd;
+      font-size: 13px;
+    }
+    
+    .meta-value {
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 13px;
+    }
+    
+    .cover-tagline {
+      font-size: 14px;
+      font-style: italic;
+      color: #a5b4fc;
+      margin-top: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* ===== CONTENT PAGES ===== */
+    .content {
+      padding: 0;
+    }
+    
+    h1 {
+      color: #1e40af;
+      font-size: 24pt;
+      font-weight: 700;
+      margin: 40px 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #1e40af;
+      page-break-after: avoid;
+    }
+    
+    /* Hide the original H1 title since cover shows it */
+    .content > h1:first-child { display: none; }
+    
+    h2 {
+      color: #1e40af;
+      font-size: 16pt;
+      font-weight: 600;
+      margin: 30px 0 15px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+      page-break-after: avoid;
+    }
+    
+    h3 {
+      color: #334155;
+      font-size: 13pt;
+      font-weight: 600;
+      margin: 25px 0 12px 0;
+      page-break-after: avoid;
+    }
+    
+    h4 {
+      color: #475569;
+      font-size: 12pt;
+      font-weight: 600;
+      margin: 20px 0 10px 0;
+    }
+    
+    p {
+      margin: 12px 0;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin: 15px 0 15px 30px;
+    }
+    
+    li { margin: 8px 0; }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+    
+    th {
+      background: #1e40af;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 10px 12px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    tr:nth-child(even) { background: #f8fafc; }
+    
+    /* Callout box style - matching brand */
+    blockquote {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 10pt;
+    }
+    
+    pre {
+      background: #0d1f33;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+    
+    hr { display: none; }
+    
+    strong { color: #1e3a5f; }
+    
+    /* Page break utility */
+    .page-break { page-break-after: always; }
+    
+    @media print {
+      body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .cover-page { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      th { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+    </head>
+    <body>
+      
+    <div class="cover-page">
+      <div class="cover-logo">SiyaBusa ERP</div>
+      
+      <h1 class="cover-title">REFERRAL PARTNER POLICY</h1>
+      <p class="cover-subtitle">Partner Policy</p>
+      
+      <p class="cover-company">Masaphokati Technologies (Pty) Ltd</p>
+      
+      <div class="cover-metadata">
+        <div class="meta-row">
+          <span class="meta-label">Document Version:</span>
+          <span class="meta-value">1.0</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Effective Date:</span>
+          <span class="meta-value">January 2026</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Department:</span>
+          <span class="meta-value">Business Development</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Classification:</span>
+          <span class="meta-value">Partner Document</span>
+        </div>
+      </div>
+      
+      <p class="cover-tagline">We Rule. We Govern. We Empower.</p>
+    </div>
+  
+      <div class="content"><h1>Masaphokati Technologies (Pty) Ltd</h1>
+<h2>Referral Partner Policy &amp; Agreement</h2>
+<p><strong>Document Date:</strong> January 2026<br><strong>Version:</strong> 1.0<br><strong>Classification:</strong> Partner Document</p>
+<hr>
+<h2>Pulling Together, Growing Together</h2>
+<p><em>&quot;Masaphokati&quot; — At the center, connecting all</em></p>
+<p>At Masaphokati Technologies, we believe in the power of relationships and collective growth. Our Referral Partner Program is built on the principle of <strong>pulling each other together</strong> — when you help us succeed, we ensure you share in that success.</p>
+<hr>
+<h2>1. Program Overview</h2>
+<h3>1.1 Purpose</h3>
+<p>This Referral Partner Policy establishes the terms and conditions under which individuals and organizations (&quot;Referral Partners&quot;) can earn commissions by introducing new clients to Masaphokati Technologies&#39; products and services.</p>
+<h3>1.2 Philosophy</h3>
+<p>We recognize that:</p>
+<ul>
+<li>Business growth happens through trusted relationships</li>
+<li>Those who open doors deserve to benefit from the opportunities created</li>
+<li>Long-term partnerships are built on fair, transparent reward structures</li>
+<li>Success should be shared with those who help make it possible</li>
+</ul>
+<hr>
+<h2>2. Commission Structure</h2>
+<h3>2.1 Standard Commission Rate</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Referral Commission</strong></td>
+<td><strong>10% of Contract Value</strong></td>
+</tr>
+<tr>
+<td><strong>Payment Timing</strong></td>
+<td>Upon each invoice payment received</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>For the lifetime of the referred client relationship</td>
+</tr>
+</tbody></table>
+<h3>2.2 How It Works</h3>
+<pre><code>Client Payment → Masaphokati Receives Funds → 10% Commission Paid to Referrer
+</code></pre>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Referred client signs a contract worth R 100,000/month</li>
+<li>Client pays their monthly invoice of R 100,000</li>
+<li>Referral Partner receives R 10,000 commission</li>
+<li>This continues for every payment made by the referred client</li>
+</ul>
+<h3>2.3 Commission Calculation</h3>
+<table>
+<thead>
+<tr>
+<th>Contract Type</th>
+<th>Commission Basis</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Monthly Subscription</td>
+<td>10% of each monthly payment</td>
+<td>R5,000/month → R500/month commission</td>
+</tr>
+<tr>
+<td>Annual Contract</td>
+<td>10% of each payment received</td>
+<td>R60,000/year → R6,000/year commission</td>
+</tr>
+<tr>
+<td>Project Fee</td>
+<td>10% of each milestone payment</td>
+<td>R200,000 project → R20,000 total commission</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>10% of implementation fees</td>
+<td>R50,000 setup → R5,000 commission</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Eligibility &amp; Qualification</h2>
+<h3>3.1 Who Can Be a Referral Partner?</h3>
+<ul>
+<li>Existing clients of Masaphokati Technologies</li>
+<li>Business professionals and consultants</li>
+<li>Industry associations and networks</li>
+<li>Technology partners and integrators</li>
+<li>Individual introducers with relevant business networks</li>
+<li>Organizations aligned with our values</li>
+</ul>
+<h3>3.2 Qualified Referral Requirements</h3>
+<p>For a referral to qualify for commission, the Referral Partner must:</p>
+<ol>
+<li><strong>Introduce</strong> — Make a formal introduction between Masaphokati and the prospective client</li>
+<li><strong>Facilitate</strong> — Actively assist in the sales process where needed</li>
+<li><strong>Support</strong> — Help navigate any challenges until the deal closes</li>
+<li><strong>Register</strong> — Submit the referral through our official process before client contact</li>
+</ol>
+<h3>3.3 Exclusions</h3>
+<p>The following do not qualify for referral commissions:</p>
+<ul>
+<li>Clients who approach Masaphokati directly without introduction</li>
+<li>Clients already in discussion with Masaphokati</li>
+<li>Self-referrals (referring your own company)</li>
+<li>Referrals made after client has already engaged with us</li>
+</ul>
+<hr>
+<h2>4. Referral Process</h2>
+<h3>4.1 Step-by-Step Process</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Register Referral</strong></td>
+<td>Partner submits referral via email/form</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Acknowledgment</strong></td>
+<td>Masaphokati confirms receipt within 48 hours</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Introduction</strong></td>
+<td>Partner introduces Masaphokati to prospect</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Sales Process</strong></td>
+<td>Masaphokati handles proposal and negotiation</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Partner Support</strong></td>
+<td>Partner assists as needed through close</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Contract Signed</strong></td>
+<td>Client signs agreement with Masaphokati</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Invoicing Begins</strong></td>
+<td>Client is invoiced for services</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Commission Paid</strong></td>
+<td>Partner receives 10% upon each payment</td>
+</tr>
+</tbody></table>
+<h3>4.2 Referral Registration</h3>
+<p>To register a referral, submit the following information:</p>
+<p><strong>Required Information:</strong></p>
+<ul>
+<li>Referral Partner name and contact details</li>
+<li>Prospective client company name</li>
+<li>Contact person name and title</li>
+<li>Contact email and phone number</li>
+<li>Brief description of the opportunity</li>
+<li>Estimated contract value (if known)</li>
+</ul>
+<p><strong>Submit to:</strong> <a href="mailto:referrals@masaphokati.co.za">referrals@masaphokati.co.za</a></p>
+<h3>4.3 Referral Protection Period</h3>
+<ul>
+<li><strong>Initial Period:</strong> 90 days from referral registration</li>
+<li><strong>Extension:</strong> If actively engaged, protection extends until decision</li>
+<li><strong>Expiration:</strong> If no engagement within 90 days, referral expires</li>
+</ul>
+<hr>
+<h2>5. Payment Terms</h2>
+<h3>5.1 Commission Payment Schedule</h3>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Commission Payment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Client pays invoice</td>
+<td>Commission calculated</td>
+</tr>
+<tr>
+<td>Within 14 days of receipt</td>
+<td>Commission paid to Partner</td>
+</tr>
+</tbody></table>
+<h3>5.2 Payment Methods</h3>
+<ul>
+<li>Electronic Funds Transfer (EFT) to South African bank accounts</li>
+<li>International wire transfer for non-SA partners</li>
+<li>Payment made in the currency of the contract</li>
+</ul>
+<h3>5.3 Documentation Required</h3>
+<p>Before first commission payment, Partners must provide:</p>
+<ul>
+<li>Completed W-8BEN or tax documentation (international)</li>
+<li>South African ID/Passport copy</li>
+<li>Banking details for payment</li>
+<li>Signed Referral Partner Agreement</li>
+</ul>
+<h3>5.4 Tax Responsibility</h3>
+<ul>
+<li>Referral Partners are responsible for their own tax obligations</li>
+<li>Masaphokati will issue payment summaries for tax purposes</li>
+<li>Commission payments may be subject to withholding tax requirements</li>
+</ul>
+<hr>
+<h2>6. Partner Responsibilities</h2>
+<h3>6.1 Expected Conduct</h3>
+<p>Referral Partners agree to:</p>
+<p>✅ Represent Masaphokati Technologies professionally and accurately</p>
+<p>✅ Not make false claims about our products or services</p>
+<p>✅ Disclose the referral relationship to prospective clients when appropriate</p>
+<p>✅ Maintain confidentiality of any sensitive information shared</p>
+<p>✅ Act in good faith throughout the referral process</p>
+<p>✅ Support the sales process constructively</p>
+<h3>6.2 Prohibited Activities</h3>
+<p>Referral Partners must NOT:</p>
+<p>❌ Guarantee specific outcomes or results to prospects</p>
+<p>❌ Negotiate pricing or contract terms on behalf of Masaphokati</p>
+<p>❌ Access or share confidential client information</p>
+<p>❌ Represent themselves as employees of Masaphokati</p>
+<p>❌ Engage in any unethical or illegal activities</p>
+<hr>
+<h2>7. Masaphokati Responsibilities</h2>
+<h3>7.1 Our Commitments</h3>
+<p>We commit to:</p>
+<p>✅ Process referrals promptly and professionally</p>
+<p>✅ Keep Partners informed of referral status (within confidentiality limits)</p>
+<p>✅ Pay commissions accurately and on time</p>
+<p>✅ Provide Partners with necessary sales materials</p>
+<p>✅ Treat referred prospects with excellence</p>
+<p>✅ Maintain transparency in all dealings</p>
+<h3>7.2 Support Provided</h3>
+<ul>
+<li>Product information and brochures</li>
+<li>Demo access for qualified referrals</li>
+<li>Sales support and proposal assistance</li>
+<li>Regular commission statements</li>
+<li>Partner portal access (coming soon)</li>
+</ul>
+<hr>
+<h2>8. Term &amp; Termination</h2>
+<h3>8.1 Agreement Term</h3>
+<ul>
+<li>This agreement is effective upon Partner registration</li>
+<li>Continues until terminated by either party</li>
+<li>Commission rights continue for existing referrals post-termination</li>
+</ul>
+<h3>8.2 Termination</h3>
+<p>Either party may terminate with 30 days written notice.</p>
+<p><strong>Post-Termination:</strong></p>
+<ul>
+<li>Partner continues to receive commissions on existing referred clients</li>
+<li>No commissions for new referrals after termination</li>
+<li>Commission continues as long as referred client remains active</li>
+</ul>
+<h3>8.3 Termination for Cause</h3>
+<p>Masaphokati may terminate immediately if Partner:</p>
+<ul>
+<li>Violates this policy</li>
+<li>Engages in fraudulent activity</li>
+<li>Damages Masaphokati&#39;s reputation</li>
+<li>Breaches confidentiality</li>
+</ul>
+<hr>
+<h2>9. Confidentiality</h2>
+<h3>9.1 Confidential Information</h3>
+<p>Partners agree to keep confidential:</p>
+<ul>
+<li>Client information and contract details</li>
+<li>Pricing and commercial terms</li>
+<li>Business strategies and plans</li>
+<li>Any proprietary information shared</li>
+</ul>
+<h3>9.2 Duration</h3>
+<p>Confidentiality obligations survive termination indefinitely.</p>
+<hr>
+<h2>10. General Provisions</h2>
+<h3>10.1 Independent Contractor</h3>
+<p>Referral Partners are independent contractors, not employees, agents, or representatives of Masaphokati Technologies.</p>
+<h3>10.2 Non-Exclusivity</h3>
+<p>This agreement is non-exclusive. Partners may refer to other companies, and Masaphokati may have multiple referral partners.</p>
+<h3>10.3 Modifications</h3>
+<p>Masaphokati reserves the right to modify this policy with 30 days notice to active Partners.</p>
+<h3>10.4 Governing Law</h3>
+<p>This agreement is governed by the laws of the Republic of South Africa.</p>
+<h3>10.5 Dispute Resolution</h3>
+<p>Disputes shall be resolved through good faith negotiation, followed by mediation if necessary.</p>
+<hr>
+<h2>11. Contact Information</h2>
+<p><strong>Referral Program Administration</strong></p>
+<table>
+<thead>
+<tr>
+<th>Contact</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Email</strong></td>
+<td><a href="mailto:referrals@masaphokati.co.za">referrals@masaphokati.co.za</a></td>
+</tr>
+<tr>
+<td><strong>Company</strong></td>
+<td>Masaphokati Technologies (Pty) Ltd</td>
+</tr>
+<tr>
+<td><strong>Address</strong></td>
+<td>Centurion, Gauteng, South Africa</td>
+</tr>
+<tr>
+<td><strong>Website</strong></td>
+<td><a href="http://www.siyabusa.app">www.siyabusa.app</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. Acceptance</h2>
+<p>By registering as a Referral Partner and submitting referrals, you acknowledge that you have read, understood, and agree to be bound by this Referral Partner Policy.</p>
+<hr>
+<p><strong>Summary: The Masaphokati Promise</strong></p>
+<table>
+<thead>
+<tr>
+<th>What You Do</th>
+<th>What You Get</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Refer a client to us</td>
+<td>10% of every payment they make</td>
+</tr>
+<tr>
+<td>Help close the deal</td>
+<td>Commission for life of client relationship</td>
+</tr>
+<tr>
+<td>Be a trusted partner</td>
+<td>Share in our mutual success</td>
+</tr>
+</tbody></table>
+<p><em>&quot;When we pull together, we all rise together.&quot;</em></p>
+<hr>
+<p><strong>Document Control</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document ID</td>
+<td>MT-REF-POL-2026-001</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Effective Date</td>
+<td>January 2026</td>
+</tr>
+<tr>
+<td>Review Date</td>
+<td>January 2027</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Masaphokati Technologies</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>© 2026 Masaphokati Technologies (Pty) Ltd. All Rights Reserved.</em></p>
+</div>
+    </body>
+    </html>
+  

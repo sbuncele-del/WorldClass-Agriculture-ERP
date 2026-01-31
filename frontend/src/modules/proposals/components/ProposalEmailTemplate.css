@@ -1,0 +1,407 @@
+/* Proposal Email Template Styles */
+.email-preview-container {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.email-preview-header {
+  background: #1a1a2e;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.email-preview-header > span {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.email-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.email-meta span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Email Template */
+.email-template {
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Email Header */
+.email-header {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.email-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.email-header span {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Hero Section */
+.email-hero {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  padding: 48px 32px;
+  text-align: center;
+  color: white;
+}
+
+.exclusive-tag {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.email-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.email-hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Proposal Summary Card */
+.proposal-summary-card {
+  margin: -24px 32px 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  text-align: center;
+  position: relative;
+}
+
+.summary-header {
+  margin-bottom: 16px;
+}
+
+.proposal-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #f0f0ff;
+  color: #6366f1;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.proposal-summary-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 24px 0;
+}
+
+.proposal-details {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-item .label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.detail-item .value {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.detail-item .value.highlight {
+  color: #f59e0b;
+  font-size: 18px;
+}
+
+/* Access Section */
+.access-section {
+  padding: 40px 32px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.access-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.access-section > p {
+  font-size: 15px;
+  color: #666;
+  margin: 0 0 24px 0;
+}
+
+.access-code-box {
+  display: inline-block;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.access-code-box .code {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 8px;
+  font-family: 'SF Mono', Monaco, monospace;
+}
+
+.view-proposal-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.view-proposal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.direct-link {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #999;
+}
+
+.direct-link a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+/* Included Preview */
+.included-preview {
+  padding: 40px 32px;
+}
+
+.included-preview h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.included-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.included-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f9ff;
+  border-radius: 10px;
+}
+
+.included-item .check {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.included-item span:last-child {
+  font-size: 14px;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 40px 32px;
+  background: #f8f9ff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-avatar {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.contact-info h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.contact-info .contact-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.contact-info .contact-title {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.contact-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-details a {
+  font-size: 13px;
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.contact-details span {
+  color: #ccc;
+}
+
+/* Footer */
+.email-footer {
+  padding: 40px 32px;
+  background: #1a1a2e;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 16px;
+}
+
+.email-footer > p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 16px 0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+.footer-links span {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .email-hero h1 {
+    font-size: 28px;
+  }
+  
+  .proposal-details {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .included-items {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}

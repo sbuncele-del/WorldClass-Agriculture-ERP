@@ -1,0 +1,89 @@
+# ========================================
+# WorldClass ERP Backend - Production Dockerfile
+# ========================================
+#
+# Multi-stage build for minimal, secure production image
+# 
+# Build: docker build -f Dockerfile.prod -t worldclass-backend:latest .
+# Run:   docker run -p 3000:3000 --env-file .env.docker worldclass-backend:latest
+#
+# ========================================
+
+# ----------------------------------------
+# Stage 1: Builder
+# ----------------------------------------
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install build dependencies for native modules (bcrypt, etc.)
+RUN apk add --no-cache python3 make g++
+
+# Copy package files (for layer caching)
+COPY package*.json ./
+
+# Install ALL dependencies (including dev for TypeScript build)
+# Using npm install since this is a monorepo without local package-lock
+RUN npm install
+
+# Copy source code
+COPY tsconfig.json ./
+COPY src/ ./src/
+
+# Build TypeScript to JavaScript
+RUN npm run build
+
+# ----------------------------------------
+# Stage 2: Production
+# ----------------------------------------
+FROM node:20-alpine AS production
+
+# Labels for image metadata
+LABEL maintainer="WorldClass ERP Team"
+LABEL version="1.0.0"
+LABEL description="WorldClass ERP Backend API"
+
+# Security: Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+WORKDIR /app
+
+# Install runtime dependencies for native modules
+RUN apk add --no-cache python3 make g++ wget
+
+# Copy package files
+COPY package*.json ./
+
+# Install ONLY production dependencies
+RUN npm install --omit=dev && \
+    npm cache clean --force
+
+# Remove build tools to reduce attack surface
+RUN apk del python3 make g++
+
+# Copy built application from builder
+COPY --from=builder /app/dist ./dist
+
+# Copy email templates (they're not compiled)
+COPY src/templates ./dist/templates
+
+# Set ownership to non-root user
+RUN chown -R nodejs:nodejs /app
+
+# Switch to non-root user
+USER nodejs
+
+# Environment defaults (overridden by .env.docker)
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
+
+# Start the application
+CMD ["node", "dist/index.js"]

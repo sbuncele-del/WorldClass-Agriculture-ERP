@@ -1,0 +1,153 @@
+/* Status Badge Styles */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+/* Sizes */
+
+.status-badge-sm {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.status-badge-md {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.status-badge-lg {
+  padding: 0.375rem 1rem;
+  font-size: 1rem;
+}
+
+/* Variants - Solid */
+
+.status-badge-solid.status-badge-green {
+  background-color: #10b981;
+  color: white;
+}
+
+.status-badge-solid.status-badge-yellow {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.status-badge-solid.status-badge-red {
+  background-color: #ef4444;
+  color: white;
+}
+
+.status-badge-solid.status-badge-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.status-badge-solid.status-badge-gray {
+  background-color: #6b7280;
+  color: white;
+}
+
+/* Variants - Outline */
+
+.status-badge-outline.status-badge-green {
+  background-color: white;
+  color: #10b981;
+  border: 1.5px solid #10b981;
+}
+
+.status-badge-outline.status-badge-yellow {
+  background-color: white;
+  color: #f59e0b;
+  border: 1.5px solid #f59e0b;
+}
+
+.status-badge-outline.status-badge-red {
+  background-color: white;
+  color: #ef4444;
+  border: 1.5px solid #ef4444;
+}
+
+.status-badge-outline.status-badge-blue {
+  background-color: white;
+  color: #3b82f6;
+  border: 1.5px solid #3b82f6;
+}
+
+.status-badge-outline.status-badge-gray {
+  background-color: white;
+  color: #6b7280;
+  border: 1.5px solid #6b7280;
+}
+
+/* Variants - Subtle */
+
+.status-badge-subtle.status-badge-green {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge-subtle.status-badge-yellow {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge-subtle.status-badge-red {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-badge-subtle.status-badge-blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge-subtle.status-badge-gray {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Icon */
+
+.status-badge-icon {
+  display: flex;
+  align-items: center;
+  font-size: 0.875em;
+  line-height: 1;
+}
+
+.status-badge-label {
+  line-height: 1;
+}
+
+/* Pulse Animation */
+
+.status-badge-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Hover Effects for Interactive Badges */
+
+.status-badge-clickable {
+  cursor: pointer;
+}
+
+.status-badge-clickable:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Alert</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-header {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .alert-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+    
+    .email-body {
+      padding: 40px 30px;
+    }
+    
+    .email-body p {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    
+    .alert-box {
+      background-color: #fef2f2;
+      border: 2px solid #dc2626;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .alert-type {
+      font-size: 20px;
+      font-weight: 700;
+      color: #991b1b;
+      margin-bottom: 12px;
+    }
+    
+    .alert-description {
+      font-size: 16px;
+      color: #7f1d1d;
+      line-height: 1.6;
+    }
+    
+    .event-details {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .event-details h3 {
+      font-size: 18px;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .detail-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+      text-align: right;
+      max-width: 60%;
+      word-break: break-word;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .action-items {
+      background-color: #fef3c7;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
+      border-left: 4px solid #f59e0b;
+    }
+    
+    .action-items h3 {
+      font-size: 18px;
+      color: #78350f;
+      margin-bottom: 16px;
+    }
+    
+    .action-items ul {
+      margin-left: 20px;
+      color: #78350f;
+    }
+    
+    .action-items li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    
+    .warning-note {
+      background-color: #eff6ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    
+    .warning-note p {
+      font-size: 14px;
+      color: #1e40af;
+      margin-bottom: 0;
+    }
+    
+    .email-footer {
+      background-color: #f9fafb;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .email-footer p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        border-radius: 0;
+      }
+      
+      .email-header,
+      .email-body {
+        padding: 30px 20px;
+      }
+      
+      .detail-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+      
+      .detail-value {
+        max-width: 100%;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="alert-icon">🚨</div>
+      <h1>Security Alert</h1>
+      <p>Unusual activity detected on your account</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p style="font-size: 18px; font-weight: 600; color: #1f2937;">
+        Hi {{userName}},
+      </p>
+      
+      <p>
+        We detected unusual activity on your Worldclass ERP account and wanted 
+        to let you know. Your account security is our top priority.
+      </p>
+
+      <!-- Alert Box -->
+      <div class="alert-box">
+        <div class="alert-type">{{alertType}}</div>
+        <div class="alert-description">{{description}}</div>
+      </div>
+
+      <!-- Event Details -->
+      <div class="event-details">
+        <h3>Event Details</h3>
+        
+        <div class="detail-row">
+          <span class="detail-label">Date & Time</span>
+          <span class="detail-value">{{timestamp}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">IP Address</span>
+          <span class="detail-value">{{ipAddress}}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Location</span>
+          <span class="detail-value">{{location}}</span>
+        </div>
+      </div>
+
+      <!-- Action Items -->
+      <div class="action-items">
+        <h3>⚠️ Recommended Actions</h3>
+        <ul>
+          <li>Review your recent account activity immediately</li>
+          <li>Change your password if you don't recognize this activity</li>
+          <li>Enable two-factor authentication for added security</li>
+          <li>Check your team members' access permissions</li>
+          <li>Review connected devices and active sessions</li>
+        </ul>
+      </div>
+
+      <center>
+        <a href="{{securityUrl}}" class="cta-button">
+          Review Security Settings
+        </a>
+      </center>
+
+      <!-- Warning Note -->
+      <div class="warning-note">
+        <p>
+          <strong>Was this you?</strong> If you recognize this activity, you can 
+          safely ignore this email. However, if you don't recognize this activity, 
+          please secure your account immediately and contact our support team.
+        </p>
+      </div>
+
+      <p style="margin-top: 30px;">
+        <strong>Need immediate help?</strong><br>
+        Contact our security team at 
+        <a href="mailto:security@worldclasserp.com" style="color: #dc2626;">security@worldclasserp.com</a>
+        or call our 24/7 support hotline.
+      </p>
+
+      <p>
+        Stay safe,<br>
+        <strong>The Worldclass ERP Security Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>
+        <strong>Worldclass ERP Software</strong><br>
+        Your Security is Our Priority
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 13px;">
+        <a href="{{securityUrl}}" style="color: #dc2626; text-decoration: none; margin: 0 10px;">Security Settings</a>
+        <a href="{{frontendUrl}}/help/security" style="color: #dc2626; text-decoration: none; margin: 0 10px;">Security Guide</a>
+      </p>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+        © 2024 Worldclass ERP. All rights reserved.<br>
+        This is an automated security notification.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "WorldClass ERP Driver",
+    "slug": "worldclass-erp-driver",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1890ff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.worldclasserp.driver",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to capture delivery photos",
+        "NSPhotoLibraryUsageDescription": "This app needs photo library access to select delivery photos",
+        "NSLocationWhenInUseUsageDescription": "This app needs location access to track deliveries",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs background location access to track deliveries continuously",
+        "NSMicrophoneUsageDescription": "This app needs microphone access for voice notes",
+        "UIBackgroundModes": ["location", "fetch"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1890ff"
+      },
+      "package": "com.worldclasserp.driver",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "INTERNET",
+        "RECORD_AUDIO"
+      ],
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow WorldClass ERP Driver to track your location for delivery updates.",
+          "locationAlwaysPermission": "Allow WorldClass ERP Driver to track your location in the background for delivery updates.",
+          "locationWhenInUsePermission": "Allow WorldClass ERP Driver to track your location during deliveries."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow WorldClass ERP Driver to access camera for delivery photos."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "worldclass-erp-driver"
+      }
+    }
+  }
+}

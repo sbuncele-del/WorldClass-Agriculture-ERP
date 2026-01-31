@@ -1,0 +1,51 @@
+{
+  "name": "siyabusa-video-presentations",
+  "version": "1.0.0",
+  "description": "Professional video presentations for SiyaBusa ERP investor pitch",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render InvestorPitch-WithAudio out/investor-pitch.mp4",
+    "build:no-audio": "remotion render InvestorPitch out/investor-pitch-silent.mp4",
+    "build:teaser": "remotion render TeaserVideo-WithAudio out/teaser-video.mp4",
+    "build:teaser-silent": "remotion render TeaserVideo out/teaser-video-silent.mp4",
+    "build:teaser-square": "remotion render TeaserVideo-Square out/teaser-video-square.mp4",
+    "build:all": "npm run build && npm run build:teaser && npm run build:teaser-square",
+    "generate:voiceover": "python scripts/generate-voiceovers.py",
+    "generate:music": "python scripts/generate-background-audio.py",
+    "generate:audio": "npm run generate:voiceover && npm run generate:music",
+    "build:slides": "npm run build:slide-01 && npm run build:slide-02 && npm run build:slide-03 && npm run build:slide-04 && npm run build:slide-05 && npm run build:slide-06 && npm run build:slide-07 && npm run build:slide-08 && npm run build:slide-09 && npm run build:slide-10",
+    "build:slide-01": "remotion render Slide-01-title out/slides/01-title.mp4",
+    "build:slide-02": "remotion render Slide-02-problem out/slides/02-problem.mp4",
+    "build:slide-03": "remotion render Slide-03-solution out/slides/03-solution.mp4",
+    "build:slide-04": "remotion render Slide-04-modules out/slides/04-modules.mp4",
+    "build:slide-05": "remotion render Slide-05-market out/slides/05-market.mp4",
+    "build:slide-06": "remotion render Slide-06-differentiators out/slides/06-differentiators.mp4",
+    "build:slide-07": "remotion render Slide-07-roadmap out/slides/07-roadmap.mp4",
+    "build:slide-08": "remotion render Slide-08-financials out/slides/08-financials.mp4",
+    "build:slide-09": "remotion render Slide-09-investment out/slides/09-investment.mp4",
+    "build:slide-10": "remotion render Slide-10-contact out/slides/10-contact.mp4",
+    "preview": "remotion preview"
+  },
+  "keywords": [
+    "video",
+    "presentation",
+    "remotion",
+    "react",
+    "investor-pitch"
+  ],
+  "author": "Masaphokati Technologies (Pty) Ltd",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "@remotion/bundler": "^4.0.403",
+    "@remotion/cli": "^4.0.403",
+    "@remotion/media-utils": "^4.0.403",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "edge-tts": "^1.0.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "remotion": "^4.0.403",
+    "typescript": "^5.9.3"
+  }
+}

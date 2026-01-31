@@ -1,0 +1,24 @@
+---
+geometry: margin=2.5cm
+fontsize: 11pt
+mainfont: DejaVu Serif
+sansfont: DejaVu Sans
+monofont: DejaVu Sans Mono
+linkcolor: blue
+urlcolor: blue
+toccolor: black
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{\small Lushikishini Cattle Feedlot Cooperative}
+  - \fancyhead[R]{\small Business Plan 2026}
+  - \fancyfoot[C]{\thepage}
+  - \usepackage{titling}
+  - \pretitle{\begin{center}\LARGE\bfseries}
+  - \posttitle{\end{center}\vspace{1em}}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{float}
+  - \floatplacement{table}{H}
+---

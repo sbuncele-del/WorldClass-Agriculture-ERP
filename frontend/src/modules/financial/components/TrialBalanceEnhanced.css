@@ -1,0 +1,222 @@
+/* Trial Balance Enhanced - Glass Morphism Design */
+
+.tbe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* ==================== FILTERS ==================== */
+.tbe-filters {
+  width: 100%;
+}
+
+.tbe-filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.tbe-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tbe-filter-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+}
+
+.tbe-select,
+.tbe-input {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.tbe-select:focus,
+.tbe-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tbe-select option {
+  background: #1f2937;
+  color: white;
+}
+
+.tbe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==================== STATUS CARD ==================== */
+.tbe-status-card {
+  margin-bottom: 0;
+}
+
+.tbe-status {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tbe-status-icon-success {
+  color: #86efac;
+  flex-shrink: 0;
+}
+
+.tbe-status-icon-error {
+  color: #fca5a5;
+  flex-shrink: 0;
+}
+
+.tbe-status-text {
+  flex: 1;
+}
+
+.tbe-status-text h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 6px 0;
+}
+
+.tbe-status-text p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.tbe-status-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 280px;
+}
+
+.tbe-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.tbe-summary-item label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tbe-summary-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.tbe-balanced {
+  color: #86efac !important;
+}
+
+.tbe-unbalanced {
+  color: #fca5a5 !important;
+}
+
+/* ==================== TABLE CELLS ==================== */
+.tbe-account-code {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  color: #93c5fd;
+}
+
+.tbe-account-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.tbe-account-type {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tbe-amount {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tbe-balance {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tbe-balance-positive {
+  color: #86efac;
+}
+
+.tbe-balance-negative {
+  color: #fca5a5;
+}
+
+/* ==================== LOADING & ERROR ==================== */
+.tbe-loading,
+.tbe-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: white;
+  font-size: 14px;
+}
+
+.tbe-error {
+  flex-direction: column;
+  text-align: center;
+}
+
+.tbe-error p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .tbe-status {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tbe-status-summary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tbe-filter-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tbe-status-summary {
+    min-width: auto;
+  }
+
+  .tbe-account-code,
+  .tbe-amount,
+  .tbe-balance {
+    font-size: 12px;
+  }
+}

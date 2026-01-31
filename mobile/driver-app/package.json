@@ -1,0 +1,53 @@
+{
+  "name": "driver-app",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.24.0",
+    "@react-native-community/netinfo": "^11.4.1",
+    "@react-native-firebase/app": "^23.7.0",
+    "@react-native-firebase/messaging": "^23.7.0",
+    "@react-navigation/bottom-tabs": "^7.8.12",
+    "@react-navigation/native": "^7.1.25",
+    "@react-navigation/stack": "^7.6.12",
+    "@reduxjs/toolkit": "^2.11.1",
+    "@sentry/react-native": "^7.7.0",
+    "axios": "^1.13.2",
+    "expo": "~54.0.27",
+    "expo-av": "^16.0.8",
+    "expo-barcode-scanner": "^13.0.1",
+    "expo-camera": "^17.0.10",
+    "expo-file-system": "^19.0.20",
+    "expo-image-picker": "^17.0.9",
+    "expo-local-authentication": "^17.0.8",
+    "expo-location": "^19.0.8",
+    "expo-media-library": "^18.2.1",
+    "expo-speech": "^14.0.8",
+    "expo-sqlite": "^16.0.10",
+    "expo-status-bar": "~3.0.9",
+    "expo-task-manager": "^14.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "^2.29.1",
+    "react-native-maps": "^1.26.20",
+    "react-native-reanimated": "^4.2.0",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-screens": "^4.18.0",
+    "react-native-svg": "^15.15.1",
+    "react-redux": "^9.2.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@types/react": "~19.1.0",
+    "@types/react-native": "^0.72.8",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

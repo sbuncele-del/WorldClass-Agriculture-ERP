@@ -1,0 +1,54 @@
+# Production Dockerfile - Uses pre-built dist folder
+FROM node:20-alpine
+WORKDIR /app
+
+# Install system dependencies
+RUN apk --no-cache add curl dumb-init
+
+# Download RDS SSL certificate
+RUN curl -o /app/global-bundle.pem https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+
+# Copy package files and install production dependencies
+COPY package*.json ./
+RUN npm install --only=production && npm cache clean --force
+
+# Copy pre-built application
+COPY dist ./dist
+
+# Copy email templates
+COPY src/templates ./dist/templates
+
+# Copy database migrations
+COPY database ./database
+
+# Environment Variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Database connection
+ENV DB_HOST=aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com
+ENV DB_PORT=5432
+ENV DB_NAME=postgres
+ENV DB_USER=postgres
+ENV DB_PASSWORD=caxMex-0putca-dyjnah
+ENV DATABASE_URL=postgresql://postgres:caxMex-0putca-dyjnah@aetheros-erp-db.cxoqqoowwgxt.eu-north-1.rds.amazonaws.com:5432/postgres
+
+# Redis config
+ENV REDIS_HOST=localhost
+ENV REDIS_PORT=6379
+ENV REDIS_ENABLED=false
+
+# JWT
+ENV JWT_SECRET=WorldClass-ERP-SuperSecret-JWT-2024-Production
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
+
+# Start application
+USER node
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "dist/server.js"]

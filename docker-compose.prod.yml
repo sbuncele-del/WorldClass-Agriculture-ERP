@@ -1,0 +1,120 @@
+# ========================================
+# WorldClass ERP - Production Docker Compose
+# ========================================
+#
+# This is for PRODUCTION deployment on Vultr server
+# 
+# Usage:
+#   1. Copy .env.docker.example to .env.docker and fill in values
+#   2. docker-compose -f docker-compose.prod.yml up -d
+#
+# ========================================
+
+version: '3.8'
+
+services:
+  # ========================================
+  # BACKEND - Node.js Express API
+  # ========================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    image: worldclass-backend:${VERSION:-latest}
+    container_name: worldclass-backend
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env.docker
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - worldclass-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ========================================
+  # DATABASE - PostgreSQL 15
+  # ========================================
+  db:
+    image: postgres:15-alpine
+    container_name: worldclass-db
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/backups:/backups
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-worldclass_erp}
+    ports:
+      - "127.0.0.1:5432:5432"  # Only localhost access
+    networks:
+      - worldclass-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d worldclass_erp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ========================================
+  # CACHE - Redis 7
+  # ========================================
+  redis:
+    image: redis:7-alpine
+    container_name: worldclass-redis
+    restart: always
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    ports:
+      - "127.0.0.1:6379:6379"  # Only localhost access
+    networks:
+      - worldclass-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# ========================================
+# VOLUMES - Persistent Storage
+# ========================================
+volumes:
+  postgres_data:
+    name: worldclass-postgres-data
+    driver: local
+  redis_data:
+    name: worldclass-redis-data
+    driver: local
+
+# ========================================
+# NETWORKS
+# ========================================
+networks:
+  worldclass-network:
+    name: worldclass-network
+    driver: bridge

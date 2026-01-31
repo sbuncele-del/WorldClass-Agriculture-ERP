@@ -1,0 +1,113 @@
+.proposals-dashboard {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Stats Row */
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.stat-card .ant-statistic-title {
+  font-size: 12px;
+}
+
+.stat-card .ant-statistic-content-prefix {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+/* Pipeline Card */
+.pipeline-card {
+  margin-bottom: 16px;
+}
+
+.pipeline-total {
+  text-align: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 16px;
+}
+
+.pipeline-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pipeline-stage {
+  padding: 8px 0;
+}
+
+.stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.stage-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Quick Actions */
+.quick-actions-card .ant-card-body {
+  padding: 16px;
+}
+
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Proposal Cell */
+.proposal-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proposal-title {
+  font-weight: 500;
+  color: #262626;
+}
+
+.proposal-client {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stats-row .ant-col {
+    margin-bottom: 16px;
+  }
+}

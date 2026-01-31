@@ -1,0 +1,59 @@
+/* Journal Entries Enhanced Styles */
+
+.je-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+
+.je-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Journal Number */
+.je-journal-number {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+/* Amount */
+.je-amount {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* View Button */
+.je-btn-view {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.je-btn-view:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .je-journal-number,
+  .je-amount {
+    font-size: 12px;
+  }
+}

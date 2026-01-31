@@ -1,0 +1,5 @@
+🚀 Starting deployment of all new modules...
+============================================
+
+\033[1;33m📦 Step 1/7: Uploading database migrations...\033[0m
+scp: stat local "/Users/sibusisomavuso/Desktop/Worldclass ERP Software /backend/database/migrations/017_reports_analytics_module.sql": No such file or directory

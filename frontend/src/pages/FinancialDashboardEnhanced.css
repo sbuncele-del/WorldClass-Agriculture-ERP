@@ -1,0 +1,499 @@
+/* === Financial Dashboard Enhanced === */
+.financial-dashboard-enhanced {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+/* Breadcrumb */
+.fde-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.fde-breadcrumb .separator {
+  color: #cbd5e1;
+}
+
+.fde-breadcrumb .active {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Page Header */
+.fde-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.fde-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fde-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.fde-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+.fde-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.fde-btn-primary,
+.fde-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.fde-btn-primary {
+  background: var(--oracle-blue, #0F4B9C);
+  color: white;
+  box-shadow: 0 2px 4px rgba(15, 75, 156, 0.2);
+}
+
+.fde-btn-primary:hover {
+  background: #0d3f7e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(15, 75, 156, 0.3);
+}
+
+.fde-btn-secondary {
+  background: white;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.fde-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* SAP-style Tabs */
+.fde-tabs {
+  display: flex;
+  background: white;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 0 24px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.fde-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.fde-tabs::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.fde-tab {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.fde-tab:hover {
+  color: var(--oracle-blue, #0F4B9C);
+  background: #f8fafc;
+}
+
+.fde-tab.active {
+  color: var(--oracle-blue, #0F4B9C);
+  border-bottom-color: var(--oracle-blue, #0F4B9C);
+  font-weight: 600;
+}
+
+/* Scrollable Content with Purple Gradient */
+.fde-content {
+  flex: 1;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 24px;
+}
+
+/* Loading State */
+.fde-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  color: white;
+  font-size: 18px;
+}
+
+/* Dashboard Grid */
+.fde-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Glass Card Base */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* KPI Cards */
+.fde-kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kpi-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+}
+
+.kpi-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.kpi-trend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.kpi-trend.trend-up {
+  color: #4ade80;
+}
+
+.kpi-trend.trend-down {
+  color: #f87171;
+}
+
+.kpi-comparison {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Chart Cards */
+.fde-chart-card {
+  min-height: 300px;
+}
+
+.cashflow-card {
+  grid-column: span 2;
+}
+
+.performance-card {
+  grid-column: span 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 220px;
+}
+
+.chart-icon {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.chart-placeholder {
+  text-align: center;
+  color: white;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.chart-metrics {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.metric-value.positive {
+  color: #4ade80;
+}
+
+.metric-value.negative {
+  color: #f87171;
+}
+
+/* AI Insights Card */
+.fde-insights-card {
+  grid-column: span 3;
+}
+
+.ai-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.ai-icon {
+  font-size: 16px;
+}
+
+.insights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border-left: 4px solid;
+  transition: all 0.2s;
+}
+
+.insight-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+.insight-item.insight-positive {
+  border-left-color: #4ade80;
+}
+
+.insight-item.insight-warning {
+  border-left-color: #fbbf24;
+}
+
+.insight-item.insight-info {
+  border-left-color: #60a5fa;
+}
+
+.insight-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.insight-icon {
+  font-size: 20px;
+}
+
+.insight-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insight-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.insight-description {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .fde-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cashflow-card,
+  .performance-card,
+  .fde-insights-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .fde-content {
+    padding: 16px;
+  }
+
+  .fde-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .fde-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .fde-btn-primary,
+  .fde-btn-secondary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .fde-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .fde-kpi-card,
+  .fde-chart-card,
+  .fde-insights-card,
+  .cashflow-card,
+  .performance-card {
+    grid-column: span 1 !important;
+  }
+
+  .chart-metrics {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

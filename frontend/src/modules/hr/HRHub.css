@@ -1,0 +1,288 @@
+/* HR & Payroll Hub Styles - RSA Compliant */
+
+.hr-hub {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hub-title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hr-logo {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.hr-logo .logo-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.hub-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* HR Status Banner */
+.hr-status-card {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.25);
+}
+
+.hr-status-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.hr-status-card .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 12px;
+}
+
+.hr-status-card .ant-statistic-content {
+  color: white;
+}
+
+.hr-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hr-icon {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tabs */
+.hub-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+  background: white;
+  padding: 4px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.hub-tabs .ant-tabs-tab {
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.hub-tabs .ant-tabs-tab-active {
+  background: #ecfeff;
+  border-radius: 8px;
+}
+
+/* Payroll Card */
+.payroll-card {
+  border-radius: 12px;
+}
+
+.payroll-card .ant-table-thead > tr > th {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.payroll-card .ant-table-tbody > tr:hover > td {
+  background: #ecfeff;
+}
+
+/* Certificates Card */
+.certificates-card {
+  border-radius: 12px;
+}
+
+.certificate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.certificate-item:last-of-type {
+  border-bottom: none;
+}
+
+.cert-info {
+  flex: 1;
+}
+
+.cert-progress {
+  width: 140px;
+  text-align: right;
+}
+
+/* Quick Actions */
+.actions-card {
+  border-radius: 12px;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.action-btn {
+  height: auto;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.action-btn:hover {
+  border-color: #06b6d4;
+  background: #ecfeff;
+}
+
+.action-btn .anticon {
+  font-size: 20px;
+  color: #06b6d4;
+}
+
+/* Compliance Summary */
+.compliance-summary-card {
+  border-radius: 12px;
+}
+
+.compliance-stat {
+  padding: 8px 0;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Integration Status */
+.integration-status {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.integration-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f0fdf4;
+  border-radius: 10px;
+  border: 1px solid #bbf7d0;
+}
+
+/* Report Cards */
+.report-category-card {
+  border-radius: 12px;
+  height: 100%;
+}
+
+.report-item {
+  padding: 12px 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-item .anticon {
+  font-size: 18px;
+  color: #64748b;
+}
+
+/* Tables */
+.hr-hub .ant-table-thead > tr > th {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.hr-hub .ant-table-tbody > tr:hover > td {
+  background: #ecfeff;
+}
+
+/* Cards */
+.hr-hub .ant-card {
+  border-radius: 12px;
+}
+
+/* Steps */
+.hr-hub .ant-steps-item-title {
+  font-size: 13px;
+}
+
+.hr-hub .ant-steps-item-description {
+  font-size: 11px;
+}
+
+/* Alert */
+.hr-hub .ant-alert {
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hr-status-card .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .hr-hub .ant-row > .ant-col:first-child {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hub-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .hr-status-card .ant-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .hr-status-card .ant-col {
+    max-width: 100%;
+  }
+}

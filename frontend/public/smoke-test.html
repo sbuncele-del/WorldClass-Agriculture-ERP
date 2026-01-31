@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend Smoke Test</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 900px; margin: 0 auto; }
+    .test { padding: 10px; margin: 5px 0; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+    .pass { background: #d4edda; color: #155724; }
+    .fail { background: #f8d7da; color: #721c24; }
+    .pending { background: #fff3cd; color: #856404; }
+    .section { margin-top: 20px; border-top: 2px solid #007bff; padding-top: 10px; }
+    .section h3 { color: #007bff; margin-bottom: 10px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+    button:hover { background: #0056b3; }
+    #summary { font-size: 18px; font-weight: bold; margin: 20px 0; padding: 15px; border-radius: 4px; }
+    .details { font-size: 12px; color: #666; margin-top: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🔥 Frontend Smoke Test</h1>
+  <p>Tests API connectivity for key modules. Make sure you're logged in first!</p>
+  
+  <div>
+    <label>API Base URL: </label>
+    <input type="text" id="apiUrl" value="http://51.20.67.228:3000" style="width: 300px; padding: 5px;">
+  </div>
+  <div style="margin-top: 10px;">
+    <label>Auth Token: </label>
+    <input type="text" id="token" placeholder="Paste your JWT token here" style="width: 500px; padding: 5px;">
+    <button onclick="loginAndTest()" style="margin-left: 10px; background: #28a745;">Login & Test</button>
+  </div>
+  
+  <button onclick="runAllTests()" style="margin-top: 20px;">Run All Tests</button>
+  
+  <div id="summary" class="pending">Tests not run yet</div>
+  <div id="results"></div>
+
+  <script>
+    const tests = [
+      // Auth
+      { name: 'Health Check', endpoint: '/health', method: 'GET', module: 'Core', requiresAuth: false },
+      
+      // Dashboard
+      { name: 'Dashboard Summary', endpoint: '/api/v1/dashboard/summary', method: 'GET', module: 'Dashboard' },
+      
+      // Logistics
+      { name: 'Logistics Dashboard', endpoint: '/api/logistics/dashboard', method: 'GET', module: 'Logistics' },
+      { name: 'Logistics Vehicles', endpoint: '/api/logistics/vehicles', method: 'GET', module: 'Logistics' },
+      { name: 'Logistics Drivers', endpoint: '/api/logistics/drivers', method: 'GET', module: 'Logistics' },
+      
+      // Healthcare
+      { name: 'Healthcare Facilities', endpoint: '/api/healthcare/facilities', method: 'GET', module: 'Healthcare' },
+      { name: 'Facility Operations', endpoint: '/api/healthcare/facilities/00000000-0000-0000-0000-000000000001/operations', method: 'GET', module: 'Healthcare' },
+      { name: 'Healthcare Patients', endpoint: '/api/healthcare/facilities/00000000-0000-0000-0000-000000000001/patients', method: 'GET', module: 'Healthcare' },
+      
+      // Cash Management / Banking
+      { name: 'Banks List', endpoint: '/api/cash-management/banks', method: 'GET', module: 'Cash Management' },
+      { name: 'Bank Accounts', endpoint: '/api/cash-management/bank-accounts', method: 'GET', module: 'Cash Management' },
+      { name: 'Cash Workspace', endpoint: '/api/cash-management/workspace', method: 'GET', module: 'Cash Management' },
+      { name: 'Cash Summary', endpoint: '/api/cash-management/summary', method: 'GET', module: 'Cash Management' },
+      
+      // Financial
+      { name: 'Chart of Accounts', endpoint: '/api/v1/accounting/chart-of-accounts', method: 'GET', module: 'Financial' },
+      { name: 'Journal Entries', endpoint: '/api/v1/accounting/journal-entries', method: 'GET', module: 'Financial' },
+      
+      // Inventory
+      { name: 'Inventory Items', endpoint: '/api/v1/inventory/items', method: 'GET', module: 'Inventory' },
+      { name: 'Warehouses', endpoint: '/api/v1/inventory/warehouses', method: 'GET', module: 'Inventory' },
+      
+      // HR
+      { name: 'Employees', endpoint: '/api/v1/hr/employees', method: 'GET', module: 'HR' },
+      { name: 'Departments', endpoint: '/api/v1/hr/departments', method: 'GET', module: 'HR' },
+      
+      // Sales
+      { name: 'Customers', endpoint: '/api/v1/sales/customers', method: 'GET', module: 'Sales' },
+      { name: 'Invoices', endpoint: '/api/v1/sales/invoices', method: 'GET', module: 'Sales' },
+      
+      // Purchase
+      { name: 'Suppliers', endpoint: '/api/v1/purchase/suppliers', method: 'GET', module: 'Purchase' },
+      { name: 'Purchase Orders', endpoint: '/api/v1/purchase/orders', method: 'GET', module: 'Purchase' },
+    ];
+
+    async function loginAndTest() {
+      const apiUrl = document.getElementById('apiUrl').value;
+      try {
+        const res = await fetch(`${apiUrl}/api/v1/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: 'smoke-test@worldclass.co.za',
+            password: 'SmokeTest2025!'
+          })
+        });
+        const data = await res.json();
+        if (data.success && data.data?.tokens?.accessToken) {
+          document.getElementById('token').value = data.data.tokens.accessToken;
+          alert('Login successful! Running tests...');
+          runAllTests();
+        } else {
+          alert('Login failed: ' + (data.error || 'Unknown error'));
+        }
+      } catch (e) {
+        alert('Login error: ' + e.message);
+      }
+    }
+
+    async function runTest(test) {
+      const apiUrl = document.getElementById('apiUrl').value;
+      const token = document.getElementById('token').value;
+      
+      const headers = { 'Content-Type': 'application/json' };
+      if (test.requiresAuth !== false && token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+      
+      const start = Date.now();
+      try {
+        const res = await fetch(`${apiUrl}${test.endpoint}`, { method: test.method, headers });
+        const time = Date.now() - start;
+        const data = await res.json();
+        
+        return {
+          ...test,
+          status: res.ok && (data.success !== false) ? 'pass' : 'fail',
+          statusCode: res.status,
+          time,
+          error: data.error || (res.ok ? null : `HTTP ${res.status}`),
+          dataPreview: data.success ? `✓ ${Array.isArray(data.data) ? data.data.length + ' items' : 'Data received'}` : null
+        };
+      } catch (e) {
+        return { ...test, status: 'fail', error: e.message, time: Date.now() - start };
+      }
+    }
+
+    async function runAllTests() {
+      const resultsDiv = document.getElementById('results');
+      const summaryDiv = document.getElementById('summary');
+      resultsDiv.innerHTML = '<p>Running tests...</p>';
+      
+      const results = [];
+      const modules = {};
+      
+      for (const test of tests) {
+        const result = await runTest(test);
+        results.push(result);
+        
+        if (!modules[test.module]) modules[test.module] = [];
+        modules[test.module].push(result);
+      }
+      
+      // Render results grouped by module
+      let html = '';
+      for (const [module, moduleTests] of Object.entries(modules)) {
+        const passed = moduleTests.filter(t => t.status === 'pass').length;
+        const total = moduleTests.length;
+        const moduleStatus = passed === total ? 'pass' : (passed > 0 ? 'pending' : 'fail');
+        
+        html += `<div class="section">
+          <h3>${module} (${passed}/${total})</h3>`;
+        
+        for (const test of moduleTests) {
+          html += `<div class="test ${test.status}">
+            <span><strong>${test.name}</strong> - ${test.endpoint}</span>
+            <span>${test.status === 'pass' ? '✅' : '❌'} ${test.time}ms</span>
+          </div>`;
+          if (test.error) {
+            html += `<div class="details">Error: ${test.error}</div>`;
+          }
+          if (test.dataPreview) {
+            html += `<div class="details">${test.dataPreview}</div>`;
+          }
+        }
+        html += '</div>';
+      }
+      
+      resultsDiv.innerHTML = html;
+      
+      const totalPassed = results.filter(r => r.status === 'pass').length;
+      const total = results.length;
+      summaryDiv.className = totalPassed === total ? 'pass' : (totalPassed > total/2 ? 'pending' : 'fail');
+      summaryDiv.textContent = `${totalPassed}/${total} tests passed (${Math.round(totalPassed/total*100)}%)`;
+    }
+  </script>
+</body>
+</html>

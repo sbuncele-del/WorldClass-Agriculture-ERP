@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiyaBusa ERP - Document Cover Page Template</title>
+    <style>
+        /* ============================================
+           SIYABUSA ERP BRAND STYLE GUIDE
+           Cover Page Template v1.0
+           
+           INSTRUCTIONS:
+           1. Open this file in any browser
+           2. Right-click and select "Print"
+           3. Choose "Save as PDF"
+           4. Or copy/paste into Word/Pages
+           
+           CUSTOMIZABLE FIELDS (search for these):
+           - [DOCUMENT_TITLE] - Main document title
+           - [DOCUMENT_CATEGORY] - Category (e.g., Technical Documentation)
+           - [VERSION] - Document version (e.g., 1.0)
+           - [EFFECTIVE_DATE] - Date (e.g., January 2026)
+           - [CLASSIFICATION] - Public, Internal, Confidential, or Strictly Confidential
+           - [COMPLIANCE] - Compliance badges
+           ============================================ */
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d1f33 100%);
+            color: #ffffff;
+        }
+        
+        .cover-container {
+            width: 210mm;
+            min-height: 297mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 50px;
+            position: relative;
+        }
+        
+        /* Brand Logo */
+        .logo {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Document Title */
+        .document-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Document Category */
+        .document-category {
+            font-size: 18px;
+            color: #93c5fd;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        
+        /* Company Name */
+        .company-name {
+            font-size: 18px;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        /* Document Metadata Box */
+        .metadata-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px 40px;
+            margin: 20px 0;
+            text-align: left;
+            min-width: 320px;
+        }
+        
+        .metadata-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .metadata-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metadata-label {
+            font-weight: 600;
+            color: #93c5fd;
+            font-size: 14px;
+        }
+        
+        .metadata-value {
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        /* Classification Badge */
+        .classification-public { color: #4ade80; }
+        .classification-internal { color: #60a5fa; }
+        .classification-confidential { color: #fbbf24; }
+        .classification-strictly { color: #f87171; }
+        
+        /* Tagline */
+        .tagline {
+            font-size: 16px;
+            font-style: italic;
+            color: #a5b4fc;
+            margin-top: 40px;
+            letter-spacing: 1px;
+        }
+        
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cover-container {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-container">
+        <!-- Brand Logo - Do Not Change -->
+        <div class="logo">SiyaBusa ERP</div>
+        
+        <!-- ========== EDIT BELOW ========== -->
+        
+        <!-- Document Title - CUSTOMIZE THIS -->
+        <h1 class="document-title">[DOCUMENT_TITLE]</h1>
+        
+        <!-- Document Category - CUSTOMIZE THIS -->
+        <p class="document-category">[DOCUMENT_CATEGORY]</p>
+        
+        <!-- Company Name - Do Not Change -->
+        <p class="company-name">Masaphokati Technologies (Pty) Ltd</p>
+        
+        <!-- Document Metadata - CUSTOMIZE VALUES -->
+        <div class="metadata-box">
+            <div class="metadata-row">
+                <span class="metadata-label">Document Version:</span>
+                <span class="metadata-value">[VERSION]</span>
+            </div>
+            <div class="metadata-row">
+                <span class="metadata-label">Effective Date:</span>
+                <span class="metadata-value">[EFFECTIVE_DATE]</span>
+            </div>
+            <div class="metadata-row">
+                <span class="metadata-label">Classification:</span>
+                <!-- Choose ONE: Public, Internal, Confidential, Strictly Confidential -->
+                <span class="metadata-value classification-confidential">[CLASSIFICATION]</span>
+            </div>
+            <div class="metadata-row">
+                <span class="metadata-label">Compliance:</span>
+                <span class="metadata-value">[COMPLIANCE]</span>
+            </div>
+        </div>
+        
+        <!-- ========== END EDIT SECTION ========== -->
+        
+        <!-- Tagline - Do Not Change -->
+        <p class="tagline">We Rule. We Govern. We Empower.</p>
+        
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 Masaphokati Technologies (Pty) Ltd. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

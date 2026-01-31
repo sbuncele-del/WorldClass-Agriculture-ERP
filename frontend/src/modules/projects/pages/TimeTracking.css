@@ -1,0 +1,110 @@
+.time-tracking {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timer-card {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.timer-card .ant-card-body {
+  padding: 24px;
+}
+
+.timer-card .ant-select-selector,
+.timer-card .ant-input {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.timer-card .ant-select-selection-placeholder,
+.timer-card .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timer-card .ant-select-arrow {
+  color: white;
+}
+
+.timer-display {
+  font-size: 36px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.project-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-indicator {
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.billable-amount {
+  color: #52c41a;
+  font-weight: 500;
+}
+
+.project-breakdown-item {
+  margin-bottom: 16px;
+}
+
+.breakdown-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.breakdown-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.breakdown-name {
+  flex: 1;
+  font-size: 13px;
+}
+
+.breakdown-hours {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timer-display {
+    font-size: 28px;
+  }
+}

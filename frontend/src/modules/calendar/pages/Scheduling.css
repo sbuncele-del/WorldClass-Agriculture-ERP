@@ -1,0 +1,237 @@
+.scheduling-page {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Links Grid */
+.links-card {
+  margin-bottom: 24px;
+}
+
+.links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-card {
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.link-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link-card.inactive {
+  opacity: 0.6;
+}
+
+.link-card .ant-card-body {
+  padding: 16px;
+}
+
+.link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.link-info {
+  flex: 1;
+}
+
+.link-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.link-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.link-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 12px;
+}
+
+.link-description {
+  margin-bottom: 12px !important;
+  font-size: 13px;
+}
+
+.link-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.link-stats {
+  font-size: 12px;
+  color: #666;
+}
+
+.link-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.link-url .anticon {
+  color: #1890ff;
+}
+
+/* Bookings Card */
+.bookings-card {
+  margin-bottom: 16px;
+}
+
+.booking-item {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.booking-item:last-child {
+  border-bottom: none;
+}
+
+.booking-content {
+  width: 100%;
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.booking-guest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.booking-email {
+  font-size: 11px;
+}
+
+.booking-time {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+/* Availability Card */
+.availability-card .ant-card-body {
+  padding: 16px;
+}
+
+.day-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.day-slot:last-child {
+  border-bottom: none;
+}
+
+.day-slot.disabled {
+  opacity: 0.5;
+}
+
+.day-slot .day-name {
+  font-weight: 500;
+  width: 100px;
+}
+
+.day-slot .day-time {
+  color: #666;
+  font-size: 13px;
+}
+
+/* Color Picker */
+.color-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+/* Availability Settings */
+.availability-settings {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.availability-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.availability-row:last-child {
+  border-bottom: none;
+}
+
+.availability-row .day-label {
+  width: 100px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .link-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .availability-row {
+    flex-wrap: wrap;
+  }
+}
