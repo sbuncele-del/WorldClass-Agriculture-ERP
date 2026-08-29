@@ -1,5 +1,5 @@
 import Redis from 'ioredis';
-import { redisConfig } from './redis.config';
+import { redisConnection } from './redis.config';
 
 // Allow test environments to swap in an in-memory Redis mock
 const useMock = process.env.USE_REDIS_MOCK === 'true';
@@ -27,7 +27,7 @@ let subscriberClient: RedisClient | null = null;
 export const getRedisClient = (): RedisClient => {
   if (!defaultClient) {
     console.log('🔌 Initializing Redis Default Client...');
-    defaultClient = new RedisCtor(redisConfig as any);
+    defaultClient = new RedisCtor(redisConnection as any);
     
     defaultClient.on('error', (err) => {
       console.error('❌ Redis Default Client Error:', err);
@@ -43,11 +43,14 @@ export const getRedisClient = (): RedisClient => {
 export const getRedisSubscriber = (): RedisClient => {
   if (!subscriberClient) {
     console.log('🔌 Initializing Redis Subscriber Client...');
-    subscriberClient = new RedisCtor({
-      ...redisConfig,
+    const subscriberOptions = {
+      ...(typeof redisConnection === 'string' ? {} : redisConnection),
       enableReadyCheck: false,
       maxRetriesPerRequest: null,
-    } as any);
+    } as any;
+    subscriberClient = typeof redisConnection === 'string'
+      ? new RedisCtor(redisConnection, subscriberOptions)
+      : new RedisCtor(subscriberOptions);
     
     subscriberClient.on('error', (err) => {
       console.error('❌ Redis Subscriber Client Error:', err);
@@ -64,12 +67,14 @@ export const getRedisSubscriber = (): RedisClient => {
  * Factory function for libraries that need new connections (e.g., Bull)
  */
 export const createRedisClient = (type: 'client' | 'subscriber' | 'bclient'): RedisClient => {
-  const options = { ...redisConfig } as any;
+  const options = typeof redisConnection === 'string' ? redisConnection : { ...redisConnection } as any;
 
   // Bull does not allow enableReadyCheck/maxRetriesPerRequest for subscriber/bclient
   if (type === 'subscriber' || type === 'bclient') {
-    options.enableReadyCheck = false;
-    options.maxRetriesPerRequest = null;
+    if (typeof options !== 'string') {
+      options.enableReadyCheck = false;
+      options.maxRetriesPerRequest = null;
+    }
   }
 
   switch (type) {

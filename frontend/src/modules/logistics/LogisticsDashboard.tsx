@@ -67,17 +67,15 @@ const LogisticsDashboard: React.FC = () => {
       if (data && data.success) {
         setStats(data.data.stats);
         setActiveVehicles(data.data.activeVehicles || []);
+        setError(null);
       } else {
-          setError(null);
         throw new Error('Failed to fetch dashboard data');
-          throw new Error('Failed to fetch dashboard data');
+      }
     } catch (error) {
       console.error('Error fetching logistics dashboard:', error);
-      // Fallback to mock data on error
-        setError('Failed to load logistics dashboard');
-        setStats(null);
-        setActiveVehicles([]);
-      console.error('Error fetching logistics dashboard data:', error);
+      setError('Failed to load logistics dashboard');
+      setStats(null);
+      setActiveVehicles([]);
     } finally {
       setLoading(false);
     }

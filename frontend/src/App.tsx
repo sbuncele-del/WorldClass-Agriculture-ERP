@@ -102,7 +102,7 @@ const WarehouseHub = lazy(() => import('./modules/warehouse/WarehouseHub'));
 const ManufacturingHub = lazy(() => import('./modules/manufacturing/ManufacturingHub'));
 const LogisticsHub = lazy(() => import('./modules/logistics/LogisticsHub'));
 const MiningHub = lazy(() => import('./modules/mining/MiningHub'));
-const AgricultureHub = lazy(() => import('./modules/agriculture/AgricultureHub'));
+const AgricultureHub = lazy(() => import('./modules/agriculture/AgricultureCommandCentre'));
 const ProjectsHub = lazy(() => import('./modules/projects/ProjectsHub'));
 const ProposalsHub = lazy(() => import('./modules/proposals/ProposalsHub'));
 const ProposalEditor = lazy(() => import('./modules/proposals/ProposalEditor'));

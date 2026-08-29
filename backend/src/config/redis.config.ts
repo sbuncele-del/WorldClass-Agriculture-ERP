@@ -20,6 +20,7 @@ const REDIS_PORT = parseInt(process.env.REDIS_PORT || '6379', 10);
 const REDIS_PASSWORD = process.env.REDIS_PASSWORD;
 const REDIS_DB = parseInt(process.env.REDIS_DB || '0', 10);
 const REDIS_TLS = process.env.REDIS_TLS === 'true';
+const REDIS_URL = process.env.REDIS_URL;
 
 export const redisConfig = {
   host: REDIS_HOST,
@@ -44,8 +45,10 @@ export const redisConfig = {
   }),
 };
 
+export const redisConnection = REDIS_URL || redisConfig;
+
 // Create Redis client instance
-export const redisClient = new RedisCtor(redisConfig as any);
+export const redisClient = new RedisCtor(redisConnection as any);
 
 // Connection event handlers
 redisClient.on('connect', () => {
