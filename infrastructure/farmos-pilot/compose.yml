@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${FARMOS_DB_NAME}
+      POSTGRES_USER: ${FARMOS_DB_USER}
+      POSTGRES_PASSWORD: ${FARMOS_DB_PASSWORD}
+    volumes:
+      - farmos_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${FARMOS_DB_USER} -d ${FARMOS_DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [farmos_internal]
+
+  farmos:
+    image: farmos/farmos:3.5.5
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${FARMOS_HTTP_PORT:-8080}:80"
+    volumes:
+      - farmos_sites:/opt/drupal/web/sites
+      - farmos_keys:/opt/drupal/keys
+    networks: [farmos_internal]
+
+volumes:
+  farmos_db:
+  farmos_sites:
+  farmos_keys:
+
+networks:
+  farmos_internal:
+    driver: bridge
