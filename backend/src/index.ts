@@ -93,6 +93,7 @@ import communicationsRoutes from './routes/communications.routes';
 import calendarRoutes from './routes/calendar.routes';
 import miningRoutes from './routes/mining.routes';
 import agricultureRoutes from './routes/agriculture.routes';
+import agricultureEngineRoutes from './modules/agriculture-engine/agriculture-engine.routes';
 import constructionRoutes from './routes/construction.routes';
 import propertyRoutes from './routes/property.routes';
 
@@ -1648,6 +1649,7 @@ v1Router.use('/communications', apiLimiter, communicationsRoutes); // Communicat
 v1Router.use('/calendar', apiLimiter, calendarRoutes); // Calendar & Events API
 v1Router.use('/mining', apiLimiter, miningRoutes); // Mining Industry API
 v1Router.use('/agriculture', apiLimiter, agricultureRoutes); // Agriculture Industry API
+v1Router.use('/agriculture-engine', apiLimiter, agricultureEngineRoutes); // Masaphokati Agriculture OS engine adapters
 v1Router.use('/construction', apiLimiter, constructionRoutes); // Construction Industry API
 v1Router.use('/property', apiLimiter, propertyRoutes); // Property Management API
 
@@ -1681,4 +1683,3 @@ httpServer.listen(PORT, '0.0.0.0', () => {
 });
 
 export default app;
-
