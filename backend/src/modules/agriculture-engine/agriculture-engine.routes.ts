@@ -4,6 +4,7 @@ import { tenantMiddleware } from '../../middleware/tenant';
 import { FarmOsClient } from './farmos.client';
 import { OpenMeteoClient } from './open-meteo.client';
 import { evaluateIrrigation } from './irrigation-rules.service';
+import { PRIME_SOURCES_HATTIES_PILOT } from './pilot-profile';
 
 const router = express.Router();
 const farmOs = new FarmOsClient();
@@ -23,6 +24,32 @@ router.get('/status', async (_req: Request, res: Response) => {
       leaf: { configured: Boolean(process.env.LEAF_API_KEY), mode: 'deferred' },
     },
   });
+});
+
+router.get('/pilot', (_req: Request, res: Response) => {
+  res.json({ success: true, data: PRIME_SOURCES_HATTIES_PILOT });
+});
+
+router.post('/pilot/irrigation-scenario', (_req: Request, res: Response) => {
+  const pilot = PRIME_SOURCES_HATTIES_PILOT;
+  const observedAt = new Date().toISOString();
+  const data = evaluateIrrigation({
+    farmId: pilot.farm.code,
+    fieldId: pilot.field.code,
+    deviceId: pilot.irrigation.pressureSensorCode,
+    observedAt,
+    receivedAt: observedAt,
+    pressureBar: pilot.pilotScenario.simulatedPressureBar,
+    flowLitresPerMinute: pilot.pilotScenario.simulatedFlowLitresPerMinute,
+    pumpRunning: pilot.pilotScenario.pumpRunning,
+    irrigationScheduled: pilot.pilotScenario.irrigationScheduled,
+    consecutiveLowReadings: pilot.pilotScenario.consecutiveLowReadings,
+    lowPressureDurationMinutes: pilot.pilotScenario.lowPressureDurationMinutes,
+    targetPressureMinBar: pilot.irrigation.targetPressureMinBar,
+    targetPressureMaxBar: pilot.irrigation.targetPressureMaxBar,
+    expectedFlowMinLitresPerMinute: pilot.irrigation.expectedFlowMinLitresPerMinute,
+  });
+  res.json({ success: true, data: { pilot: pilot.pilotScenario.title, evaluation: data } });
 });
 
 router.get('/weather', async (req: Request, res: Response) => {
