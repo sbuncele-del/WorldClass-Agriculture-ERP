@@ -12,6 +12,25 @@ const router = express.Router();
 const farmOs = new FarmOsClient();
 const weather = new OpenMeteoClient();
 
+// Public health/capability probe (no auth, no tenant data) — used for deployment verification.
+router.get('/health', (_req: Request, res: Response) => {
+  res.json({
+    success: true,
+    data: {
+      engine: 'masaphokati-agriculture-os',
+      status: 'ok',
+      pilot: PRIME_SOURCES_HATTIES_PILOT.farm.code,
+      capabilities: {
+        farmOS: { configured: Boolean(process.env.FARMOS_BASE_URL) },
+        openMeteo: { configured: true, mode: process.env.OPEN_METEO_API_KEY ? 'commercial' : 'development-only' },
+        agroMonitoring: { configured: Boolean(process.env.AGROMONITORING_API_KEY) },
+        leaf: { configured: Boolean(process.env.LEAF_API_KEY), mode: 'deferred' },
+      },
+      time: new Date().toISOString(),
+    },
+  });
+});
+
 router.use(authenticateToken);
 router.use(tenantMiddleware);
 

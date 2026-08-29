@@ -1,9 +1,15 @@
 import Redis from 'ioredis';
 
-// Allow test environments to swap in an in-memory Redis mock
-const useMock = process.env.USE_REDIS_MOCK === 'true';
+// Use an in-memory Redis mock when tests ask for it, or when no Redis server is
+// configured (e.g. the Render free-tier pilot, which has no Redis instance).
+// Set USE_REDIS_MOCK=false to force a real connection even without REDIS_HOST.
+export const useRedisMock =
+  process.env.USE_REDIS_MOCK === 'true' ||
+  (process.env.USE_REDIS_MOCK !== 'false' &&
+    !process.env.REDIS_HOST &&
+    !process.env.REDIS_URL);
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const RedisCtor: typeof Redis = useMock ? require('ioredis-mock') : Redis;
+const RedisCtor: typeof Redis = useRedisMock ? require('ioredis-mock') : Redis;
 
 /**
  * Redis Configuration

@@ -1,10 +1,8 @@
 import Redis from 'ioredis';
-import { redisConfig } from './redis.config';
+import { redisConfig, useRedisMock } from './redis.config';
 
-// Allow test environments to swap in an in-memory Redis mock
-const useMock = process.env.USE_REDIS_MOCK === 'true';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const RedisCtor: typeof Redis = useMock ? require('ioredis-mock') : Redis;
+const RedisCtor: typeof Redis = useRedisMock ? require('ioredis-mock') : Redis;
 
 export type RedisClient = InstanceType<typeof Redis>;
 

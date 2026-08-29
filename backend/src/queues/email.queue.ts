@@ -1,6 +1,12 @@
 import Bull, { Queue, Job, JobOptions } from 'bull';
 import { createRedisClient } from '../config/redis-connection';
+import { useRedisMock } from '../config/redis.config';
 import { sendEmail as sendEmailDirect } from '../services/email.service';
+
+// Bull's background worker issues Redis commands (CLIENT SETNAME/LIST) that the
+// in-memory mock does not implement. When there is no real Redis (Render
+// free-tier pilot) we skip the worker; queued email is sent inline instead.
+const emailWorkerEnabled = !useRedisMock;
 
 /**
  * Email Queue Configuration
@@ -57,6 +63,7 @@ export const emailQueue: Queue<EmailJobData> = new Bull('email', {
  * 
  * Concurrency: Process up to 10 emails simultaneously
  */
+if (emailWorkerEnabled) {
 emailQueue.process(EMAIL_QUEUE_CONCURRENCY, async (job: Job<EmailJobData>) => {
   const { to, subject, template, variables, from, userId, tenantId, category } = job.data;
 
@@ -123,6 +130,7 @@ emailQueue.on('active', (job: Job) => {
 emailQueue.on('error', (error: Error) => {
   console.error('❌ Queue error:', error);
 });
+} // end emailWorkerEnabled
 
 /**
  * Add email to queue
@@ -157,6 +165,26 @@ export async function queueEmail(
       jobOptions.delay = delay;
       console.log(`📅 Email scheduled for ${new Date(Date.now() + delay).toISOString()}`);
     }
+  }
+
+  if (!emailWorkerEnabled) {
+    // No background worker (no real Redis): deliver inline so the email is not lost.
+    try {
+      await sendEmailDirect({
+        to: emailData.to,
+        subject: emailData.subject,
+        template: emailData.template,
+        variables: emailData.variables,
+        from: emailData.from,
+        userId: emailData.userId,
+        tenantId: emailData.tenantId,
+        category: emailData.category,
+      });
+      console.log(`📨 Email sent inline (queue worker disabled): ${emailData.template} to ${emailData.to}`);
+    } catch (error) {
+      console.error('❌ Inline email send failed:', error);
+    }
+    return { id: 'inline', data: emailData } as unknown as Job<EmailJobData>;
   }
 
   const job = await emailQueue.add(emailData, jobOptions);

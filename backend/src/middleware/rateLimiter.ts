@@ -14,10 +14,14 @@ let createStore: ((prefix: string) => any) | null = null;
 
 try {
   // Dynamically require to avoid crashes when Redis is not available
+  const { useRedisMock } = require('../config/redis.config');
+  if (useRedisMock) {
+    throw new Error('no real Redis configured');
+  }
   const RedisStore = require('rate-limit-redis').default;
   const { getRedisClient } = require('../config/redis-connection');
   const redisClient = getRedisClient();
-  
+
   if (redisClient) {
     createStore = (prefix: string) => {
       return new RedisStore({

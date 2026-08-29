@@ -30,7 +30,6 @@
     "concurrently": "8.2.2",
     "html-docx-js": "0.3.1",
     "html-pdf-node": "1.0.8",
-    "ioredis-mock": "8.13.1",
     "mammoth": "1.11.0",
     "marked": "17.0.1",
     "pptxgenjs": "4.0.1",
@@ -42,10 +41,14 @@
     "@types/ioredis": "5.0.0",
     "bcryptjs": "3.0.3",
     "bull": "4.16.5",
+    "express": "4.18.2",
     "html-to-docx": "1.8.0",
     "ioredis": "5.8.2",
+    "ioredis-mock": "8.13.1",
     "pg": "8.16.3",
     "rate-limit-redis": "4.3.1",
+    "swagger-jsdoc": "6.2.8",
+    "swagger-ui-express": "5.0.1",
     "typescript": "5.3.3"
   },
   "engines": {
