@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: masaphokati-agriculture-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MIGRATION_ADMIN_SECRET
+        generateValue: true
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: masaphokati-agriculture-cache
+          property: connectionString
+      - key: CORS_ORIGIN
+        sync: false
+
+  - type: keyvalue
+    name: masaphokati-agriculture-cache
+    plan: free
+    region: frankfurt
+    ipAllowList: []

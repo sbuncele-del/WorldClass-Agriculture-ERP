@@ -111,7 +111,7 @@ Sentry.init({
 
 // DEBUG: Log database connection info
 console.log('=== ENVIRONMENT DEBUG ===');
-console.log('DATABASE_URL:', process.env.DATABASE_URL);
+console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'SET' : 'NOT SET');
 console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'SET' : 'NOT SET');
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('========================');
@@ -170,7 +170,13 @@ const corsOptions = {
     // Allow all origins in development
     if (process.env.NODE_ENV !== 'production') return callback(null, true);
     
-    callback(null, true); // Allow all for now
+    const allowedOrigins = (process.env.CORS_ORIGIN || '')
+      .split(',')
+      .map(value => value.trim())
+      .filter(Boolean);
+
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Origin not allowed by CORS policy'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
@@ -226,7 +232,7 @@ app.get('/health/redis', async (_req, res) => {
 // Migration endpoint - no auth required, protected by secret header
 app.post('/api/migrate/:module', async (req, res) => {
   const adminSecret = req.headers['x-admin-secret'];
-  if (adminSecret !== 'worldclass-migrate-2026') {
+  if (!process.env.MIGRATION_ADMIN_SECRET || adminSecret !== process.env.MIGRATION_ADMIN_SECRET) {
     return res.status(403).json({ success: false, error: 'Unauthorized' });
   }
   
@@ -1681,4 +1687,3 @@ httpServer.listen(PORT, '0.0.0.0', () => {
 });
 
 export default app;
-

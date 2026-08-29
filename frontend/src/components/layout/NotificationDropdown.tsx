@@ -45,7 +45,6 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ onClose }) 
 
   const handleNotificationClick = (notification: Notification) => {
     if (notification.link) {
-    if (notification.link) {
       navigate(notification.link);
       onClose();
     }
