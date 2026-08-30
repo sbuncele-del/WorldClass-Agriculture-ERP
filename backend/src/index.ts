@@ -1523,6 +1523,54 @@ app.post('/api/migrate/:module', async (req, res) => {
         result = 'Communications Hub tables created successfully (announcements, channels, messages, meetings, templates, campaigns, contacts, email inbox/sent)';
         break;
         
+      case 'agriculture-engine':
+        // Masaphokati Agriculture OS — irrigation-monitoring pilot tables.
+        // Additive only (CREATE TABLE IF NOT EXISTS); safe to re-run.
+        await pool.query(`
+          CREATE TABLE IF NOT EXISTS agriculture_telemetry_readings (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            tenant_id UUID NOT NULL,
+            farm_id VARCHAR(100) NOT NULL,
+            field_id VARCHAR(100),
+            device_id VARCHAR(100) NOT NULL,
+            signal_type VARCHAR(40) NOT NULL,
+            value DOUBLE PRECISION NOT NULL,
+            unit VARCHAR(20) NOT NULL,
+            observed_at TIMESTAMPTZ NOT NULL,
+            received_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+            quality VARCHAR(20) NOT NULL DEFAULT 'good',
+            raw_payload JSONB DEFAULT '{}',
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+            CONSTRAINT uq_agri_reading UNIQUE (tenant_id, device_id, signal_type, observed_at)
+          );
+          CREATE INDEX IF NOT EXISTS idx_agri_reading_tenant_farm
+            ON agriculture_telemetry_readings (tenant_id, farm_id, observed_at DESC);
+
+          CREATE TABLE IF NOT EXISTS agriculture_incidents (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            tenant_id UUID NOT NULL,
+            farm_id VARCHAR(100) NOT NULL,
+            field_id VARCHAR(100),
+            incident_type VARCHAR(60) NOT NULL,
+            status VARCHAR(20) NOT NULL DEFAULT 'open',
+            severity VARCHAR(20) NOT NULL DEFAULT 'medium',
+            title VARCHAR(255) NOT NULL,
+            explanation TEXT,
+            confidence_percent NUMERIC(5,2),
+            evidence JSONB DEFAULT '[]',
+            recommended_action TEXT,
+            assigned_to VARCHAR(255),
+            acknowledged_at TIMESTAMPTZ,
+            resolved_at TIMESTAMPTZ,
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+            updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+          );
+          CREATE INDEX IF NOT EXISTS idx_agri_incident_tenant_status
+            ON agriculture_incidents (tenant_id, status, created_at DESC);
+        `);
+        result = 'Agriculture Engine tables created successfully (agriculture_telemetry_readings, agriculture_incidents)';
+        break;
+
       default:
         return res.status(400).json({ success: false, error: `Unknown module: ${module}` });
     }
