@@ -13,20 +13,46 @@ import path from 'path';
 
 // ... existing imports ...
 
-const poolConfig: PoolConfig = {
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT || '5432'),
-  database: process.env.DB_NAME || 'worldclass_erp',
-  max: 20, // Maximum number of clients in the pool
-  idleTimeoutMillis: 30000, // Close idle clients after 30 seconds
-  connectionTimeoutMillis: 2000, // Return error after 2 seconds if no connection available
-  ssl: process.env.DB_HOST?.includes('rds.amazonaws.com') ? {
+// Prefer a single DATABASE_URL connection string (Render / Neon / Heroku style).
+// Fall back to discrete DB_* vars for local development.
+const connectionString = process.env.DATABASE_URL;
+
+const isAwsRds = (connectionString || process.env.DB_HOST || '').includes('rds.amazonaws.com');
+const isLocalHost = /localhost|127\.0\.0\.1/.test(connectionString || process.env.DB_HOST || 'localhost');
+
+let ssl: PoolConfig['ssl'];
+if (isAwsRds) {
+  ssl = {
     rejectUnauthorized: true,
-    ca: fs.readFileSync(path.join(__dirname, '../../global-bundle.pem')).toString()
-  } : undefined
-};
+    ca: fs.readFileSync(path.join(__dirname, '../../global-bundle.pem')).toString(),
+  };
+} else if (connectionString && !isLocalHost) {
+  // Managed Postgres (Neon, Render, Supabase) requires TLS; they use trusted CAs
+  // but the chain is not always present in the container, so don't hard-fail on it.
+  ssl = { rejectUnauthorized: false };
+} else {
+  ssl = undefined;
+}
+
+const poolConfig: PoolConfig = connectionString
+  ? {
+      connectionString,
+      max: 20,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 10000,
+      ssl,
+    }
+  : {
+      user: process.env.DB_USER || 'postgres',
+      password: process.env.DB_PASSWORD || 'postgres',
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '5432'),
+      database: process.env.DB_NAME || 'worldclass_erp',
+      max: 20, // Maximum number of clients in the pool
+      idleTimeoutMillis: 30000, // Close idle clients after 30 seconds
+      connectionTimeoutMillis: 10000, // Return error after 10 seconds if no connection available
+      ssl,
+    };
 
 // Create the connection pool
 export const pool = new Pool(poolConfig);
@@ -37,8 +63,9 @@ pool.on('connect', () => {
 });
 
 pool.on('error', (err) => {
-  console.error('❌ Unexpected database error:', err);
-  process.exit(-1);
+  // Idle-client errors (e.g. a managed-Postgres connection dropped) must not take
+  // the whole process down — the pool creates a fresh client on the next query.
+  console.error('❌ Unexpected database error (idle client):', err.message);
 });
 
 const RETRY_DELAYS_MS = [1000, 2000, 4000];
