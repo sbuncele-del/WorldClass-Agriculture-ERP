@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap');
+/* Typography uses system sans-serif fallbacks (see font-family stacks below).
+   A remote @import here is blocked by the app CSP and, in the production build,
+   fails the lazy CSS-chunk preload — which crashed the whole route. */
 
 :root { --ag-ink:#13251d; --ag-muted:#66746d; --ag-green:#176b45; --ag-lime:#b4dc58; --ag-line:#dfe7e2; --ag-warm:#f4f2eb; }
 * { box-sizing: border-box; }
