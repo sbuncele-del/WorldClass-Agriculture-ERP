@@ -1,63 +1,108 @@
+/* Full-bleed executive hero: photography supports the proposition, never competes with it. */
+.hero {
+  min-height: 780px;
+  isolation: isolate;
+  background-color: #061c16;
+}
+
 .hero-photo {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  inset: -3%;
+  z-index: -3;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 106%;
+  height: 106%;
   object-fit: cover;
   object-position: center;
+  filter: saturate(.78) contrast(1.08) brightness(.82);
+  transform: scale(1.03);
+  animation: hero-drift 18s cubic-bezier(.22,.61,.36,1) both;
+  will-change: transform;
 }
 
-.shade {
-  z-index: 1;
-  inset: 0 auto 0 0;
-  width: 74%;
-  background: linear-gradient(90deg, #061c16 0%, rgba(6, 28, 22, .96) 48%, rgba(6, 28, 22, .58) 72%, rgba(6, 28, 22, 0) 100%);
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(3,22,17,.98) 0%, rgba(3,22,17,.93) 31%, rgba(3,22,17,.65) 55%, rgba(3,22,17,.18) 79%, rgba(3,22,17,.32) 100%),
+    linear-gradient(0deg, rgba(3,22,17,.58), transparent 42%);
 }
 
-.copy { z-index: 2; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .2;
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), rgba(255,255,255,.12) 25%);
+  pointer-events: none;
+}
+
+.shade { display: none; }
+
+.copy {
+  z-index: 2;
+  margin-top: 72px;
+}
+
+.copy > * { max-width: 660px; }
+
+.copy em,
+.copy h1,
+.copy p,
+.copy .actions {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: copy-rise .75s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+.copy h1 { animation-delay: .08s; }
+.copy p { animation-delay: .16s; }
+.copy .actions { animation-delay: .24s; }
+
+header {
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(3,22,17,.42), transparent);
+}
+
+.primary,
+.secondary,
+.outline,
+nav a {
+  transition: transform .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease;
+}
+
+.primary:hover,
+.secondary:hover,
+.outline:hover { transform: translateY(-2px); }
+.secondary:hover,.outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.72); }
+nav a:hover { color: #fff; }
+
+@keyframes hero-drift {
+  from { transform: scale(1.03) translate3d(0,0,0); }
+  to { transform: scale(1.10) translate3d(-1.2%, -.7%, 0); }
+}
+
+@keyframes copy-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 800px) {
-  .shade { width: 100%; background: linear-gradient(90deg, rgba(6,28,22,.96), rgba(6,28,22,.72)); }
+  .hero { min-height: 720px; }
+  .hero-photo { inset: 0; width: 100%; height: 100%; object-position: 62% center; }
+  .hero::before {
+    background: linear-gradient(90deg, rgba(3,22,17,.96), rgba(3,22,17,.70)), linear-gradient(0deg, rgba(3,22,17,.72), transparent 55%);
+  }
+  .hero::after { display: none; }
+  .copy { margin-top: 55px; }
 }
 
-/* Stable split hero: normal-flow photography, no transparent compositing layer. */
-@media (min-width: 801px) {
-  .hero {
-    display: grid;
-    grid-template-columns: 48% 52%;
-    align-items: stretch;
-    background-image: none !important;
-    background-color: #061c16;
-  }
-
-  .hero-photo {
-    position: relative;
-    inset: auto;
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    object-fit: cover;
-    object-position: center;
-    z-index: auto;
-  }
-
-  .shade {
-    grid-column: 1;
-    grid-row: 1;
-    inset: 0 auto 0 0;
-    width: 48%;
-    background: #061c16;
-  }
-
-  .copy {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    align-self: center;
-  }
-
-  .copy > * { max-width: 520px; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo,
+  .copy em,
+  .copy h1,
+  .copy p,
+  .copy .actions { animation: none; opacity: 1; transform: none; }
 }
